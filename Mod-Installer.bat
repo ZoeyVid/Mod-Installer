@@ -6,7 +6,7 @@ endlocal
     if %errorlevel%==1 (
 
 	ECHO Java ist nicht installiert, der Mod-Installer wird nun gestoppt, 
-	ECHO bitte installiere Java um diesen Mod-Installer nutzten zu kînnen! 
+	ECHO bitte installiere Java um diesen Mod-Installer nutzten zu k√∂nnen! 
 	ECHO https://java.com/de/download/
 	ECHO.
     ECHO 1. Update/Install Mod-Installer - Empfohlen
@@ -116,10 +116,11 @@ IF ERRORLEVEL 2 GOTO 1.16.5-fabric
 IF ERRORLEVEL 1 GOTO 1.16.5-optifine
 
 :tp
+CLS
 ECHO.
 ECHO Texture Packs:
 ECHO.
-ECHO 1. KÅrbis Sicht entfernen - KÅrbis.zip
+ECHO 1. K√ºrbis Sicht entfernen - K√ºrbis.zip
 ECHO 2. Dark Mode - Verdunkle Minecraft	- https://www.curseforge.com/minecraft/texture-packs/default-dark-mode
 ECHO 3. Xray - ungern gesehen			- https://www.curseforge.com/minecraft/texture-packs/xray-ultimate-1-11-compatible
 ECHO 4. Standart Resourcepack - erstelle dein eigenes Resourcepack
@@ -144,7 +145,7 @@ C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods config
 curl --output 1.16.5-optifine.jar --url https://download.san0j.de/mods/1.16.5-optifine.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
+echo Im n√§chsten Schritt √∂ffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
 java -jar 1.16.5-optifine.jar
 del /S /Q 1.16.5-optifine.jar
@@ -182,7 +183,7 @@ C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods config
 curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.16/forge-1.16.5-36.1.16-installer.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
+echo Im n√§chsten Schritt √∂ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
@@ -335,7 +336,7 @@ C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods config
 curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.16/forge-1.16.5-36.1.16-installer.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
+echo Im n√§chsten Schritt √∂ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
@@ -360,7 +361,7 @@ C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods config
 curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.16/forge-1.16.5-36.1.16-installer.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
+echo Im n√§chsten Schritt √∂ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
@@ -449,7 +450,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft\resourcepacks
-curl --output KÅrbis.zip --url https://download.san0j.de/mods/KÅrbis.zip
+curl --output K√ºrbis.zip --url https://download.san0j.de/mods/K√ºrbis.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
@@ -551,7 +552,7 @@ IF ERRORLEVEL 1 GOTO start
 rmdir /S /Q mods
 rmdir /S /Q config
 ECHO.
-ECHO Welches Profil mîchtest du laden?
+ECHO Welches Profil m√∂chtest du laden?
 ECHO.
 CHOICE /C 123456789 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
@@ -575,7 +576,7 @@ IF ERRORLEVEL 1 GOTO start
 
 :pc
 ECHO.
-ECHO Unter welchem Profil mîchtest du die aktuellen Mods und Configs speichern?
+ECHO Unter welchem Profil m√∂chtest du die aktuellen Mods und Configs speichern?
 ECHO.
 CHOICE /C 123456789 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
@@ -628,8 +629,8 @@ EXIT /B
 )   else (
     CLS
 	
-    echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
-	echo AusfÅhrung von Mod Updates und Instalationen nicht mîglich.
+    echo .minecraft Ordner nicht am √ºblichen Pfad oder nicht vorhanden. 
+	echo Ausf√ºhrung von Mod Updates und Instalationen nicht m√∂glich.
 	ECHO.
     ECHO 1. Update/Install Mod-Installer - Empfohlen
     ECHO 2. Update/Install Dev-Mod-Installer - evt. Fehlerhaft
