@@ -6,7 +6,7 @@ endlocal
     if %errorlevel%==1 (
 
 	ECHO Java is not installed, please install Java!
-	ECHO https://java.com/de/download/
+	ECHO https://adoptopenjdk.net/?variant=openjdk16&jvmVariant=hotspot
 	ECHO.
     ECHO 1. Update/Install Mod-Installer
     ECHO 2. Restart Installer
@@ -545,6 +545,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 :pu
+tar cf Backup.tar mods config
 rmdir /S /Q mods
 rmdir /S /Q config
 ECHO.

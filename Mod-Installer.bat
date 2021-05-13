@@ -7,8 +7,7 @@ endlocal
 
 	ECHO Java ist nicht installiert, der Mod-Installer wird nun gestoppt, 
 	ECHO bitte installiere Java um diesen Mod-Installer nutzten zu kînnen! 
-	ECHO https://java.com/de/download/
-	ECHO.
+	ECHO https://java.com/de/download/https://adoptopenjdk.net/?variant=openjdk16&jvmVariant=hotspot
     ECHO 1. Update/Install Mod-Installer - Empfohlen
     ECHO 2. Update/Install Dev-Mod-Installer - evt. Fehlerhaft
     ECHO 3. Installer neustarten.
@@ -61,7 +60,7 @@ CLS
 CLS
 ECHO Client: FPS = Sodium, Shader = Optifine
 ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, Hwyla, usw.
-ECHO Client = Auf Vanila Servern spielbar, Modpack = Nur auf Servern mit dem selben installierten Modpack spielbar.
+ECHO Client = Auf Vanila Servern spielbar, Modpack = Nur auf Servern mit dem selben installierten Modpack spielbar und im Singleplayer.
 ECHO.
 ECHO Only Optifine/Modloader:
 ECHO.
@@ -549,6 +548,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 :pu
+tar cf Backup.tar mods config
 rmdir /S /Q mods
 rmdir /S /Q config
 ECHO.
@@ -630,7 +630,7 @@ EXIT /B
     CLS
 	
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
-	echo AusfÅhrung von Mod Updates und Instalationen nicht mîglich.
+	echo AusfÅhrung von Mod Updates und Installationen nicht mîglich.
 	ECHO.
     ECHO 1. Update/Install Mod-Installer - Empfohlen
     ECHO 2. Update/Install Dev-Mod-Installer - evt. Fehlerhaft
