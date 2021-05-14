@@ -46,10 +46,12 @@ CLS
 	ECHO 6. Update/Install Dev-Mod-Installer - evt. Fehlerhaft
     ECHO 7. Installer neustarten.
 	ECHO 8. Installer beenden.
+	ECHO 9. Feedback hinterlassen
 	ECHO.
-    CHOICE /C 12345678 /M "Auswahl: "
+    CHOICE /C 123456789 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
+    IF ERRORLEVEL 8 GOTO fb
     IF ERRORLEVEL 8 GOTO end
     IF ERRORLEVEL 7 GOTO start
     IF ERRORLEVEL 6 GOTO Dev

@@ -42,10 +42,12 @@ CLS
 	ECHO 5. Update/Install Mod-Installer 
     ECHO 6. Restart Installer
 	ECHO 7. End Installer
+	ECHO 8. Leave Feedback
 	ECHO.
-    CHOICE /C 1234567 /M "Selection: "
+    CHOICE /C 12345678 /M "Selection: "
 
     :: Note - list ERRORLEVELS in decreasing order
+    IF ERRORLEVEL 8 GOTO end
     IF ERRORLEVEL 7 GOTO end
     IF ERRORLEVEL 6 GOTO start
     IF ERRORLEVEL 5 GOTO update
