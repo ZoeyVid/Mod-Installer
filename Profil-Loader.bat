@@ -2,7 +2,8 @@
 curl --output Mod-Installer-Dev.bat --url https://download.san0j.de/mods/Profil-Loader.bat
 
 C:
-cd "%userprofile%\AppData\Roaming\.minecraft\"tar cf Backup.tar mods config
+cd "%userprofile%\AppData\Roaming\.minecraft\"
+tar cf Backup.tar mods config
 rmdir /S /Q mods
 rmdir /S /Q config
 ECHO.
