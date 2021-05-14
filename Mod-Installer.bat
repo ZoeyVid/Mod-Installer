@@ -7,16 +7,19 @@ endlocal
 
 	ECHO Java ist nicht installiert, der Mod-Installer wird nun gestoppt, 
 	ECHO bitte installiere Java um diesen Mod-Installer nutzten zu k”nnen! 
-	ECHO https://java.com/de/download/https://adoptopenjdk.net/?variant=openjdk16&jvmVariant=hotspot
+	ECHO https://adoptopenjdk.net/?variant=openjdk16&jvmVariant=hotspot
+	ECHO.
     ECHO 1. Update/Install Mod-Installer - Empfohlen
     ECHO 2. Update/Install Dev-Mod-Installer - evt. Fehlerhaft
     ECHO 3. Installer neustarten.
     ECHO 4. Installer beenden.
+	ECHO 5. Feedback hinterlassen
     ECHO.
 
-    CHOICE /C 1234 /M "Auswahl: "
+    CHOICE /C 12345 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
+	IF ERRORLEVEL 5 GOTO fb
     IF ERRORLEVEL 4 GOTO end
     IF ERRORLEVEL 3 GOTO start
     IF ERRORLEVEL 2 GOTO Dev
@@ -93,6 +96,8 @@ ECHO O. 1.16.5 Fabric Server Pack
 ECHO.
 ECHO P. Installer neustarten.
 ECHO Q. Installer beenden.
+ECHO.
+ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader ausw„hlst!
 ECHO.
 
 CHOICE /C abcdefghijklmnopq /M "EMPFEHLUNG! SICHERE MODS/CONFIGS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
@@ -509,7 +514,30 @@ cd %userprofile%\AppData\Roaming\.minecraft\
 if exist steam (
 	start steam://rungameid/13354743620561797120
 ) else (
-	start "" "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe"
+
+if exist "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" (
+  start "" "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" 
+) else (
+	CLS
+	echo Minecraft Launcher konnte nicht am šblichen Pfad gefunden werden!
+	ECHO.
+    ECHO 1. Update/Install Mod-Installer - Empfohlen
+    ECHO 2. Update/Install Dev-Mod-Installer - evt. Fehlerhaft
+    ECHO 3. Installer neustarten.
+    ECHO 4. Installer beenden.
+	ECHO 5. Feedback hinterlassen
+    ECHO.
+
+    CHOICE /C 12345 /M "Auswahl: "
+
+    :: Note - list ERRORLEVELS in decreasing order
+	IF ERRORLEVEL 5 GOTO fb
+    IF ERRORLEVEL 4 GOTO end
+    IF ERRORLEVEL 3 GOTO start
+    IF ERRORLEVEL 2 GOTO Dev
+    IF ERRORLEVEL 1 GOTO update
+)
+
 )
 EXIT /B
 
@@ -517,6 +545,7 @@ EXIT /B
 C:
 cd "%userprofile%\AppData\Roaming\.minecraft\"
 CLS
+ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader ausw„hlst!
 ECHO.
 ECHO 1. Profil erstellen - Limit 9
 ECHO 2. Profil laden - EMPFEHLUNG! SICHERE MODS/CONFIGS IN EINEM PROFIL! SIE WERDEN ENTFERNT!
@@ -626,6 +655,18 @@ IF ERRORLEVEL 1 GOTO start
 :end
 EXIT /B
 
+:fb
+ECHO https://discord.san0j.de/
+ECHO https://github.com/2020Sanoj/Mod-Installer/issues
+ECHO Stelle sicher, dass du im Minecraft Launcher unten links den richtigen Modloader ausgew„hlt hast!
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+CHOICE /C 12 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
+
+
 )   else (
     CLS
 	
@@ -636,11 +677,13 @@ EXIT /B
     ECHO 2. Update/Install Dev-Mod-Installer - evt. Fehlerhaft
     ECHO 3. Installer neustarten.
     ECHO 4. Installer beenden.
+	ECHO 5. Feedback hinterlassen
     ECHO.
 
-    CHOICE /C 1234 /M "Auswahl: "
+    CHOICE /C 12345 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
+	IF ERRORLEVEL 5 GOTO fb
     IF ERRORLEVEL 4 GOTO end
     IF ERRORLEVEL 3 GOTO start
     IF ERRORLEVEL 2 GOTO Dev

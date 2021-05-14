@@ -4,18 +4,20 @@ setlocal
 endlocal
     where java >nul 2>nul
     if %errorlevel%==1 (
-
+	CLS
 	ECHO Java is not installed, please install Java!
 	ECHO https://adoptopenjdk.net/?variant=openjdk16&jvmVariant=hotspot
 	ECHO.
     ECHO 1. Update/Install Mod-Installer
     ECHO 2. Restart Installer
     ECHO 3. End Installer
+	ECHO 4. Leave Feedback
     ECHO.
 
-    CHOICE /C 123 /M "Selection: "
+    CHOICE /C 1234 /M "Selection: "
 
     :: Note - list ERRORLEVELS in decreasing order
+    IF ERRORLEVEL 4 GOTO fb
     IF ERRORLEVEL 3 GOTO end
     IF ERRORLEVEL 2 GOTO start
     IF ERRORLEVEL 1 GOTO update
@@ -89,6 +91,8 @@ ECHO O. 1.16.5 Fabric Server Pack
 ECHO.
 ECHO P. Restart Installer
 ECHO Q. End Installer
+ECHO.
+ECHO Make sure you select the correct modloader in the Minecraft Launcher at the bottom left!
 ECHO.
 
 CHOICE /C abcdefghijklmnopq /M "RECOMMENDATION! SECURE MODS / CONFIGS IN ONE PROFILE! YOU WILL BE REMOVED! Selection: "
@@ -500,13 +504,34 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 :mcl
-echo Starten...
+echo Starting...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft\
 if exist steam (
 	start steam://rungameid/13354743620561797120
 ) else (
-	start "" "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe"
+
+if exist "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" (
+  start "" "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" 
+) else (
+	CLS
+	echo Minecraft Launcher cannot be found on the Usual Path!
+	ECHO.
+    ECHO 1. Update/Install Mod-Installer
+    ECHO 2. Restart Installer
+    ECHO 3. End Installer
+	ECHO 4. Leave Feedback
+    ECHO.
+
+    CHOICE /C 1234 /M "Selection: "
+
+    :: Note - list ERRORLEVELS in decreasing order
+    IF ERRORLEVEL 4 GOTO fb
+    IF ERRORLEVEL 3 GOTO end
+    IF ERRORLEVEL 2 GOTO start
+    IF ERRORLEVEL 1 GOTO update
+)
+
 )
 EXIT /B
 
@@ -522,6 +547,8 @@ ECHO 3. Load Backup - is created automatically when downloading modpacks and loa
 ECHO.
 ECHO 4. Restart Installer
 ECHO 5. End Installer
+ECHO.
+ECHO Make sure you select the correct modloader in the Minecraft Launcher at the bottom left!
 ECHO.
 CHOICE /C 12345 /M "Selection: "
 :: Note - list ERRORLEVELS in decreasing order
@@ -611,6 +638,18 @@ IF ERRORLEVEL 1 GOTO start
 :end
 EXIT /B
 
+:fb
+ECHO https://discord.san0j.de/
+ECHO https://github.com/2020Sanoj/Mod-Installer/issues
+ECHO Make sure you have selected the correct modloader in the Minecraft Launcher at the bottom left!
+ECHO 1. Restart Installer
+ECHO 2. End Installer
+CHOICE /C 12 /M "Selection: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
+
+
 )   else (
     CLS
 	
@@ -620,11 +659,13 @@ EXIT /B
     ECHO 1. Update/Install Mod-Installer
     ECHO 2. Restart Installer
     ECHO 3. End Installer
+	ECHO 4. Leave Feedback
     ECHO.
 
-    CHOICE /C 123 /M "Selection: "
+    CHOICE /C 1234 /M "Selection: "
 
     :: Note - list ERRORLEVELS in decreasing order
+    IF ERRORLEVEL 4 GOTO fb
     IF ERRORLEVEL 3 GOTO end
     IF ERRORLEVEL 2 GOTO start
     IF ERRORLEVEL 1 GOTO update
