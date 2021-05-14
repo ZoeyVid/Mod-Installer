@@ -1,5 +1,4 @@
 @echo off
-curl --output Profil-Loader.bat --url https://download.san0j.de/mods/Profil-Loader.bat
 setlocal
 :start
 endlocal
