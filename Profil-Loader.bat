@@ -1,5 +1,5 @@
 @echo off
-curl --output Mod-Installer-Dev.bat --url https://download.san0j.de/mods/Profil-Loader.bat
+curl --output Profil-Loader.bat --url https://download.san0j.de/mods/Profil-Loader.bat
 
 C:
 cd "%userprofile%\AppData\Roaming\.minecraft\"
