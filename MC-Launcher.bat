@@ -29,4 +29,4 @@ if exist steam (
 
 if exist "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" (
   start "" "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" 
-)
+))
