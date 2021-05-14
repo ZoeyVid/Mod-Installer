@@ -1,5 +1,5 @@
 @echo off
-curl --output Profil-Loader.bat --url https://download.san0j.de/mods/MC-Launcher.bat
+curl --output MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.bat
 
 C:
 cd "%userprofile%\AppData\Roaming\.minecraft\"
