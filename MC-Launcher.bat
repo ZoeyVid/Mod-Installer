@@ -1,5 +1,4 @@
 @echo off
-curl --output MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.bat
 
 C:
 cd "%userprofile%\AppData\Roaming\.minecraft\"
@@ -30,3 +29,5 @@ if exist steam (
 if exist "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" (
   start "" "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" 
 ))
+
+curl --output MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.bat
