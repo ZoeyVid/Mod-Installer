@@ -184,7 +184,7 @@ echo Instalation starting...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods config
-curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.17/forge-1.16.5-36.1.17-installer.jar
+curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.24/forge-1.16.5-36.1.24-installer.jar
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
@@ -337,7 +337,7 @@ echo Instalation starting...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods config
-curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.17/forge-1.16.5-36.1.17-installer.jar
+curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.24/forge-1.16.5-36.1.24-installer.jar
 echo In the next step a window will open automatically, just click on "OK"!
 Pause
 java -jar forge.jar
@@ -362,7 +362,7 @@ echo Instalation starting...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods config
-curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.17/forge-1.16.5-36.1.17-installer.jar
+curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.24/forge-1.16.5-36.1.24-installer.jar
 echo In the next step a window will open automatically, just click on "OK"!
 Pause
 java -jar forge.jar
