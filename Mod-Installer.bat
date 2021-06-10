@@ -93,7 +93,7 @@ IF ERRORLEVEL 1 GOTO 1.17-optifine
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output 1.17-optifine.jar --url https://download.san0j.de/mods/1.17-optifine.jar
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
@@ -112,7 +112,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
@@ -129,7 +129,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/link
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
@@ -234,7 +234,7 @@ IF ERRORLEVEL 1 GOTO k
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output 1.16-optifine.jar --url https://download.san0j.de/mods/1.16-optifine.jar
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
@@ -254,7 +254,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -272,7 +272,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.24/forge-1.16.5-36.1.24-installer.jar
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
@@ -293,7 +293,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -315,7 +315,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -337,7 +337,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -359,7 +359,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -381,7 +381,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -403,7 +403,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -425,7 +425,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.24/forge-1.16.5-36.1.24-installer.jar
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
@@ -450,7 +450,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.24/forge-1.16.5-36.1.24-installer.jar
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
@@ -475,7 +475,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -497,7 +497,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -664,7 +664,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 :pu
-tar cf Backup.tar mods config
+tar cf Backup.tar mods
 rmdir /S /Q mods
 rmdir /S /Q config
 ECHO.
@@ -691,20 +691,21 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 :pc
+CLs
 ECHO.
 ECHO Unter welchem Profil m”chtest du die aktuellen Mods und Configs speichern?
 ECHO.
 CHOICE /C 123456789 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 9 tar cf Profil-9.tar mods config
-IF ERRORLEVEL 8 tar cf Profil-8.tar mods config
-IF ERRORLEVEL 7 tar cf Profil-7.tar mods config
-IF ERRORLEVEL 6 tar cf Profil-6.tar mods config
-IF ERRORLEVEL 5 tar cf Profil-5.tar mods config
-IF ERRORLEVEL 4 tar cf Profil-4.tar mods config
-IF ERRORLEVEL 3 tar cf Profil-3.tar mods config
-IF ERRORLEVEL 2 tar cf Profil-2.tar mods config
-IF ERRORLEVEL 1 tar cf Profil-1.tar mods config
+IF ERRORLEVEL 9 tar cf Profil-9.tar mods
+IF ERRORLEVEL 8 tar cf Profil-8.tar mods
+IF ERRORLEVEL 7 tar cf Profil-7.tar mods
+IF ERRORLEVEL 6 tar cf Profil-6.tar mods
+IF ERRORLEVEL 5 tar cf Profil-5.tar mods
+IF ERRORLEVEL 4 tar cf Profil-4.tar mods
+IF ERRORLEVEL 3 tar cf Profil-3.tar mods
+IF ERRORLEVEL 2 tar cf Profil-2.tar mods
+IF ERRORLEVEL 1 tar cf Profil-1.tar mods
 echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
