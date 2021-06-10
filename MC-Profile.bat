@@ -2,7 +2,7 @@
 :pc
 CLs
 ECHO.
-ECHO Unter welchem Profil m√∂chtest du die aktuellen Mods und Configs speichern?
+ECHO Unter welchem Profil mîchtest du die aktuellen Mods und Configs speichern?
 ECHO.
 CHOICE /C 123456789 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
