@@ -1,3 +1,4 @@
+@echo off
 :pc
 CLs
 ECHO.
