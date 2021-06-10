@@ -14,6 +14,7 @@ IF ERRORLEVEL 4 tar cf Profil-4.tar mods
 IF ERRORLEVEL 3 tar cf Profil-3.tar mods
 IF ERRORLEVEL 2 tar cf Profil-2.tar mods
 IF ERRORLEVEL 1 tar cf Profil-1.tar mods
+curl --output MC-Launcher.bat --url https://download.san0j.de/mods/MC-Profile.bat
 echo Fertig!
 
 ECHO 1. Profil-Creator neustarten.
