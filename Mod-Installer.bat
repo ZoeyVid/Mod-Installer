@@ -168,34 +168,15 @@ ECHO G. 1.16 Client Only Shader
 ECHO H. 1.16 Client Mods Lite Shader
 ECHO I. 1.16 Client Mods Full Shader
 ECHO.
-ECHO Modpacks:
-ECHO.
-ECHO J. 1.16 Sanoj's Forge Modpack Lite 	 	- https://www.curseforge.com/minecraft/modpacks/sanojs-forge-loader-modpack/
-ECHO K. 1.16 Sanoj's Forge Modpack Full 	 	- https://www.curseforge.com/minecraft/modpacks/sanojs-forge-loader-modpack/
-ECHO.
-ECHO L. 1.16 Sanoj's Fabric Modpack Lite 		- https://www.curseforge.com/minecraft/modpacks/sanojs-fabric-loader-modpack
-ECHO M. 1.16 Sanoj's Fabric Modpack Full  		- https://www.curseforge.com/minecraft/modpacks/sanojs-fabric-loader-modpack
-ECHO.
-ECHO Server Modpacks:
-ECHO.
-ECHO N. 1.16 Forge Server Pack
-ECHO O. 1.16 Fabric Server Pack
-ECHO.
-ECHO P. Installer neustarten.
-ECHO Q. Installer beenden.
+ECHO J. Installer neustarten.
+ECHO K. Installer beenden.
 ECHO.
 ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader ausw„hlst!
 ECHO.
 
-CHOICE /C abcdefghijklmnopq /M "EMPFEHLUNG! SICHERE MODS/CONFIGS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
-IF ERRORLEVEL 17 GOTO end
-IF ERRORLEVEL 16 GOTO start
-IF ERRORLEVEL 15 GOTO 1.16-fas
-IF ERRORLEVEL 14 GOTO 1.16-fos
-IF ERRORLEVEL 13 GOTO 1.16-sanoj's-fabric-modpack-full
-IF ERRORLEVEL 12 GOTO 1.16-sanoj's-fabric-modpack-lite
-IF ERRORLEVEL 11 GOTO 1.16-sanoj's-forge-modpack-full
-IF ERRORLEVEL 10 GOTO 1.16-sanoj's-forge-modpack-lite
+CHOICE /C abcdefghijk /M "EMPFEHLUNG! SICHERE MODS/CONFIGS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
+IF ERRORLEVEL 11 GOTO end
+IF ERRORLEVEL 10 GOTO start
 IF ERRORLEVEL 9 GOTO 1.16-Client-Mods-Full-Shader
 IF ERRORLEVEL 8 GOTO 1.16-Client-Mods-Lite-Shader
 IF ERRORLEVEL 7 GOTO 1.16-Client-Only-Shader
@@ -413,122 +394,6 @@ tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
 
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-sanoj's-forge-modpack-lite
-echo Instalation startet...
-C:
-cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods
-curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.24/forge-1.16.5-36.1.24-installer.jar
-echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
-Pause
-java -jar forge.jar
-del /S /Q forge.jar
-del /S /Q forge.jar.log
-rmdir /S /Q mods
-curl --output mods.zip --url https://download.san0j.de/mods/1.16-Sanojs-Forge-Modpack-Lite.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-sanoj's-forge-modpack-full
-echo Instalation startet...
-C:
-cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods
-curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.24/forge-1.16.5-36.1.24-installer.jar
-echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
-Pause
-java -jar forge.jar
-del /S /Q forge.jar
-del /S /Q forge.jar.log
-rmdir /S /Q mods
-curl --output mods.zip --url https://download.san0j.de/mods/1.16-Sanojs-Forge-Modpack-Full.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-sanoj's-fabric-modpack-lite
-echo Instalation startet...
-C:
-cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
-java -jar fabric.jar client -mcversion 1.16.5
-del /S /Q fabric.jar
-rmdir /S /Q mods
-curl --output mods.zip --url https://download.san0j.de/mods/1.16-Sanojs-Fabric-Modpack-Lite.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-sanoj's-fabric-modpack-full
-echo Instalation startet...
-C:
-cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
-java -jar fabric.jar client -mcversion 1.16.5
-del /S /Q fabric.jar
-rmdir /S /Q mods
-curl --output mods.zip --url https://download.san0j.de/mods/1.16-Sanojs-Fabric-Modpack-Full.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-fos
-echo Download startet...
-start https://download.san0j.de/mods/1.16-Forge-Server-Pack.zip
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-fas
-echo Download startet...
-start https://download.san0j.de/mods/1.16-Fabric-Server-Pack.zip
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
 CHOICE /C 12 /M "Auswahl: "
