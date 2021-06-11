@@ -619,7 +619,7 @@ IF ERRORLEVEL 1 GOTO start
 	ECHO 4. Feedback hinterlassen
     ECHO.
 
-    CHOICE /C 12345 /M "Auswahl: "
+    CHOICE /C 1234 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
 	IF ERRORLEVEL 4 GOTO fb
