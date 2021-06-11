@@ -10,19 +10,17 @@ endlocal
 	ECHO https://adoptopenjdk.net/
 	ECHO.
     ECHO 1. Update/Install Mod-Installer - Empfohlen
-    ECHO 2. Update/Install Dev-Mod-Installer - evt. Fehlerhaft
-    ECHO 3. Installer neustarten.
-    ECHO 4. Installer beenden.
-	ECHO 5. Feedback hinterlassen
+    ECHO 2. Installer neustarten.
+    ECHO 3. Installer beenden.
+	ECHO 4. Feedback hinterlassen
     ECHO.
 
-    CHOICE /C 12345 /M "Auswahl: "
+    CHOICE /C 1234 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-	IF ERRORLEVEL 5 GOTO fb
-    IF ERRORLEVEL 4 GOTO end
-    IF ERRORLEVEL 3 GOTO start
-    IF ERRORLEVEL 2 GOTO Dev
+	IF ERRORLEVEL 4 GOTO fb
+    IF ERRORLEVEL 3 GOTO end
+    IF ERRORLEVEL 2 GOTO start
     IF ERRORLEVEL 1 GOTO update
 )
 
@@ -44,18 +42,16 @@ CLS
 	ECHO Funktionen:
 	ECHO.
 	ECHO 6. Update/Install Mod-Installer - Empfohlen
-	ECHO 7. Update/Install Dev-Mod-Installer - evt. Fehlerhaft
-    ECHO 8. Installer neustarten.
-	ECHO 9. Installer beenden.
-	ECHO 10. Feedback hinterlassen
+    ECHO 7. Installer neustarten.
+	ECHO 8. Installer beenden.
+	ECHO 9. Feedback hinterlassen
 	ECHO.
     CHOICE /C 123456789 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-    IF ERRORLEVEL 10 GOTO fb
-    IF ERRORLEVEL 9 GOTO end
-    IF ERRORLEVEL 8 GOTO start
-    IF ERRORLEVEL 7 GOTO Dev
+    IF ERRORLEVEL 9 GOTO fb
+    IF ERRORLEVEL 8 GOTO end
+    IF ERRORLEVEL 7 GOTO start
     IF ERRORLEVEL 6 GOTO update
     IF ERRORLEVEL 5 GOTO mcl
     IF ERRORLEVEL 4 GOTO bp
@@ -64,6 +60,7 @@ CLS
     IF ERRORLEVEL 1 GOTO 1.16
 
 :1.17
+cd %userprofile%\AppData\Roaming\.minecraft
 CLS
 ECHO Client: FPS = Sodium, Shader = Optifine
 ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, Hwyla, usw.
@@ -147,6 +144,7 @@ IF ERRORLEVEL 1 GOTO start
 
 
 :1.16
+cd %userprofile%\AppData\Roaming\.minecraft
 CLS
 ECHO Client: FPS = Sodium, Shader = Optifine
 ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, Hwyla, usw.
@@ -188,6 +186,7 @@ IF ERRORLEVEL 2 GOTO 1.16-fabric
 IF ERRORLEVEL 1 GOTO 1.16-optifine
 
 :tp
+cd %userprofile%\AppData\Roaming\.minecraft
 CLS
 ECHO.
 ECHO Texture Packs:
@@ -578,23 +577,11 @@ ECHO 2. Installer beenden.
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+IF ERRORLEVEL 1 GOTO bp
 
 
 :update
 curl --output Mod-Installer.bat --url https://download.san0j.de/mods/Mod-Installer.bat
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:Dev
-curl --output Mod-Installer-Dev.bat --url https://download.san0j.de/mods/Mod-Installer-Dev.bat
 echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
@@ -610,7 +597,7 @@ EXIT /B
 
 :fb
 ECHO https://discord.san0j.de/
-ECHO https://github.com/2020Sanoj/Mod-Installer/issues
+ECHO https://github.com/2020Sanoj/Mod-Installer/issues/
 ECHO Stelle sicher, dass du im Minecraft Launcher unten links den richtigen Modloader ausgewÑhlt hast!
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
@@ -627,18 +614,16 @@ IF ERRORLEVEL 1 GOTO start
 	echo AusfÅhrung von Mod Updates und Installationen nicht mîglich.
 	ECHO.
     ECHO 1. Update/Install Mod-Installer - Empfohlen
-    ECHO 2. Update/Install Dev-Mod-Installer - evt. Fehlerhaft
-    ECHO 3. Installer neustarten.
-    ECHO 4. Installer beenden.
-	ECHO 5. Feedback hinterlassen
+    ECHO 2. Installer neustarten.
+    ECHO 3. Installer beenden.
+	ECHO 4. Feedback hinterlassen
     ECHO.
 
     CHOICE /C 12345 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-	IF ERRORLEVEL 5 GOTO fb
-    IF ERRORLEVEL 4 GOTO end
-    IF ERRORLEVEL 3 GOTO start
-    IF ERRORLEVEL 2 GOTO Dev
+	IF ERRORLEVEL 4 GOTO fb
+    IF ERRORLEVEL 3 GOTO end
+    IF ERRORLEVEL 2 GOTO start
     IF ERRORLEVEL 1 GOTO update
 )
