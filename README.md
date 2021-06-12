@@ -1,4 +1,4 @@
 # Mod-Installer
-With this Mod-Installer it is possible to download my modpacks (only client modpacks), selected resource packs, install Forge, Fabric and Optifine and save mods with config files in up to 9 profiles that can be loaded at any time.
+Mit diesem Mod-Installer kannst du Optifine, Fabric und Forge und meine Client Modpacks installieren. Mods in bis zu 9 Profilen speichen und Minecraft über ein extra Skript starten und dabei direkt das Profil auswählen, werlches geladen werden soll.
 
-You can Donwload it here: https://github.com/2020Sanoj/Mod-Installer/releases/latest
+Den Download findest du hier: https://github.com/2020Sanoj/Mod-Installer/releases/latest
