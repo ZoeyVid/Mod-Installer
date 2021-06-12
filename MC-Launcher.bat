@@ -42,7 +42,7 @@ EXIT /B
 
 	CLS
 	echo Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
-	echo C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe
+	echo Unter "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe"
 	echo MC-Launcher.bat wird beendet...
 	Pause
 	
@@ -52,7 +52,7 @@ EXIT /B
     CLS
 	
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
-	echo %userprofile%\AppData\Roaming\.minecraft
+	echo Unter "%userprofile%\AppData\Roaming\.minecraft"
 	echo Starten von Minecraft nicht mîglich
 	echo MC-Launcher.bat wird beendet...
 	Pause
