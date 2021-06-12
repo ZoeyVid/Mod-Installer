@@ -6,7 +6,7 @@ endlocal
     if %errorlevel%==1 (
 
 	ECHO Java ist nicht installiert, der Mod-Installer wird nun gestoppt, 
-	ECHO bitte installiere Java um diesen Mod-Installer nutzten zu kînnen! 
+	ECHO bitte installiere Java 16 um diesen Mod-Installer nutzten zu kînnen! 
 	ECHO https://adoptopenjdk.net/
 	ECHO.
     ECHO 1. Update/Install Mod-Installer - Empfohlen
@@ -37,23 +37,20 @@ CLS
 	ECHO.
 	ECHO 4. Backups/Modprofile
 	ECHO.
-	ECHO 5. Minecraft-Launcher starten
-	ECHO.
 	ECHO Funktionen:
 	ECHO.
-	ECHO 6. Update/Install Mod-Installer - Empfohlen
-    ECHO 7. Installer neustarten.
-	ECHO 8. Installer beenden.
-	ECHO 9. Feedback hinterlassen
+	ECHO 5. Update/Install Mod-Installer - Empfohlen
+    ECHO 6. Installer neustarten.
+	ECHO 7. Installer beenden.
+	ECHO 8. Feedback hinterlassen
 	ECHO.
-    CHOICE /C 123456789 /M "Auswahl: "
+    CHOICE /C 12345678 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-    IF ERRORLEVEL 9 GOTO fb
-    IF ERRORLEVEL 8 GOTO end
-    IF ERRORLEVEL 7 GOTO start
-    IF ERRORLEVEL 6 GOTO update
-    IF ERRORLEVEL 5 GOTO mcl
+    IF ERRORLEVEL 8 GOTO fb
+    IF ERRORLEVEL 7 GOTO end
+    IF ERRORLEVEL 6 GOTO start
+    IF ERRORLEVEL 5 GOTO update
     IF ERRORLEVEL 4 GOTO bp
 	IF ERRORLEVEL 3 GOTO tp
 	IF ERRORLEVEL 2 GOTO 1.17
@@ -458,39 +455,6 @@ CHOICE /C 12 /M "Auswahl: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
-:mcl
-echo Starten...
-C:
-cd %userprofile%\AppData\Roaming\.minecraft\
-if exist steam (
-	start steam://rungameid/13354743620561797120
-) else (
-
-if exist "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" (
-  start "" "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" 
-) else (
-	CLS
-	echo Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
-	ECHO.
-    ECHO 1. Update/Install Mod-Installer - Empfohlen
-    ECHO 2. Update/Install Dev-Mod-Installer - evt. Fehlerhaft
-    ECHO 3. Installer neustarten.
-    ECHO 4. Installer beenden.
-	ECHO 5. Feedback hinterlassen
-    ECHO.
-
-    CHOICE /C 12345 /M "Auswahl: "
-
-    :: Note - list ERRORLEVELS in decreasing order
-	IF ERRORLEVEL 5 GOTO fb
-    IF ERRORLEVEL 4 GOTO end
-    IF ERRORLEVEL 3 GOTO start
-    IF ERRORLEVEL 2 GOTO Dev
-    IF ERRORLEVEL 1 GOTO update
-)
-
-)
-EXIT /B
 
 :bp
 C:
@@ -499,52 +463,21 @@ CLS
 ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader auswÑhlst!
 ECHO.
 ECHO 1. Profil erstellen - Limit 9
-ECHO 2. Profil laden - EMPFEHLUNG! SICHERE MODS/CONFIGS IN EINEM PROFIL! SIE WERDEN ENTFERNT!
+ECHO 2. Backup laden - wird Automatisch beim Herunterladen von Modpacks und dem laden von Profilen erstellt
 ECHO.
-ECHO 3. Backup laden - wird Automatisch beim Herunterladen von Modpacks und dem laden von Profilen erstellt
+ECHO 3. Installer neustarten.
+ECHO 4. Installer beenden.
 ECHO.
-ECHO 4. Installer neustarten.
-ECHO 5. Installer beenden.
-ECHO.
-CHOICE /C 12345 /M "Auswahl: "
+CHOICE /C 1234 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 5 GOTO end
-IF ERRORLEVEL 4 GOTO start
-IF ERRORLEVEL 3 GOTO bu
-IF ERRORLEVEL 2 GOTO pu
+IF ERRORLEVEL 4 GOTO end
+IF ERRORLEVEL 3 GOTO start
+IF ERRORLEVEL 2 GOTO bu
 IF ERRORLEVEL 1 GOTO pc
 
 :bu
 rmdir /S /Q mods
-rmdir /S /Q config
 tar xf Backup.tar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-:pu
-tar cf Backup.tar mods
-rmdir /S /Q mods
-rmdir /S /Q config
-ECHO.
-ECHO Welches Profil mîchtest du laden?
-ECHO.
-CHOICE /C 123456789 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 9 tar xf Profil-9.tar
-IF ERRORLEVEL 8 tar xf Profil-8.tar
-IF ERRORLEVEL 7 tar xf Profil-7.tar
-IF ERRORLEVEL 6 tar xf Profil-6.tar
-IF ERRORLEVEL 5 tar xf Profil-5.tar
-IF ERRORLEVEL 4 tar xf Profil-4.tar
-IF ERRORLEVEL 3 tar xf Profil-3.tar
-IF ERRORLEVEL 2 tar xf Profil-2.tar
-IF ERRORLEVEL 1 tar xf Profil-1.tar
 echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
@@ -557,7 +490,7 @@ IF ERRORLEVEL 1 GOTO start
 :pc
 CLs
 ECHO.
-ECHO Unter welchem Profil mîchtest du die aktuellen Mods und Configs speichern?
+ECHO Unter welchem Profil mîchtest du die aktuellen Mods speichern?
 ECHO.
 CHOICE /C 123456789 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
@@ -611,6 +544,7 @@ IF ERRORLEVEL 1 GOTO start
     CLS
 	
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
+	echo %userprofile%\AppData\Roaming\.minecraft
 	echo AusfÅhrung von Mod Updates und Installationen nicht mîglich.
 	ECHO.
     ECHO 1. Update/Install Mod-Installer - Empfohlen
