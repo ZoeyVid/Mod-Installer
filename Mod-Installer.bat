@@ -107,7 +107,7 @@ echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
+curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
 echo Fertig!
@@ -232,7 +232,7 @@ echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
+curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 echo Fertig!
@@ -271,7 +271,7 @@ echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
+curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -293,7 +293,7 @@ echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
+curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -315,7 +315,7 @@ echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
+curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -337,7 +337,7 @@ echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
+curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -359,7 +359,7 @@ echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
+curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -381,7 +381,7 @@ echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
 tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
+curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
