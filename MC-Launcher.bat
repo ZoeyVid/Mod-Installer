@@ -1,7 +1,7 @@
 @echo off
 C:
 if exist %userprofile%\AppData\Roaming\.minecraft (
-if exist "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" (
+if exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 
 C:
 cd "%userprofile%\AppData\Roaming\.minecraft\"
@@ -32,7 +32,7 @@ curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 	
 ) else (
 
-  start "" "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" 
+  start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" 
 curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
   
 )
@@ -45,7 +45,7 @@ curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 
 	CLS
 	echo Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
-	echo Unter "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe"
+	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	echo MC-Launcher.bat wird beendet...
 	Pause
 	
@@ -53,8 +53,8 @@ curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 
 )   else (
 curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
+
     CLS
-	
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
 	echo Unter "%userprofile%\AppData\Roaming\.minecraft"
 	echo Starten von Minecraft nicht mîglich
