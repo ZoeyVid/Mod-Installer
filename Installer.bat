@@ -51,4 +51,19 @@ Pause
 GOTO end
 
 :end
+CLS
+echo.
+ECHO Installer L”schen?
+ECHO 1. Ja
+ECHO 2. Nein
+ECHO.
+CHOICE /C 12 /M "Auswahl: "
+IF ERRORLEVEL 2 GOTO exit
+IF ERRORLEVEL 1 GOTO del
+
+:del
+del /S /Q %0
+exit /B
+
+:exit
 exit /B
