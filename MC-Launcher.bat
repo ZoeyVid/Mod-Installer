@@ -28,12 +28,12 @@ cd %userprofile%\AppData\Roaming\.minecraft\
 if exist steam (
 
 	start steam://rungameid/13354743620561797120
-curl --output MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.bat
+curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 	
 ) else (
 
   start "" "C:\program files (x86)\Minecraft Launcher\MinecraftLauncher.exe" 
-curl --output MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.bat
+curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
   
 )
 EXIT /B
@@ -41,7 +41,7 @@ EXIT /B
 
   
 ) else (
-curl --output MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.bat
+curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 
 	CLS
 	echo Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
@@ -52,7 +52,7 @@ curl --output MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.b
 )
 
 )   else (
-curl --output MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.bat
+curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
     CLS
 	
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 

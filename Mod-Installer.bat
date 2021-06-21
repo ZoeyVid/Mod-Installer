@@ -1,5 +1,5 @@
 @echo off
-curl --output Mod-Installer.bat --url https://download.san0j.de/mods/Mod-Installer.bat
+curl --output %0 --url https://download.san0j.de/mods/Mod-Installer.bat
 setlocal
 :start
 endlocal
