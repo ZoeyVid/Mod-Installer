@@ -1,5 +1,4 @@
 @echo off
-curl --output Mod-Installer.bat --url https://download.san0j.de/mods/Mod-Installer.bat
 setlocal
 :start
 endlocal
@@ -10,17 +9,19 @@ endlocal
 	ECHO bitte installiere Java 16 um diesen Mod-Installer nutzten zu kînnen! 
 	ECHO https://adoptopenjdk.net/
 	ECHO.
-    ECHO 1. Installer neustarten.
-    ECHO 2. Installer beenden.
-	ECHO 3. Feedback hinterlassen
+    ECHO 1. Update/Install Mod-Installer - Empfohlen
+    ECHO 2. Installer neustarten.
+    ECHO 3. Installer beenden.
+	ECHO 4. Feedback hinterlassen
     ECHO.
 
-    CHOICE /C 123 /M "Auswahl: "
+    CHOICE /C 1234 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-	IF ERRORLEVEL 3 GOTO fb
-    IF ERRORLEVEL 2 GOTO end
-    IF ERRORLEVEL 1 GOTO start
+	IF ERRORLEVEL 4 GOTO fb
+    IF ERRORLEVEL 3 GOTO end
+    IF ERRORLEVEL 2 GOTO start
+    IF ERRORLEVEL 1 GOTO update
 )
 
 if exist %userprofile%\AppData\Roaming\.minecraft (
@@ -38,16 +39,18 @@ CLS
 	ECHO.
 	ECHO Funktionen:
 	ECHO.
-    ECHO 5. Installer neustarten.
-	ECHO 6. Installer beenden.
-	ECHO 7. Feedback hinterlassen
+	ECHO 5. Update/Install Mod-Installer - Empfohlen
+    ECHO 6. Installer neustarten.
+	ECHO 7. Installer beenden.
+	ECHO 8. Feedback hinterlassen
 	ECHO.
-    CHOICE /C 1234567 /M "Auswahl: "
+    CHOICE /C 12345678 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-    IF ERRORLEVEL 7 GOTO fb
-    IF ERRORLEVEL 6 GOTO end
-    IF ERRORLEVEL 5 GOTO start
+    IF ERRORLEVEL 8 GOTO fb
+    IF ERRORLEVEL 7 GOTO end
+    IF ERRORLEVEL 6 GOTO start
+    IF ERRORLEVEL 5 GOTO update
     IF ERRORLEVEL 4 GOTO bp
 	IF ERRORLEVEL 3 GOTO tp
 	IF ERRORLEVEL 2 GOTO 1.17
@@ -189,6 +192,7 @@ ECHO 1. KÅrbis Sicht entfernen - KÅrbis.zip
 ECHO 2. Dark Mode - Verdunkle Minecraft	- https://www.curseforge.com/minecraft/texture-packs/default-dark-mode
 ECHO 3. Xray - ungern gesehen			- https://www.curseforge.com/minecraft/texture-packs/xray-ultimate-1-11-compatible
 ECHO 4. Standart Resourcepack - erstelle dein eigenes Resourcepack
+ECHO    Gespeichert im Pfad des Installers - Umbennenung des Ordners Empfohlen
 ECHO.
 ECHO 5. Mod-Installer neustarten.
 ECHO 6. Mod-Installer beenden.
@@ -509,6 +513,18 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO bp
 
 
+:update
+curl --output Mod-Installer.bat --url https://download.san0j.de/mods/Mod-Installer.bat
+echo Fertig!
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+CHOICE /C 12 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
+
+
 :end
 EXIT /B
 
@@ -531,15 +547,17 @@ IF ERRORLEVEL 1 GOTO start
 	echo %userprofile%\AppData\Roaming\.minecraft
 	echo AusfÅhrung von Mod Updates und Installationen nicht mîglich.
 	ECHO.
-    ECHO 1. Installer neustarten.
-    ECHO 2. Installer beenden.
-	ECHO 3. Feedback hinterlassen
+    ECHO 1. Update/Install Mod-Installer - Empfohlen
+    ECHO 2. Installer neustarten.
+    ECHO 3. Installer beenden.
+	ECHO 4. Feedback hinterlassen
     ECHO.
 
-    CHOICE /C 123 /M "Auswahl: "
+    CHOICE /C 1234 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-	IF ERRORLEVEL 3 GOTO fb
-    IF ERRORLEVEL 2 GOTO end
-    IF ERRORLEVEL 1 GOTO start
+	IF ERRORLEVEL 4 GOTO fb
+    IF ERRORLEVEL 3 GOTO end
+    IF ERRORLEVEL 2 GOTO start
+    IF ERRORLEVEL 1 GOTO update
 )
