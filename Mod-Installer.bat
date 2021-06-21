@@ -24,6 +24,7 @@ endlocal
 )
 
 if exist %userprofile%\AppData\Roaming\.minecraft (
+if exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 endlocal
 CLS
 	ECHO.
@@ -523,6 +524,27 @@ CHOICE /C 12 /M "Auswahl: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
+) else (
+curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
+
+	CLS
+	echo Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
+	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
+	echo AusfÅhrung von Mod Updates und Installationen nicht mîglich.
+	ECHO.
+    ECHO 1. Installer neustarten.
+    ECHO 2. Installer beenden.
+	ECHO 3. Feedback hinterlassen
+    ECHO.
+
+    CHOICE /C 123 /M "Auswahl: "
+
+    :: Note - list ERRORLEVELS in decreasing order
+	IF ERRORLEVEL 3 GOTO fb
+    IF ERRORLEVEL 2 GOTO end
+    IF ERRORLEVEL 1 GOTO start
+	
+)
 
 )   else (
     CLS
