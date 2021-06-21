@@ -1,13 +1,13 @@
 @echo off
 C:
-if exist %userprofile%\AppData\Roaming\.minecraft (
+if exist "%userprofile%\AppData\Roaming\.minecraft" (
 if exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 
 C:
 cd "%userprofile%\AppData\Roaming\.minecraft\"
 tar cf Backup.tar mods config
 rmdir /S /Q mods
-
+CLS
 ECHO.
 ECHO Mit welchem Mod-Profil Minecraft starten?
 ECHO.
@@ -46,6 +46,7 @@ curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 	CLS
 	echo Minecraft Launcher konnte nicht am šblichen Pfad gefunden werden!
 	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
+	echo Starten von Minecraft nicht m”glich
 	echo MC-Launcher.bat wird beendet...
 	Pause
 	
