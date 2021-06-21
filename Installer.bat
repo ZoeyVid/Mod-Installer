@@ -27,6 +27,7 @@ echo sLinkFile = "%USERPROFILE%\Desktop\MC-Launcher.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo oLink.Arguments = "/C %userprofile%\AppData\Roaming\.minecraft\MC-Launcher.bat" >> %SCRIPT%
+echo oLink.IconLocation = "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del %SCRIPT%
@@ -40,6 +41,7 @@ echo sLinkFile = "%USERPROFILE%\Desktop\Mod-Installer.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo oLink.Arguments = "/C %userprofile%\AppData\Roaming\.minecraft\Mod-Installer.bat" >> %SCRIPT%
+echo oLink.IconLocation = "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del %SCRIPT%
