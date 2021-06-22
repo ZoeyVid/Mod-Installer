@@ -47,7 +47,7 @@ curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 	echo Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
 	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	echo Starten von Minecraft nicht mîglich
-	echo MC-Launcher.bat wird beendet...
+	echo MC-Launcher wird beendet...
 	Pause
 	
 )
@@ -59,6 +59,6 @@ curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
 	echo Unter "%userprofile%\AppData\Roaming\.minecraft"
 	echo Starten von Minecraft nicht mîglich
-	echo MC-Launcher.bat wird beendet...
+	echo MC-Launcher wird beendet...
 	Pause
 )
