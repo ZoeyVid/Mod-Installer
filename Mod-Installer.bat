@@ -23,8 +23,26 @@ endlocal
     IF ERRORLEVEL 1 GOTO start
 )
 
-if exist "%userprofile%\AppData\Roaming\.minecraft" (
-if exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
+if not exist "%userprofile%\AppData\Roaming\.minecraft" (
+    CLS
+    echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
+	echo Unter "%userprofile%\AppData\Roaming\.minecraft"
+	echo AusfÅhrung von Mod Updates und Installationen nicht mîglich.
+	ECHO.
+    ECHO 1. Installer neustarten.
+    ECHO 2. Installer beenden.
+	ECHO 3. Feedback hinterlassen
+    ECHO.
+
+    CHOICE /C 123 /M "Auswahl: "
+
+    :: Note - list ERRORLEVELS in decreasing order
+	IF ERRORLEVEL 3 GOTO fb
+    IF ERRORLEVEL 2 GOTO end
+    IF ERRORLEVEL 1 GOTO start
+)
+
+
 endlocal
 CLS
 	ECHO.
@@ -523,44 +541,3 @@ CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
-
-) else (
-
-	CLS
-	echo Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
-	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	echo AusfÅhrung von Mod Updates und Installationen nicht mîglich.
-	ECHO.
-    ECHO 1. Installer neustarten.
-    ECHO 2. Installer beenden.
-	ECHO 3. Feedback hinterlassen
-    ECHO.
-
-    CHOICE /C 123 /M "Auswahl: "
-
-    :: Note - list ERRORLEVELS in decreasing order
-	IF ERRORLEVEL 3 GOTO fb
-    IF ERRORLEVEL 2 GOTO end
-    IF ERRORLEVEL 1 GOTO start
-	
-)
-
-)   else (
-
-    CLS
-    echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
-	echo Unter "%userprofile%\AppData\Roaming\.minecraft"
-	echo AusfÅhrung von Mod Updates und Installationen nicht mîglich.
-	ECHO.
-    ECHO 1. Installer neustarten.
-    ECHO 2. Installer beenden.
-	ECHO 3. Feedback hinterlassen
-    ECHO.
-
-    CHOICE /C 123 /M "Auswahl: "
-
-    :: Note - list ERRORLEVELS in decreasing order
-	IF ERRORLEVEL 3 GOTO fb
-    IF ERRORLEVEL 2 GOTO end
-    IF ERRORLEVEL 1 GOTO start
-)

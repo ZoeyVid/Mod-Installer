@@ -1,7 +1,30 @@
 @echo off
 C:
-if exist "%userprofile%\AppData\Roaming\.minecraft" (
-if exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
+
+if not exist "%userprofile%\AppData\Roaming\.minecraft" (
+curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
+
+    CLS
+    echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
+	echo Unter "%userprofile%\AppData\Roaming\.minecraft"
+	echo Starten von Minecraft nicht mîglich
+	echo MC-Launcher wird beendet...
+	Pause
+EXIT /B
+)
+
+
+if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
+curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
+
+	CLS
+	echo Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
+	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
+	echo Starten von Minecraft nicht mîglich
+	echo MC-Launcher wird beendet...
+	Pause
+EXIT /B	
+)
 
 C:
 cd "%userprofile%\AppData\Roaming\.minecraft\"
@@ -37,28 +60,3 @@ curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
   
 )
 EXIT /B
-
-
-  
-) else (
-curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
-
-	CLS
-	echo Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
-	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	echo Starten von Minecraft nicht mîglich
-	echo MC-Launcher wird beendet...
-	Pause
-	
-)
-
-)   else (
-curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
-
-    CLS
-    echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
-	echo Unter "%userprofile%\AppData\Roaming\.minecraft"
-	echo Starten von Minecraft nicht mîglich
-	echo MC-Launcher wird beendet...
-	Pause
-)
