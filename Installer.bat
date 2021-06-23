@@ -4,6 +4,14 @@ C:
 
 
 if not exist "%userprofile%\AppData\Roaming\.minecraft" (
+
+    CLS
+    echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
+	echo Unter "%userprofile%\AppData\Roaming\.minecraft"
+	echo Installer wird beendet...
+	Pause
+)
+
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 
 	CLS
@@ -14,12 +22,6 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	
 )
 
-    CLS
-    echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
-	echo Unter "%userprofile%\AppData\Roaming\.minecraft"
-	echo Installer wird beendet...
-	Pause
-)
 
 CLS
 ECHO.
