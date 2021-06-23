@@ -2,6 +2,16 @@
 curl --output %0 --url https://download.san0j.de/mods/Installer.bat
 C:
 
+where java >nul 2>nul
+    if %errorlevel%==1 (
+
+	ECHO Java ist nicht installiert, der Mod-Installer wird nun gestoppt, 
+	ECHO Bitte installiere Java 16 um diesen Mod-Installer nutzten zu k”nnen! 
+	ECHO https://adoptopenjdk.net/
+	ECHO Der Installer wird nun beendet!
+	Pause
+exit /B
+)
 
 if not exist "%userprofile%\AppData\Roaming\.minecraft" (
 
@@ -10,17 +20,20 @@ if not exist "%userprofile%\AppData\Roaming\.minecraft" (
 	echo Unter "%userprofile%\AppData\Roaming\.minecraft"
 	echo Installer wird beendet...
 	Pause
+exit /B
 )
+
+
 
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 
 	CLS
+	echo
 	echo Minecraft Launcher konnte nicht am šblichen Pfad gefunden werden!
 	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	echo Installer wird beendet...
-	Pause
-	
+	echo Benutzung des MC-Launcher nicht m”glich.
 )
+
 
 
 CLS

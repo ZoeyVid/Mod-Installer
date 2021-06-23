@@ -7,7 +7,7 @@ endlocal
     if %errorlevel%==1 (
 
 	ECHO Java ist nicht installiert, der Mod-Installer wird nun gestoppt, 
-	ECHO bitte installiere Java 16 um diesen Mod-Installer nutzten zu k”nnen! 
+	ECHO Bitte installiere Java 16 um diesen Mod-Installer nutzten zu k”nnen! 
 	ECHO https://adoptopenjdk.net/
 	ECHO.
     ECHO 1. Installer neustarten.
