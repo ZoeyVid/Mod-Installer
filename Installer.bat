@@ -166,7 +166,6 @@ IF ERRORLEVEL 1 GOTO rmy
 :rmy
 del /S /Q %userprofile%\AppData\Roaming\.minecraft\Donwload.ico
 del /S /Q %userprofile%\AppData\Roaming\.minecraft\Installer.ico
-del /S /Q %userprofile%\AppData\Roaming\.minecraft\Installer-Uninstaller.bat
 del /S /Q %userprofile%\AppData\Roaming\.minecraft\MC-Launcher.bat
 del /S /Q %userprofile%\AppData\Roaming\.minecraft\Mod-Installer.bat
 del /S /Q %USERPROFILE%\Desktop\Mod-Installer.lnk
@@ -187,7 +186,7 @@ ECHO 1. Ja
 ECHO 2. Nein
 ECHO.
 CHOICE /C 12 /M "Auswahl: "
-IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 2 GOTO endr
 IF ERRORLEVEL 1 GOTO rmpb
 
 
@@ -208,4 +207,9 @@ ECHO Fertig! Profile und Backups wurden gel”scht!
 ECHO Ausversehen entfernt? https://github.com/2020Sanoj/Mod-Installer/releases/latest
 ECHO.
 Pause
+GOTO endr
+
+:endr
+del /S /Q %userprofile%\AppData\Roaming\.minecraft\Installer-Uninstaller.bat
+del /S /Q %0
 GOTO end
