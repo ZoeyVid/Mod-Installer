@@ -109,7 +109,7 @@ IF ERRORLEVEL 1 GOTO 1.17-optifine
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config options.txt optionsof.txt config
 curl --output 1.17-optifine.jar --url https://download.san0j.de/mods/1.17-optifine.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
@@ -119,8 +119,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -129,7 +131,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
@@ -137,8 +139,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -147,7 +151,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/link
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
@@ -158,8 +162,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 	
@@ -168,7 +174,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
@@ -180,8 +186,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -190,7 +198,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
@@ -202,8 +210,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
  CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -212,7 +222,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
@@ -224,8 +234,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -277,7 +289,7 @@ IF ERRORLEVEL 1 GOTO 1.16-optifine
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output 1.16-optifine.jar --url https://download.san0j.de/mods/1.16-optifine.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
@@ -287,8 +299,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -297,7 +311,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -305,8 +319,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -315,7 +331,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.24/forge-1.16.5-36.1.24-installer.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
@@ -326,8 +342,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 	
@@ -336,7 +354,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -348,8 +366,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -358,7 +378,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -370,8 +390,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
  CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -380,7 +402,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -392,8 +414,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -402,7 +426,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -414,8 +438,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -424,7 +450,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -436,8 +462,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -446,7 +474,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
@@ -458,8 +486,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -483,7 +513,7 @@ CHOICE /C 123456 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO start
-IF ERRORLEVEL 4 GOTO sr
+IF ERRORLEVEL 4 GOTO se
 IF ERRORLEVEL 3 GOTO x
 IF ERRORLEVEL 2 GOTO dm
 IF ERRORLEVEL 1 GOTO k
@@ -530,7 +560,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 
-:sr
+:se
 echo Instalation startet...
 mkdir Selfedit
 cd Selfedit
@@ -550,19 +580,24 @@ IF ERRORLEVEL 1 GOTO start
 C:
 cd "%appdata%\.minecraft\"
 CLS
-ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader auswÑhlst!
+ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader und MC-Version auswÑhlst!
+ECHO Es werden nur Mods in den Profilen gespeichert und geladen!
+ECHO In dem Backup auch Configs!
 ECHO.
-ECHO 1. Profil erstellen - Limit 9
-ECHO 2. Backup laden - wird Automatisch beim Herunterladen von Modpacks und dem laden von Profilen erstellt
+ECHO 1. Profil erstellen - Limit 9 - Vorhandene werden Åberschrieben
+ECHO 2. Profil lîschen
+ECHO 3. Backup laden - Automatisch bei Mod-Installation und MC-Start erstellt - Mods werden Åberschrieben
 ECHO.
-ECHO 3. Installer neustarten.
-ECHO 4. Installer beenden.
+ECHO 4. Installer neustarten.
+ECHO 5. Installer beenden.
 ECHO.
+ECHO ACHTUNG! PROFILE SIND NICHT WIEDERHERSTELLBAR!
 CHOICE /C 1234 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 4 GOTO end
-IF ERRORLEVEL 3 GOTO start
-IF ERRORLEVEL 2 GOTO bu
+IF ERRORLEVEL 5 GOTO end
+IF ERRORLEVEL 4 GOTO start
+IF ERRORLEVEL 3 GOTO bu
+IF ERRORLEVEL 2 GOTO pr
 IF ERRORLEVEL 1 GOTO pc
 
 :bu
@@ -572,8 +607,10 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -597,10 +634,39 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
+
+:pr
+CLs
+ECHO.
+ECHO Welches Profil mîchtest du lîschen?
+ECHO.
+CHOICE /C 123456789 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 9 del /S /Q Profil-9.tar
+IF ERRORLEVEL 8 del /S /Q Profil-8.tar
+IF ERRORLEVEL 7 del /S /Q Profil-7.tar
+IF ERRORLEVEL 6 del /S /Q Profil-6.tar
+IF ERRORLEVEL 5 del /S /Q Profil-5.tar
+IF ERRORLEVEL 4 del /S /Q Profil-4.tar
+IF ERRORLEVEL 3 del /S /Q Profil-3.tar
+IF ERRORLEVEL 2 del /S /Q Profil-2.tar
+IF ERRORLEVEL 1 del /S /Q Profil-1.tar
+echo Fertig!
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
+CHOICE /C 12 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO bp
 
 
 :end
