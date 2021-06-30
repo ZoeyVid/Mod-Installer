@@ -1,12 +1,12 @@
 @echo off
 C:
 
-if not exist "%userprofile%\AppData\Roaming\.minecraft" (
+if not exist "%appdata%\.minecraft" (
 curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 
     CLS
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
-	echo Unter "%userprofile%\AppData\Roaming\.minecraft"
+	echo Unter "%appdata%\.minecraft"
 	echo Starten von Minecraft nicht mîglich
 	echo MC-Launcher wird beendet...
 	Pause
@@ -27,7 +27,7 @@ EXIT /B
 )
 
 C:
-cd "%userprofile%\AppData\Roaming\.minecraft\"
+cd "%appdata%\.minecraft\"
 tar cf Backup.tar mods config
 rmdir /S /Q mods
 CLS
@@ -47,7 +47,7 @@ IF ERRORLEVEL 1 tar xf Profil-1.tar
 
 echo Mods geladen! Starten...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft\
+cd %appdata%\.minecraft\
 if exist steam (
 
 	start steam://rungameid/13354743620561797120

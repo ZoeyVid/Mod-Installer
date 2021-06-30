@@ -23,10 +23,10 @@ endlocal
     IF ERRORLEVEL 1 GOTO start
 )
 
-if not exist "%userprofile%\AppData\Roaming\.minecraft" (
+if not exist "%appdata%\.minecraft" (
     CLS
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
-	echo Unter "%userprofile%\AppData\Roaming\.minecraft"
+	echo Unter "%appdata%\.minecraft"
 	echo AusfÅhrung von Mod Updates und Installationen nicht mîglich.
 	ECHO.
     ECHO 1. Installer neustarten.
@@ -73,7 +73,7 @@ CLS
     IF ERRORLEVEL 1 GOTO 1.16
 
 :1.17
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 CLS
 ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
 ECHO.
@@ -108,7 +108,7 @@ IF ERRORLEVEL 1 GOTO 1.17-optifine
 :1.17-optifine
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output 1.17-optifine.jar --url https://download.san0j.de/mods/1.17-optifine.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
@@ -128,7 +128,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.17-fabric
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.17
@@ -146,7 +146,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.17-forge
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/link
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
@@ -167,7 +167,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.17-Client-Only
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.17
@@ -189,7 +189,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.17-Client-Mods-Lite
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.17
@@ -211,7 +211,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.17-Client-Mods-Full
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.17
@@ -232,7 +232,7 @@ IF ERRORLEVEL 1 GOTO start
 
 
 :1.16
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 CLS
 ECHO Client: FPS = Sodium, Shader = Optifine
 ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
@@ -276,7 +276,7 @@ IF ERRORLEVEL 1 GOTO 1.16-optifine
 :1.16-optifine
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output 1.16-optifine.jar --url https://download.san0j.de/mods/1.16-optifine.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
@@ -296,7 +296,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.16-fabric
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
@@ -314,7 +314,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.16-forge
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.24/forge-1.16.5-36.1.24-installer.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
@@ -335,7 +335,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.16-Client-Only-FPS
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
@@ -357,7 +357,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.16-Client-Mods-Lite-FPS
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
@@ -379,7 +379,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.16-Client-Mods-Full-FPS
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
@@ -401,7 +401,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.16-Client-Only-Shader
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
@@ -423,7 +423,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.16-Client-Mods-Lite-Shader
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
@@ -445,7 +445,7 @@ IF ERRORLEVEL 1 GOTO start
 :1.16-Client-Mods-Full-Shader
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 tar cf Backup.tar mods
 curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
@@ -466,7 +466,7 @@ IF ERRORLEVEL 1 GOTO start
 
 
 :tp
-cd %userprofile%\AppData\Roaming\.minecraft
+cd %appdata%\.minecraft
 CLS
 ECHO.
 ECHO Texture Packs:
@@ -491,7 +491,7 @@ IF ERRORLEVEL 1 GOTO k
 :k
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft\resourcepacks
+cd %appdata%\.minecraft\resourcepacks
 curl --output KÅrbis.zip --url https://download.san0j.de/mods/KÅrbis.zip
 
 ECHO 1. Mod-Installer neustarten.
@@ -505,7 +505,7 @@ IF ERRORLEVEL 1 GOTO start
 :dm
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft\resourcepacks
+cd %appdata%\.minecraft\resourcepacks
 curl --output Dark.zip --url https://download.san0j.de/mods/Dark-Mode.zip
 
 ECHO 1. Mod-Installer neustarten.
@@ -519,7 +519,7 @@ IF ERRORLEVEL 1 GOTO start
 :x
 echo Instalation startet...
 C:
-cd %userprofile%\AppData\Roaming\.minecraft\resourcepacks
+cd %appdata%\.minecraft\resourcepacks
 curl --output Xray.zip --url https://download.san0j.de/mods/Xray.zip
 
 ECHO 1. Mod-Installer neustarten.
@@ -548,7 +548,7 @@ IF ERRORLEVEL 1 GOTO start
 
 :bp
 C:
-cd "%userprofile%\AppData\Roaming\.minecraft\"
+cd "%appdata%\.minecraft\"
 CLS
 ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader auswÑhlst!
 ECHO.
