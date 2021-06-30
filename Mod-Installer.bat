@@ -600,7 +600,7 @@ ECHO 2. Installer beenden.
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO bp
+IF ERRORLEVEL 1 GOTO start
 
 
 :end
