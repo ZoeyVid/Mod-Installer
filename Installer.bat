@@ -1,4 +1,5 @@
 @echo off
+:start
 curl --output %0 --url https://download.san0j.de/mods/Installer.bat
 C:
 

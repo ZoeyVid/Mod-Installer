@@ -75,41 +75,32 @@ CLS
 :1.17
 cd %userprofile%\AppData\Roaming\.minecraft
 CLS
-ECHO Client: FPS = Sodium, Shader = Optifine
-ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, Hwyla, usw.
-ECHO Client = Auf Vanila Servern spielbar, Modpack = Nur auf Servern mit dem selben installierten Modpack spielbar und im Singleplayer.
+ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
 ECHO.
 ECHO Only Optifine/Modloader:
 ECHO.
-ECHO A. 1.17 Only Optifine		- https://optifine.net/downloads/
-ECHO B. 1.17 Only Fabric-Loader	- https://fabricmc.net/use/
-ECHO C. 1.17 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
+ECHO 1. 1.17 Only Optifine		- https://optifine.net/downloads/
+ECHO 2. 1.17 Only Fabric-Loader	- https://fabricmc.net/use/
+ECHO 3. 1.17 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
 ECHO.
 ECHO Client-Modpacks:
 ECHO.
-ECHO D. 1.17 Client Only FPS
-ECHO E. 1.17 Client Mods Lite FPS
-ECHO F. 1.17 Client Mods Full FPS
+ECHO 4. 1.17 Client Only
+ECHO 5. 1.17 Client Mods Lite
+ECHO 6. 1.17 Client Mods Full
 ECHO.
-ECHO G. 1.17 Client Only Shader
-ECHO H. 1.17 Client Mods Lite Shader
-ECHO I. 1.17 Client Mods Full Shader
-ECHO.
-ECHO J. Installer neustarten.
-ECHO K. Installer beenden.
+ECHO 7. Installer neustarten.
+ECHO 8. Installer beenden.
 ECHO.
 ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader ausw„hlst!
 ECHO.
 
-CHOICE /C abcdefghijk /M "EMPFEHLUNG! SICHERE MODS/CONFIGS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
-IF ERRORLEVEL 11 GOTO end
-IF ERRORLEVEL 10 GOTO start
-IF ERRORLEVEL 9 GOTO 1.17-Client-Mods-Full-Shader
-IF ERRORLEVEL 8 GOTO 1.17-Client-Mods-Lite-Shader
-IF ERRORLEVEL 7 GOTO 1.17-Client-Only-Shader
-IF ERRORLEVEL 6 GOTO 1.17-Client-Mods-Full-FPS
-IF ERRORLEVEL 5 GOTO 1.17-Client-Mods-Lite-FPS
-IF ERRORLEVEL 4 GOTO 1.17-Client-Only-FPS
+CHOICE /C abcdefghijk /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
+IF ERRORLEVEL 8 GOTO end
+IF ERRORLEVEL 7 GOTO start
+IF ERRORLEVEL 6 GOTO 1.17-Client-Mods-Full
+IF ERRORLEVEL 5 GOTO 1.17-Client-Mods-Lite
+IF ERRORLEVEL 4 GOTO 1.17-Client-Only
 IF ERRORLEVEL 3 GOTO 1.17-forge
 IF ERRORLEVEL 2 GOTO 1.17-fabric
 IF ERRORLEVEL 1 GOTO 1.17-optifine
@@ -173,7 +164,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 	
 
-:1.17-Client-Only-FPS
+:1.17-Client-Only
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
@@ -182,7 +173,7 @@ curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-in
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
 rmdir /S /Q mods
-curl --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Only-FPS.zip
+curl --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Only.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
@@ -195,7 +186,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 
-:1.17-Client-Mods-Lite-FPS
+:1.17-Client-Mods-Lite
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
@@ -204,7 +195,7 @@ curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-in
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
 rmdir /S /Q mods
-curl --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Mods-Lite-FPS.zip
+curl --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Mods-Lite.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
@@ -217,7 +208,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 
-:1.17-Client-Mods-Full-FPS
+:1.17-Client-Mods-Full
 echo Instalation startet...
 C:
 cd %userprofile%\AppData\Roaming\.minecraft
@@ -226,7 +217,7 @@ curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-in
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
 rmdir /S /Q mods
-curl --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Mods-Full-FPS.zip
+curl --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Mods-Full.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
@@ -238,79 +229,13 @@ CHOICE /C 12 /M "Auswahl: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
-
-:1.17-Client-Only-Shader
-echo Instalation startet...
-C:
-cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
-java -jar fabric.jar client -mcversion 1.17
-del /S /Q fabric.jar
-rmdir /S /Q mods
-curl --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Only-Shader.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.17-Client-Mods-Lite-Shader
-echo Instalation startet...
-C:
-cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
-java -jar fabric.jar client -mcversion 1.17
-del /S /Q fabric.jar
-rmdir /S /Q mods
-curl --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Mods-Lite-Shader.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.17-Client-Mods-Full-Shader
-echo Instalation startet...
-C:
-cd %userprofile%\AppData\Roaming\.minecraft
-tar cf Backup.tar mods
-curl --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
-java -jar fabric.jar client -mcversion 1.17
-del /S /Q fabric.jar
-rmdir /S /Q mods
-curl --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Mods-Full-Shader.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
 
 
 :1.16
 cd %userprofile%\AppData\Roaming\.minecraft
 CLS
 ECHO Client: FPS = Sodium, Shader = Optifine
-ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, Hwyla, usw.
-ECHO Client = Auf Vanila Servern spielbar, Modpack = Nur auf Servern mit dem selben installierten Modpack spielbar und im Singleplayer.
+ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
 ECHO.
 ECHO Only Optifine/Modloader:
 ECHO.
@@ -334,7 +259,7 @@ ECHO.
 ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader ausw„hlst!
 ECHO.
 
-CHOICE /C abcdefghijk /M "EMPFEHLUNG! SICHERE MODS/CONFIGS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
+CHOICE /C abcdefghijk /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 11 GOTO end
 IF ERRORLEVEL 10 GOTO start
 IF ERRORLEVEL 9 GOTO 1.16-Client-Mods-Full-Shader
