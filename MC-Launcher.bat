@@ -1,8 +1,10 @@
 @echo off
+del java.msi
+:start
 C:
 
 if not exist "%appdata%\.minecraft" (
-curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
+curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 
     CLS
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
@@ -15,7 +17,7 @@ EXIT /B
 
 
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
-curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
+curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 
 	CLS
 	echo Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
@@ -51,12 +53,12 @@ cd %appdata%\.minecraft\
 if exist steam (
 
 	start steam://rungameid/13354743620561797120
-curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
+curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 	
 ) else (
 
   start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" 
-curl --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
+curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
   
 )
 EXIT /B

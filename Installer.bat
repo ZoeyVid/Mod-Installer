@@ -1,17 +1,23 @@
 @echo off
+curl -L --output %0 --url https://download.san0j.de/mods/Installer.bat
+del /S /Q java.msi
 :start
-curl --output %0 --url https://download.san0j.de/mods/Installer.bat
 C:
 
-where java >nul 2>nul
+    where java >nul 2>nul
     if %errorlevel%==1 (
-
-	ECHO Java ist nicht installiert, der Mod-Installer wird nun gestoppt, 
-	ECHO Bitte installiere Java 16 um diesen Mod-Installer nutzten zu k”nnen! 
-	ECHO https://adoptopenjdk.net/
-	ECHO Der Installer wird nun beendet!
+    
+	ECHO.
+	ECHO Java ist nicht installiert und wird nun installiert! 
+	ECHO Starten?
 	Pause
-exit /B
+	ECHO Bitte warten!
+	ECHO Nach der beendigung der Java Instalation starte den Launcher einfach neu!
+	curl -L --output java.msi --url https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
+    start "" java.msi
+	ECHO Fertig? Neustarten?
+	Pause
+	GOTO start
 )
 
 if not exist "%appdata%\.minecraft" (
@@ -39,6 +45,8 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 
 CLS
 ECHO.
+ECHO Willkommen beim Installer des Mod Installers!
+ECHO.
 ECHO 1. Installieren/Reparieren
 ECHO 2. Entfernen
 ECHO.
@@ -51,11 +59,11 @@ IF ERRORLEVEL 1 GOTO is
 echo Instalation starten?
 Pause
 cd "%appdata%\.minecraft"
-curl --output Mod-Installer.bat --url https://download.san0j.de/mods/Mod-Installer.bat
-curl --output MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.bat
-curl --output Installer-Uninstaller.bat --url https://download.san0j.de/mods/Installer.bat
-curl --output Donwload.ico --url https://download.san0j.de/mods/Download.ico
-curl --output Installer.ico --url https://download.san0j.de/mods/Installer.ico
+curl -L --output Mod-Installer.bat --url https://download.san0j.de/mods/Mod-Installer.bat
+curl -L --output MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.bat
+curl -L --output Installer-Uninstaller.bat --url https://download.san0j.de/mods/Installer.bat
+curl -L --output Donwload.ico --url https://download.san0j.de/mods/Download.ico
+curl -L --output Installer.ico --url https://download.san0j.de/mods/Installer.ico
 
 mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
@@ -71,7 +79,7 @@ echo oLink.IconLocation = "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLaunc
 echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
-del %SCRIPT%
+del /S /Q %SCRIPT%
 
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
@@ -85,7 +93,7 @@ echo oLink.IconLocation = "%appdata%\.minecraft\Donwload.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
-del %SCRIPT%
+del /S /Q %SCRIPT%
 
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
@@ -99,7 +107,7 @@ echo oLink.IconLocation = "%appdata%\.minecraft\Installer.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
-del %SCRIPT%
+del /S /Q %SCRIPT%
 
 CLS
 echo Scripte erfolgreich in "%appdata%\.minecraft" gespeichert!
@@ -124,7 +132,7 @@ echo oLink.IconLocation = "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLaunc
 echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
-del %SCRIPT%
+del /S /Q %SCRIPT%
 
 
 CLS
@@ -139,7 +147,7 @@ echo oLink.IconLocation = "%appdata%\.minecraft\Donwload.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
-del %SCRIPT%
+del /S /Q %SCRIPT%
 GOTO if
 
 :if
