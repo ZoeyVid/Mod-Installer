@@ -67,7 +67,7 @@ CLS
     IF ERRORLEVEL 7 GOTO end
     IF ERRORLEVEL 6 GOTO start
     IF ERRORLEVEL 5 GOTO bp
-	IF ERRORLEVEL 4 GOTO tp
+	IF ERRORLEVEL 4 GOTO rp
 	IF ERRORLEVEL 3 GOTO 1.8
 	IF ERRORLEVEL 2 GOTO 1.17
     IF ERRORLEVEL 1 GOTO 1.16
@@ -591,8 +591,9 @@ IF ERRORLEVEL 1 GOTO start
 
 
 
-:tp
-cd %appdata%\.minecraft
+:rp
+C:
+cd %appdata%\.minecraft\resourcepacks
 CLS
 ECHO.
 ECHO Texture Packs:
@@ -600,7 +601,7 @@ ECHO.
 ECHO 1. KÅrbis Sicht entfernen - KÅrbis.zip
 ECHO 2. Dark Mode - Verdunkle Minecraft - https://www.curseforge.com/minecraft/texture-packs/default-dark-mode
 ECHO 3. Xray - ungern gesehen           - https://www.curseforge.com/minecraft/texture-packs/xray-ultimate-1-11-compatible
-ECHO 4. 1.17 Default Resourcepack
+ECHO 4. Default Resourcepack - Das Standart Minecraft Texturepack - zum selbst bearbeiten
 ECHO.
 ECHO 5. Mod-Installer neustarten.
 ECHO 6. Mod-Installer beenden.
@@ -609,64 +610,89 @@ CHOICE /C 123456 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO start
-IF ERRORLEVEL 4 GOTO 1.17-rp
-IF ERRORLEVEL 3 GOTO x
+IF ERRORLEVEL 4 GOTO drp
+IF ERRORLEVEL 3 GOTO xray
 IF ERRORLEVEL 2 GOTO dm
-IF ERRORLEVEL 1 GOTO k
+IF ERRORLEVEL 1 GOTO ks
 
-:1.17-rp
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft\resourcepacks
-curl -L --output rp-1.17.zip --url https://download.san0j.de/mods/rp-1.17.zip
+:drp
+echo Download startet...
+ECHO 1. 1.16
+ECHO 2. 1.17
+ECHO 3. 1.8
+CHOICE /C 123 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 curl -L --output rp-1.8.zip --url  https://download.san0j.de/mods/rp-1.8.zip
+IF ERRORLEVEL 2 curl -L --output rp-1.17.zip --url  https://download.san0j.de/mods/rp-1.17.zip
+IF ERRORLEVEL 1 curl -L --output rp-1.16.zip --url  https://download.san0j.de/mods/rp-1.16.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
+ECHO 3. Weitere Rescource Packs donwloaden
+CHOICE /C 123 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO rp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
-:k
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft\resourcepacks
-curl -L --output KÅrbis.zip --url https://download.san0j.de/mods/Kuerbis.zip
+:xray
+echo Download startet...
+ECHO 1. 1.16
+ECHO 2. 1.17
+CHOICE /C 12 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 2 curl -L --output Xray-1.17.zip --url  https://download.san0j.de/mods/Xray-1.17.zip
+IF ERRORLEVEL 1 curl -L --output Xray-1.16.zip --url  https://download.san0j.de/mods/Xray-1.16.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
+ECHO 3. Weitere Rescource Packs donwloaden
+CHOICE /C 123 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO rp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
-
 
 :dm
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft\resourcepacks
-curl -L --output Dark.zip --url https://download.san0j.de/mods/Dark-Mode.zip
+echo Download startet...
+ECHO 1. 1.16
+ECHO 2. 1.17
+ECHO 3. 1.8
+CHOICE /C 123 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 curl -L --output Dark-Mode-1.8.zip --url  https://download.san0j.de/mods/Dark-Mode-1.8.zip
+IF ERRORLEVEL 2 curl -L --output Dark-Mode-1.17.zip --url  https://download.san0j.de/mods/Dark-Mode-1.17.zip
+IF ERRORLEVEL 1 curl -L --output Dark-Mode-1.16.zip --url  https://download.san0j.de/mods/Dark-Mode-1.16.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
+ECHO 3. Weitere Rescource Packs donwloaden
+CHOICE /C 123 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO rp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
-
-:x
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft\resourcepacks
-curl -L --output Xray.zip --url https://download.san0j.de/mods/Xray.zip
+:ks
+echo Download startet...
+ECHO 1. 1.16
+ECHO 2. 1.17
+ECHO 3. 1.8
+CHOICE /C 123 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 curl -L --output KÅrbis-1.8.zip --url  https://download.san0j.de/mods/Kuerbis-1.8.zip
+IF ERRORLEVEL 2 curl -L --output KÅrbis-1.17.zip --url  https://download.san0j.de/mods/Kuerbis-1.17.zip
+IF ERRORLEVEL 1 curl -L --output KÅrbis-1.16.zip --url  https://download.san0j.de/mods/Kuerbis-1.16.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
+ECHO 3. Weitere Rescource Packs donwloaden
+CHOICE /C 123 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO rp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
+
 
 
 :bp
