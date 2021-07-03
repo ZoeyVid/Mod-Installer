@@ -633,7 +633,7 @@ IF ERRORLEVEL 1 GOTO start
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft\resourcepacks
-curl -L --output KÅrbis.zip --url https://download.san0j.de/mods/KÅrbis.zip
+curl -L --output KÅrbis.zip --url https://download.san0j.de/mods/Kuerbis.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
