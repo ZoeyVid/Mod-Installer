@@ -598,19 +598,17 @@ ECHO.
 ECHO Texture Packs:
 ECHO.
 ECHO 1. KÅrbis Sicht entfernen - KÅrbis.zip
-ECHO 2. Dark Mode - Verdunkle Minecraft	- https://www.curseforge.com/minecraft/texture-packs/default-dark-mode
-ECHO 3. Xray - ungern gesehen			- https://www.curseforge.com/minecraft/texture-packs/xray-ultimate-1-11-compatible
+ECHO 2. Dark Mode - Verdunkle Minecraft - https://www.curseforge.com/minecraft/texture-packs/default-dark-mode
+ECHO 3. Xray - ungern gesehen           - https://www.curseforge.com/minecraft/texture-packs/xray-ultimate-1-11-compatible
 ECHO 4. 1.17 Default Resourcepack
-ECHO 5. Standart Resourcepack - erstelle dein eigenes Resourcepack
 ECHO.
-ECHO 6. Mod-Installer neustarten.
-ECHO 7. Mod-Installer beenden.
+ECHO 5. Mod-Installer neustarten.
+ECHO 6. Mod-Installer beenden.
 ECHO.
 CHOICE /C 123456 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 7 GOTO end
-IF ERRORLEVEL 6 GOTO start
-IF ERRORLEVEL 5 GOTO se
+IF ERRORLEVEL 6 GOTO end
+IF ERRORLEVEL 5 GOTO start
 IF ERRORLEVEL 4 GOTO 1.17-rp
 IF ERRORLEVEL 3 GOTO x
 IF ERRORLEVEL 2 GOTO dm
@@ -662,22 +660,6 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft\resourcepacks
 curl -L --output Xray.zip --url https://download.san0j.de/mods/Xray.zip
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:se
-echo Instalation startet...
-mkdir Selfedit
-cd Selfedit
-curl -L --output rp.zip --url https://download.san0j.de/mods/default-rp-for-selfedit.zip
-tar -xf rp.zip
-del /S /Q rp.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
