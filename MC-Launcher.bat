@@ -35,6 +35,7 @@ rmdir /S /Q mods
 CLS
 ECHO.
 ECHO Mit welchem Mod-Profil Minecraft starten?
+ECHO Achte darauf im MC-Launcher den richtigen Mod-Loader zuw„hlen!
 ECHO.
 CHOICE /C 123456789 /M "Auswahl: "
 IF ERRORLEVEL 9 tar xf Profil-9.tar
