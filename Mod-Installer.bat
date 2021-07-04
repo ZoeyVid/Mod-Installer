@@ -10,6 +10,7 @@ endlocal
     
 	ECHO.
 	ECHO Java ist nicht installiert und wird nun installiert! 
+	ECHO Von https://lksr.de/corretto
 	ECHO Starten?
 	Pause
 	ECHO Bitte warten!
@@ -123,7 +124,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
+curl -L --output forge.jar --url https://download.san0j.de/mods/1.8-forge.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
@@ -146,7 +147,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
+curl -L --output forge.jar --url https://download.san0j.de/mods/1.8-forge.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
@@ -228,7 +229,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
 echo Fertig!
@@ -248,7 +249,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/link
+curl -L --output forge.jar --url https://download.san0j.de/mods/1.17-forge.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
@@ -271,7 +272,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -295,7 +296,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -319,7 +320,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
 java -jar fabric.jar client -mcversion 1.17
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -408,7 +409,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 echo Fertig!
@@ -428,7 +429,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.24/forge-1.16.5-36.1.24-installer.jar
+curl -L --output forge.jar --url https://download.san0j.de/mods/1.16-forge.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
@@ -451,7 +452,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -475,7 +476,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -499,7 +500,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -523,7 +524,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -547,7 +548,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -571,7 +572,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
@@ -599,25 +600,41 @@ ECHO.
 ECHO Texture Packs:
 ECHO.
 ECHO 1. KÅrbis Sicht entfernen - KÅrbis.zip
-ECHO 2. Dark Mode - Verdunkle Minecraft - https://www.curseforge.com/minecraft/texture-packs/default-dark-mode
-ECHO 3. Xray - ungern gesehen           - https://www.curseforge.com/minecraft/texture-packs/xray-ultimate-1-11-compatible
+ECHO 2. Dark Mode - Verdunkle Minecraft - https://lksr.de/darkrp
+ECHO 3. Xray - ungern gesehen           - https://lksr.de/xray
 ECHO 4. Default Resourcepack - Das Standart Minecraft Texturepack - zum selbst bearbeiten
-ECHO 5. 1.8 PVP Pack (das von BastiGHG)
-ECHO 6. Alles
+ECHO 5. Textures der neuen Versionen fÅr die 1.8 - https://lksr.de/18new
+ECHO 6. 1.8 PVP Pack (das von BastiGHG) - https://lksr.de/pvp
+ECHO 7. Alles
 ECHO.
-ECHO 7. Mod-Installer neustarten.
-ECHO 8. Mod-Installer beenden.
+ECHO 8. Mod-Installer neustarten.
+ECHO 9. Mod-Installer beenden.
 ECHO.
-CHOICE /C 12345678 /M "Auswahl: "
+CHOICE /C 123456789 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 8 GOTO end
-IF ERRORLEVEL 7 GOTO start
-IF ERRORLEVEL 6 GOTO rpa
-IF ERRORLEVEL 5 GOTO pvp
+IF ERRORLEVEL 9 GOTO end
+IF ERRORLEVEL 8 GOTO start
+IF ERRORLEVEL 7 GOTO rpa
+IF ERRORLEVEL 6 GOTO pvp
+IF ERRORLEVEL 5 GOTO 1.8-new
 IF ERRORLEVEL 4 GOTO drp
 IF ERRORLEVEL 3 GOTO xray
 IF ERRORLEVEL 2 GOTO dm
 IF ERRORLEVEL 1 GOTO ks
+
+
+:rpa
+echo Download start...
+curl -L --output Alles.zip --url  https://download.san0j.de/mods/Alles.zip
+tar -xf Alles.zip
+del /S /Q Alles.zip
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+CHOICE /C 12 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO rp
+IF ERRORLEVEL 2 GOTO end
 
 :pvp
 echo Download start...
@@ -632,18 +649,17 @@ IF ERRORLEVEL 3 GOTO rp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
-:rpa
-echo Download start...
-curl -L --output Alles.zip --url  https://download.san0j.de/mods/Alles.zip
-tar -xf Alles.zip
-del /S /Q Alles.zip
+:1.8-new
+curl -L --output 1.8-rp-with-newer-textures.zip --url  https://download.san0j.de/mods/1.8-rp-with-newer-textures.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
+ECHO 3. Weitere Rescource Packs donwloaden
+CHOICE /C 123 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 3 GOTO rp
 IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
 
 :drp
 echo Download startet...
