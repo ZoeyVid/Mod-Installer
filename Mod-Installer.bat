@@ -602,20 +602,35 @@ ECHO 1. KÅrbis Sicht entfernen - KÅrbis.zip
 ECHO 2. Dark Mode - Verdunkle Minecraft - https://www.curseforge.com/minecraft/texture-packs/default-dark-mode
 ECHO 3. Xray - ungern gesehen           - https://www.curseforge.com/minecraft/texture-packs/xray-ultimate-1-11-compatible
 ECHO 4. Default Resourcepack - Das Standart Minecraft Texturepack - zum selbst bearbeiten
-ECHO 5. Alles
+ECHO 5. 1.8 PVP Pack (das von BastiGHG)
+ECHO 6. Alles
 ECHO.
-ECHO 6. Mod-Installer neustarten.
-ECHO 7. Mod-Installer beenden.
+ECHO 7. Mod-Installer neustarten.
+ECHO 8. Mod-Installer beenden.
 ECHO.
-CHOICE /C 123456 /M "Auswahl: "
+CHOICE /C 12345678 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 7 GOTO end
-IF ERRORLEVEL 6 GOTO start
-IF ERRORLEVEL 5 GOTO rpa
+IF ERRORLEVEL 8 GOTO end
+IF ERRORLEVEL 7 GOTO start
+IF ERRORLEVEL 6 GOTO rpa
+IF ERRORLEVEL 5 GOTO pvp
 IF ERRORLEVEL 4 GOTO drp
 IF ERRORLEVEL 3 GOTO xray
 IF ERRORLEVEL 2 GOTO dm
 IF ERRORLEVEL 1 GOTO ks
+
+:pvp
+echo Download start...
+curl -L --output BastiGHG-PVP.zip --url  https://download.san0j.de/mods/BastiGHG-PVP.zip
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+ECHO 3. Weitere Rescource Packs donwloaden
+CHOICE /C 123 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO rp
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
 
 :rpa
 echo Download start...
