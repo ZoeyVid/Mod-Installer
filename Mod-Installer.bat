@@ -602,18 +602,33 @@ ECHO 1. KÅrbis Sicht entfernen - KÅrbis.zip
 ECHO 2. Dark Mode - Verdunkle Minecraft - https://www.curseforge.com/minecraft/texture-packs/default-dark-mode
 ECHO 3. Xray - ungern gesehen           - https://www.curseforge.com/minecraft/texture-packs/xray-ultimate-1-11-compatible
 ECHO 4. Default Resourcepack - Das Standart Minecraft Texturepack - zum selbst bearbeiten
+ECHO 5. Alles
 ECHO.
-ECHO 5. Mod-Installer neustarten.
-ECHO 6. Mod-Installer beenden.
+ECHO 6. Mod-Installer neustarten.
+ECHO 7. Mod-Installer beenden.
 ECHO.
 CHOICE /C 123456 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 6 GOTO end
-IF ERRORLEVEL 5 GOTO start
+IF ERRORLEVEL 7 GOTO end
+IF ERRORLEVEL 6 GOTO start
+IF ERRORLEVEL 5 GOTO rpa
 IF ERRORLEVEL 4 GOTO drp
 IF ERRORLEVEL 3 GOTO xray
 IF ERRORLEVEL 2 GOTO dm
 IF ERRORLEVEL 1 GOTO ks
+
+:rpa
+echo Download start...
+curl -L --output Alles.zip --url  https://download.san0j.de/mods/Alles.zip
+tar -xf Alles.zip
+del /S /Q Alles.zip
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+CHOICE /C 12 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO rp
+IF ERRORLEVEL 2 GOTO end
 
 :drp
 echo Download startet...
