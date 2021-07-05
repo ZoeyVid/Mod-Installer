@@ -3,6 +3,23 @@ del java.msi
 :start
 C:
 
+    where java >nul 2>nul
+    if %errorlevel%==1 (
+    
+	ECHO.
+	ECHO Java ist nicht installiert und wird nun installiert! 
+	ECHO Von https://lksr.de/corretto
+	ECHO Starten?
+	Pause
+	ECHO Bitte warten!
+	ECHO Nach der beendigung der Java Instalation starte den Launcher einfach neu!
+	curl -L --output java.msi --url https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
+    start "" java.msi
+	ECHO Fertig? Neustarten?
+	Pause
+	GOTO start
+)
+
 if not exist "%appdata%\.minecraft" (
 curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 

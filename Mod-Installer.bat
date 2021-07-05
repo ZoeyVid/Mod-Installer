@@ -152,7 +152,7 @@ echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
-del /S /Q forge-1.8.9-11.15.1.2318-1.8.9-installer.jar.log
+del /S /Q forge.jar.log
 rmdir /S /Q mods
 curl -L --output mods.zip --url https://download.san0j.de/mods/1.8.zip
 tar -xf mods.zip
