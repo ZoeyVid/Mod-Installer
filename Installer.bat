@@ -148,6 +148,8 @@ echo oLink.Save >> %SCRIPT%
 
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
+del /S /Q %appdata%\.minecraft\Donwload.ico
+del /S /Q %appdata%\.minecraft\Installer.ico
 GOTO if
 
 :if
