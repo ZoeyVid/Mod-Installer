@@ -101,7 +101,7 @@ IF ERRORLEVEL 1 GOTO 1.8-optifine
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config options.txt optionsof.txt config
+tar cf Backup.tar mods options.txt optionsof.txt config
 curl -L --output 1.8-optifine.jar --url https://download.san0j.de/mods/1.8-optifine.jar
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
@@ -780,6 +780,46 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 :pc
+ECHO.
+ECHO Was soll Im Profil gespeichert werden?
+ECHO.
+ECHO 1. Nur Mods
+ECHO 2. Mods + Config
+ECHO.
+ECHO ACHTUNG! PROFILE SIND NICHT WIEDERHERSTELLBAR!
+CHOICE /C 12 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 2 GOTO pcmc
+IF ERRORLEVEL 1 GOTO pcm
+
+:pcmc
+CLs
+ECHO.
+ECHO Unter welchem Profil m”chtest du die aktuellen Mods und Configs speichern?
+ECHO.
+CHOICE /C 123456789 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 9 tar cf Profil-9.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt
+echo Fertig!
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/l”schen
+CHOICE /C 123 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
+
+:pcm
 CLs
 ECHO.
 ECHO Unter welchem Profil m”chtest du die aktuellen Mods speichern?
