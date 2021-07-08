@@ -782,6 +782,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 :pc
+CLS
 ECHO.
 ECHO Was soll Im Profil gespeichert werden?
 ECHO.
