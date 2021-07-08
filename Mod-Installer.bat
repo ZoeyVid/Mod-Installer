@@ -785,12 +785,41 @@ ECHO Was soll Im Profil gespeichert werden?
 ECHO.
 ECHO 1. Nur Mods
 ECHO 2. Mods + Config
+ECHO 3. Nur Configs
 ECHO.
 ECHO ACHTUNG! PROFILE SIND NICHT WIEDERHERSTELLBAR!
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO pcc
 IF ERRORLEVEL 2 GOTO pcmc
 IF ERRORLEVEL 1 GOTO pcm
+
+:pcc
+CLs
+ECHO.
+ECHO Unter welchem Profil m”chtest du die aktuellen Configs speichern?
+ECHO.
+CHOICE /C 123456789 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 9 tar cf Profil-9.tar config optionsof.txt options.txt
+IF ERRORLEVEL 8 tar cf Profil-8.tar config optionsof.txt options.txt
+IF ERRORLEVEL 7 tar cf Profil-7.tar config optionsof.txt options.txt
+IF ERRORLEVEL 6 tar cf Profil-6.tar config optionsof.txt options.txt
+IF ERRORLEVEL 5 tar cf Profil-5.tar config optionsof.txt options.txt
+IF ERRORLEVEL 4 tar cf Profil-4.tar config optionsof.txt options.txt
+IF ERRORLEVEL 3 tar cf Profil-3.tar config optionsof.txt options.txt
+IF ERRORLEVEL 2 tar cf Profil-2.tar config optionsof.txt options.txt
+IF ERRORLEVEL 1 tar cf Profil-1.tar config optionsof.txt options.txt
+echo Fertig!
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/l”schen
+CHOICE /C 123 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
 
 :pcmc
 CLs
