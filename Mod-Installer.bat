@@ -230,7 +230,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
-java -jar fabric.jar client -mcversion 1.17
+java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
 echo Fertig!
 
@@ -273,7 +273,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
-java -jar fabric.jar client -mcversion 1.17
+java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
 rmdir /S /Q mods
 curl -L --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Only.zip
@@ -297,7 +297,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
-java -jar fabric.jar client -mcversion 1.17
+java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
 rmdir /S /Q mods
 curl -L --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Mods-Lite.zip
@@ -321,7 +321,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 curl -L --output fabric.jar --url https://download.san0j.de/mods/fabric.jar
-java -jar fabric.jar client -mcversion 1.17
+java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
 rmdir /S /Q mods
 curl -L --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Mods-Full.zip
