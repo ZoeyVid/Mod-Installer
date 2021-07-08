@@ -47,127 +47,33 @@ CLS
 	ECHO.
 	ECHO Client-Mods/Modpack Versionen:
 	ECHO.
-	ECHO 1. 1.16
-	ECHO 2. 1.17 - Unstable!
+	ECHO 1. 1.17 - Unstable!
+	ECHO 2. 1.16
 	ECHO 3. 1.8
+	ECHO 4. Sanojs Empfehlungen!
 	ECHO.
-	ECHO 4. Texture Packs
+	ECHO 5. Texture Packs
 	ECHO.
-	ECHO 5. Backups/Modprofile
+	ECHO 6. Backups/Modprofile
 	ECHO.
 	ECHO Funktionen:
 	ECHO.
-    ECHO 6. Installer neustarten.
-	ECHO 7. Installer beenden.
-	ECHO 8. Feedback hinterlassen
+    ECHO 7. Installer neustarten.
+	ECHO 8. Installer beenden.
+	ECHO 9. Feedback hinterlassen
 	ECHO.
-    CHOICE /C 12345678 /M "Auswahl: "
+    CHOICE /C 123456789 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-    IF ERRORLEVEL 8 GOTO fb
-    IF ERRORLEVEL 7 GOTO end
-    IF ERRORLEVEL 6 GOTO start
-    IF ERRORLEVEL 5 GOTO bp
-	IF ERRORLEVEL 4 GOTO rp
+    IF ERRORLEVEL 9 GOTO fb
+    IF ERRORLEVEL 8 GOTO end
+    IF ERRORLEVEL 7	GOTO start
+    IF ERRORLEVEL 6 GOTO bp
+	IF ERRORLEVEL 5 GOTO rp
+	IF ERRORLEVEL 4 GOTO se	
 	IF ERRORLEVEL 3 GOTO 1.8
-	IF ERRORLEVEL 2 GOTO 1.17
-    IF ERRORLEVEL 1 GOTO 1.16
-
-
-:1.8
-cd %appdata%\.minecraft
-CLS
-ECHO.
-ECHO Only Optifine/Modloader:
-ECHO.
-ECHO 1. 1.8 Only Optifine		- https://optifine.net/downloads/
-ECHO 2. 1.8 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
-ECHO 3. 1.8 Client-Mods
-ECHO.
-ECHO 4. Installer neustarten.
-ECHO 5. Installer beenden.
-ECHO.
-ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader auswÑhlst!
-ECHO.
-
-CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
-IF ERRORLEVEL 5 GOTO end
-IF ERRORLEVEL 4 GOTO start
-IF ERRORLEVEL 3 GOTO 1.8-Client
-IF ERRORLEVEL 2 GOTO 1.8-forge
-IF ERRORLEVEL 1 GOTO 1.8-optifine
-
-:1.8-optifine
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output 1.8-optifine.jar --url https://download.san0j.de/mods/1.8-optifine.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
-Pause
-java -jar 1.8-optifine.jar
-del /S /Q 1.8-optifine.jar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.8-forge
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://download.san0j.de/mods/1.8-forge.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
-Pause
-java -jar forge.jar
-del /S /Q forge.jar
-del /S /Q forge-1.8.9-11.15.1.2318-1.8.9-installer.jar.log
-echo Fertig! 
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-	
-
-:1.8-Client
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://download.san0j.de/mods/1.8-forge.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
-Pause
-java -jar forge.jar
-del /S /Q forge.jar
-del /S /Q forge.jar.log
-rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.8.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
+	IF ERRORLEVEL 2 GOTO 1.16
+    IF ERRORLEVEL 1 GOTO 1.17
 
 :1.17
 cd %appdata%\.minecraft
@@ -201,6 +107,8 @@ IF ERRORLEVEL 4 GOTO 1.17-Client-Only
 IF ERRORLEVEL 3 GOTO 1.17
 IF ERRORLEVEL 2 GOTO 1.17-fabric
 IF ERRORLEVEL 1 GOTO 1.17-optifine
+
+
 
 :1.17-optifine
 echo Instalation startet...
@@ -592,6 +500,102 @@ IF ERRORLEVEL 1 GOTO start
 
 
 
+:1.8
+cd %appdata%\.minecraft
+CLS
+ECHO.
+ECHO Only Optifine/Modloader:
+ECHO.
+ECHO 1. 1.8 Only Optifine		- https://optifine.net/downloads/
+ECHO 2. 1.8 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
+ECHO 3. 1.8 Client-Mods
+ECHO.
+ECHO 4. Installer neustarten.
+ECHO 5. Installer beenden.
+ECHO.
+ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader auswÑhlst!
+ECHO.
+
+CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
+IF ERRORLEVEL 5 GOTO end
+IF ERRORLEVEL 4 GOTO start
+IF ERRORLEVEL 3 GOTO 1.8-Client
+IF ERRORLEVEL 2 GOTO 1.8-forge
+IF ERRORLEVEL 1 GOTO 1.8-optifine
+
+:1.8-optifine
+echo Instalation startet...
+C:
+cd %appdata%\.minecraft
+tar cf Backup.tar mods options.txt optionsof.txt config
+curl -L --output 1.8-optifine.jar --url https://download.san0j.de/mods/1.8-optifine.jar
+echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
+Pause
+java -jar 1.8-optifine.jar
+del /S /Q 1.8-optifine.jar
+echo Fertig!
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
+CHOICE /C 123 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
+
+
+:1.8-forge
+echo Instalation startet...
+C:
+cd %appdata%\.minecraft
+tar cf Backup.tar mods options.txt optionsof.txt config
+curl -L --output forge.jar --url https://download.san0j.de/mods/1.8-forge.jar
+echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
+Pause
+java -jar forge.jar
+del /S /Q forge.jar
+del /S /Q forge-1.8.9-11.15.1.2318-1.8.9-installer.jar.log
+echo Fertig! 
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
+CHOICE /C 123 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
+	
+
+:1.8-Client
+echo Instalation startet...
+C:
+cd %appdata%\.minecraft
+tar cf Backup.tar mods options.txt optionsof.txt config
+curl -L --output forge.jar --url https://download.san0j.de/mods/1.8-forge.jar
+echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
+Pause
+java -jar forge.jar
+del /S /Q forge.jar
+del /S /Q forge.jar.log
+rmdir /S /Q mods
+curl -L --output mods.zip --url https://download.san0j.de/mods/1.8.zip
+tar -xf mods.zip
+del /S /Q mods.zip
+echo Fertig!
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/lîschen
+CHOICE /C 123 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
+
+
+
 :rp
 C:
 cd %appdata%\.minecraft\resourcepacks
@@ -621,7 +625,6 @@ IF ERRORLEVEL 4 GOTO drp
 IF ERRORLEVEL 3 GOTO xray
 IF ERRORLEVEL 2 GOTO dm
 IF ERRORLEVEL 1 GOTO ks
-
 
 :rpa
 echo Download start...
@@ -663,14 +666,14 @@ IF ERRORLEVEL 1 GOTO start
 
 :drp
 echo Download startet...
-ECHO 1. 1.16
-ECHO 2. 1.17
+ECHO 1. 1.17
+ECHO 2. 1.16
 ECHO 3. 1.8
 CHOICE /C 123 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 3 curl -L --output rp-1.8.zip --url  https://download.san0j.de/mods/rp-1.8.zip
-IF ERRORLEVEL 2 curl -L --output rp-1.17.zip --url  https://download.san0j.de/mods/rp-1.17.zip
-IF ERRORLEVEL 1 curl -L --output rp-1.16.zip --url  https://download.san0j.de/mods/rp-1.16.zip
+IF ERRORLEVEL 2 curl -L --output rp-1.16.zip --url  https://download.san0j.de/mods/rp-1.17.zip
+IF ERRORLEVEL 1 curl -L --output rp-1.17.zip --url  https://download.san0j.de/mods/rp-1.16.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
@@ -683,12 +686,12 @@ IF ERRORLEVEL 1 GOTO start
 
 :xray
 echo Download startet...
-ECHO 1. 1.16
-ECHO 2. 1.17
+ECHO 1. 1.17
+ECHO 2. 1.16
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 curl -L --output Xray-1.17.zip --url  https://download.san0j.de/mods/Xray-1.17.zip
-IF ERRORLEVEL 1 curl -L --output Xray-1.16.zip --url  https://download.san0j.de/mods/Xray-1.16.zip
+IF ERRORLEVEL 2 curl -L --output Xray-1.16.zip --url  https://download.san0j.de/mods/Xray-1.17.zip
+IF ERRORLEVEL 1 curl -L --output Xray-1.17.zip --url  https://download.san0j.de/mods/Xray-1.16.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
@@ -701,14 +704,14 @@ IF ERRORLEVEL 1 GOTO start
 
 :dm
 echo Download startet...
-ECHO 1. 1.16
-ECHO 2. 1.17
+ECHO 1. 1.17
+ECHO 2. 1.16
 ECHO 3. 1.8
 CHOICE /C 123 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 3 curl -L --output Dark-Mode-1.8.zip --url  https://download.san0j.de/mods/Dark-Mode-1.8.zip
-IF ERRORLEVEL 2 curl -L --output Dark-Mode-1.17.zip --url  https://download.san0j.de/mods/Dark-Mode-1.17.zip
-IF ERRORLEVEL 1 curl -L --output Dark-Mode-1.16.zip --url  https://download.san0j.de/mods/Dark-Mode-1.16.zip
+IF ERRORLEVEL 2 curl -L --output Dark-Mode-1.16.zip --url  https://download.san0j.de/mods/Dark-Mode-1.17.zip
+IF ERRORLEVEL 1 curl -L --output Dark-Mode-1.17.zip --url  https://download.san0j.de/mods/Dark-Mode-1.16.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
@@ -721,14 +724,14 @@ IF ERRORLEVEL 1 GOTO start
 
 :ks
 echo Download startet...
-ECHO 1. 1.16
-ECHO 2. 1.17
+ECHO 1. 1.17
+ECHO 2. 1.16
 ECHO 3. 1.8
 CHOICE /C 123 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 3 curl -L --output KÅrbis-1.8.zip --url  https://download.san0j.de/mods/Kuerbis-1.8.zip
-IF ERRORLEVEL 2 curl -L --output KÅrbis-1.17.zip --url  https://download.san0j.de/mods/Kuerbis-1.17.zip
-IF ERRORLEVEL 1 curl -L --output KÅrbis-1.16.zip --url  https://download.san0j.de/mods/Kuerbis-1.16.zip
+IF ERRORLEVEL 2 curl -L --output KÅrbis-1.16.zip --url  https://download.san0j.de/mods/Kuerbis-1.17.zip
+IF ERRORLEVEL 1 curl -L --output KÅrbis-1.17.zip --url  https://download.san0j.de/mods/Kuerbis-1.16.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
@@ -903,8 +906,6 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO bp
 
 
-:end
-EXIT /B
 
 :fb
 ECHO https://discord.san0j.de/
@@ -916,3 +917,8 @@ CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
+
+
+
+:end
+EXIT /B
