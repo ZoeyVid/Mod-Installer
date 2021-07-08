@@ -50,27 +50,25 @@ CLS
 	ECHO 1. 1.17 - Unstable!
 	ECHO 2. 1.16
 	ECHO 3. 1.8
-	ECHO 4. Sanojs Empfehlungen!
 	ECHO.
-	ECHO 5. Texture Packs
+	ECHO 4. Texture Packs
 	ECHO.
-	ECHO 6. Backups/Modprofile
+	ECHO 5. Backups/Modprofile
 	ECHO.
 	ECHO Funktionen:
 	ECHO.
-    ECHO 7. Installer neustarten.
-	ECHO 8. Installer beenden.
-	ECHO 9. Feedback hinterlassen
+    ECHO 6. Installer neustarten.
+	ECHO 7. Installer beenden.
+	ECHO 8. Feedback hinterlassen
 	ECHO.
     CHOICE /C 123456789 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-    IF ERRORLEVEL 9 GOTO fb
-    IF ERRORLEVEL 8 GOTO end
-    IF ERRORLEVEL 7	GOTO start
-    IF ERRORLEVEL 6 GOTO bp
-	IF ERRORLEVEL 5 GOTO rp
-	IF ERRORLEVEL 4 GOTO se	
+    IF ERRORLEVEL 8 GOTO fb
+    IF ERRORLEVEL 7 GOTO end
+    IF ERRORLEVEL 6	GOTO start
+    IF ERRORLEVEL 5 GOTO bp
+	IF ERRORLEVEL 4 GOTO rp
 	IF ERRORLEVEL 3 GOTO 1.8
 	IF ERRORLEVEL 2 GOTO 1.16
     IF ERRORLEVEL 1 GOTO 1.17
@@ -627,6 +625,7 @@ IF ERRORLEVEL 2 GOTO dm
 IF ERRORLEVEL 1 GOTO ks
 
 :rpa
+cd %appdata%\.minecraft
 echo Download start...
 curl -L --output Alles.zip --url  https://download.san0j.de/mods/Alles.zip
 tar -xf Alles.zip
