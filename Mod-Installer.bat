@@ -790,7 +790,7 @@ ECHO 2. Mods + Config
 ECHO 3. Nur Configs
 ECHO.
 ECHO ACHTUNG! PROFILE SIND NICHT WIEDERHERSTELLBAR!
-CHOICE /C 12 /M "Auswahl: "
+CHOICE /C 123 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
 IF ERRORLEVEL 3 GOTO pcc
 IF ERRORLEVEL 2 GOTO pcmc
