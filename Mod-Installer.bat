@@ -773,7 +773,7 @@ ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modl
 ECHO Es werden nur Mods in den Profilen gespeichert und geladen!
 ECHO In dem Backup auch Configs!
 ECHO.
-ECHO 1. Profil erstellen - Limit 9 - Vorhandene werden Åberschrieben
+ECHO 1. Profil erstellen - Limit 8 - Vorhandene werden Åberschrieben
 ECHO 2. Profil laden
 ECHO 3. Profil lîschen
 ECHO 4. Backup laden - Automatisch bei Mod-Installation und MC-Start erstellt - Mods werden Åberschrieben
@@ -810,9 +810,8 @@ CLs
 ECHO.
 ECHO Welches Profil mîchtest du lîschen?
 ECHO.
-CHOICE /C 123456789 /M "Auswahl: "
+CHOICE /C 12345678 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 9 del /S /Q Profil-9.tar
 IF ERRORLEVEL 8 del /S /Q Profil-8.tar
 IF ERRORLEVEL 7 del /S /Q Profil-7.tar
 IF ERRORLEVEL 6 del /S /Q Profil-6.tar
@@ -837,8 +836,7 @@ CLS
 ECHO.
 ECHO Welches Profil mîchtest du laden?
 ECHO.
-CHOICE /C 123456789 /M "Auswahl: "
-IF ERRORLEVEL 9 tar xf Profil-9.tar
+CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 tar xf Profil-8.tar
 IF ERRORLEVEL 7 tar xf Profil-7.tar
 IF ERRORLEVEL 6 tar xf Profil-6.tar
@@ -891,9 +889,8 @@ CLs
 ECHO.
 ECHO Unter welchem Profil mîchtest du die aktuellen Configs speichern?
 ECHO.
-CHOICE /C 123456789 /M "Auswahl: "
+CHOICE /C 12345678 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 9 tar cf Profil-9.tar config optionsof.txt options.txt
 IF ERRORLEVEL 8 tar cf Profil-8.tar config optionsof.txt options.txt
 IF ERRORLEVEL 7 tar cf Profil-7.tar config optionsof.txt options.txt
 IF ERRORLEVEL 6 tar cf Profil-6.tar config optionsof.txt options.txt
@@ -918,9 +915,8 @@ CLs
 ECHO.
 ECHO Unter welchem Profil mîchtest du die aktuellen Mods und Configs speichern?
 ECHO.
-CHOICE /C 123456789 /M "Auswahl: "
+CHOICE /C 12345678 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 9 tar cf Profil-9.tar mods config optionsof.txt options.txt
 IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt
 IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt
 IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt
@@ -945,9 +941,8 @@ CLs
 ECHO.
 ECHO Unter welchem Profil mîchtest du die aktuellen Mods speichern?
 ECHO.
-CHOICE /C 123456789 /M "Auswahl: "
+CHOICE /C 12345678 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 9 tar cf Profil-9.tar mods
 IF ERRORLEVEL 8 tar cf Profil-8.tar mods
 IF ERRORLEVEL 7 tar cf Profil-7.tar mods
 IF ERRORLEVEL 6 tar cf Profil-6.tar mods
@@ -974,8 +969,7 @@ CLS
 ECHO.
 ECHO Welches Profil mîchtest du aktualisieren?
 ECHO.
-CHOICE /C 123456789 /M "Auswahl: "
-IF ERRORLEVEL 9 tar xf Profil-9.tar
+CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 tar xf Profil-8.tar
 IF ERRORLEVEL 7 tar xf Profil-7.tar
 IF ERRORLEVEL 6 tar xf Profil-6.tar
