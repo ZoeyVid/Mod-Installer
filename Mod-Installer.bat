@@ -70,25 +70,27 @@ CLS
 	ECHO 1. 1.17 - Unstable!
 	ECHO 2. 1.16
 	ECHO 3. 1.8
+	ECHO 4. Profil Update
 	ECHO.
-	ECHO 4. Texture Packs
+	ECHO 5. Texture Packs
 	ECHO.
 	ECHO 5. Backups/Modprofile
 	ECHO.
 	ECHO Funktionen:
 	ECHO.
-    ECHO 6. Installer neustarten.
-	ECHO 7. Installer beenden.
-	ECHO 8. Feedback hinterlassen
+    ECHO 7. Installer neustarten.
+	ECHO 8. Installer beenden.
+	ECHO 9. Feedback hinterlassen
 	ECHO.
     CHOICE /C 123456789 /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-    IF ERRORLEVEL 8 GOTO fb
-    IF ERRORLEVEL 7 GOTO end
-    IF ERRORLEVEL 6	GOTO start
-    IF ERRORLEVEL 5 GOTO bp
-	IF ERRORLEVEL 4 GOTO rp
+    IF ERRORLEVEL 9 GOTO fb
+    IF ERRORLEVEL 8 GOTO end
+    IF ERRORLEVEL 7	GOTO start
+    IF ERRORLEVEL 6 GOTO bp
+	IF ERRORLEVEL 5 GOTO rp
+	IF ERRORLEVEL 4 GOTO update
 	IF ERRORLEVEL 3 GOTO 1.8
 	IF ERRORLEVEL 2 GOTO 1.16
     IF ERRORLEVEL 1 GOTO 1.17
@@ -968,8 +970,33 @@ IF ERRORLEVEL 1 GOTO start
 
 
 :update
+CLS
+ECHO.
+ECHO Welches Profil m”chtest du aktualisieren?
+ECHO.
+CHOICE /C 123456789 /M "Auswahl: "
+IF ERRORLEVEL 9 tar xf Profil-9.tar
+IF ERRORLEVEL 8 tar xf Profil-8.tar
+IF ERRORLEVEL 7 tar xf Profil-7.tar
+IF ERRORLEVEL 6 tar xf Profil-6.tar
+IF ERRORLEVEL 5 tar xf Profil-5.tar
+IF ERRORLEVEL 4 tar xf Profil-4.tar
+IF ERRORLEVEL 3 tar xf Profil-3.tar
+IF ERRORLEVEL 2 tar xf Profil-2.tar
+IF ERRORLEVEL 1 tar xf Profil-1.tar
 
-
+ECHO.
+ECHO Mit welchem Modpack m”chtest du dieses Profil aktualisieren?
+    ECHO.
+    ECHO Client-Mods/Modpack Versionen:
+	ECHO.
+	ECHO 1. 1.17 - Unstable!
+	ECHO 2. 1.16
+	ECHO 3. 1.8
+CHOICE /C 123 /M "Auswahl: "
+IF ERRORLEVEL 3 GOTO 1.8
+IF ERRORLEVEL 2 GOTO 1.16
+IF ERRORLEVEL 1 GOTO 1.17
 
 :fb
 ECHO https://discord.san0j.de/
