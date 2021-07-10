@@ -1,7 +1,11 @@
 @echo off
-del java.msi
+del "%userprofile%\AppData\Local\Temp\java.msi"
+del "%userprofile%\AppData\Local\Temp\MC-Install.msi"
+CLS
 :start
 C:
+
+
 
     where java >nul 2>nul
     if %errorlevel%==1 (
@@ -13,8 +17,30 @@ C:
 	Pause
 	ECHO Bitte warten!
 	ECHO Nach der beendigung der Java Instalation starte den Launcher einfach neu!
+	C:
+	cd "%userprofile%\AppData\Local\Temp"
 	curl -L --output java.msi --url https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
     start "" java.msi
+	ECHO Fertig? Neustarten?
+	Pause
+	GOTO start
+)
+
+if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
+curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
+
+	CLS
+	echo Der Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
+	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
+	echo Starten von Minecraft nicht mîglich
+	echo Minecraft wird nun installiert.
+	ECHO Bitte warten!
+	ECHO Nach der beendigung der Instalation starte den Launcher einfach neu!
+	Pause
+	C:
+	cd "%userprofile%\AppData\Local\Temp"
+	curl -L --output MC-Install.msi --url https://launcher.mojang.com/download/MinecraftInstaller.msi
+    start "" MC-Install.msi
 	ECHO Fertig? Neustarten?
 	Pause
 	GOTO start
@@ -27,23 +53,13 @@ curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
 	echo Unter "%appdata%\.minecraft"
 	echo Starten von Minecraft nicht mîglich
+	echo ôffne den Minecraft Launcher und Probiere ob es dannach funktioniert!
 	echo MC-Launcher wird beendet...
 	Pause
 EXIT /B
 )
 
 
-if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
-curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
-
-	CLS
-	echo Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
-	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	echo Starten von Minecraft nicht mîglich
-	echo MC-Launcher wird beendet...
-	Pause
-EXIT /B	
-)
 
 C:
 cd "%appdata%\.minecraft\"
