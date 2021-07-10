@@ -70,7 +70,7 @@ ECHO W„hle zwischen Profil 1-8 und 9 wenn nichts geladen werden soll!
 ECHO Achte darauf im MC-Launcher den richtigen Mod-Loader zuw„hlen!
 ECHO.
 CHOICE /C 123456789 /M "Auswahl: "
-IF ERRORLEVEL 9 ECHO Nichts geladen!
+IF ERRORLEVEL 9 GOTO mcl
 IF ERRORLEVEL 8 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil-8.tar
 IF ERRORLEVEL 7 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil-7.tar
 IF ERRORLEVEL 6 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil-6.tar
@@ -80,6 +80,7 @@ IF ERRORLEVEL 3 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil
 IF ERRORLEVEL 2 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil-2.tar
 IF ERRORLEVEL 1 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil-1.tar
 
+:mcl
 echo Mods geladen! Starten...
 C:
 cd %appdata%\.minecraft\
