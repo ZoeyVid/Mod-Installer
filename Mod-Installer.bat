@@ -67,29 +67,31 @@ CLS
 	ECHO.
 	ECHO Client-Mods/Modpack Versionen:
 	ECHO.
-	ECHO 1. 1.17
-	ECHO 2. 1.16
-	ECHO 3. 1.8
-	ECHO 4. Profil Update
+	ECHO a) 1.17
+	ECHO b) 1.16
+	ECHO c) 1.8
+	ECHO d) Profil Update
+	ECHO e) Iris + Sodium (1.16.5-1.17.1)
 	ECHO.
-	ECHO 5. Texture Packs
+	ECHO f) Texture Packs
 	ECHO.
-	ECHO 5. Backups/Modprofile
+	ECHO g) Backups/Modprofile
 	ECHO.
 	ECHO Funktionen:
 	ECHO.
-    ECHO 7. Installer neustarten.
-	ECHO 8. Installer beenden.
-	ECHO 9. Feedback hinterlassen
+    ECHO h) Installer neustarten.
+	ECHO i) Installer beenden.
+	ECHO j= Feedback hinterlassen
 	ECHO.
-    CHOICE /C 123456789 /M "Auswahl: "
+    CHOICE /C abcdefghij /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-    IF ERRORLEVEL 9 GOTO fb
-    IF ERRORLEVEL 8 GOTO end
-    IF ERRORLEVEL 7	GOTO start
-    IF ERRORLEVEL 6 GOTO bp
-	IF ERRORLEVEL 5 GOTO rp
+    IF ERRORLEVEL 10 GOTO fb
+    IF ERRORLEVEL 9 GOTO end
+    IF ERRORLEVEL 8	GOTO start
+    IF ERRORLEVEL 7 GOTO bp
+	IF ERRORLEVEL 6 GOTO rp
+	IF ERRORLEVEL 5 GOTO iris
 	IF ERRORLEVEL 4 GOTO update
 	IF ERRORLEVEL 3 GOTO 1.8
 	IF ERRORLEVEL 2 GOTO 1.16
@@ -523,6 +525,27 @@ rmdir /S /Q mods
 curl -L --output mods.zip --url https://download.san0j.de/mods/1.8.zip
 tar -xf mods.zip
 del /S /Q mods.zip
+echo Fertig!
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/l”schen
+CHOICE /C 123 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
+
+
+
+:iris
+echo Instalation startet...
+C:
+cd %appdata%\.minecraft
+tar cf Backup.tar mods options.txt optionsof.txt config
+curl -L --output iris.jar --url https://github.com/IrisShaders/Iris-Installer/releases/download/1.1.1/Iris-Installer-1.1.1.jar
+java -jar iris.jar
+del /S /Q iris.jar
 echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
