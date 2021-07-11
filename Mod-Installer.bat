@@ -927,10 +927,12 @@ ECHO Mit welchem Modpack m”chtest du dieses Profil aktualisieren?
     ECHO.
     ECHO Client-Mods/Modpack Versionen:
 	ECHO.
-	ECHO 1. 1.17 - Unstable!
+	ECHO 1. 1.17
 	ECHO 2. 1.16
 	ECHO 3. 1.8
-CHOICE /C 123 /M "Auswahl: "
+	ECHO 4. Iris + Sodium (1.16.5-1.17.1)
+CHOICE /C 1234 /M "Auswahl: "
+IF ERRORLEVEL 4 GOTO iris
 IF ERRORLEVEL 3 GOTO 1.8
 IF ERRORLEVEL 2 GOTO 1.16
 IF ERRORLEVEL 1 GOTO 1.17
