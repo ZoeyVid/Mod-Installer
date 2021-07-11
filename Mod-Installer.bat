@@ -67,7 +67,7 @@ CLS
 	ECHO.
 	ECHO Client-Mods/Modpack Versionen:
 	ECHO.
-	ECHO 1. 1.17 - Unstable!
+	ECHO 1. 1.17
 	ECHO 2. 1.16
 	ECHO 3. 1.8
 	ECHO 4. Profil Update
