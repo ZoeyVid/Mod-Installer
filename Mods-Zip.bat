@@ -21,41 +21,29 @@ echo 3
 
 echo 1.17 Fertig!
 
-cd "%appdata%\CurseForge\Instances\1.16 Client Mods Full FPS"
-tar -acf D:\Download\1.16-Client-Mods-Full-FPS.zip mods
+cd "%appdata%\CurseForge\Instances\1.16 Client Mods Full"
+tar -acf D:\Download\1.16-Client-Mods-Full.zip mods
 echo 4
 
-cd "%appdata%\CurseForge\Instances\1.16 Client Mods Full Shader"
-tar -acf D:\Download\1.16-Client-Mods-Full-Shader.zip mods 
+cd "%appdata%\CurseForge\Instances\1.16 Client Mods Lite"
+tar -acf D:\Download\1.16-Client-Mods-Lite.zip mods
 echo 5
 
-cd "%appdata%\CurseForge\Instances\1.16 Client Mods Lite FPS"
-tar -acf D:\Download\1.16-Client-Mods-Lite-FPS.zip mods
+cd "%appdata%\CurseForge\Instances\1.16 Client Only"
+tar -acf D:\Download\1.16-Client-Only.zip mods
 echo 6
-
-cd "%appdata%\CurseForge\Instances\1.16 Client Mods Lite Shader"
-tar -acf D:\Download\1.16-Client-Mods-Lite-Shader.zip mods
-echo 7
-
-cd "%appdata%\CurseForge\Instances\1.16 Client Only FPS"
-tar -acf D:\Download\1.16-Client-Only-FPS.zip mods
-echo 8
-
-cd "%appdata%\CurseForge\Instances\1.16 Client Only Shader"
-tar -acf D:\Download\1.16-Client-Only-Shader.zip mods
-echo 9
 
 echo 1.16 Fertig!
 
 cd "%appdata%\CurseForge\Instances\1.8"
 tar -acf D:\Download\1.8.zip mods config
-echo 10
+echo 7
 
 echo 1.8 Fertig!
 
 cd "%appdata%\.minecraft"
 tar -acf D:\Download\Alles.zip resourcepacks
-echo 11
+echo 8
 
 echo Texture Packs Fertig!
 

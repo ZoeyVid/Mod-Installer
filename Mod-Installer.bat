@@ -271,40 +271,32 @@ IF ERRORLEVEL 1 GOTO start
 :1.16
 cd %appdata%\.minecraft
 CLS
-ECHO Client: FPS = Sodium, Shader = Optifine
 ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
 ECHO.
 ECHO Only Optifine/Modloader:
 ECHO.
-ECHO A. 1.16 Only Optifine		- https://optifine.net/downloads/
-ECHO B. 1.16 Only Fabric-Loader	- https://fabricmc.net/use/
-ECHO C. 1.16 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
+ECHO 1. 1.16 Only Optifine		- https://optifine.net/downloads/
+ECHO 2. 1.16 Only Fabric-Loader	- https://fabricmc.net/use/
+ECHO 3. 1.16 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
 ECHO.
 ECHO Client-Modpacks:
 ECHO.
-ECHO D. 1.16 Client Only FPS
-ECHO E. 1.16 Client Mods Lite FPS
-ECHO F. 1.16 Client Mods Full FPS
+ECHO 4. 1.16 Client Only
+ECHO 5. 1.16 Client Mods Lite
+ECHO 6. 1.16 Client Mods Full
 ECHO.
-ECHO G. 1.16 Client Only Shader
-ECHO H. 1.16 Client Mods Lite Shader
-ECHO I. 1.16 Client Mods Full Shader
-ECHO.
-ECHO J. Installer neustarten.
-ECHO K. Installer beenden.
+ECHO 7. Installer neustarten.
+ECHO 8. Installer beenden.
 ECHO.
 ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader ausw„hlst!
 ECHO.
 
-CHOICE /C abcdefghijk /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
-IF ERRORLEVEL 11 GOTO end
-IF ERRORLEVEL 10 GOTO start
-IF ERRORLEVEL 9 GOTO 1.16-Client-Mods-Full-Shader
-IF ERRORLEVEL 8 GOTO 1.16-Client-Mods-Lite-Shader
-IF ERRORLEVEL 7 GOTO 1.16-Client-Only-Shader
-IF ERRORLEVEL 6 GOTO 1.16-Client-Mods-Full-FPS
-IF ERRORLEVEL 5 GOTO 1.16-Client-Mods-Lite-FPS
-IF ERRORLEVEL 4 GOTO 1.16-Client-Only-FPS
+CHOICE /C 12345678 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
+IF ERRORLEVEL 8 GOTO end
+IF ERRORLEVEL 7 GOTO start
+IF ERRORLEVEL 6 GOTO 1.16-Client-Mods-Full
+IF ERRORLEVEL 5 GOTO 1.16-Client-Mods-Lite
+IF ERRORLEVEL 4 GOTO 1.16-Client-Only
 IF ERRORLEVEL 3 GOTO 1.16-forge
 IF ERRORLEVEL 2 GOTO 1.16-fabric
 IF ERRORLEVEL 1 GOTO 1.16-optifine
@@ -375,7 +367,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 	
 
-:1.16-Client-Only-FPS
+:1.16-Client-Only
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
@@ -384,7 +376,7 @@ curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.16-Client-Only-FPS.zip
+curl -L --output mods.zip --url https://download.san0j.de/mods/1.16-Client-Only.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
@@ -399,7 +391,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 
-:1.16-Client-Mods-Lite-FPS
+:1.16-Client-Mods-Lite
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
@@ -408,7 +400,7 @@ curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.16-Client-Mods-Lite-FPS.zip
+curl -L --output mods.zip --url https://download.san0j.de/mods/1.16-Client-Mods-Lite.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
@@ -423,7 +415,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 
-:1.16-Client-Mods-Full-FPS
+:1.16-Client-Mods-Full
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
@@ -432,79 +424,7 @@ curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.16-Client-Mods-Full-FPS.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/l”schen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-Client-Only-Shader
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
-java -jar fabric.jar client -mcversion 1.16.5
-del /S /Q fabric.jar
-rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.16-Client-Only-Shader.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/l”schen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-Client-Mods-Lite-Shader
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
-java -jar fabric.jar client -mcversion 1.16.5
-del /S /Q fabric.jar
-rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.16-Client-Mods-Lite-Shader.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/l”schen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-Client-Mods-Full-Shader
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
-java -jar fabric.jar client -mcversion 1.16.5
-del /S /Q fabric.jar
-rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.16-Client-Mods-Full-Shader.zip
+curl -L --output mods.zip --url https://download.san0j.de/mods/1.16-Client-Mods-Full.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
