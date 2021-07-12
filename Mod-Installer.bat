@@ -81,7 +81,7 @@ CLS
 	ECHO.
     ECHO h) Installer neustarten.
 	ECHO i) Installer beenden.
-	ECHO j= Feedback hinterlassen
+	ECHO j) Feedback hinterlassen
 	ECHO.
     CHOICE /C abcdefghij /M "Auswahl: "
 
