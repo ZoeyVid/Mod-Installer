@@ -83,13 +83,10 @@ IF ERRORLEVEL 1 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil
 echo Mods geladen! Starten...
 C:
 cd %appdata%\.minecraft\
-if exist steam (
-
-	start steam://rungameid/13354743620561797120
-	
+if exist steam.txt (
+  set /p steam=<steam.txt
+  start "" "steam://rungameid/%steam%"
 ) else (
-
   start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" 
-  
 )
 EXIT /B
