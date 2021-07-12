@@ -2,6 +2,9 @@
 curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 del "%userprofile%\AppData\Local\Temp\java.msi"
 del "%userprofile%\AppData\Local\Temp\MC-Install.msi"
+if exist steam.txt (
+set /p steam=<%appdata%\.minecraft\steam.txt
+)
 CLS
 :start
 C:
@@ -80,11 +83,10 @@ IF ERRORLEVEL 2 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil
 IF ERRORLEVEL 1 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil-1.tar
 
 :mcl
-echo Mods geladen! Starten...
+echo Starten...
 C:
 cd %appdata%\.minecraft\
 if exist steam.txt (
-  set /p steam=<steam.txt
   start "" "steam://rungameid/%steam%"
 ) else (
   start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" 

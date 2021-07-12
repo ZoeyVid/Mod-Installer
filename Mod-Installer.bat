@@ -1,6 +1,9 @@
 @echo off
 del "%userprofile%\AppData\Local\Temp\java.msi"
 del "%userprofile%\AppData\Local\Temp\MC-Install.msi"
+if exist steam.txt (
+set /p steam=<%appdata%\.minecraft\steam.txt
+)
 CLS
 :start
 curl -L --output %0 --url https://download.san0j.de/mods/Mod-Installer.bat
@@ -802,10 +805,10 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 :mcl
+echo Starten...
 C:
 cd %appdata%\.minecraft\
 if exist steam.txt (
-  set /p steam=<steam.txt
   start "" "steam://rungameid/%steam%"
 ) else (
   start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" 
