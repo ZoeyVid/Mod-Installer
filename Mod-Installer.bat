@@ -1,9 +1,7 @@
 @echo off
 del "%userprofile%\AppData\Local\Temp\java.msi"
 del "%userprofile%\AppData\Local\Temp\MC-Install.msi"
-if exist steam.txt (
 set /p steam=<%appdata%\.minecraft\steam.txt
-)
 CLS
 :start
 curl -L --output %0 --url https://download.san0j.de/mods/Mod-Installer.bat
