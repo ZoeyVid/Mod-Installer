@@ -54,7 +54,7 @@ curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
 	echo Unter "%appdata%\.minecraft"
 	echo Starten von Minecraft nicht mîglich
-	echo ôffne den Minecraft Launcher und Probiere ob es dannach funktioniert!
+	echo ôffne den Minecraft Launcher und Probiere ob es danach funktioniert!
 	echo MC-Launcher wird beendet...
 	Pause
 EXIT /B

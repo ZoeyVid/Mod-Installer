@@ -56,7 +56,7 @@ curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
 	echo Unter "%appdata%\.minecraft"
 	echo Starten von Minecraft nicht mîglich
-	echo ôffne den Minecraft Launcher und Probiere ob es dannach funktioniert!
+	echo ôffne den Minecraft Launcher und Probiere ob es danach funktioniert!
 	echo MC-Launcher wird beendet...
 	Pause
 EXIT /B
@@ -68,114 +68,64 @@ CLS
 	ECHO.
 	ECHO Client-Mods/Modpack Versionen:
 	ECHO.
-	ECHO a) 1.17
-	ECHO b) 1.16
-	ECHO c) 1.8
-	ECHO d) Profil Update
-	ECHO e) Fabric-Loader                    - https://fabricmc.net/use/
-	ECHO f) Iris + Sodium (1.16.5-1.17.1)    - https://irisshaders.net/
+	ECHO a) Iris + Sodium (1.16.5+)  - https://irisshaders.net/
+	ECHO b) Optifine      (1.7.2+)   - https://optifine.net/downloads/
+	ECHO c) Fabric-Loader (1.14+)    - https://fabricmc.net/use/
+	ECHO d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge/
 	ECHO.
-	ECHO g) Texture Packs
+	ECHO e) 1.17                     - Fabric-Loader Modpacks
+	ECHO f) 1.16                     - Fabric-Loader Modpacks
+	ECHO g) 1.8                      - Forge-Loader  Modpack
+	ECHO h) Profil Update            - Lade ein Profil um es zu aktualisieren und danach zu Åberschreiben!
 	ECHO.
-	ECHO h) Backups/Modprofile
+	ECHO i) Rescource Packs          - Lade dir Resourcepacks herunter!
+	ECHO.
+	ECHO j) Backups/Modprofile       - Erstelle Mod-/Config-Profile
 	ECHO.
 	ECHO Funktionen:
 	ECHO.
-    ECHO i) Installer neustarten.
-	ECHO j) Installer beenden.
-	ECHO k) Feedback hinterlassen
+    ECHO k) Installer neustarten.
+	ECHO l) Installer beenden.
+	ECHO m) Feedback hinterlassen
 	ECHO.
-    CHOICE /C abcdefghijk /M "Auswahl: "
+    CHOICE /C abcdefghijklm /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-    IF ERRORLEVEL 11 GOTO fb
-    IF ERRORLEVEL 10 GOTO end
-    IF ERRORLEVEL 9	GOTO start
-    IF ERRORLEVEL 8 GOTO bp
-	IF ERRORLEVEL 7 GOTO rp
-	IF ERRORLEVEL 6 GOTO iris
-	IF ERRORLEVEL 5 GOTO fabric
-	IF ERRORLEVEL 4 GOTO update
-	IF ERRORLEVEL 3 GOTO 1.8
-	IF ERRORLEVEL 2 GOTO 1.16
-    IF ERRORLEVEL 1 GOTO 1.17
+    IF ERRORLEVEL 13 GOTO fb
+    IF ERRORLEVEL 12 GOTO end
+    IF ERRORLEVEL 11 GOTO start
+    IF ERRORLEVEL 10 GOTO bp
+	IF ERRORLEVEL 9 GOTO rp
+	IF ERRORLEVEL 8 GOTO update
+	IF ERRORLEVEL 7 GOTO 1.8
+	IF ERRORLEVEL 6 GOTO 1.16
+    IF ERRORLEVEL 5 GOTO 1.17
+	IF ERRORLEVEL 4 GOTO forge
+	IF ERRORLEVEL 3 GOTO fabric
+	IF ERRORLEVEL 2 GOTO of
+	IF ERRORLEVEL 1 GOTO iris
 
 :1.17
 cd %appdata%\.minecraft
 CLS
 ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
 ECHO.
-ECHO Only Optifine/Modloader:
+ECHO 1. 1.17 Client Only
+ECHO 2. 1.17 Client Mods Lite
+ECHO 3. 1.17 Client Mods Full
 ECHO.
-ECHO 1. 1.17 Only Optifine		- https://optifine.net/downloads/
-ECHO 2. 1.17 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
-ECHO.
-ECHO Client-Modpacks (Fabric-Loader):
-ECHO.
-ECHO 3. 1.17 Client Only
-ECHO 4. 1.17 Client Mods Lite
-ECHO 5. 1.17 Client Mods Full
-ECHO.
-ECHO 6. Installer neustarten.
-ECHO 7. Installer beenden.
+ECHO 4. Installer neustarten.
+ECHO 5. Installer beenden.
 ECHO.
 ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader auswÑhlst!
 ECHO.
 
-CHOICE /C 1234567 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
-IF ERRORLEVEL 7 GOTO end
-IF ERRORLEVEL 6 GOTO start
-IF ERRORLEVEL 5 GOTO 1.17-Client-Mods-Full
-IF ERRORLEVEL 4 GOTO 1.17-Client-Mods-Lite
-IF ERRORLEVEL 3 GOTO 1.17-Client-Only
-IF ERRORLEVEL 2 GOTO 1.17
-IF ERRORLEVEL 1 GOTO 1.17-optifine
-
-
-
-:1.17-optifine
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config options.txt optionsof.txt config
-curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.17.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
-Pause
-java -jar optifine.jar
-del /S /Q optifine.jar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.17-forge
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://download.san0j.de/mods/frg/1.17.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
-Pause
-java -jar forge.jar
-del /S /Q forge.jar
-del /S /Q forge.jar.log
-echo Fertig! 
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
+IF ERRORLEVEL 5 GOTO end
+IF ERRORLEVEL 4 GOTO start
+IF ERRORLEVEL 3 GOTO 1.17-Client-Mods-Full
+IF ERRORLEVEL 2 GOTO 1.17-Client-Mods-Lite
+IF ERRORLEVEL 1 GOTO 1.17-Client-Only
 	
 
 :1.17-Client-Only
@@ -256,76 +206,22 @@ cd %appdata%\.minecraft
 CLS
 ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
 ECHO.
-ECHO Only Optifine/Modloader:
+ECHO 1. 1.16 Client Only
+ECHO 2. 1.16 Client Mods Lite
+ECHO 3. 1.16 Client Mods Full
 ECHO.
-ECHO 1. 1.16 Only Optifine		- https://optifine.net/downloads/
-ECHO 2. 1.16 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
-ECHO.
-ECHO Client-Modpacks (Fabric-Loader):
-ECHO.
-ECHO 3. 1.16 Client Only
-ECHO 4. 1.16 Client Mods Lite
-ECHO 5. 1.16 Client Mods Full
-ECHO.
-ECHO 6. Installer neustarten.
-ECHO 7. Installer beenden.
+ECHO 4. Installer neustarten.
+ECHO 5. Installer beenden.
 ECHO.
 ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader auswÑhlst!
 ECHO.
 
-CHOICE /C 1234567 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
-IF ERRORLEVEL 7 GOTO end
-IF ERRORLEVEL 6 GOTO start
-IF ERRORLEVEL 5 GOTO 1.16-Client-Mods-Full
-IF ERRORLEVEL 4 GOTO 1.16-Client-Mods-Lite
-IF ERRORLEVEL 3 GOTO 1.16-Client-Only
-IF ERRORLEVEL 2 GOTO 1.16-forge
-IF ERRORLEVEL 1 GOTO 1.16-optifine
-
-
-:1.16-optifine
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.16.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
-Pause
-java -jar optifine.jar
-del /S /Q optifine.jar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-forge
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://download.san0j.de/mods/frg/1.16.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
-Pause
-java -jar forge.jar
-del /S /Q forge.jar
-del /S /Q forge.jar.log
-echo Fertig! 
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
+IF ERRORLEVEL 5 GOTO end
+IF ERRORLEVEL 4 GOTO start
+IF ERRORLEVEL 3 GOTO 1.16-Client-Mods-Full
+IF ERRORLEVEL 2 GOTO 1.16-Client-Mods-Lite
+IF ERRORLEVEL 1 GOTO 1.16-Client-Only
 	
 
 :1.16-Client-Only
@@ -402,79 +298,12 @@ IF ERRORLEVEL 1 GOTO start
 
 
 :1.8
-cd %appdata%\.minecraft
 CLS
-ECHO.
-ECHO Only Optifine/Modloader:
-ECHO.
-ECHO 1. 1.8 Only Optifine		- https://optifine.net/downloads/
-ECHO 2. 1.8 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
-ECHO 3. 1.8 Client-Mods (Forge-Loader)
-ECHO.
-ECHO 4. Installer neustarten.
-ECHO 5. Installer beenden.
-ECHO.
-ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader auswÑhlst!
-ECHO.
-
-CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
-IF ERRORLEVEL 5 GOTO end
-IF ERRORLEVEL 4 GOTO start
-IF ERRORLEVEL 3 GOTO 1.8-Client
-IF ERRORLEVEL 2 GOTO 1.8-forge
-IF ERRORLEVEL 1 GOTO 1.8-optifine
-
-:1.8-optifine
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.8.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
-Pause
-java -jar optifine.jar
-del /S /Q optifine.jar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.8-forge
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://download.san0j.de/mods/frg/1.8.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
-Pause
-java -jar forge.jar
-del /S /Q forge.jar
-del /S /Q forge.jar.log
-echo Fertig! 
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-	
-
-:1.8-Client
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://download.san0j.de/mods/frg/1.8.jar
+curl -L --output forge.jar --url https://download.san0j.de/mods/frg/1.8.9.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
@@ -518,7 +347,6 @@ IF ERRORLEVEL 1 GOTO start
 
 
 
-
 :iris
 echo Instalation startet...
 C:
@@ -537,6 +365,14 @@ CHOICE /C 123 /M "Auswahl: "
 IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
+
+
+
+:of
+
+
+
+:forge
 
 
 
