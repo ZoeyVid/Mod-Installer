@@ -72,8 +72,8 @@ CLS
 	ECHO b) 1.16
 	ECHO c) 1.8
 	ECHO d) Profil Update
-	ECHO e) Fabric-Loader	              - https://fabricmc.net/use/
-	ECHO f) Iris + Sodium (1.16.5-1.17.1) - https://irisshaders.net/
+	ECHO e) Fabric-Loader                    - https://fabricmc.net/use/
+	ECHO f) Iris + Sodium (1.16.5-1.17.1)    - https://irisshaders.net/
 	ECHO.
 	ECHO g) Texture Packs
 	ECHO.
