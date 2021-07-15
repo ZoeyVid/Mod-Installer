@@ -72,27 +72,29 @@ CLS
 	ECHO b) 1.16
 	ECHO c) 1.8
 	ECHO d) Profil Update
-	ECHO e) Iris + Sodium (1.16.5-1.17.1)
+	ECHO e) Fabric-Loader	              - https://fabricmc.net/use/
+	ECHO f) Iris + Sodium (1.16.5-1.17.1) - https://irisshaders.net/
 	ECHO.
-	ECHO f) Texture Packs
+	ECHO g) Texture Packs
 	ECHO.
-	ECHO g) Backups/Modprofile
+	ECHO h) Backups/Modprofile
 	ECHO.
 	ECHO Funktionen:
 	ECHO.
-    ECHO h) Installer neustarten.
-	ECHO i) Installer beenden.
-	ECHO j) Feedback hinterlassen
+    ECHO i) Installer neustarten.
+	ECHO j) Installer beenden.
+	ECHO k) Feedback hinterlassen
 	ECHO.
-    CHOICE /C abcdefghij /M "Auswahl: "
+    CHOICE /C abcdefghijk /M "Auswahl: "
 
     :: Note - list ERRORLEVELS in decreasing order
-    IF ERRORLEVEL 10 GOTO fb
-    IF ERRORLEVEL 9 GOTO end
-    IF ERRORLEVEL 8	GOTO start
-    IF ERRORLEVEL 7 GOTO bp
-	IF ERRORLEVEL 6 GOTO rp
-	IF ERRORLEVEL 5 GOTO iris
+    IF ERRORLEVEL 11 GOTO fb
+    IF ERRORLEVEL 10 GOTO end
+    IF ERRORLEVEL 9	GOTO start
+    IF ERRORLEVEL 8 GOTO bp
+	IF ERRORLEVEL 7 GOTO rp
+	IF ERRORLEVEL 6 GOTO iris
+	IF ERRORLEVEL 5 GOTO fabric
 	IF ERRORLEVEL 4 GOTO update
 	IF ERRORLEVEL 3 GOTO 1.8
 	IF ERRORLEVEL 2 GOTO 1.16
@@ -106,29 +108,27 @@ ECHO.
 ECHO Only Optifine/Modloader:
 ECHO.
 ECHO 1. 1.17 Only Optifine		- https://optifine.net/downloads/
-ECHO 2. 1.17 Only Fabric-Loader	- https://fabricmc.net/use/
-ECHO 3. 1.17 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
+ECHO 2. 1.17 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
 ECHO.
-ECHO Client-Modpacks:
+ECHO Client-Modpacks (Fabric-Loader):
 ECHO.
-ECHO 4. 1.17 Client Only
-ECHO 5. 1.17 Client Mods Lite
-ECHO 6. 1.17 Client Mods Full
+ECHO 3. 1.17 Client Only
+ECHO 4. 1.17 Client Mods Lite
+ECHO 5. 1.17 Client Mods Full
 ECHO.
-ECHO 7. Installer neustarten.
-ECHO 8. Installer beenden.
+ECHO 6. Installer neustarten.
+ECHO 7. Installer beenden.
 ECHO.
 ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader ausw„hlst!
 ECHO.
 
-CHOICE /C 12345678 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
-IF ERRORLEVEL 8 GOTO end
-IF ERRORLEVEL 7 GOTO start
-IF ERRORLEVEL 6 GOTO 1.17-Client-Mods-Full
-IF ERRORLEVEL 5 GOTO 1.17-Client-Mods-Lite
-IF ERRORLEVEL 4 GOTO 1.17-Client-Only
-IF ERRORLEVEL 3 GOTO 1.17
-IF ERRORLEVEL 2 GOTO 1.17-fabric
+CHOICE /C 1234567 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
+IF ERRORLEVEL 7 GOTO end
+IF ERRORLEVEL 6 GOTO start
+IF ERRORLEVEL 5 GOTO 1.17-Client-Mods-Full
+IF ERRORLEVEL 4 GOTO 1.17-Client-Mods-Lite
+IF ERRORLEVEL 3 GOTO 1.17-Client-Only
+IF ERRORLEVEL 2 GOTO 1.17
 IF ERRORLEVEL 1 GOTO 1.17-optifine
 
 
@@ -143,26 +143,6 @@ echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf
 Pause
 java -jar 1.17-optifine.jar
 del /S /Q 1.17-optifine.jar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/l”schen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.17-fabric
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
-java -jar fabric.jar client -mcversion 1.17.1
-del /S /Q fabric.jar
 echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
@@ -279,29 +259,27 @@ ECHO.
 ECHO Only Optifine/Modloader:
 ECHO.
 ECHO 1. 1.16 Only Optifine		- https://optifine.net/downloads/
-ECHO 2. 1.16 Only Fabric-Loader	- https://fabricmc.net/use/
-ECHO 3. 1.16 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
+ECHO 2. 1.16 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
 ECHO.
-ECHO Client-Modpacks:
+ECHO Client-Modpacks (Fabric-Loader):
 ECHO.
-ECHO 4. 1.16 Client Only
-ECHO 5. 1.16 Client Mods Lite
-ECHO 6. 1.16 Client Mods Full
+ECHO 3. 1.16 Client Only
+ECHO 4. 1.16 Client Mods Lite
+ECHO 5. 1.16 Client Mods Full
 ECHO.
-ECHO 7. Installer neustarten.
-ECHO 8. Installer beenden.
+ECHO 6. Installer neustarten.
+ECHO 7. Installer beenden.
 ECHO.
 ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader ausw„hlst!
 ECHO.
 
-CHOICE /C 12345678 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
-IF ERRORLEVEL 8 GOTO end
-IF ERRORLEVEL 7 GOTO start
-IF ERRORLEVEL 6 GOTO 1.16-Client-Mods-Full
-IF ERRORLEVEL 5 GOTO 1.16-Client-Mods-Lite
-IF ERRORLEVEL 4 GOTO 1.16-Client-Only
-IF ERRORLEVEL 3 GOTO 1.16-forge
-IF ERRORLEVEL 2 GOTO 1.16-fabric
+CHOICE /C 1234567 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
+IF ERRORLEVEL 7 GOTO end
+IF ERRORLEVEL 6 GOTO start
+IF ERRORLEVEL 5 GOTO 1.16-Client-Mods-Full
+IF ERRORLEVEL 4 GOTO 1.16-Client-Mods-Lite
+IF ERRORLEVEL 3 GOTO 1.16-Client-Only
+IF ERRORLEVEL 2 GOTO 1.16-forge
 IF ERRORLEVEL 1 GOTO 1.16-optifine
 
 
@@ -315,26 +293,6 @@ echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf
 Pause
 java -jar 1.16-optifine.jar
 del /S /Q 1.16-optifine.jar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/l”schen
-CHOICE /C 123 /M "Auswahl: "
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-fabric
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
-java -jar fabric.jar client -mcversion 1.16.5
-del /S /Q fabric.jar
 echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
@@ -451,7 +409,7 @@ ECHO Only Optifine/Modloader:
 ECHO.
 ECHO 1. 1.8 Only Optifine		- https://optifine.net/downloads/
 ECHO 2. 1.8 Only Forge-Loader	- https://files.minecraftforge.net/net/minecraftforge/forge/
-ECHO 3. 1.8 Client-Mods
+ECHO 3. 1.8 Client-Mods (Forge-Loader)
 ECHO.
 ECHO 4. Installer neustarten.
 ECHO 5. Installer beenden.
@@ -536,6 +494,28 @@ CHOICE /C 123 /M "Auswahl: "
 IF ERRORLEVEL 3 GOTO bp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
+
+
+
+:fabric
+echo Instalation startet...
+C:
+cd %appdata%\.minecraft
+tar cf Backup.tar mods options.txt optionsof.txt config
+curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+java -jar fabric.jar
+del /S /Q fabric.jar
+echo Fertig!
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/l”schen
+CHOICE /C 123 /M "Auswahl: "
+:: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
+
 
 
 
