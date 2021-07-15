@@ -4,7 +4,7 @@ Mods in bis zu 8 Profilen speichen und Minecraft über ein extra Skript starten 
 
 Den Download findest du hier: https://github.com/2020Sanoj/Mod-Installer/releases/latest
 
-#Steam:
+**Steam:**
 
 Wenn du Minecraft über Steam startest für Controller-Steuerung, dann erstelle einfach eine Datei mit dem Namen steam.txt
 Eine Beispiel Date findest du hier: https://download.san0j.de/mods/steam.txt und füge darin die Steam rungameidein!
