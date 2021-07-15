@@ -357,6 +357,19 @@ IF ERRORLEVEL 1 GOTO start
 
 
 :of
+CLS
+ECHO.
+ECHO Welche Optifine Version m”chtest du installieren?
+ECHO.
+ECHO 1. Nach 1.13
+ECHO 2. Vor 1.12.2
+ECHO.
+CHOICE /C 12 /M "Auswahl: "
+IF ERRORLEVEL 2 GOTO of-old
+If ERRORLEVEL 1 GOTO of-new
+
+
+:of-old
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
@@ -364,8 +377,106 @@ tar cf Backup.tar mods options.txt optionsof.txt config options.txt optionsof.tx
 CLS
 ECHO.
 ECHO Welche Optifine Version m”chtest du installieren?
+ECHO.
+ECHO a) 1.12.2
+ECHO b) 1.12.1
+ECHO c) 1.12
+ECHO d) 1.11.2
+ECHO e) 1.11
+ECHO f) 1.10.2
+ECHO g) 1.10
+ECHO h) 1.9.4
+ECHO i) 1.9.2
+ECHO j) 1.9
+ECHO k) 1.8.9
+ECHO l) 1.8.8
+ECHO m) 1.8
+ECHO n) 1.7.10
+ECHO o) 1.7.2
+CHOICE /C abcdefghijklmno /M "Auswahl: "
+IF ERRORLEVEL 15 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.7.2.jar
+IF ERRORLEVEL 14 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.7.10.jar
+IF ERRORLEVEL 13 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.8.jar
+IF ERRORLEVEL 12 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.8.8.jar
+IF ERRORLEVEL 11 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.8.9.jar
+IF ERRORLEVEL 10 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.9.jar
+IF ERRORLEVEL 9 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.9.2.jar
+IF ERRORLEVEL 8 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.9.4.jar
+IF ERRORLEVEL 7 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.10.jar
+IF ERRORLEVEL 6 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.10.2.jar
+IF ERRORLEVEL 5 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.11.jar
+IF ERRORLEVEL 4 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.11.2.jar
+IF ERRORLEVEL 3 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.12.jar
+IF ERRORLEVEL 2 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.12.1.jar
+IF ERRORLEVEL 1 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.12.2.jar
+echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
+Pause
+java -jar optifine.jar
+del /S /Q optifine.jar
+echo Fertig!
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/l”schen
+CHOICE /C 123 /M "Auswahl: "
+IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
 
 
+:of-new
+echo Instalation startet...
+C:
+cd %appdata%\.minecraft
+tar cf Backup.tar mods options.txt optionsof.txt config options.txt optionsof.txt config
+CLS
+ECHO.
+ECHO Welche Optifine Version m”chtest du installieren?
+ECHO.
+ECHO a) Letzte Version
+ECHO b) 1.17.1
+ECHO c) 1.17
+ECHO d) 1.16.5
+ECHO e) 1.16.4
+ECHO f) 1.16.3
+ECHO g) 1.16.2
+ECHO h) 1.16.1
+ECHO i) 1.15.2
+ECHO j) 1.14.4
+ECHO k) 1.14.3
+ECHO l) 1.14.2
+ECHO m) 1.13.2
+ECHO n) 1.13.1
+ECHO o) 1.13
+CHOICE /C abcdefghijklmno /M "Auswahl: "
+IF ERRORLEVEL 15 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.13.jar
+IF ERRORLEVEL 14 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.13.1.jar
+IF ERRORLEVEL 13 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.13.2.jar
+IF ERRORLEVEL 12 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.14.2.jar
+IF ERRORLEVEL 11 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.14.3.jar
+IF ERRORLEVEL 10 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.14.4.jar
+IF ERRORLEVEL 9 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.15.2.jar
+IF ERRORLEVEL 8 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.16.1.jar
+IF ERRORLEVEL 7 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.16.2.jar
+IF ERRORLEVEL 6 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.16.3.jar
+IF ERRORLEVEL 5 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.16.4.jar
+IF ERRORLEVEL 4 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.16.5.jar
+IF ERRORLEVEL 3 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.17.jar
+IF ERRORLEVEL 2 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.17.1.jar
+IF ERRORLEVEL 1 curl -L --output optifine.jar --url https://download.san0j.de/mods/of/latest.jar
+echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
+Pause
+java -jar optifine.jar
+del /S /Q optifine.jar
+echo Fertig!
+
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+ECHO 3. Profil erstellen/l”schen
+CHOICE /C 123 /M "Auswahl: "
+IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
 
 :forge
 echo Instalation startet...
