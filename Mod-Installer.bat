@@ -138,11 +138,11 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config options.txt optionsof.txt config
-curl -L --output 1.17-optifine.jar --url https://download.san0j.de/mods/1.17-optifine.jar
+curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.17.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
-java -jar 1.17-optifine.jar
-del /S /Q 1.17-optifine.jar
+java -jar optifine.jar
+del /S /Q optifine.jar
 echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
@@ -160,7 +160,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://download.san0j.de/mods/1.17-forge.jar
+curl -L --output forge.jar --url https://download.san0j.de/mods/frg/1.17.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
@@ -187,7 +187,7 @@ curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric
 java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
 rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Only.zip
+curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.17-Client-Only.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
@@ -211,7 +211,7 @@ curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric
 java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
 rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Mods-Lite.zip
+curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.17-Client-Mods-Lite.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
@@ -235,7 +235,7 @@ curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric
 java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
 rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.17-Client-Mods-Full.zip
+curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.17-Client-Mods-Full.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
@@ -288,11 +288,11 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output 1.16-optifine.jar --url https://download.san0j.de/mods/1.16-optifine.jar
+curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.16.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
-java -jar 1.16-optifine.jar
-del /S /Q 1.16-optifine.jar
+java -jar optifine.jar
+del /S /Q optifine.jar
 echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
@@ -310,7 +310,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://download.san0j.de/mods/1.16-forge.jar
+curl -L --output forge.jar --url https://download.san0j.de/mods/frg/1.16.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
@@ -337,7 +337,7 @@ curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.16-Client-Only.zip
+curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.16-Client-Only.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
@@ -361,7 +361,7 @@ curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.16-Client-Mods-Lite.zip
+curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.16-Client-Mods-Lite.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
@@ -385,7 +385,7 @@ curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.16-Client-Mods-Full.zip
+curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.16-Client-Mods-Full.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
@@ -429,11 +429,11 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output 1.8-optifine.jar --url https://download.san0j.de/mods/1.8-optifine.jar
+curl -L --output optifine.jar --url https://download.san0j.de/mods/of/1.8.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
-java -jar 1.8-optifine.jar
-del /S /Q 1.8-optifine.jar
+java -jar optifine.jar
+del /S /Q optifine.jar
 echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
@@ -451,12 +451,12 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://download.san0j.de/mods/1.8-forge.jar
+curl -L --output forge.jar --url https://download.san0j.de/mods/frg/1.8.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
-del /S /Q forge-1.8.9-11.15.1.2318-1.8.9-installer.jar.log
+del /S /Q forge.jar.log
 echo Fertig! 
 
 ECHO 1. Mod-Installer neustarten.
@@ -474,14 +474,14 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output forge.jar --url https://download.san0j.de/mods/1.8-forge.jar
+curl -L --output forge.jar --url https://download.san0j.de/mods/frg/1.8.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
 del /S /Q forge.jar.log
 rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/1.8.zip
+curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.8.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 echo Fertig!
@@ -547,12 +547,12 @@ CLS
 ECHO.
 ECHO Texture Packs:
 ECHO.
-ECHO 1. KÅrbis Sicht entfernen - KÅrbis.zip
-ECHO 2. Dark Mode - Verdunkle Minecraft - https://lksr.de/darkrp
-ECHO 3. Xray - ungern gesehen           - https://lksr.de/xray
-ECHO 4. Default Resourcepack - Das Standart Minecraft Texturepack - zum selbst bearbeiten
+ECHO 1. KÅrbis Sicht entfernen                   - KÅrbis.zip
+ECHO 2. Dark Mode - Verdunkle Minecraft          - https://lksr.de/darkrp
+ECHO 3. Xray - ungern gesehen                    - https://lksr.de/xray
+ECHO 4. Default Minecraft Resourcepack           - Zum selbst bearbeiten!
 ECHO 5. Textures der neuen Versionen fÅr die 1.8 - https://lksr.de/18new
-ECHO 6. 1.8 PVP Pack (das von BastiGHG) - https://lksr.de/pvp
+ECHO 6. 1.8 PVP Pack (das von BastiGHG)          - https://lksr.de/pvp
 ECHO 7. Alles
 ECHO.
 ECHO 8. Mod-Installer neustarten.
@@ -573,7 +573,7 @@ IF ERRORLEVEL 1 GOTO ks
 :rpa
 cd %appdata%\.minecraft
 echo Download start...
-curl -L --output Alles.zip --url  https://download.san0j.de/mods/Alles.zip
+curl -L --output Alles.zip --url  https://download.san0j.de/mods/rp/Alles.zip
 tar -xf Alles.zip
 del /S /Q Alles.zip
 
@@ -586,7 +586,7 @@ IF ERRORLEVEL 2 GOTO end
 
 :pvp
 echo Download start...
-curl -L --output BastiGHG-PVP.zip --url  https://download.san0j.de/mods/BastiGHG-PVP.zip
+curl -L --output BastiGHG-PVP.zip --url  https://download.san0j.de/mods/rp/BastiGHG-PVP.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
@@ -598,7 +598,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
 :1.8-new
-curl -L --output 1.8-rp-with-newer-textures.zip --url  https://download.san0j.de/mods/1.8-rp-with-newer-textures.zip
+curl -L --output 1.8-rp-with-newer-textures.zip --url  https://download.san0j.de/mods/rp/1.8-rp-with-newer-textures.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
@@ -616,9 +616,9 @@ ECHO 2. 1.16
 ECHO 3. 1.8
 CHOICE /C 123 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 curl -L --output rp-1.8.zip --url  https://download.san0j.de/mods/rp-1.8.zip
-IF ERRORLEVEL 2 curl -L --output rp-1.16.zip --url  https://download.san0j.de/mods/rp-1.17.zip
-IF ERRORLEVEL 1 curl -L --output rp-1.17.zip --url  https://download.san0j.de/mods/rp-1.16.zip
+IF ERRORLEVEL 3 curl -L --output rp-1.8.zip --url  https://download.san0j.de/mods/rp/rp-1.8.zip
+IF ERRORLEVEL 2 curl -L --output rp-1.16.zip --url  https://download.san0j.de/mods/rp/rp-1.17.zip
+IF ERRORLEVEL 1 curl -L --output rp-1.17.zip --url  https://download.san0j.de/mods/rp/rp-1.16.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
@@ -635,8 +635,8 @@ ECHO 1. 1.17
 ECHO 2. 1.16
 CHOICE /C 12 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 2 curl -L --output Xray-1.16.zip --url  https://download.san0j.de/mods/Xray-1.17.zip
-IF ERRORLEVEL 1 curl -L --output Xray-1.17.zip --url  https://download.san0j.de/mods/Xray-1.16.zip
+IF ERRORLEVEL 2 curl -L --output Xray-1.16.zip --url  https://download.san0j.de/mods/rp/Xray-1.17.zip
+IF ERRORLEVEL 1 curl -L --output Xray-1.17.zip --url  https://download.san0j.de/mods/rp/Xray-1.16.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
@@ -654,9 +654,9 @@ ECHO 2. 1.16
 ECHO 3. 1.8
 CHOICE /C 123 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 curl -L --output Dark-Mode-1.8.zip --url  https://download.san0j.de/mods/Dark-Mode-1.8.zip
-IF ERRORLEVEL 2 curl -L --output Dark-Mode-1.16.zip --url  https://download.san0j.de/mods/Dark-Mode-1.17.zip
-IF ERRORLEVEL 1 curl -L --output Dark-Mode-1.17.zip --url  https://download.san0j.de/mods/Dark-Mode-1.16.zip
+IF ERRORLEVEL 3 curl -L --output Dark-Mode-1.8.zip --url  https://download.san0j.de/mods/rp/Dark-Mode-1.8.zip
+IF ERRORLEVEL 2 curl -L --output Dark-Mode-1.16.zip --url  https://download.san0j.de/mods/rp/Dark-Mode-1.17.zip
+IF ERRORLEVEL 1 curl -L --output Dark-Mode-1.17.zip --url  https://download.san0j.de/mods/rp/Dark-Mode-1.16.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
@@ -674,9 +674,9 @@ ECHO 2. 1.16
 ECHO 3. 1.8
 CHOICE /C 123 /M "Auswahl: "
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 3 curl -L --output KÅrbis-1.8.zip --url  https://download.san0j.de/mods/Kuerbis-1.8.zip
-IF ERRORLEVEL 2 curl -L --output KÅrbis-1.16.zip --url  https://download.san0j.de/mods/Kuerbis-1.17.zip
-IF ERRORLEVEL 1 curl -L --output KÅrbis-1.17.zip --url  https://download.san0j.de/mods/Kuerbis-1.16.zip
+IF ERRORLEVEL 3 curl -L --output KÅrbis-1.8.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.8.zip
+IF ERRORLEVEL 2 curl -L --output KÅrbis-1.16.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.17.zip
+IF ERRORLEVEL 1 curl -L --output KÅrbis-1.17.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.16.zip
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
