@@ -6,19 +6,15 @@ set /p steam=<%appdata%\.minecraft\steam.txt
 CLS
 :start
 C:
-
-
-
     where java >nul 2>nul
-    if %errorlevel%==1 (
-    
+    if %errorlevel%==1 (    
 	ECHO.
-	ECHO Java ist nicht installiert und wird nun installiert! 
+	ECHO Java ist nicht installiert, da es benîtigt wird, wird es nun installiert! 
 	ECHO Von https://lksr.de/corretto
-	ECHO Starten?
+	echo Starten?
 	Pause
+	ECHO Nach der beendigung der Instalation starte den Launcher einfach neu!
 	ECHO Bitte warten!
-	ECHO Nach der beendigung der Java Instalation starte den Launcher einfach neu!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
 	curl -L --output java.msi --url https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
@@ -29,15 +25,15 @@ C:
 )
 
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
-
 	CLS
 	echo Der Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
 	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	echo Starten von Minecraft nicht mîglich
+	echo Starten von Minecraft nicht mîglich!
 	echo Minecraft wird nun installiert.
-	ECHO Bitte warten!
-	ECHO Nach der beendigung der Instalation starte den Launcher einfach neu!
+	echo Starten?
 	Pause
+	ECHO Nach der beendigung der Instalation starte den Launcher einfach neu!
+	ECHO Bitte warten!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
 	curl -L --output MC-Install.msi --url https://launcher.mojang.com/download/MinecraftInstaller.msi
@@ -48,15 +44,15 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 )
 
 if not exist "%appdata%\.minecraft" (
-
     CLS
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
 	echo Unter "%appdata%\.minecraft"
 	echo Starten von Minecraft nicht mîglich
-	echo ôffne den Minecraft Launcher und Probiere ob es danach funktioniert!
-	echo MC-Launcher wird beendet...
+	echo Soll der Minecraft Launcher geîffnet werden und es dannach erneut getestet werden?
 	Pause
-EXIT /B
+	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
+	TASKKILL /T /F /IM MinecraftLauncher*
+	GOTO start
 )
 
 

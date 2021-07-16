@@ -7,19 +7,15 @@ CLS
 curl -L --output %0 --url https://download.san0j.de/mods/Mod-Installer.bat
 endlocal
 C:
-
-
-
     where java >nul 2>nul
-    if %errorlevel%==1 (
-    
+    if %errorlevel%==1 (    
 	ECHO.
-	ECHO Java ist nicht installiert und wird nun installiert! 
+	ECHO Java ist nicht installiert, da es benîtigt wird, wird es nun installiert! 
 	ECHO Von https://lksr.de/corretto
-	ECHO Starten?
+	echo Starten?
 	Pause
+	ECHO Nach der beendigung der Instalation starte den Mod-Installer einfach neu!
 	ECHO Bitte warten!
-	ECHO Nach der beendigung der Java Instalation starte den Mod-Installer einfach neu!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
 	curl -L --output java.msi --url https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
@@ -30,16 +26,14 @@ C:
 )
 
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
-curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
-
 	CLS
 	echo Der Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
 	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	echo Starten von Minecraft nicht mîglich
 	echo Minecraft wird nun installiert.
-	ECHO Bitte warten!
-	ECHO Nach der beendigung der Instalation starte den Mod-Installer einfach neu!
+	echo Starten?
 	Pause
+	ECHO Nach der beendigung der Instalation starte den Mod-Installer einfach neu!
+	ECHO Bitte warten!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
 	curl -L --output MC-Install.msi --url https://launcher.mojang.com/download/MinecraftInstaller.msi
@@ -50,16 +44,15 @@ curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 )
 
 if not exist "%appdata%\.minecraft" (
-curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
-
     CLS
     echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
 	echo Unter "%appdata%\.minecraft"
 	echo Starten von Minecraft nicht mîglich
-	echo ôffne den Minecraft Launcher und Probiere ob es danach funktioniert!
-	echo MC-Launcher wird beendet...
+	echo Soll der Minecraft Launcher geîffnet werden und es dannach erneut getestet werden?
 	Pause
-EXIT /B
+	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
+	TASKKILL /T /F /IM MinecraftLauncher*
+	GOTO start
 )
 
 
@@ -104,6 +97,7 @@ CLS
 	IF ERRORLEVEL 1 GOTO iris
 
 :1.17
+C:
 cd %appdata%\.minecraft
 CLS
 ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
@@ -120,82 +114,32 @@ ECHO.
 CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 5 GOTO end
 IF ERRORLEVEL 4 GOTO start
-IF ERRORLEVEL 3 GOTO 1.17-Client-Mods-Full
-IF ERRORLEVEL 2 GOTO 1.17-Client-Mods-Lite
-IF ERRORLEVEL 1 GOTO 1.17-Client-Only
-	
-
-:1.17-Client-Only
+IF ERRORLEVEL 3 curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.17-Client-Mods-Full.zip
+IF ERRORLEVEL 2 curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.17-Client-Mods-Lite.zip
+IF ERRORLEVEL 1 curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.17-Client-Only.zip
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
+rmdir /S /Q mods
+tar -xf mods.zip
+del /S /Q mods.zip
 curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
-rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.17-Client-Only.zip
-tar -xf mods.zip
-del /S /Q mods.zip
 echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
-
-
-:1.17-Client-Mods-Lite
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
-java -jar fabric.jar client -mcversion 1.17.1
-del /S /Q fabric.jar
-rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.17-Client-Mods-Lite.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.17-Client-Mods-Full
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
-java -jar fabric.jar client -mcversion 1.17.1
-del /S /Q fabric.jar
-rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.17-Client-Mods-Full.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
 
 
 :1.16
+C:
 cd %appdata%\.minecraft
 CLS
 ECHO Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
@@ -213,79 +157,28 @@ ECHO.
 CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 5 GOTO end
 IF ERRORLEVEL 4 GOTO start
-IF ERRORLEVEL 3 GOTO 1.16-Client-Mods-Full
-IF ERRORLEVEL 2 GOTO 1.16-Client-Mods-Lite
-IF ERRORLEVEL 1 GOTO 1.16-Client-Only
-	
-
-:1.16-Client-Only
+IF ERRORLEVEL 3 curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.16-Client-Mods-Full.zip
+IF ERRORLEVEL 2 curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.16-Client-Mods-Lite.zip
+IF ERRORLEVEL 1 curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.16-Client-Only.zip
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
+rmdir /S /Q mods
+tar -xf mods.zip
+del /S /Q mods.zip
 curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
-rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.16-Client-Only.zip
-tar -xf mods.zip
-del /S /Q mods.zip
 echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-Client-Mods-Lite
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
-java -jar fabric.jar client -mcversion 1.16.5
-del /S /Q fabric.jar
-rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.16-Client-Mods-Lite.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
-
-:1.16-Client-Mods-Full
-echo Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
-curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
-java -jar fabric.jar client -mcversion 1.16.5
-del /S /Q fabric.jar
-rmdir /S /Q mods
-curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.16-Client-Mods-Full.zip
-tar -xf mods.zip
-del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
 
 
 :1.8
@@ -308,12 +201,11 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
-
 
 
 :fabric
@@ -328,12 +220,11 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
-
 
 
 :iris
@@ -348,12 +239,11 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
-
 
 
 :of
@@ -417,9 +307,9 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -472,11 +362,12 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
+
 
 :forge
 echo Instalation startet...
@@ -508,7 +399,7 @@ ECHO r) 1.16.4
 ECHO s) 1.16.5
 ECHO.
 CHOICE /C abcdefghijklmnopqrs /M "Auswahl: "
-IF ERRORLEVEL 19 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.33/forge-1.16.5-36.1.33-installer.jar
+IF ERRORLEVEL 19 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.35/forge-1.16.5-36.1.35-installer.jar
 IF ERRORLEVEL 18 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.4-35.1.37/forge-1.16.4-35.1.37-installer.jar
 IF ERRORLEVEL 17 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.3-34.1.42/forge-1.16.3-34.1.42-installer.jar
 IF ERRORLEVEL 16 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.2-33.0.61/forge-1.16.2-33.0.61-installer.jar
@@ -526,8 +417,7 @@ IF ERRORLEVEL 5 curl -L --output forge.jar --url https://maven.minecraftforge.ne
 IF ERRORLEVEL 4 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 IF ERRORLEVEL 3 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
 IF ERRORLEVEL 2 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
-IF ERRORLEVEL 1 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.33/forge-1.16.5-36.1.33-installer.jar
-
+IF ERRORLEVEL 1 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.35/forge-1.16.5-36.1.35-installer.jar
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
@@ -537,9 +427,9 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -712,9 +602,9 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -736,9 +626,9 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO bp
 
@@ -760,11 +650,11 @@ ECHO Geladen!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 ECHO 4. Minecraft starten
 CHOICE /C 1234 /M "Auswahl: "
 IF ERRORLEVEL 4 GOTO mcl
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -812,9 +702,9 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -836,9 +726,9 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
@@ -860,9 +750,9 @@ echo Fertig!
 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen/lîschen
+ECHO 3. Profil erstellen
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO bp
+IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
 
