@@ -66,9 +66,9 @@ CLS
 	ECHO c) Fabric-Loader (1.14+)    - https://fabricmc.net/use/
 	ECHO d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge/
 	ECHO.
-	ECHO e) 1.17                     - Fabric-Loader Modpacks
-	ECHO f) 1.16                     - Fabric-Loader Modpacks
-	ECHO g) 1.8                      - Forge-Loader  Modpack
+	ECHO e) 1.17.1                     - Fabric-Loader Modpacks
+	ECHO f) 1.16.5                     - Fabric-Loader Modpacks
+	ECHO g) 1.8.9                      - Forge-Loader  Modpack
 	ECHO h) Profil Update            - Lade ein Profil um es zu aktualisieren und danach zu Åberschreiben!
 	ECHO.
 	ECHO i) Rescource Packs          - Lade dir Resourcepacks herunter!
