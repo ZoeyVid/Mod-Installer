@@ -399,7 +399,7 @@ ECHO r) 1.16.4
 ECHO s) 1.16.5
 ECHO.
 CHOICE /C abcdefghijklmnopqrs /M "Auswahl: "
-IF ERRORLEVEL 19 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.58/forge-1.16.5-36.1.58-installer.jar
+IF ERRORLEVEL 19 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.62/forge-1.16.5-36.1.62-installer.jar
 IF ERRORLEVEL 18 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.4-35.1.37/forge-1.16.4-35.1.37-installer.jar
 IF ERRORLEVEL 17 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.3-34.1.42/forge-1.16.3-34.1.42-installer.jar
 IF ERRORLEVEL 16 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.2-33.0.61/forge-1.16.2-33.0.61-installer.jar
@@ -417,7 +417,7 @@ IF ERRORLEVEL 5 curl -L --output forge.jar --url https://maven.minecraftforge.ne
 IF ERRORLEVEL 4 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 IF ERRORLEVEL 3 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
 IF ERRORLEVEL 2 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
-IF ERRORLEVEL 1 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.58/forge-1.16.5-36.1.58-installer.jar
+IF ERRORLEVEL 1 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.62/forge-1.16.5-36.1.62-installer.jar
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
