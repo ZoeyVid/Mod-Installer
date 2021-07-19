@@ -66,35 +66,55 @@ CLS
 	ECHO c) Fabric-Loader (1.14+)    - https://fabricmc.net/use/
 	ECHO d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge/
 	ECHO.
-	ECHO e) 1.17.1                     - Fabric-Loader Modpacks
-	ECHO f) 1.16.5                     - Fabric-Loader Modpacks
-	ECHO g) 1.8.9                      - Forge-Loader  Modpack
-	ECHO h) Profil Update            - Lade ein Profil um es zu aktualisieren und danach zu Åberschreiben!
+	ECHO e) 1.18                     - Offiziell Snapshot
+	ECHO f) 1.17.1                   - Fabric-Loader Modpacks
+	ECHO g) 1.16.5                   - Fabric-Loader Modpacks
+	ECHO h) 1.8.9                    - Forge-Loader  Modpack
+	ECHO i) Profil Update            - Lade ein Profil um es zu aktualisieren und danach zu Åberschreiben!
 	ECHO.
-	ECHO i) Rescource Packs          - Lade dir Resourcepacks herunter!
+	ECHO j) Rescource Packs          - Lade dir Resourcepacks herunter!
 	ECHO.
-	ECHO j) Backups/Modprofile       - Erstelle Mod-/Config-Profile
+	ECHO k) Backups/Modprofile       - Erstelle Mod-/Config-Profile
 	ECHO.
 	ECHO Funktionen:
 	ECHO.
-    ECHO k) Installer neustarten.
-	ECHO l) Installer beenden.
-	ECHO m) Feedback hinterlassen
+    ECHO l) Installer neustarten.
+	ECHO m) Installer beenden.
+	ECHO n) Feedback hinterlassen
 	ECHO.
-    CHOICE /C abcdefghijklm /M "Auswahl: "
-    IF ERRORLEVEL 13 GOTO fb
-    IF ERRORLEVEL 12 GOTO end
-    IF ERRORLEVEL 11 GOTO start
-    IF ERRORLEVEL 10 GOTO bp
-	IF ERRORLEVEL 9 GOTO rp
-	IF ERRORLEVEL 8 GOTO update
-	IF ERRORLEVEL 7 GOTO 1.8
-	IF ERRORLEVEL 6 GOTO 1.16
-    IF ERRORLEVEL 5 GOTO 1.17
+    CHOICE /C abcdefghijklmn /M "Auswahl: "
+    IF ERRORLEVEL 14 GOTO fb
+    IF ERRORLEVEL 13 GOTO end
+    IF ERRORLEVEL 12 GOTO start
+    IF ERRORLEVEL 11 GOTO bp
+	IF ERRORLEVEL 10 GOTO rp
+	IF ERRORLEVEL 9 GOTO update
+	IF ERRORLEVEL 8 GOTO 1.8
+	IF ERRORLEVEL 7 GOTO 1.16
+    IF ERRORLEVEL 6 GOTO 1.17
+	IF ERRORLEVEL 5 GOTO 1.18
 	IF ERRORLEVEL 4 GOTO forge
 	IF ERRORLEVEL 3 GOTO fabric
 	IF ERRORLEVEL 2 GOTO of
 	IF ERRORLEVEL 1 GOTO iris
+
+
+:1.18
+CLS
+echo Instalation startet...
+C:
+cd %appdata%\.minecraft\versions
+curl -L --output 1.18.zip --url https://download.san0j.de/mods/mp/1.18.zip
+tar -xf 1.18.zip
+del /S /Q 1.18.zip
+echo Fertig!
+echo Bitte achte darauf im Minecraft Launcher noch ein 1.18 Profil zu erstellen!
+ECHO 1. Mod-Installer neustarten.
+ECHO 2. Installer beenden.
+CHOICE /C 123 /M "Auswahl: "
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO start
+
 
 :1.17
 C:
