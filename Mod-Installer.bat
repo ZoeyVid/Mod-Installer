@@ -109,12 +109,7 @@ tar -xf 1.18.zip
 del /S /Q 1.18.zip
 echo Fertig!
 echo Bitte achte darauf im Minecraft Launcher noch ein 1.18 Profil zu erstellen!
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
+GOTO mif
 
 :1.17
 C:
@@ -128,8 +123,6 @@ ECHO 3. 1.17 Client Mods Full
 ECHO.
 ECHO 4. Installer neustarten.
 ECHO 5. Installer beenden.
-ECHO.
-ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader auswÑhlst!
 ECHO.
 CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 5 GOTO end
@@ -147,16 +140,7 @@ del /S /Q mods.zip
 curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO pc
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
+GOTO mif
 
 :1.16
 C:
@@ -171,9 +155,6 @@ ECHO.
 ECHO 4. Installer neustarten.
 ECHO 5. Installer beenden.
 ECHO.
-ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader auswÑhlst!
-ECHO.
-
 CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 5 GOTO end
 IF ERRORLEVEL 4 GOTO start
@@ -190,16 +171,7 @@ del /S /Q mods.zip
 curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO pc
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
+GOTO mif
 
 :1.8
 CLS
@@ -217,16 +189,7 @@ rmdir /S /Q mods
 curl -L --output mods.zip --url https://download.san0j.de/mods/mp/1.8.zip
 tar -xf mods.zip
 del /S /Q mods.zip
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO pc
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
+GOTO mif
 
 :fabric
 echo Instalation startet...
@@ -236,16 +199,7 @@ tar cf Backup.tar mods options.txt optionsof.txt config
 curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar
 del /S /Q fabric.jar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO pc
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
+GOTO mif
 
 :iris
 echo Instalation startet...
@@ -255,16 +209,7 @@ tar cf Backup.tar mods options.txt optionsof.txt config
 curl -L --output iris.jar --url https://github.com/IrisShaders/Iris-Installer/releases/download/1.1.1/Iris-Installer-1.1.1.jar
 java -jar iris.jar
 del /S /Q iris.jar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO pc
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
+GOTO mif
 
 :of
 CLS
@@ -277,7 +222,6 @@ ECHO.
 CHOICE /C 12 /M "Auswahl: "
 IF ERRORLEVEL 2 GOTO of-old
 If ERRORLEVEL 1 GOTO of-new
-
 
 :of-old
 echo Instalation startet...
@@ -323,16 +267,7 @@ echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf
 Pause
 java -jar optifine.jar
 del /S /Q optifine.jar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO pc
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
+GOTO mif
 
 :of-new
 echo Instalation startet...
@@ -378,16 +313,7 @@ echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf
 Pause
 java -jar optifine.jar
 del /S /Q optifine.jar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO pc
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
-
+GOTO mif
 
 :forge
 echo Instalation startet...
@@ -419,12 +345,12 @@ ECHO r) 1.16.4
 ECHO s) 1.16.5
 ECHO.
 CHOICE /C abcdefghijklmnopqrs /M "Auswahl: "
-IF ERRORLEVEL 19 curl -L --output forge.jar --url https://download.san0j.de/mods/of/1.16.5.jar
+IF ERRORLEVEL 19 curl -L --output forge.jar --url https://download.san0j.de/mods/forge/1.16.5
 IF ERRORLEVEL 18 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.4-35.1.37/forge-1.16.4-35.1.37-installer.jar
 IF ERRORLEVEL 17 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.3-34.1.42/forge-1.16.3-34.1.42-installer.jar
 IF ERRORLEVEL 16 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.2-33.0.61/forge-1.16.2-33.0.61-installer.jar
 IF ERRORLEVEL 15 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.1-32.0.108/forge-1.16.1-32.0.108-installer.jar
-IF ERRORLEVEL 14 curl -L --output forge.jar --url https://download.san0j.de/mods/of/1.15.2.jar
+IF ERRORLEVEL 14 curl -L --output forge.jar --url https://download.san0j.de/mods/forge/1.15.2
 IF ERRORLEVEL 13 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.1-30.0.51/forge-1.15.1-30.0.51-installer.jar
 IF ERRORLEVEL 12 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.15-29.0.4/forge-1.15-29.0.4-installer.jar
 IF ERRORLEVEL 11 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.23/forge-1.14.4-28.2.23-installer.jar
@@ -437,14 +363,17 @@ IF ERRORLEVEL 5 curl -L --output forge.jar --url https://maven.minecraftforge.ne
 IF ERRORLEVEL 4 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 IF ERRORLEVEL 3 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
 IF ERRORLEVEL 2 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
-IF ERRORLEVEL 1 curl -L --output forge.jar --url https://download.san0j.de/mods/f/latest.jar
+IF ERRORLEVEL 1 curl -L --output forge.jar --url https://download.san0j.de/mods/forge/latest
 echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
 del /S /Q forge.jar.log
-echo Fertig! 
+GOTO mif
 
+:mif
+echo.
+echo Fertig! 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
 ECHO 3. Profil erstellen
@@ -452,7 +381,6 @@ CHOICE /C 123 /M "Auswahl: "
 IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
-
 
 
 :rp
@@ -488,35 +416,16 @@ IF ERRORLEVEL 1 GOTO ks
 cd %appdata%\.minecraft
 echo Download start...
 curl -L --output Alles.zip --url  https://download.san0j.de/mods/rp/Alles.zip
-tar -xf Alles.zip
-del /S /Q Alles.zip
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-CHOICE /C 12 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO rp
-IF ERRORLEVEL 2 GOTO end
+GOTO rpif
 
 :pvp
 echo Download start...
 curl -L --output BastiGHG-PVP.zip --url  https://download.san0j.de/mods/rp/BastiGHG-PVP.zip
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Weitere Rescource Packs donwloaden
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO rp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+GOTO rpif
 
 :1.8-new
 curl -L --output 1.8-rp-with-newer-textures.zip --url  https://download.san0j.de/mods/rp/1.8-rp-with-newer-textures.zip
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Weitere Rescource Packs donwloaden
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO rp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+GOTO rpif
 
 :drp
 echo Download startet...
@@ -527,14 +436,7 @@ CHOICE /C 123 /M "Auswahl: "
 IF ERRORLEVEL 3 curl -L --output rp-1.8.zip --url  https://download.san0j.de/mods/rp/rp-1.8.zip
 IF ERRORLEVEL 2 curl -L --output rp-1.16.zip --url  https://download.san0j.de/mods/rp/rp-1.17.zip
 IF ERRORLEVEL 1 curl -L --output rp-1.17.zip --url  https://download.san0j.de/mods/rp/rp-1.16.zip
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Weitere Rescource Packs donwloaden
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO rp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+GOTO rpif
 
 :xray
 echo Download startet...
@@ -543,14 +445,7 @@ ECHO 2. 1.16
 CHOICE /C 12 /M "Auswahl: "
 IF ERRORLEVEL 2 curl -L --output Xray-1.16.zip --url  https://download.san0j.de/mods/rp/Xray-1.17.zip
 IF ERRORLEVEL 1 curl -L --output Xray-1.17.zip --url  https://download.san0j.de/mods/rp/Xray-1.16.zip
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Weitere Rescource Packs donwloaden
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO rp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+GOTO rpif
 
 :dm
 echo Download startet...
@@ -561,14 +456,7 @@ CHOICE /C 123 /M "Auswahl: "
 IF ERRORLEVEL 3 curl -L --output Dark-Mode-1.8.zip --url  https://download.san0j.de/mods/rp/Dark-Mode-1.8.zip
 IF ERRORLEVEL 2 curl -L --output Dark-Mode-1.16.zip --url  https://download.san0j.de/mods/rp/Dark-Mode-1.17.zip
 IF ERRORLEVEL 1 curl -L --output Dark-Mode-1.17.zip --url  https://download.san0j.de/mods/rp/Dark-Mode-1.16.zip
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Weitere Rescource Packs donwloaden
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO rp
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+GOTO rpif
 
 :ks
 echo Download startet...
@@ -579,7 +467,12 @@ CHOICE /C 123 /M "Auswahl: "
 IF ERRORLEVEL 3 curl -L --output KÅrbis-1.8.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.8.zip
 IF ERRORLEVEL 2 curl -L --output KÅrbis-1.16.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.17.zip
 IF ERRORLEVEL 1 curl -L --output KÅrbis-1.17.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.16.zip
+GOTO rpif
 
+:rpif
+echo.
+echo Fertig!
+echo.
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
 ECHO 3. Weitere Rescource Packs donwloaden
@@ -587,8 +480,6 @@ CHOICE /C 123 /M "Auswahl: "
 IF ERRORLEVEL 3 GOTO rp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
-
-
 
 :bp
 C:
@@ -618,15 +509,7 @@ IF ERRORLEVEL 1 GOTO pc
 :bl
 rmdir /S /Q mods
 tar xf Backup.tar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO pc
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+GOTO pbf
 
 :pr
 CLs
@@ -642,15 +525,7 @@ IF ERRORLEVEL 4 del /S /Q Profil-4.tar
 IF ERRORLEVEL 3 del /S /Q Profil-3.tar
 IF ERRORLEVEL 2 del /S /Q Profil-2.tar
 IF ERRORLEVEL 1 del /S /Q Profil-1.tar
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO pc
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO bp
+GOTO pbf
 
 :pl
 CLS
@@ -718,15 +593,7 @@ IF ERRORLEVEL 4 tar cf Profil-4.tar config optionsof.txt options.txt
 IF ERRORLEVEL 3 tar cf Profil-3.tar config optionsof.txt options.txt
 IF ERRORLEVEL 2 tar cf Profil-2.tar config optionsof.txt options.txt
 IF ERRORLEVEL 1 tar cf Profil-1.tar config optionsof.txt options.txt
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO pc
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+GOTO pbf
 
 :pcmc
 CLs
@@ -742,15 +609,7 @@ IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt
 IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt
 IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt
 IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt
-echo Fertig!
-
-ECHO 1. Mod-Installer neustarten.
-ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO pc
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+GOTO pbf
 
 :pcm
 CLs
@@ -766,22 +625,23 @@ IF ERRORLEVEL 4 tar cf Profil-4.tar mods
 IF ERRORLEVEL 3 tar cf Profil-3.tar mods
 IF ERRORLEVEL 2 tar cf Profil-2.tar mods
 IF ERRORLEVEL 1 tar cf Profil-1.tar mods
-echo Fertig!
+GOTO pbf
 
+:pbf
+echo.
+echo Fertig! 
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
-ECHO 3. Profil erstellen
-CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 GOTO pc
+CHOICE /C 12 /M "Auswahl: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
-
 
 
 :update
 CLS
 ECHO.
-ECHO Welches Profil mîchtest du aktualisieren?
+ECHO Welches Profil mîchtest du aktualisieren (Das Profil wird geladen damit alle Config Åbernommen werden)?
+ECHO Nach der Auswahl musst du das Modpack herunterladen und erneut in einem Profil abspeichern!
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 tar xf Profil-8.tar
@@ -794,16 +654,15 @@ IF ERRORLEVEL 2 tar xf Profil-2.tar
 IF ERRORLEVEL 1 tar xf Profil-1.tar
 GOTO start
 
+
 :fb
-ECHO https://discord.san0j.de/
+ECHO https://san0j.de/discord
 ECHO https://github.com/2020Sanoj/Mod-Installer/issues/
-ECHO Stelle sicher, dass du im Minecraft Launcher unten links den richtigen Modloader ausgewÑhlt hast!
 ECHO 1. Mod-Installer neustarten.
 ECHO 2. Installer beenden.
 CHOICE /C 12 /M "Auswahl: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO start
-
 
 
 :end
