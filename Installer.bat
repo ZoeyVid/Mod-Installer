@@ -53,8 +53,6 @@ if not exist "%appdata%\.minecraft" (
 	GOTO start
 )
 
-
-
 CLS
 ECHO.
 ECHO Willkommen beim Installer des Mod-Installers!
@@ -65,7 +63,6 @@ ECHO.
 CHOICE /C 12 /M "Auswahl: "
 IF ERRORLEVEL 2 GOTO rm
 IF ERRORLEVEL 1 GOTO is
-
 
 :is
 CLS
@@ -80,9 +77,7 @@ curl -L --output Installer.ico --url https://download.san0j.de/mods/Installer.ic
 
 mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
-CLS
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
-
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\MC-Launcher.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
@@ -90,13 +85,10 @@ echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo oLink.Arguments = "/C %appdata%\.minecraft\MC-Launcher.bat" >> %SCRIPT%
 echo oLink.IconLocation = "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
-
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 
-
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
-
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Mod-Installer.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
@@ -104,13 +96,10 @@ echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer.bat" >> %SCRIPT%
 echo oLink.IconLocation = "%appdata%\.minecraft\Donwload.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
-
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 
-
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
-
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Installer-Uninstaller.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
@@ -118,7 +107,6 @@ echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo oLink.Arguments = "/C %appdata%\.minecraft\Installer-Uninstaller.bat" >> %SCRIPT%
 echo oLink.IconLocation = "%appdata%\.minecraft\Installer.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
-
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 
@@ -134,9 +122,7 @@ IF ERRORLEVEL 2 GOTO if
 IF ERRORLEVEL 1 GOTO l
 
 :l
-CLS
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
-
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%USERPROFILE%\Desktop\MC-Launcher.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
@@ -144,14 +130,10 @@ echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo oLink.Arguments = "/C %appdata%\.minecraft\MC-Launcher.bat" >> %SCRIPT%
 echo oLink.IconLocation = "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
-
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 
-
-CLS
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
-
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo sLinkFile = "%USERPROFILE%\Desktop\Mod-Installer.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
@@ -159,7 +141,6 @@ echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer.bat" >> %SCRIPT%
 echo oLink.IconLocation = "%appdata%\.minecraft\Donwload.ico" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
-
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 GOTO if
@@ -171,9 +152,7 @@ Pause
 GOTO end
 
 :end
-CLS
 exit /B
-
 
 :rm
 CLS
@@ -195,14 +174,12 @@ del /S /Q %appdata%\.minecraft\MC-Launcher.bat
 del /S /Q %appdata%\.minecraft\Mod-Installer.bat
 del /S /Q %USERPROFILE%\Desktop\Mod-Installer.lnk
 del /S /Q %USERPROFILE%\Desktop\MC-Launcher.lnk
-
 rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
 CLS
 ECHO.
 ECHO Fertig! Scripte wurden gel”scht!
 ECHO Ausversehen entfernt? https://github.com/2020Sanoj/Mod-Installer/releases/latest
-ECHO.
 ECHO.
 ECHO Mod-Profile und Backups l”schen?
 ECHO Aktuell geladene Mods bleiben erhalten!
@@ -213,7 +190,6 @@ ECHO.
 CHOICE /C 12 /M "Auswahl: "
 IF ERRORLEVEL 2 GOTO endr
 IF ERRORLEVEL 1 GOTO rmpb
-
 
 :rmpb
 CLS
