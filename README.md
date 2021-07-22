@@ -6,13 +6,13 @@ Ein **Minecraft Modpack** wird mindestens bis zum Release der **überübernächs
 Modpacks laufen immer auf der **neusten .x Version** (Nicht auf der 1.8.8 sondern immer die neuste, also 1.8.9)<br/>
 Es wird weiterhin download und installierbar sein, nur erhält es keine Updates mehr! **Außnahme ist die 1.8.9** diese wird vorerst **unlimitiert Updates** erhalten!<br/>
 
-Den Download findest du hier: https://github.com/2020Sanoj/Mod-Installer/releases/latest<br/>
-Hinterlasse gerne Feedback, Bugs und Vorschläge in den Issues! (https://github.com/2020Sanoj/Mod-Installer/issues)
+Den Download findest du hier: https://github.com/2020Sanoj/Mod-Installer/releases/latest/<br/>
+Hinterlasse gerne Feedback, Bugs und Vorschläge in den Issues! (https://github.com/2020Sanoj/Mod-Installer/issues/)
 
 **Steam:**
 
 Wenn du Minecraft über Steam startest für Controller-Steuerung, dann erstelle einfach eine Datei mit dem Namen steam.txt<br/>
-Eine Beispiel Date findest du hier: https://download.san0j.de/mods/steam.txt und füge darin die Steam rungameidein!
+Eine Beispiel Date findest du hier: https://raw.githubusercontent.com/2020Sanoj/Mod-Installer/main/steam.txt und füge darin die Steam rungameidein!
 
 So erhälst du die Steam rungameid:
 Erstelle eine Desktopverknüpfung vom Minecraft-Launcher in Steam (Minecraft-Launcher in Steam hinzufügen, in der Bibliothek -> Rechtsklick auf das Spiel -> Verwalten -> Desktop-Verknüpfung erstellen)<br/>
