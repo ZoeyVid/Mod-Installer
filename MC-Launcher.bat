@@ -1,10 +1,10 @@
 @echo off
+:start
 curl -L --output %0 --url https://download.san0j.de/mods/MC-Launcher.bat
 del "%userprofile%\AppData\Local\Temp\java.msi"
 del "%userprofile%\AppData\Local\Temp\MC-Install.msi"
 set /p steam=<%appdata%\.minecraft\steam.txt
 CLS
-:start
 C:
     where java >nul 2>nul
     if %errorlevel%==1 (    
@@ -55,8 +55,6 @@ if not exist "%appdata%\.minecraft" (
 	GOTO start
 )
 
-
-
 C:
 cd "%appdata%\.minecraft\"
 CLS
@@ -75,9 +73,6 @@ IF ERRORLEVEL 4 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil
 IF ERRORLEVEL 3 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil-3.tar
 IF ERRORLEVEL 2 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil-2.tar
 IF ERRORLEVEL 1 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil-1.tar
-
-:mcl
-echo Starten...
 C:
 cd %appdata%\.minecraft\
 if exist steam.txt (

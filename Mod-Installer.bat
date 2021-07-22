@@ -1,10 +1,10 @@
 @echo off
+:start
+curl -L --output %0 --url https://download.san0j.de/mods/Mod-Installer.bat
 del "%userprofile%\AppData\Local\Temp\java.msi"
 del "%userprofile%\AppData\Local\Temp\MC-Install.msi"
 set /p steam=<%appdata%\.minecraft\steam.txt
 CLS
-:start
-curl -L --output %0 --url https://download.san0j.de/mods/Mod-Installer.bat
 endlocal
 C:
     where java >nul 2>nul
@@ -134,6 +134,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
+CLS
 rmdir /S /Q mods
 tar -xf mods.zip
 del /S /Q mods.zip
@@ -165,6 +166,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
+CLS
 rmdir /S /Q mods
 tar -xf mods.zip
 del /S /Q mods.zip
@@ -179,6 +181,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
+CLS
 curl -L --output forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
@@ -196,6 +199,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
+CLS
 curl -L --output fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar
 del /S /Q fabric.jar
@@ -206,6 +210,7 @@ echo Instalation startet...
 C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
+CLS
 curl -L --output iris.jar --url https://github.com/IrisShaders/Iris-Installer/releases/download/1.1.1/Iris-Installer-1.1.1.jar
 java -jar iris.jar
 del /S /Q iris.jar
@@ -227,7 +232,7 @@ If ERRORLEVEL 1 GOTO of-new
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config options.txt optionsof.txt config
+tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
 ECHO.
 ECHO Welche Optifine Version m”chtest du installieren?
@@ -273,7 +278,7 @@ GOTO mif
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config options.txt optionsof.txt config
+tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
 ECHO.
 ECHO Welche Optifine Version m”chtest du installieren?

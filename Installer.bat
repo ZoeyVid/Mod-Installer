@@ -1,9 +1,9 @@
 @echo off
+:start
+curl -L --output %0 --url https://download.san0j.de/mods/Installer.bat
 del "%userprofile%\AppData\Local\Temp\java.msi"
 del "%userprofile%\AppData\Local\Temp\MC-Install.msi"
 CLS
-:start
-curl -L --output %0 --url https://download.san0j.de/mods/Installer.bat
 C:
     where java >nul 2>nul
     if %errorlevel%==1 (    
@@ -68,6 +68,7 @@ IF ERRORLEVEL 1 GOTO is
 
 
 :is
+CLS
 echo Instalation starten?
 Pause
 cd "%appdata%\.minecraft"
@@ -133,6 +134,7 @@ IF ERRORLEVEL 2 GOTO if
 IF ERRORLEVEL 1 GOTO l
 
 :l
+CLS
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
@@ -169,13 +171,14 @@ Pause
 GOTO end
 
 :end
+CLS
 exit /B
 
 
 :rm
 CLS
 ECHO.
-ECHO Wirklich entfernen?
+ECHO Wirklich l”schen?
 ECHO.
 ECHO 1. Ja
 ECHO 2. Nein
@@ -185,6 +188,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO rmy
 
 :rmy
+CLS
 del /S /Q %appdata%\.minecraft\Donwload.ico
 del /S /Q %appdata%\.minecraft\Installer.ico
 del /S /Q %appdata%\.minecraft\MC-Launcher.bat
@@ -212,6 +216,7 @@ IF ERRORLEVEL 1 GOTO rmpb
 
 
 :rmpb
+CLS
 del /S /Q %appdata%\.minecraft\Profil-9.tar
 del /S /Q %appdata%\.minecraft\Profil-8.tar
 del /S /Q %appdata%\.minecraft\Profil-7.tar
@@ -231,6 +236,7 @@ Pause
 GOTO endr
 
 :endr
+CLS
 del /S /Q %appdata%\.minecraft\Installer-Uninstaller.bat
 del /S /Q %0
 GOTO end
