@@ -7,7 +7,7 @@ Modpacks laufen immer auf der **neusten .x Version** (Nicht auf der 1.8.8 sonder
 Es wird weiterhin download und installierbar sein, nur erhält es keine Updates mehr! **Außnahme ist die 1.8.9** diese wird vorerst **unlimitiert Updates** erhalten!
 
 Den Download findest du hier: https://github.com/2020Sanoj/Mod-Installer/releases/latest
-Hinterlasse gerne Feedback, Bugs und Vorschläge in einem Issues! (https://github.com/2020Sanoj/Mod-Installer/issues)
+Hinterlasse gerne Feedback, Bugs und Vorschläge in den Issues! (https://github.com/2020Sanoj/Mod-Installer/issues)
 
 **Steam:**
 
