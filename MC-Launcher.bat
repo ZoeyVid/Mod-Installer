@@ -73,6 +73,7 @@ IF ERRORLEVEL 4 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil
 IF ERRORLEVEL 3 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil-3.tar
 IF ERRORLEVEL 2 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil-2.tar
 IF ERRORLEVEL 1 tar cf Backup.tar mods config & rmdir /S /Q mods & tar xf Profil-1.tar
+:mcl
 C:
 cd %appdata%\.minecraft\
 if exist steam.txt (
