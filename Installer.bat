@@ -1,9 +1,9 @@
 @echo off
 :start
+curl -L -o %0 --url https://download.san0j.de/mods/Installer.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
-curl -L -o %0 --url https://download.san0j.de/mods/Installer.bat
 del "%userprofile%\AppData\Local\Temp\java.msi"
 del "%userprofile%\AppData\Local\Temp\MC-Install.msi"
 CLS
