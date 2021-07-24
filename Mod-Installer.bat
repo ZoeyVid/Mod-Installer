@@ -66,7 +66,7 @@ CLS
 	ECHO c) Fabric-Loader (1.14+)    - https://fabricmc.net/use/
 	ECHO d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge/
 	ECHO.
-	ECHO e) 1.18                     - Offiziell Snapshot
+	ECHO e) 1.18                     - Offizieller 1.18 Snapshot
 	ECHO f) 1.17.1                   - Fabric-Loader Modpacks
 	ECHO g) 1.16.5                   - Fabric-Loader Modpacks
 	ECHO h) 1.8.9                    - Forge-Loader  Modpack
