@@ -1,6 +1,9 @@
 @echo off
 :start
-curl -L --output %0 --url https://download.san0j.de/mods/Installer.bat
+FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
+  SET "DESKTOP_FOLDER=%%f"
+  )
+curl -L -o %0 --url https://download.san0j.de/mods/Installer.bat
 del "%userprofile%\AppData\Local\Temp\java.msi"
 del "%userprofile%\AppData\Local\Temp\MC-Install.msi"
 CLS
@@ -16,7 +19,7 @@ C:
 	ECHO Bitte warten!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
-	curl -L --output java.msi --url https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
+	curl -L -o java.msi --url https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
     start "" java.msi
 	ECHO Fertig? Neustarten?
 	Pause
@@ -34,7 +37,7 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	ECHO Bitte warten!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
-	curl -L --output MC-Install.msi --url https://launcher.mojang.com/download/MinecraftInstaller.msi
+	curl -L -o MC-Install.msi --url https://launcher.mojang.com/download/MinecraftInstaller.msi
     start "" MC-Install.msi
 	ECHO Fertig? Neustarten?
 	Pause
@@ -69,11 +72,11 @@ CLS
 echo Instalation starten?
 Pause
 cd "%appdata%\.minecraft"
-curl -L --output Mod-Installer.bat --url https://download.san0j.de/mods/Mod-Installer.bat
-curl -L --output MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.bat
-curl -L --output Installer-Uninstaller.bat --url https://download.san0j.de/mods/Installer.bat
-curl -L --output Donwload.ico --url https://download.san0j.de/mods/Download.ico
-curl -L --output Installer.ico --url https://download.san0j.de/mods/Installer.ico
+curl -L -o Mod-Installer.bat --url https://download.san0j.de/mods/Mod-Installer.bat
+curl -L -o MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.bat
+curl -L -o Installer-Uninstaller.bat --url https://download.san0j.de/mods/Installer.bat
+curl -L -o Donwload.ico --url https://download.san0j.de/mods/Download.ico
+curl -L -o Installer.ico --url https://download.san0j.de/mods/Installer.ico
 
 mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
@@ -124,7 +127,7 @@ IF ERRORLEVEL 1 GOTO l
 :l
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
-echo sLinkFile = "%USERPROFILE%\Desktop\MC-Launcher.lnk" >> %SCRIPT%
+echo sLinkFile = "%DESKTOP_FOLDER%\MC-Launcher.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo oLink.Arguments = "/C %appdata%\.minecraft\MC-Launcher.bat" >> %SCRIPT%
@@ -135,7 +138,7 @@ del /S /Q %SCRIPT%
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
-echo sLinkFile = "%USERPROFILE%\Desktop\Mod-Installer.lnk" >> %SCRIPT%
+echo sLinkFile = "%DESKTOP_FOLDER%\Mod-Installer.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer.bat" >> %SCRIPT%
@@ -172,8 +175,8 @@ del /S /Q %appdata%\.minecraft\Donwload.ico
 del /S /Q %appdata%\.minecraft\Installer.ico
 del /S /Q %appdata%\.minecraft\MC-Launcher.bat
 del /S /Q %appdata%\.minecraft\Mod-Installer.bat
-del /S /Q %USERPROFILE%\Desktop\Mod-Installer.lnk
-del /S /Q %USERPROFILE%\Desktop\MC-Launcher.lnk
+del /S /Q %DESKTOP_FOLDER%\Mod-Installer.lnk
+del /S /Q %DESKTOP_FOLDER%\MC-Launcher.lnk
 rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
 CLS
