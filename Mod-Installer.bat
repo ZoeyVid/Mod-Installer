@@ -10,7 +10,7 @@ C:
     where java >nul 2>nul
     if %errorlevel%==1 (    
 	ECHO.
-	ECHO Java ist nicht installiert, da es benîtigt wird, wird es nun installiert! 
+	ECHO Java ist nicht installiert, da es ben‚Äùtigt wird, wird es nun installiert! 
 	ECHO Von https://lksr.de/corretto
 	echo Starten?
 	Pause
@@ -27,7 +27,7 @@ C:
 
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	CLS
-	echo Der Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
+	echo Der Minecraft Launcher konnte nicht am ≈°blichen Pfad gefunden werden!
 	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	echo Minecraft wird nun installiert.
 	echo Starten?
@@ -45,10 +45,10 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 
 if not exist "%appdata%\.minecraft" (
     CLS
-    echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
+    echo .minecraft Ordner nicht am ¬Åblichen Pfad oder nicht vorhanden. 
 	echo Unter "%appdata%\.minecraft"
-	echo Starten von Minecraft nicht mîglich
-	echo Soll der Minecraft Launcher geîffnet werden und es dannach erneut getestet werden?
+	echo Starten von Minecraft nicht m‚Äùglich
+	echo Soll der Minecraft Launcher ge‚Äùffnet werden und es dannach erneut getestet werden?
 	Pause
 	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	TASKKILL /T /F /IM MinecraftLauncher*
@@ -70,7 +70,7 @@ CLS
 	ECHO f) 1.17.1                   - Fabric-Loader Modpacks
 	ECHO g) 1.16.5                   - Fabric-Loader Modpacks
 	ECHO h) 1.8.9                    - Forge-Loader  Modpack
-	ECHO i) Profil Update            - Lade ein Profil um es zu aktualisieren und danach zu Åberschreiben!
+	ECHO i) Profil Update            - Lade ein Profil um es zu aktualisieren und danach zu ¬Åberschreiben!
 	ECHO.
 	ECHO j) Rescource Packs          - Lade dir Resourcepacks herunter!
 	ECHO.
@@ -183,7 +183,7 @@ cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
+echo Im n‚Äûchsten Schritt ‚Äùffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
@@ -211,7 +211,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
-curl -L -o iris.jar --url https://github.com/IrisShaders/Iris-Installer/releases/download/1.1.1/Iris-Installer-1.1.1.jar
+curl -L -o iris.jar --url https://github.com/IrisShaders/Iris-Installer/releases/download/1.1.2/Iris-Installer-1.1.2.jar
 java -jar iris.jar
 del /S /Q iris.jar
 GOTO mif
@@ -219,7 +219,7 @@ GOTO mif
 :of
 CLS
 ECHO.
-ECHO Welche Optifine Version mîchtest du installieren?
+ECHO Welche Optifine Version m‚Äùchtest du installieren?
 ECHO.
 ECHO 1. Nach 1.13
 ECHO 2. Vor 1.12.2
@@ -235,7 +235,7 @@ cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
 ECHO.
-ECHO Welche Optifine Version mîchtest du installieren?
+ECHO Welche Optifine Version m‚Äùchtest du installieren?
 ECHO.
 ECHO a) 1.12.2
 ECHO b) 1.12.1
@@ -268,7 +268,7 @@ IF ERRORLEVEL 4 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/
 IF ERRORLEVEL 3 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.12.jar
 IF ERRORLEVEL 2 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.12.1.jar
 IF ERRORLEVEL 1 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.12.2.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
+echo Im n‚Äûchsten Schritt ‚Äùffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
 java -jar optifine.jar
 del /S /Q optifine.jar
@@ -281,7 +281,7 @@ cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
 ECHO.
-ECHO Welche Optifine Version mîchtest du installieren?
+ECHO Welche Optifine Version m‚Äùchtest du installieren?
 ECHO.
 ECHO a) Letzte Version
 ECHO b) 1.17.1
@@ -314,7 +314,7 @@ IF ERRORLEVEL 4 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/
 IF ERRORLEVEL 3 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.17.jar
 IF ERRORLEVEL 2 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.17.1.jar
 IF ERRORLEVEL 1 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/latest.jar
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
+echo Im n‚Äûchsten Schritt ‚Äùffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
 java -jar optifine.jar
 del /S /Q optifine.jar
@@ -327,7 +327,7 @@ cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
 ECHO.
-ECHO Welche Forge Version mîchtest du installieren?
+ECHO Welche Forge Version m‚Äùchtest du installieren?
 ECHO.
 ECHO a) Letzte Version
 ECHO b) 1.6.4
@@ -371,7 +371,7 @@ IF ERRORLEVEL 4 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/
 IF ERRORLEVEL 3 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
 IF ERRORLEVEL 2 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
 IF ERRORLEVEL 1 curl -L -o forge.jar --url https://download.san0j.de/mods/forge/latest
-echo Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
+echo Im n‚Äûchsten Schritt ‚Äùffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
@@ -397,11 +397,11 @@ CLS
 ECHO.
 ECHO Rescource Packs:
 ECHO.
-ECHO a) KÅrbis Sicht entfernen                   - KÅrbis.zip
+ECHO a) K¬Årbis Sicht entfernen                   - K¬Årbis.zip
 ECHO b) Dark Mode - Verdunkle Minecraft          - https://lksr.de/darkrp
 ECHO c) Xray - ungern gesehen                    - https://lksr.de/xray
 ECHO d) Default Minecraft Resourcepack           - Zum selbst bearbeiten!
-ECHO e) Textures der neuen Versionen fÅr die 1.8 - https://lksr.de/18new
+ECHO e) Textures der neuen Versionen f¬År die 1.8 - https://lksr.de/18new
 ECHO f) 1.8 PVP Pack (das von BastiGHG)          - https://lksr.de/pvp
 ECHO g) BD-Craft - Kein Direkter Download!       - https://bdcraft.net/downloads/
 ECHO h) Alles (Bis auf BD-Craft)
@@ -477,9 +477,9 @@ ECHO 1. 1.17
 ECHO 2. 1.16
 ECHO 3. 1.8
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 curl -L -o KÅrbis-1.8.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.8.zip
-IF ERRORLEVEL 2 curl -L -o KÅrbis-1.16.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.17.zip
-IF ERRORLEVEL 1 curl -L -o KÅrbis-1.17.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.16.zip
+IF ERRORLEVEL 3 curl -L -o K¬Årbis-1.8.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.8.zip
+IF ERRORLEVEL 2 curl -L -o K¬Årbis-1.16.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.17.zip
+IF ERRORLEVEL 1 curl -L -o K¬Årbis-1.17.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.16.zip
 GOTO rpif
 
 :rpif
@@ -498,14 +498,14 @@ IF ERRORLEVEL 1 GOTO start
 C:
 cd "%appdata%\.minecraft\"
 CLS
-ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader und MC-Version auswÑhlst!
+ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader und MC-Version ausw‚Äûhlst!
 ECHO Es werden nur Mods in den Profilen gespeichert und geladen!
 ECHO In dem Backup auch Configs!
 ECHO.
-ECHO 1. Profil erstellen - Limit 8 - Vorhandene werden Åberschrieben
+ECHO 1. Profil erstellen - Limit 8 - Vorhandene werden ¬Åberschrieben
 ECHO 2. Profil laden
-ECHO 3. Profil lîschen
-ECHO 4. Backup laden - Automatisch bei Mod-Installation und MC-Start erstellt - Mods werden Åberschrieben
+ECHO 3. Profil l‚Äùschen
+ECHO 4. Backup laden - Automatisch bei Mod-Installation und MC-Start erstellt - Mods werden ¬Åberschrieben
 ECHO.
 ECHO 5. Installer neustarten.
 ECHO 6. Installer beenden.
@@ -527,7 +527,7 @@ GOTO pbf
 :pr
 CLs
 ECHO.
-ECHO Welches Profil mîchtest du lîschen?
+ECHO Welches Profil m‚Äùchtest du l‚Äùschen?
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 del /S /Q Profil-8.tar
@@ -543,7 +543,7 @@ GOTO pbf
 :pl
 CLS
 ECHO.
-ECHO Welches Profil mîchtest du laden?
+ECHO Welches Profil m‚Äùchtest du laden?
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 tar xf Profil-8.tar
@@ -595,7 +595,7 @@ IF ERRORLEVEL 1 GOTO pcm
 :pcc
 CLs
 ECHO.
-ECHO Unter welchem Profil mîchtest du die aktuellen Configs speichern?
+ECHO Unter welchem Profil m‚Äùchtest du die aktuellen Configs speichern?
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 tar cf Profil-8.tar config optionsof.txt options.txt
@@ -611,7 +611,7 @@ GOTO pbf
 :pcmc
 CLs
 ECHO.
-ECHO Unter welchem Profil mîchtest du die aktuellen Mods und Configs speichern?
+ECHO Unter welchem Profil m‚Äùchtest du die aktuellen Mods und Configs speichern?
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt
@@ -627,7 +627,7 @@ GOTO pbf
 :pcm
 CLs
 ECHO.
-ECHO Unter welchem Profil mîchtest du die aktuellen Mods speichern?
+ECHO Unter welchem Profil m‚Äùchtest du die aktuellen Mods speichern?
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 tar cf Profil-8.tar mods
@@ -653,7 +653,7 @@ IF ERRORLEVEL 1 GOTO start
 :update
 CLS
 ECHO.
-ECHO Welches Profil mîchtest du aktualisieren (Das Profil wird geladen damit alle Config Åbernommen werden)?
+ECHO Welches Profil m‚Äùchtest du aktualisieren (Das Profil wird geladen damit alle Config ¬Åbernommen werden)?
 ECHO Nach der Auswahl musst du das Modpack herunterladen und erneut in einem Profil abspeichern!
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
