@@ -1,6 +1,6 @@
 @echo off
 :start
-curl -L -o %0 --url https://download.san0j.de/mods/Mod-Installer.bat
+curl -L -o %0 https://dl.san0j.de/mods/Mod-Installer.bat
 del "%userprofile%\AppData\Local\Temp\java.msi"
 del "%userprofile%\AppData\Local\Temp\MC-Install.msi"
 set /p steam=<%appdata%\.minecraft\steam.txt
@@ -18,7 +18,7 @@ C:
 	ECHO Bitte warten!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
-	curl -L -o java.msi --url https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
+	curl -L -o java.msi https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
     start "" java.msi
 	ECHO Fertig? Neustarten?
 	Pause
@@ -36,7 +36,7 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	ECHO Bitte warten!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
-	curl -L -o MC-Install.msi --url https://launcher.mojang.com/download/MinecraftInstaller.msi
+	curl -L -o MC-Install.msi https://launcher.mojang.com/download/MinecraftInstaller.msi
     start "" MC-Install.msi
 	ECHO Fertig? Neustarten?
 	Pause
@@ -104,7 +104,7 @@ CLS
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft\versions
-curl -L -o 1.18.zip --url https://download.san0j.de/mods/mp/1.18.zip
+curl -L -o 1.18.zip https://dl.san0j.de/mods/mp/1.18.zip
 tar -xf 1.18.zip
 del /S /Q 1.18.zip
 echo Fertig!
@@ -127,9 +127,9 @@ ECHO.
 CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 5 GOTO end
 IF ERRORLEVEL 4 GOTO start
-IF ERRORLEVEL 3 curl -L -o mods.zip --url https://download.san0j.de/mods/mp/1.17-Client-Mods-Full.zip
-IF ERRORLEVEL 2 curl -L -o mods.zip --url https://download.san0j.de/mods/mp/1.17-Client-Mods-Lite.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip --url https://download.san0j.de/mods/mp/1.17-Client-Only.zip
+IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Client-Mods-Full.zip
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Client-Mods-Lite.zip
+IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Client-Only.zip
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
@@ -138,7 +138,7 @@ CLS
 rmdir /S /Q mods
 tar -xf mods.zip
 del /S /Q mods.zip
-curl -L -o fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L -o fabric.jar https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
 GOTO mif
@@ -159,9 +159,9 @@ ECHO.
 CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 5 GOTO end
 IF ERRORLEVEL 4 GOTO start
-IF ERRORLEVEL 3 curl -L -o mods.zip --url https://download.san0j.de/mods/mp/1.16-Client-Mods-Full.zip
-IF ERRORLEVEL 2 curl -L -o mods.zip --url https://download.san0j.de/mods/mp/1.16-Client-Mods-Lite.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip --url https://download.san0j.de/mods/mp/1.16-Client-Only.zip
+IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Client-Mods-Full.zip
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Client-Mods-Lite.zip
+IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Client-Only.zip
 echo Instalation startet...
 C:
 cd %appdata%\.minecraft
@@ -170,7 +170,7 @@ CLS
 rmdir /S /Q mods
 tar -xf mods.zip
 del /S /Q mods.zip
-curl -L -o fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L -o fabric.jar https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 GOTO mif
@@ -182,14 +182,14 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
-curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
+curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
 del /S /Q forge.jar.log
 rmdir /S /Q mods
-curl -L -o mods.zip --url https://download.san0j.de/mods/mp/1.8.zip
+curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.8.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 GOTO mif
@@ -200,7 +200,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
-curl -L -o fabric.jar --url https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L -o fabric.jar https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar
 del /S /Q fabric.jar
 GOTO mif
@@ -211,7 +211,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
-curl -L -o iris.jar --url https://github.com/IrisShaders/Iris-Installer/releases/download/1.1.2/Iris-Installer-1.1.2.jar
+curl -L -o iris.jar https://github.com/IrisShaders/Iris-Installer/releases/download/1.1.2/Iris-Installer-1.1.2.jar
 java -jar iris.jar
 del /S /Q iris.jar
 GOTO mif
@@ -253,21 +253,21 @@ ECHO m) 1.8
 ECHO n) 1.7.10
 ECHO o) 1.7.2
 CHOICE /C abcdefghijklmno /M "Auswahl: "
-IF ERRORLEVEL 15 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.7.2.jar
-IF ERRORLEVEL 14 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.7.10.jar
-IF ERRORLEVEL 13 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.8.jar
-IF ERRORLEVEL 12 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.8.8.jar
-IF ERRORLEVEL 11 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.8.9.jar
-IF ERRORLEVEL 10 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.9.jar
-IF ERRORLEVEL 9 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.9.2.jar
-IF ERRORLEVEL 8 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.9.4.jar
-IF ERRORLEVEL 7 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.10.jar
-IF ERRORLEVEL 6 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.10.2.jar
-IF ERRORLEVEL 5 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.11.jar
-IF ERRORLEVEL 4 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.11.2.jar
-IF ERRORLEVEL 3 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.12.jar
-IF ERRORLEVEL 2 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.12.1.jar
-IF ERRORLEVEL 1 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.12.2.jar
+IF ERRORLEVEL 15 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.7.2.jar
+IF ERRORLEVEL 14 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.7.10.jar
+IF ERRORLEVEL 13 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.8.jar
+IF ERRORLEVEL 12 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.8.8.jar
+IF ERRORLEVEL 11 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.8.9.jar
+IF ERRORLEVEL 10 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.9.jar
+IF ERRORLEVEL 9 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.9.2.jar
+IF ERRORLEVEL 8 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.9.4.jar
+IF ERRORLEVEL 7 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.10.jar
+IF ERRORLEVEL 6 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.10.2.jar
+IF ERRORLEVEL 5 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.11.jar
+IF ERRORLEVEL 4 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.11.2.jar
+IF ERRORLEVEL 3 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.12.jar
+IF ERRORLEVEL 2 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.12.1.jar
+IF ERRORLEVEL 1 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.12.2.jar
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
 java -jar optifine.jar
@@ -299,21 +299,21 @@ ECHO m) 1.13.2
 ECHO n) 1.13.1
 ECHO o) 1.13
 CHOICE /C abcdefghijklmno /M "Auswahl: "
-IF ERRORLEVEL 15 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.13.jar
-IF ERRORLEVEL 14 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.13.1.jar
-IF ERRORLEVEL 13 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.13.2.jar
-IF ERRORLEVEL 12 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.14.2.jar
-IF ERRORLEVEL 11 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.14.3.jar
-IF ERRORLEVEL 10 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.14.4.jar
-IF ERRORLEVEL 9 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.15.2.jar
-IF ERRORLEVEL 8 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.16.1.jar
-IF ERRORLEVEL 7 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.16.2.jar
-IF ERRORLEVEL 6 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.16.3.jar
-IF ERRORLEVEL 5 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.16.4.jar
-IF ERRORLEVEL 4 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.16.5.jar
-IF ERRORLEVEL 3 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.17.jar
-IF ERRORLEVEL 2 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/1.17.1.jar
-IF ERRORLEVEL 1 curl -L -o optifine.jar --url https://download.san0j.de/mods/of/latest.jar
+IF ERRORLEVEL 15 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.13.jar
+IF ERRORLEVEL 14 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.13.1.jar
+IF ERRORLEVEL 13 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.13.2.jar
+IF ERRORLEVEL 12 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.14.2.jar
+IF ERRORLEVEL 11 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.14.3.jar
+IF ERRORLEVEL 10 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.14.4.jar
+IF ERRORLEVEL 9 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.15.2.jar
+IF ERRORLEVEL 8 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.16.1.jar
+IF ERRORLEVEL 7 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.16.2.jar
+IF ERRORLEVEL 6 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.16.3.jar
+IF ERRORLEVEL 5 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.16.4.jar
+IF ERRORLEVEL 4 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.16.5.jar
+IF ERRORLEVEL 3 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.17.jar
+IF ERRORLEVEL 2 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.17.1.jar
+IF ERRORLEVEL 1 curl -L -o optifine.jar https://dl.san0j.de/mods/of/latest.jar
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
 java -jar optifine.jar
@@ -351,26 +351,26 @@ ECHO s) 1.16.5
 ECHO t) 1.17.1
 ECHO.
 CHOICE /C abcdefghijklmnopqrst /M "Auswahl: "
-IF ERRORLEVEL 20 curl -L -o forge.jar --url https://download.san0j.de/mods/forge/1.17.1
-IF ERRORLEVEL 19 curl -L -o forge.jar --url https://download.san0j.de/mods/forge/1.16.5
-IF ERRORLEVEL 18 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.4-35.1.37/forge-1.16.4-35.1.37-installer.jar
-IF ERRORLEVEL 17 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.3-34.1.42/forge-1.16.3-34.1.42-installer.jar
-IF ERRORLEVEL 16 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.2-33.0.61/forge-1.16.2-33.0.61-installer.jar
-IF ERRORLEVEL 15 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.1-32.0.108/forge-1.16.1-32.0.108-installer.jar
-IF ERRORLEVEL 14 curl -L -o forge.jar --url https://download.san0j.de/mods/forge/1.15.2
-IF ERRORLEVEL 13 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.1-30.0.51/forge-1.15.1-30.0.51-installer.jar
-IF ERRORLEVEL 12 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.15-29.0.4/forge-1.15-29.0.4-installer.jar
-IF ERRORLEVEL 11 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.23/forge-1.14.4-28.2.23-installer.jar
-IF ERRORLEVEL 10 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.3-27.0.60/forge-1.14.3-27.0.60-installer.jar
-IF ERRORLEVEL 9 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.13.2-25.0.219/forge-1.13.2-25.0.219-installer.jar
-IF ERRORLEVEL 8 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2855/forge-1.12.2-14.23.5.2855-installer.jar
-IF ERRORLEVEL 7 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.11.2-13.20.1.2588/forge-1.11.2-13.20.1.2588-installer.jar
-IF ERRORLEVEL 6 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.10.2-12.18.3.2511/forge-1.10.2-12.18.3.2511-installer.jar
-IF ERRORLEVEL 5 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.9.4-12.17.0.2317-1.9.4/forge-1.9.4-12.17.0.2317-1.9.4-installer.jar
-IF ERRORLEVEL 4 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
-IF ERRORLEVEL 3 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
-IF ERRORLEVEL 2 curl -L -o forge.jar --url https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
-IF ERRORLEVEL 1 curl -L -o forge.jar --url https://download.san0j.de/mods/forge/latest
+IF ERRORLEVEL 20 curl -L -o forge.jar https://dl.san0j.de/mods/forge/1.17.1
+IF ERRORLEVEL 19 curl -L -o forge.jar https://dl.san0j.de/mods/forge/1.16.5
+IF ERRORLEVEL 18 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.4-35.1.37/forge-1.16.4-35.1.37-installer.jar
+IF ERRORLEVEL 17 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.3-34.1.42/forge-1.16.3-34.1.42-installer.jar
+IF ERRORLEVEL 16 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.2-33.0.61/forge-1.16.2-33.0.61-installer.jar
+IF ERRORLEVEL 15 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.1-32.0.108/forge-1.16.1-32.0.108-installer.jar
+IF ERRORLEVEL 14 curl -L -o forge.jar https://dl.san0j.de/mods/forge/1.15.2
+IF ERRORLEVEL 13 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.1-30.0.51/forge-1.15.1-30.0.51-installer.jar
+IF ERRORLEVEL 12 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15-29.0.4/forge-1.15-29.0.4-installer.jar
+IF ERRORLEVEL 11 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.23/forge-1.14.4-28.2.23-installer.jar
+IF ERRORLEVEL 10 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.3-27.0.60/forge-1.14.3-27.0.60-installer.jar
+IF ERRORLEVEL 9 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.13.2-25.0.219/forge-1.13.2-25.0.219-installer.jar
+IF ERRORLEVEL 8 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2855/forge-1.12.2-14.23.5.2855-installer.jar
+IF ERRORLEVEL 7 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.11.2-13.20.1.2588/forge-1.11.2-13.20.1.2588-installer.jar
+IF ERRORLEVEL 6 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.10.2-12.18.3.2511/forge-1.10.2-12.18.3.2511-installer.jar
+IF ERRORLEVEL 5 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.9.4-12.17.0.2317-1.9.4/forge-1.9.4-12.17.0.2317-1.9.4-installer.jar
+IF ERRORLEVEL 4 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
+IF ERRORLEVEL 3 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
+IF ERRORLEVEL 2 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
+IF ERRORLEVEL 1 curl -L -o forge.jar https://dl.san0j.de/mods/forge/latest
 echo Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
@@ -424,7 +424,7 @@ IF ERRORLEVEL 1 GOTO ks
 :rpa
 cd %appdata%\.minecraft
 echo Download start...
-curl -L -o Alles.zip --url  https://download.san0j.de/mods/rp/Alles.zip
+curl -L -o Alles.zip  https://dl.san0j.de/mods/rp/Alles.zip
 GOTO rpif
 
 :bdc
@@ -433,11 +433,11 @@ GOTO rpif
 
 :pvp
 echo Download start...
-curl -L -o BastiGHG-PVP.zip --url  https://download.san0j.de/mods/rp/BastiGHG-PVP.zip
+curl -L -o BastiGHG-PVP.zip  https://dl.san0j.de/mods/rp/BastiGHG-PVP.zip
 GOTO rpif
 
 :1.8-new
-curl -L -o 1.8-rp-with-newer-textures.zip --url  https://download.san0j.de/mods/rp/1.8-rp-with-newer-textures.zip
+curl -L -o 1.8-rp-with-newer-textures.zip  https://dl.san0j.de/mods/rp/1.8-rp-with-newer-textures.zip
 GOTO rpif
 
 :drp
@@ -446,9 +446,9 @@ ECHO 1. 1.17
 ECHO 2. 1.16
 ECHO 3. 1.8
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 curl -L -o rp-1.8.zip --url  https://download.san0j.de/mods/rp/rp-1.8.zip
-IF ERRORLEVEL 2 curl -L -o rp-1.16.zip --url  https://download.san0j.de/mods/rp/rp-1.17.zip
-IF ERRORLEVEL 1 curl -L -o rp-1.17.zip --url  https://download.san0j.de/mods/rp/rp-1.16.zip
+IF ERRORLEVEL 3 curl -L -o rp-1.8.zip  https://dl.san0j.de/mods/rp/rp-1.8.zip
+IF ERRORLEVEL 2 curl -L -o rp-1.16.zip  https://dl.san0j.de/mods/rp/rp-1.17.zip
+IF ERRORLEVEL 1 curl -L -o rp-1.17.zip  https://dl.san0j.de/mods/rp/rp-1.16.zip
 GOTO rpif
 
 :xray
@@ -456,8 +456,8 @@ echo Download startet...
 ECHO 1. 1.17
 ECHO 2. 1.16
 CHOICE /C 12 /M "Auswahl: "
-IF ERRORLEVEL 2 curl -L -o Xray-1.16.zip --url  https://download.san0j.de/mods/rp/Xray-1.17.zip
-IF ERRORLEVEL 1 curl -L -o Xray-1.17.zip --url  https://download.san0j.de/mods/rp/Xray-1.16.zip
+IF ERRORLEVEL 2 curl -L -o Xray-1.16.zip  https://dl.san0j.de/mods/rp/Xray-1.17.zip
+IF ERRORLEVEL 1 curl -L -o Xray-1.17.zip  https://dl.san0j.de/mods/rp/Xray-1.16.zip
 GOTO rpif
 
 :dm
@@ -466,9 +466,9 @@ ECHO 1. 1.17
 ECHO 2. 1.16
 ECHO 3. 1.8
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 curl -L -o Dark-Mode-1.8.zip --url  https://download.san0j.de/mods/rp/Dark-Mode-1.8.zip
-IF ERRORLEVEL 2 curl -L -o Dark-Mode-1.16.zip --url  https://download.san0j.de/mods/rp/Dark-Mode-1.17.zip
-IF ERRORLEVEL 1 curl -L -o Dark-Mode-1.17.zip --url  https://download.san0j.de/mods/rp/Dark-Mode-1.16.zip
+IF ERRORLEVEL 3 curl -L -o Dark-Mode-1.8.zip  https://dl.san0j.de/mods/rp/Dark-Mode-1.8.zip
+IF ERRORLEVEL 2 curl -L -o Dark-Mode-1.16.zip  https://dl.san0j.de/mods/rp/Dark-Mode-1.17.zip
+IF ERRORLEVEL 1 curl -L -o Dark-Mode-1.17.zip  https://dl.san0j.de/mods/rp/Dark-Mode-1.16.zip
 GOTO rpif
 
 :ks
@@ -477,9 +477,9 @@ ECHO 1. 1.17
 ECHO 2. 1.16
 ECHO 3. 1.8
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 curl -L -o Krbis-1.8.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.8.zip
-IF ERRORLEVEL 2 curl -L -o Krbis-1.16.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.17.zip
-IF ERRORLEVEL 1 curl -L -o Krbis-1.17.zip --url  https://download.san0j.de/mods/rp/Kuerbis-1.16.zip
+IF ERRORLEVEL 3 curl -L -o Krbis-1.8.zip  https://dl.san0j.de/mods/rp/Kuerbis-1.8.zip
+IF ERRORLEVEL 2 curl -L -o Krbis-1.16.zip  https://dl.san0j.de/mods/rp/Kuerbis-1.17.zip
+IF ERRORLEVEL 1 curl -L -o Krbis-1.17.zip  https://dl.san0j.de/mods/rp/Kuerbis-1.16.zip
 GOTO rpif
 
 :rpif

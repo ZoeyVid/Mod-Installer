@@ -1,6 +1,6 @@
 @echo off
 :start
-curl -L -o %0 --url https://download.san0j.de/mods/MC-Launcher.bat
+curl -L -o %0 https://dl.san0j.de/mods/MC-Launcher.bat
 del "%userprofile%\AppData\Local\Temp\java.msi"
 del "%userprofile%\AppData\Local\Temp\MC-Install.msi"
 set /p steam=<%appdata%\.minecraft\steam.txt
@@ -17,7 +17,7 @@ C:
 	ECHO Bitte warten!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
-	curl -L -o java.msi --url https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
+	curl -L -o java.msi https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
     start "" java.msi
 	ECHO Fertig? Neustarten?
 	Pause
@@ -36,7 +36,7 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	ECHO Bitte warten!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
-	curl -L -o MC-Install.msi --url https://launcher.mojang.com/download/MinecraftInstaller.msi
+	curl -L -o MC-Install.msi https://launcher.mojang.com/download/MinecraftInstaller.msi
     start "" MC-Install.msi
 	ECHO Fertig? Neustarten?
 	Pause

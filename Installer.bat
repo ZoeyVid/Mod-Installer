@@ -1,6 +1,6 @@
 @echo off
 :start
-curl -L -o %0 --url https://download.san0j.de/mods/Installer.bat
+curl -L -o %0 https://dl.san0j.de/mods/Installer.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
@@ -19,7 +19,7 @@ C:
 	ECHO Bitte warten!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
-	curl -L -o java.msi --url https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
+	curl -L -o java.msi https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
     start "" java.msi
 	ECHO Fertig? Neustarten?
 	Pause
@@ -37,7 +37,7 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	ECHO Bitte warten!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
-	curl -L -o MC-Install.msi --url https://launcher.mojang.com/download/MinecraftInstaller.msi
+	curl -L -o MC-Install.msi https://launcher.mojang.com/download/MinecraftInstaller.msi
     start "" MC-Install.msi
 	ECHO Fertig? Neustarten?
 	Pause
@@ -72,11 +72,11 @@ CLS
 echo Instalation starten?
 Pause
 cd "%appdata%\.minecraft"
-curl -L -o Mod-Installer.bat --url https://download.san0j.de/mods/Mod-Installer.bat
-curl -L -o MC-Launcher.bat --url https://download.san0j.de/mods/MC-Launcher.bat
-curl -L -o Installer-Uninstaller.bat --url https://download.san0j.de/mods/Installer.bat
-curl -L -o Donwload.ico --url https://download.san0j.de/mods/Download.ico
-curl -L -o Installer.ico --url https://download.san0j.de/mods/Installer.ico
+curl -L -o Mod-Installer.bat https://dl.san0j.de/mods/Mod-Installer.bat
+curl -L -o MC-Launcher.bat https://dl.san0j.de/mods/MC-Launcher.bat
+curl -L -o Installer-Uninstaller.bat https://dl.san0j.de/mods/Installer.bat
+curl -L -o Donwload.ico https://dl.san0j.de/mods/Download.ico
+curl -L -o Installer.ico https://dl.san0j.de/mods/Installer.ico
 
 mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
@@ -184,7 +184,7 @@ ECHO.
 ECHO Fertig! Scripte wurden gel”scht!
 ECHO Ausversehen entfernt? https://github.com/2020Sanoj/Mod-Installer/releases/latest
 ECHO.
-ECHO Mod-Profile und Backups l”schen?
+ECHO Mod-Profile, Backups und Configs l”schen?
 ECHO Aktuell geladene Mods bleiben erhalten!
 ECHO.
 ECHO 1. Ja
@@ -206,6 +206,7 @@ del /S /Q %appdata%\.minecraft\Profil-3.tar
 del /S /Q %appdata%\.minecraft\Profil-2.tar
 del /S /Q %appdata%\.minecraft\Profil-1.tar
 del /S /Q %appdata%\.minecraft\Backup.tar
+del /S /Q %appdata%\.minecraft\steam.txt
 CLS
 ECHO.
 ECHO Fertig! Profile und Backups wurden gel”scht!
