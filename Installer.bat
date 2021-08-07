@@ -11,7 +11,7 @@ C:
     where java >nul 2>nul
     if %errorlevel%==1 (    
 	ECHO.
-	ECHO Java ist nicht installiert, da es benîtigt wird, wird es nun installiert! 
+	ECHO Java ist nicht installiert, da es benˆtigt wird, wird es nun installiert! 
 	ECHO Von https://lksr.de/corretto
 	echo Starten?
 	Pause
@@ -28,7 +28,7 @@ C:
 
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	CLS
-	echo Der Minecraft Launcher konnte nicht am öblichen Pfad gefunden werden!
+	echo Der Minecraft Launcher konnte nicht am ¸blichen Pfad gefunden werden!
 	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	echo Minecraft wird nun installiert.
 	echo Starten?
@@ -46,10 +46,10 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 
 if not exist "%appdata%\.minecraft" (
     CLS
-    echo .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
+    echo .minecraft Ordner nicht am Å¸blichen Pfad oder nicht vorhanden. 
 	echo Unter "%appdata%\.minecraft"
-	echo Starten von Minecraft nicht mîglich
-	echo Soll der Minecraft Launcher geîffnet werden und es dannach erneut getestet werden?
+	echo Starten von Minecraft nicht mˆglich
+	echo Soll der Minecraft Launcher geˆffnet werden und es dannach erneut getestet werden?
 	Pause
 	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	TASKKILL /T /F /IM MinecraftLauncher*
@@ -160,7 +160,7 @@ exit /B
 :rm
 CLS
 ECHO.
-ECHO Wirklich lîschen?
+ECHO Wirklich lˆschen?
 ECHO.
 ECHO 1. Ja
 ECHO 2. Nein
@@ -181,10 +181,10 @@ rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
 CLS
 ECHO.
-ECHO Fertig! Scripte wurden gelîscht!
+ECHO Fertig! Scripte wurden gelˆscht!
 ECHO Ausversehen entfernt? https://github.com/2020Sanoj/Mod-Installer/releases/latest
 ECHO.
-ECHO Mod-Profile, Backups und Configs lîschen?
+ECHO Mod-Profile, Backups und Configs lˆschen?
 ECHO Aktuell geladene Mods bleiben erhalten!
 ECHO.
 ECHO 1. Ja
@@ -209,7 +209,7 @@ del /S /Q %appdata%\.minecraft\Backup.tar
 del /S /Q %appdata%\.minecraft\steam.txt
 CLS
 ECHO.
-ECHO Fertig! Profile und Backups wurden gelîscht!
+ECHO Fertig! Profile und Backups wurden gelˆscht!
 ECHO Ausversehen entfernt? https://github.com/2020Sanoj/Mod-Installer/releases/latest
 ECHO.
 Pause
