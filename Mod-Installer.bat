@@ -10,7 +10,7 @@ C:
     where java >nul 2>nul
     if %errorlevel%==1 (    
 	ECHO.
-	ECHO Java ist nicht installiert, da es ben√∂tigt wird, wird es nun installiert! 
+	ECHO Java ist nicht installiert, da es benîtigt wird, wird es nun installiert! 
 	ECHO Von https://lksr.de/corretto
 	echo Starten?
 	Pause
@@ -47,8 +47,8 @@ if not exist "%appdata%\.minecraft" (
     CLS
     echo .minecraft Ordner nicht am √ºblichen Pfad oder nicht vorhanden. 
 	echo Unter "%appdata%\.minecraft"
-	echo Starten von Minecraft nicht m√∂glich
-	echo Soll der Minecraft Launcher ge√∂ffnet werden und es dannach erneut getestet werden?
+	echo Starten von Minecraft nicht mîglich
+	echo Soll der Minecraft Launcher geîffnet werden und es dannach erneut getestet werden?
 	Pause
 	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	TASKKILL /T /F /IM MinecraftLauncher*
@@ -183,7 +183,7 @@ cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
-echo Im n‚Äûchsten Schritt √∂ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
+echo Im n‚Äûchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
@@ -219,7 +219,7 @@ GOTO mif
 :of
 CLS
 ECHO.
-ECHO Welche Optifine Version m√∂chtest du installieren?
+ECHO Welche Optifine Version mîchtest du installieren?
 ECHO.
 ECHO 1. Nach 1.13
 ECHO 2. Vor 1.12.2
@@ -235,7 +235,7 @@ cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
 ECHO.
-ECHO Welche Optifine Version m√∂chtest du installieren?
+ECHO Welche Optifine Version mîchtest du installieren?
 ECHO.
 ECHO a) 1.12.2
 ECHO b) 1.12.1
@@ -268,7 +268,7 @@ IF ERRORLEVEL 4 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.11.2.jar
 IF ERRORLEVEL 3 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.12.jar
 IF ERRORLEVEL 2 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.12.1.jar
 IF ERRORLEVEL 1 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.12.2.jar
-echo Im n‚Äûchsten Schritt √∂ffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
+echo Im n‚Äûchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
 java -jar optifine.jar
 del /S /Q optifine.jar
@@ -281,7 +281,7 @@ cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
 ECHO.
-ECHO Welche Optifine Version m√∂chtest du installieren?
+ECHO Welche Optifine Version mîchtest du installieren?
 ECHO.
 ECHO a) Letzte Version
 ECHO b) 1.17.1
@@ -314,7 +314,7 @@ IF ERRORLEVEL 4 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.16.5.jar
 IF ERRORLEVEL 3 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.17.jar
 IF ERRORLEVEL 2 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.17.1.jar
 IF ERRORLEVEL 1 curl -L -o optifine.jar https://dl.san0j.de/mods/of/latest.jar
-echo Im n‚Äûchsten Schritt √∂ffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
+echo Im n‚Äûchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
 java -jar optifine.jar
 del /S /Q optifine.jar
@@ -327,7 +327,7 @@ cd %appdata%\.minecraft
 tar cf Backup.tar mods options.txt optionsof.txt config
 CLS
 ECHO.
-ECHO Welche Forge Version m√∂chtest du installieren?
+ECHO Welche Forge Version mîchtest du installieren?
 ECHO.
 ECHO a) Letzte Version
 ECHO b) 1.6.4
@@ -371,7 +371,7 @@ IF ERRORLEVEL 4 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecr
 IF ERRORLEVEL 3 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
 IF ERRORLEVEL 2 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
 IF ERRORLEVEL 1 curl -L -o forge.jar https://dl.san0j.de/mods/forge/latest
-echo Im n‚Äûchsten Schritt √∂ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
+echo Im n‚Äûchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
@@ -504,7 +504,7 @@ ECHO In dem Backup auch Configs!
 ECHO.
 ECHO 1. Profil erstellen - Limit 8 - Vorhandene werden √ºberschrieben
 ECHO 2. Profil laden
-ECHO 3. Profil l√∂schen
+ECHO 3. Profil lîschen
 ECHO 4. Backup laden - Automatisch bei Mod-Installation und MC-Start erstellt - Mods werden √ºberschrieben
 ECHO.
 ECHO 5. Installer neustarten.
@@ -527,7 +527,7 @@ GOTO pbf
 :pr
 CLs
 ECHO.
-ECHO Welches Profil m√∂chtest du l√∂schen?
+ECHO Welches Profil mîchtest du lîschen?
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 del /S /Q Profil-8.tar
@@ -543,7 +543,7 @@ GOTO pbf
 :pl
 CLS
 ECHO.
-ECHO Welches Profil m√∂chtest du laden?
+ECHO Welches Profil mîchtest du laden?
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 tar xf Profil-8.tar
@@ -595,7 +595,7 @@ IF ERRORLEVEL 1 GOTO pcm
 :pcc
 CLs
 ECHO.
-ECHO Unter welchem Profil m√∂chtest du die aktuellen Configs speichern?
+ECHO Unter welchem Profil mîchtest du die aktuellen Configs speichern?
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 tar cf Profil-8.tar config optionsof.txt options.txt
@@ -611,7 +611,7 @@ GOTO pbf
 :pcmc
 CLs
 ECHO.
-ECHO Unter welchem Profil m√∂chtest du die aktuellen Mods und Configs speichern?
+ECHO Unter welchem Profil mîchtest du die aktuellen Mods und Configs speichern?
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt
@@ -627,7 +627,7 @@ GOTO pbf
 :pcm
 CLs
 ECHO.
-ECHO Unter welchem Profil m√∂chtest du die aktuellen Mods speichern?
+ECHO Unter welchem Profil mîchtest du die aktuellen Mods speichern?
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
 IF ERRORLEVEL 8 tar cf Profil-8.tar mods
@@ -653,7 +653,7 @@ IF ERRORLEVEL 1 GOTO start
 :update
 CLS
 ECHO.
-ECHO Welches Profil m√∂chtest du aktualisieren (Das Profil wird geladen damit alle Config √ºbernommen werden)?
+ECHO Welches Profil mîchtest du aktualisieren (Das Profil wird geladen damit alle Config √ºbernommen werden)?
 ECHO Nach der Auswahl musst du das Modpack herunterladen und erneut in einem Profil abspeichern!
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
