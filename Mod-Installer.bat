@@ -27,7 +27,7 @@ C:
 
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	CLS
-	echo Der Minecraft Launcher konnte nicht am 체blichen Pfad gefunden werden!
+	echo Der Minecraft Launcher konnte nicht am 갶lichen Pfad gefunden werden!
 	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	echo Minecraft wird nun installiert.
 	echo Starten?
@@ -45,7 +45,7 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 
 if not exist "%appdata%\.minecraft" (
     CLS
-    echo .minecraft Ordner nicht am 체blichen Pfad oder nicht vorhanden. 
+    echo .minecraft Ordner nicht am 갶lichen Pfad oder nicht vorhanden. 
 	echo Unter "%appdata%\.minecraft"
 	echo Starten von Minecraft nicht m봥lich
 	echo Soll der Minecraft Launcher ge봣fnet werden und es dannach erneut getestet werden?
@@ -70,7 +70,7 @@ CLS
 	ECHO f) 1.17.1                   - Fabric-Loader Modpacks
 	ECHO g) 1.16.5                   - Fabric-Loader Modpacks
 	ECHO h) 1.8.9                    - Forge-Loader  Modpack
-	ECHO i) Profil Update            - Lade ein Profil um es zu aktualisieren und danach zu 체berschreiben!
+	ECHO i) Profil Update            - Lade ein Profil um es zu aktualisieren und danach zu 갶erschreiben!
 	ECHO.
 	ECHO j) Rescource Packs          - Lade dir Resourcepacks herunter!
 	ECHO.
@@ -397,11 +397,11 @@ CLS
 ECHO.
 ECHO Rescource Packs:
 ECHO.
-ECHO a) K체rbis Sicht entfernen                   - K체rbis.zip
+ECHO a) K걊bis Sicht entfernen                   - K걊bis.zip
 ECHO b) Dark Mode - Verdunkle Minecraft          - https://lksr.de/darkrp
 ECHO c) Xray - ungern gesehen                    - https://lksr.de/xray
 ECHO d) Default Minecraft Resourcepack           - Zum selbst bearbeiten!
-ECHO e) Textures der neuen Versionen f체r die 1.8 - https://lksr.de/18new
+ECHO e) Textures der neuen Versionen f걊 die 1.8 - https://lksr.de/18new
 ECHO f) 1.8 PVP Pack (das von BastiGHG)          - https://lksr.de/pvp
 ECHO g) BD-Craft - Kein Direkter Download!       - https://bdcraft.net/downloads/
 ECHO h) Alles (Bis auf BD-Craft)
@@ -477,9 +477,9 @@ ECHO 1. 1.17
 ECHO 2. 1.16
 ECHO 3. 1.8
 CHOICE /C 123 /M "Auswahl: "
-IF ERRORLEVEL 3 curl -L -o K체rbis-1.8.zip  https://dl.san0j.de/mods/rp/Kuerbis-1.8.zip
-IF ERRORLEVEL 2 curl -L -o K체rbis-1.16.zip  https://dl.san0j.de/mods/rp/Kuerbis-1.17.zip
-IF ERRORLEVEL 1 curl -L -o K체rbis-1.17.zip  https://dl.san0j.de/mods/rp/Kuerbis-1.16.zip
+IF ERRORLEVEL 3 curl -L -o K걊bis-1.8.zip  https://dl.san0j.de/mods/rp/Kuerbis-1.8.zip
+IF ERRORLEVEL 2 curl -L -o K걊bis-1.16.zip  https://dl.san0j.de/mods/rp/Kuerbis-1.17.zip
+IF ERRORLEVEL 1 curl -L -o K걊bis-1.17.zip  https://dl.san0j.de/mods/rp/Kuerbis-1.16.zip
 GOTO rpif
 
 :rpif
@@ -502,10 +502,10 @@ ECHO Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modl
 ECHO Es werden nur Mods in den Profilen gespeichert und geladen!
 ECHO In dem Backup auch Configs!
 ECHO.
-ECHO 1. Profil erstellen - Limit 8 - Vorhandene werden 체berschrieben
+ECHO 1. Profil erstellen - Limit 8 - Vorhandene werden 갶erschrieben
 ECHO 2. Profil laden
 ECHO 3. Profil l봲chen
-ECHO 4. Backup laden - Automatisch bei Mod-Installation und MC-Start erstellt - Mods werden 체berschrieben
+ECHO 4. Backup laden - Automatisch bei Mod-Installation und MC-Start erstellt - Mods werden 갶erschrieben
 ECHO.
 ECHO 5. Installer neustarten.
 ECHO 6. Installer beenden.
@@ -653,7 +653,7 @@ IF ERRORLEVEL 1 GOTO start
 :update
 CLS
 ECHO.
-ECHO Welches Profil m봠htest du aktualisieren (Das Profil wird geladen damit alle Config 체bernommen werden)?
+ECHO Welches Profil m봠htest du aktualisieren (Das Profil wird geladen damit alle Config 갶ernommen werden)?
 ECHO Nach der Auswahl musst du das Modpack herunterladen und erneut in einem Profil abspeichern!
 ECHO.
 CHOICE /C 12345678 /M "Auswahl: "
