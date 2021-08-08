@@ -10,46 +10,46 @@ CLS
 C:
     where java >nul 2>nul
     if %errorlevel%==1 (    
-	ECHO.
-	ECHO Java ist nicht installiert, da es ben”tigt wird, wird es nun installiert! 
-	ECHO Von https://lksr.de/corretto
-	echo Starten?
+	echo.
+	echo  Java ist nicht installiert, da es ben”tigt wird, wird es nun installiert! 
+	echo  Von https://lksr.de/corretto
+	echo  Starten?
 	Pause
-	ECHO Nach der beendigung der Instalation starte den Installer einfach neu!
-	ECHO Bitte warten!
+	echo  Nach der beendigung der Instalation starte den Installer einfach neu!
+	echo  Bitte warten!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
 	curl -L -o java.msi https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
     start "" java.msi
-	ECHO Fertig? Neustarten?
+	echo  Fertig? Neustarten?
 	Pause
 	GOTO start
 )
 
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	CLS
-	echo Der Minecraft Launcher konnte nicht am blichen Pfad gefunden werden!
-	echo Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	echo Minecraft wird nun installiert.
-	echo Starten?
+	echo  Der Minecraft Launcher konnte nicht am blichen Pfad gefunden werden!
+	echo  Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
+	echo  Minecraft wird nun installiert.
+	echo  Starten?
 	Pause
-	ECHO Nach der beendigung der Instalation starte den Installer einfach neu!
-	ECHO Bitte warten!
+	echo  Nach der beendigung der Instalation starte den Installer einfach neu!
+	echo  Bitte warten!
 	C:
 	cd "%userprofile%\AppData\Local\Temp"
 	curl -L -o MC-Install.msi https://launcher.mojang.com/download/MinecraftInstaller.msi
     start "" MC-Install.msi
-	ECHO Fertig? Neustarten?
+	echo  Fertig? Neustarten?
 	Pause
 	GOTO start
 )
 
 if not exist "%appdata%\.minecraft" (
     CLS
-    echo .minecraft Ordner nicht am blichen Pfad oder nicht vorhanden. 
-	echo Unter "%appdata%\.minecraft"
-	echo Starten von Minecraft nicht m”glich
-	echo Soll der Minecraft Launcher ge”ffnet werden und es dannach erneut getestet werden?
+    echo  .minecraft Ordner nicht am blichen Pfad oder nicht vorhanden. 
+	echo  Unter "%appdata%\.minecraft"
+	echo  Starten von Minecraft nicht m”glich
+	echo  Soll der Minecraft Launcher ge”ffnet werden und es dannach erneut getestet werden?
 	Pause
 	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	TASKKILL /T /F /IM MinecraftLauncher*
@@ -57,19 +57,19 @@ if not exist "%appdata%\.minecraft" (
 )
 
 CLS
-ECHO.
-ECHO Willkommen beim Installer des Mod-Installers!
-ECHO.
-ECHO 1. Installieren/Reparieren
-ECHO 2. Entfernen
-ECHO.
-CHOICE /C 12 /M "Auswahl: "
+echo.
+echo  Willkommen beim Installer des Mod-Installers!
+echo.
+echo  1. Installieren/Reparieren
+echo  2. Entfernen
+echo.
+CHOICE /C 12 /M " Auswahl: "
 IF ERRORLEVEL 2 GOTO rm
 IF ERRORLEVEL 1 GOTO is
 
 :is
 CLS
-echo Instalation starten?
+echo  Instalation starten?
 Pause
 cd "%appdata%\.minecraft"
 curl -L -o Mod-Installer.bat https://dl.san0j.de/mods/Mod-Installer.bat
@@ -81,76 +81,76 @@ curl -L -o Installer.ico https://dl.san0j.de/mods/Installer.ico
 mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
-echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
-echo sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\MC-Launcher.lnk" >> %SCRIPT%
-echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
-echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo oLink.Arguments = "/C %appdata%\.minecraft\MC-Launcher.bat" >> %SCRIPT%
-echo oLink.IconLocation = "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" >> %SCRIPT%
-echo oLink.Save >> %SCRIPT%
+echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo  sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\MC-Launcher.lnk" >> %SCRIPT%
+echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
+echo  oLink.Arguments = "/C %appdata%\.minecraft\MC-Launcher.bat" >> %SCRIPT%
+echo  oLink.IconLocation = "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" >> %SCRIPT%
+echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
-echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
-echo sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Mod-Installer.lnk" >> %SCRIPT%
-echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
-echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer.bat" >> %SCRIPT%
-echo oLink.IconLocation = "%appdata%\.minecraft\Donwload.ico" >> %SCRIPT%
-echo oLink.Save >> %SCRIPT%
+echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo  sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Mod-Installer.lnk" >> %SCRIPT%
+echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
+echo  oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer.bat" >> %SCRIPT%
+echo  oLink.IconLocation = "%appdata%\.minecraft\Donwload.ico" >> %SCRIPT%
+echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
-echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
-echo sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Installer-Uninstaller.lnk" >> %SCRIPT%
-echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
-echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo oLink.Arguments = "/C %appdata%\.minecraft\Installer-Uninstaller.bat" >> %SCRIPT%
-echo oLink.IconLocation = "%appdata%\.minecraft\Installer.ico" >> %SCRIPT%
-echo oLink.Save >> %SCRIPT%
+echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo  sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Installer-Uninstaller.lnk" >> %SCRIPT%
+echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
+echo  oLink.Arguments = "/C %appdata%\.minecraft\Installer-Uninstaller.bat" >> %SCRIPT%
+echo  oLink.IconLocation = "%appdata%\.minecraft\Installer.ico" >> %SCRIPT%
+echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 
 CLS
-echo Scripte erfolgreich in "%appdata%\.minecraft" gespeichert!
-echo Desktopverkpfungen erstellen?
+echo  Scripte erfolgreich in "%appdata%\.minecraft" gespeichert!
+echo  Desktopverkpfungen erstellen?
 echo.
-ECHO 1. Ja
-ECHO 2. Nein
-ECHO.
-CHOICE /C 12 /M "Auswahl: "
+echo  1. Ja
+echo  2. Nein
+echo.
+CHOICE /C 12 /M " Auswahl: "
 IF ERRORLEVEL 2 GOTO if
 IF ERRORLEVEL 1 GOTO l
 
 :l
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
-echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
-echo sLinkFile = "%DESKTOP_FOLDER%\MC-Launcher.lnk" >> %SCRIPT%
-echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
-echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo oLink.Arguments = "/C %appdata%\.minecraft\MC-Launcher.bat" >> %SCRIPT%
-echo oLink.IconLocation = "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" >> %SCRIPT%
-echo oLink.Save >> %SCRIPT%
+echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo  sLinkFile = "%DESKTOP_FOLDER%\MC-Launcher.lnk" >> %SCRIPT%
+echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
+echo  oLink.Arguments = "/C %appdata%\.minecraft\MC-Launcher.bat" >> %SCRIPT%
+echo  oLink.IconLocation = "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" >> %SCRIPT%
+echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
-echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
-echo sLinkFile = "%DESKTOP_FOLDER%\Mod-Installer.lnk" >> %SCRIPT%
-echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
-echo oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer.bat" >> %SCRIPT%
-echo oLink.IconLocation = "%appdata%\.minecraft\Donwload.ico" >> %SCRIPT%
-echo oLink.Save >> %SCRIPT%
+echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo  sLinkFile = "%DESKTOP_FOLDER%\Mod-Installer.lnk" >> %SCRIPT%
+echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
+echo  oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer.bat" >> %SCRIPT%
+echo  oLink.IconLocation = "%appdata%\.minecraft\Donwload.ico" >> %SCRIPT%
+echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 GOTO if
 
 :if
 CLS
-echo Fertig
+echo  Fertig
 Pause
 GOTO end
 
@@ -159,13 +159,13 @@ exit /B
 
 :rm
 CLS
-ECHO.
-ECHO Wirklich l”schen?
-ECHO.
-ECHO 1. Ja
-ECHO 2. Nein
-ECHO.
-CHOICE /C 12 /M "Auswahl: "
+echo.
+echo  Wirklich l”schen?
+echo.
+echo  1. Ja
+echo  2. Nein
+echo.
+CHOICE /C 12 /M " Auswahl: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO rmy
 
@@ -180,17 +180,17 @@ del /S /Q %DESKTOP_FOLDER%\MC-Launcher.lnk
 rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
 CLS
-ECHO.
-ECHO Fertig! Scripte wurden gel”scht!
-ECHO Ausversehen entfernt? https://github.com/2020Sanoj/Mod-Installer/releases/latest
-ECHO.
-ECHO Mod-Profile, Backups und Configs l”schen?
-ECHO Aktuell geladene Mods bleiben erhalten!
-ECHO.
-ECHO 1. Ja
-ECHO 2. Nein
-ECHO.
-CHOICE /C 12 /M "Auswahl: "
+echo.
+echo  Fertig! Scripte wurden gel”scht!
+echo  Ausversehen entfernt? https://github.com/2020Sanoj/Mod-Installer/releases/latest
+echo.
+echo  Mod-Profile, Backups und Configs l”schen?
+echo  Aktuell geladene Mods bleiben erhalten!
+echo.
+echo  1. Ja
+echo  2. Nein
+echo.
+CHOICE /C 12 /M " Auswahl: "
 IF ERRORLEVEL 2 GOTO endr
 IF ERRORLEVEL 1 GOTO rmpb
 
@@ -208,10 +208,10 @@ del /S /Q %appdata%\.minecraft\Profil-1.tar
 del /S /Q %appdata%\.minecraft\Backup.tar
 del /S /Q %appdata%\.minecraft\steam.txt
 CLS
-ECHO.
-ECHO Fertig! Profile und Backups wurden gel”scht!
-ECHO Ausversehen entfernt? https://github.com/2020Sanoj/Mod-Installer/releases/latest
-ECHO.
+echo.
+echo  Fertig! Profile und Backups wurden gel”scht!
+echo  Ausversehen entfernt? https://github.com/2020Sanoj/Mod-Installer/releases/latest
+echo.
 Pause
 GOTO endr
 

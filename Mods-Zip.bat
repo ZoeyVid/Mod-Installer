@@ -4,49 +4,49 @@
 C:
 
 
-echo Starten?
+echo  Starten?
 Pause
 
 cd "%appdata%\CurseForge\Instances\1.17 Client Mods Full"
 tar -acf D:\Download\1.17-Client-Mods-Full.zip mods
-echo 1
+echo  1
 
 cd "%appdata%\CurseForge\Instances\1.17 Client Mods Lite"
 tar -acf D:\Download\1.17-Client-Mods-Lite.zip mods
-echo 2
+echo  2
 
 cd "%appdata%\CurseForge\Instances\1.17 Client Only"
 tar -acf D:\Download\1.17-Client-Only.zip mods
-echo 3
+echo  3
 
-echo 1.17 Fertig!
+echo  1.17 Fertig!
 
 cd "%appdata%\CurseForge\Instances\1.16 Client Mods Full"
 tar -acf D:\Download\1.16-Client-Mods-Full.zip mods
-echo 4
+echo  4
 
 cd "%appdata%\CurseForge\Instances\1.16 Client Mods Lite"
 tar -acf D:\Download\1.16-Client-Mods-Lite.zip mods
-echo 5
+echo  5
 
 cd "%appdata%\CurseForge\Instances\1.16 Client Only"
 tar -acf D:\Download\1.16-Client-Only.zip mods
-echo 6
+echo  6
 
-echo 1.16 Fertig!
+echo  1.16 Fertig!
 
 cd "%appdata%\CurseForge\Instances\1.8"
 tar -acf D:\Download\1.8.zip mods config
-echo 7
+echo  7
 
-echo 1.8 Fertig!
+echo  1.8 Fertig!
 
 cd "%appdata%\.minecraft"
 tar -acf D:\Download\Alles.zip resourcepacks
-echo 8
+echo  8
 
-echo Texture Packs Fertig!
+echo  Texture Packs Fertig!
 
-echo Fertig!
+echo  Fertig!
 
 Pause
