@@ -67,14 +67,13 @@ CLS
 	echo  d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge/
 	echo.
 	echo  e) 1.18                     - Offizieller 1.18 Snapshot
-	echo  f) 1.17.1                   - Fabric-Loader Modpacks
-	echo  g) 1.16.5                   - Fabric-Loader Modpacks
-	echo  h) 1.8.9                    - Forge-Loader  Modpack
-	echo  i) Profil Update            - Lade ein Profil um es zu aktualisieren und danach zu Åberschreiben!
+	echo  f) 1.17                     - Fabric-Loader Modpacks
+	echo  g) 1.16                     - Fabric-Loader Modpacks
+	echo  h) 1.8                      - Forge-Loader  Modpacks - PVP
+	echo  i) Rescource Packs          - Lade dir Resourcepacks herunter!
 	echo.
-	echo  j) Rescource Packs          - Lade dir Resourcepacks herunter!
-	echo.
-	echo  k) Backups/Modprofile       - Erstelle Mod-/Config-Profile
+	echo  j) Backups/Modprofile       - Erstelle Mod-/Config-Profile
+	echo  k) Profil Update            - Lade ein Profil um es zu aktualisieren und danach zu Åberschreiben!
 	echo.
 	echo  Funktionen:
 	echo.
@@ -86,9 +85,9 @@ CLS
     IF ERRORLEVEL 14 GOTO fb
     IF ERRORLEVEL 13 GOTO end
     IF ERRORLEVEL 12 GOTO start
-    IF ERRORLEVEL 11 GOTO bp
-	IF ERRORLEVEL 10 GOTO rp
-	IF ERRORLEVEL 9 GOTO update
+    IF ERRORLEVEL 11 GOTO update
+	IF ERRORLEVEL 10 GOTO bp
+	IF ERRORLEVEL 9 GOTO rp
 	IF ERRORLEVEL 8 GOTO 1.8
 	IF ERRORLEVEL 7 GOTO 1.16
     IF ERRORLEVEL 6 GOTO 1.17
@@ -109,12 +108,13 @@ tar -xf 1.18.zip
 del /S /Q 1.18.zip
 echo  Fertig!
 echo  Bitte achte darauf im Minecraft Launcher noch ein 1.18 Profil zu erstellen!
-GOTO mif
+GOTO start
 
 :1.17
 C:
 cd %appdata%\.minecraft
 CLS
+echo.
 echo  Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
 echo.
 echo  1. 1.17 Client Only
@@ -133,7 +133,7 @@ IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Client-Only
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 rmdir /S /Q mods
 tar -xf mods.zip
@@ -147,6 +147,7 @@ GOTO mif
 C:
 cd %appdata%\.minecraft
 CLS
+echo.
 echo  Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
 echo.
 echo  1. 1.16 Client Only
@@ -165,7 +166,7 @@ IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Client-Only
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 rmdir /S /Q mods
 tar -xf mods.zip
@@ -176,20 +177,33 @@ del /S /Q fabric.jar
 GOTO mif
 
 :1.8
+C:
+cd %appdata%\.minecraft
 CLS
+echo.
+echo  1. 1.8
+echo  2. 1.8 Minimap
+echo.
+echo  3. Installer neustarten.
+echo  4. Installer beenden.
+echo.
+CHOICE /C 1234 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
+IF ERRORLEVEL 4 GOTO end
+IF ERRORLEVEL 3 GOTO start
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.8-Minimap.zip
+IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.8.zip
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
-echo  Im n‚Äûchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
+echo  Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
 del /S /Q forge.jar.log
 rmdir /S /Q mods
-curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.8.zip
 tar -xf mods.zip
 del /S /Q mods.zip
 GOTO mif
@@ -198,7 +212,7 @@ GOTO mif
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 curl -L -o fabric.jar https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar
@@ -209,7 +223,7 @@ GOTO mif
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 curl -L -o iris.jar https://github.com/IrisShaders/Iris-Installer/releases/download/1.1.2/Iris-Installer-1.1.2.jar
 java -jar iris.jar
@@ -232,7 +246,7 @@ If ERRORLEVEL 1 GOTO of-new
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 echo.
 echo  Welche Optifine Version mîchtest du installieren?
@@ -268,7 +282,7 @@ IF ERRORLEVEL 4 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.11.2.jar
 IF ERRORLEVEL 3 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.12.jar
 IF ERRORLEVEL 2 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.12.1.jar
 IF ERRORLEVEL 1 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.12.2.jar
-echo  Im n‚Äûchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
+echo  Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
 java -jar optifine.jar
 del /S /Q optifine.jar
@@ -278,7 +292,7 @@ GOTO mif
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 echo.
 echo  Welche Optifine Version mîchtest du installieren?
@@ -314,7 +328,7 @@ IF ERRORLEVEL 4 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.16.5.jar
 IF ERRORLEVEL 3 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.17.jar
 IF ERRORLEVEL 2 curl -L -o optifine.jar https://dl.san0j.de/mods/of/1.17.1.jar
 IF ERRORLEVEL 1 curl -L -o optifine.jar https://dl.san0j.de/mods/of/latest.jar
-echo  Im n‚Äûchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
+echo  Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "Install"!
 Pause
 java -jar optifine.jar
 del /S /Q optifine.jar
@@ -324,7 +338,7 @@ GOTO mif
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods options.txt optionsof.txt config
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 echo.
 echo  Welche Forge Version mîchtest du installieren?
@@ -371,7 +385,7 @@ IF ERRORLEVEL 4 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecr
 IF ERRORLEVEL 3 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
 IF ERRORLEVEL 2 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
 IF ERRORLEVEL 1 curl -L -o forge.jar https://dl.san0j.de/mods/forge/latest
-echo  Im n‚Äûchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
+echo  Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
@@ -498,7 +512,7 @@ IF ERRORLEVEL 1 GOTO start
 C:
 cd "%appdata%\.minecraft\"
 CLS
-echo  Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader und MC-Version ausw‚Äûhlst!
+echo  Stelle sicher, dass du im Minecraft Launcher unten Links den richtigen Modloader und MC-Version auswÑhlst!
 echo  Es werden nur Mods in den Profilen gespeichert und geladen!
 echo  In dem Backup auch Configs!
 echo.
@@ -578,69 +592,20 @@ if exist steam.txt (
 EXIT /B
 
 :pc
-CLS
-echo.
-echo  Was soll Im Profil gespeichert werden?
-echo.
-echo  1. Nur Mods
-echo  2. Mods + Config
-echo  3. Nur Configs
-echo.
-echo  ACHTUNG! PROFILE SIND NICHT WIEDERHERSTELLBAR!
-CHOICE /C 123 /M " Auswahl: "
-IF ERRORLEVEL 3 GOTO pcc
-IF ERRORLEVEL 2 GOTO pcmc
-IF ERRORLEVEL 1 GOTO pcm
-
-:pcc
-CLs
-echo.
-echo  Unter welchem Profil mîchtest du die aktuellen Configs speichern?
-echo.
-CHOICE /C 12345678 /M " Auswahl: "
-IF ERRORLEVEL 8 tar cf Profil-8.tar config optionsof.txt options.txt
-IF ERRORLEVEL 7 tar cf Profil-7.tar config optionsof.txt options.txt
-IF ERRORLEVEL 6 tar cf Profil-6.tar config optionsof.txt options.txt
-IF ERRORLEVEL 5 tar cf Profil-5.tar config optionsof.txt options.txt
-IF ERRORLEVEL 4 tar cf Profil-4.tar config optionsof.txt options.txt
-IF ERRORLEVEL 3 tar cf Profil-3.tar config optionsof.txt options.txt
-IF ERRORLEVEL 2 tar cf Profil-2.tar config optionsof.txt options.txt
-IF ERRORLEVEL 1 tar cf Profil-1.tar config optionsof.txt options.txt
-GOTO pbf
-
-:pcmc
 CLs
 echo.
 echo  Unter welchem Profil mîchtest du die aktuellen Mods und Configs speichern?
 echo.
 CHOICE /C 12345678 /M " Auswahl: "
-IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt
-GOTO pbf
-
-:pcm
-CLs
-echo.
-echo  Unter welchem Profil mîchtest du die aktuellen Mods speichern?
-echo.
-CHOICE /C 12345678 /M " Auswahl: "
-IF ERRORLEVEL 8 tar cf Profil-8.tar mods
-IF ERRORLEVEL 7 tar cf Profil-7.tar mods
-IF ERRORLEVEL 6 tar cf Profil-6.tar mods
-IF ERRORLEVEL 5 tar cf Profil-5.tar mods
-IF ERRORLEVEL 4 tar cf Profil-4.tar mods
-IF ERRORLEVEL 3 tar cf Profil-3.tar mods
-IF ERRORLEVEL 2 tar cf Profil-2.tar mods
-IF ERRORLEVEL 1 tar cf Profil-1.tar mods
-GOTO pbf
-
-:pbf
+IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt servers.dat
+IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt servers.dat
+IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt servers.dat
+IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt servers.dat
+IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt servers.dat
+IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt servers.dat
+IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt servers.dat
+IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt servers.dat
+CLS
 echo.
 echo  Fertig! 
 echo  1. Mod-Installer neustarten.
@@ -651,21 +616,39 @@ IF ERRORLEVEL 1 GOTO start
 
 
 :update
+cd "%appdata%\.minecraft\"
 CLS
 echo.
-echo  Welches Profil mîchtest du aktualisieren (Das Profil wird geladen damit alle Config Åbernommen werden)?
-echo  Nach der Auswahl musst du das Modpack herunterladen und erneut in einem Profil abspeichern!
+echo  Welches Profil mîchtest du aktualisieren (Das Profil wird geladen damit alle Configs Åbernommen werden)?
 echo.
 CHOICE /C 12345678 /M " Auswahl: "
-IF ERRORLEVEL 8 tar xf Profil-8.tar
-IF ERRORLEVEL 7 tar xf Profil-7.tar
-IF ERRORLEVEL 6 tar xf Profil-6.tar
-IF ERRORLEVEL 5 tar xf Profil-5.tar
-IF ERRORLEVEL 4 tar xf Profil-4.tar
-IF ERRORLEVEL 3 tar xf Profil-3.tar
-IF ERRORLEVEL 2 tar xf Profil-2.tar
-IF ERRORLEVEL 1 tar xf Profil-1.tar
-GOTO start
+IF ERRORLEVEL 8 tar xf Profil-8.tar & set P=8
+IF ERRORLEVEL 7 tar xf Profil-7.tar & set P=7
+IF ERRORLEVEL 6 tar xf Profil-6.tar & set P=6
+IF ERRORLEVEL 5 tar xf Profil-5.tar & set P=5
+IF ERRORLEVEL 4 tar xf Profil-4.tar & set P=4
+IF ERRORLEVEL 3 tar xf Profil-3.tar & set P=3
+IF ERRORLEVEL 2 tar xf Profil-2.tar & set P=2
+IF ERRORLEVEL 1 tar xf Profil-1.tar & set P=1
+cd "%appdata%\.minecraft\mods\"
+if exist Update.bat (
+  move Update.bat "%appdata%\.minecraft\"
+  cd "%appdata%\.minecraft\"
+  CLS
+  Update.bat
+  CLS
+  tar cf Profil-%P%.tar mods config optionsof.txt options.txt servers.dat
+  echo  Update Erfolgreich!
+  Pause
+  GOTO start
+) else (
+  CLS
+  echo.
+  echo  Dieses Profil unterstÅtzt die Update Funktion leider nicht!
+  echo  Bitte update es manuell!
+  Pause
+  GOTO start
+)
 
 
 :fb

@@ -35,18 +35,14 @@ echo  6
 
 echo  1.16 Fertig!
 
-cd "%appdata%\CurseForge\Instances\1.8"
-tar -acf D:\Download\1.8.zip mods config
+cd "%appdata%\CurseForge\Instances\1.8 Minimap"
+tar -acf D:\Download\1.8-Minimap.zip mods config
 echo  7
 
-echo  1.8 Fertig!
-
-cd "%appdata%\.minecraft"
-tar -acf D:\Download\Alles.zip resourcepacks
+cd "%appdata%\CurseForge\Instances\1.8"
+tar -acf D:\Download\1.8.zip mods config
 echo  8
 
-echo  Texture Packs Fertig!
-
-echo  Fertig!
+echo  1.8 Fertig!
 
 Pause
