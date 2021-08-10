@@ -12,7 +12,7 @@ C:
     if %errorlevel%==1 (    
 	echo.
 	echo  Java ist nicht installiert, da es ben”tigt wird, wird es nun installiert! 
-	echo  Von https://lksr.de/corretto
+	echo  Von https://san0j.de/corretto
 	echo  Starten?
 	Pause
 	echo  Nach der beendigung der Instalation starte den Installer einfach neu!

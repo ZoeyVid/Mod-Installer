@@ -11,7 +11,7 @@ C:
     if %errorlevel%==1 (    
 	echo.
 	echo  Java ist nicht installiert, da es benîtigt wird, wird es nun installiert! 
-	echo  Von https://lksr.de/corretto
+	echo  Von https://san0j.de/corretto
 	echo  Starten?
 	Pause
 	echo  Nach der beendigung der Instalation starte den Mod-Installer einfach neu!
@@ -412,11 +412,11 @@ echo.
 echo  Rescource Packs:
 echo.
 echo  a) KÅrbis Sicht entfernen                   - KÅrbis.zip
-echo  b) Dark Mode - Verdunkle Minecraft          - https://lksr.de/darkrp
-echo  c) Xray - ungern gesehen                    - https://lksr.de/xray
+echo  b) Dark Mode - Verdunkle Minecraft          - https://san0j.de/darkrp
+echo  c) Xray - ungern gesehen                    - https://san0j.de/xray
 echo  d) Default Minecraft Resourcepack           - Zum selbst bearbeiten!
-echo  e) Textures der neuen Versionen fÅr die 1.8 - https://lksr.de/18new
-echo  f) 1.8 PVP Pack (das von BastiGHG)          - https://lksr.de/pvp
+echo  e) Textures der neuen Versionen fÅr die 1.8 - https://san0j.de/18new und https://san0j.de/18new2
+echo  f) 1.8 PVP Pack (das von BastiGHG)          - https://san0j.de/pvp
 echo  g) BD-Craft - Kein Direkter Download!       - https://bdcraft.net/downloads/
 echo  h) Alles (Bis auf BD-Craft)
 echo.
