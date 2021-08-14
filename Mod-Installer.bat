@@ -640,14 +640,14 @@ if exist Update.bat (
   tar cf Profil-%P%.tar mods config optionsof.txt options.txt servers.dat
   echo  Update Erfolgreich!
   Pause
-  GOTO start
+  GOTO end
 ) else (
   CLS
   echo.
   echo  Dieses Profil unterstÅtzt die Update Funktion leider nicht!
   echo  Bitte update es manuell!
   Pause
-  GOTO start
+  GOTO end
 )
 
 
