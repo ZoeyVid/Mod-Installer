@@ -84,5 +84,5 @@ if exist steam.txt (
 EXIT /B
 
 :restart
-start cmd.exe /C %0
+start %ComSpec% /C %0
 EXIT /B
