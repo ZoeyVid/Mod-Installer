@@ -21,7 +21,7 @@ C:
     start "" java.msi
 	echo  Fertig? Neustarten?
 	Pause
-	GOTO start
+	GOTO restart
 )
 
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
@@ -40,7 +40,7 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
     start "" MC-Install.msi
 	echo  Fertig? Neustarten?
 	Pause
-	GOTO start
+	GOTO restart
 )
 
 if not exist "%appdata%\.minecraft" (
@@ -52,7 +52,7 @@ if not exist "%appdata%\.minecraft" (
 	Pause
 	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	TASKKILL /T /F /IM MinecraftLauncher*
-	GOTO start
+	GOTO restart
 )
 
 C:
@@ -81,4 +81,8 @@ if exist steam.txt (
 ) else (
   start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" 
 )
+EXIT /B
+
+:restart
+start %0
 EXIT /B

@@ -22,7 +22,7 @@ C:
     start "" java.msi
 	echo  Fertig? Neustarten?
 	Pause
-	GOTO start
+	GOTO restart
 )
 
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
@@ -40,7 +40,7 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
     start "" MC-Install.msi
 	echo  Fertig? Neustarten?
 	Pause
-	GOTO start
+	GOTO restart
 )
 
 if not exist "%appdata%\.minecraft" (
@@ -52,7 +52,7 @@ if not exist "%appdata%\.minecraft" (
 	Pause
 	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	TASKKILL /T /F /IM MinecraftLauncher*
-	GOTO start
+	GOTO restart
 )
 
 
@@ -84,7 +84,7 @@ CLS
     CHOICE /C abcdefghijklmn /M " Auswahl: "
     IF ERRORLEVEL 14 GOTO fb
     IF ERRORLEVEL 13 GOTO end
-    IF ERRORLEVEL 12 GOTO start
+    IF ERRORLEVEL 12 GOTO restart
     IF ERRORLEVEL 11 GOTO update
 	IF ERRORLEVEL 10 GOTO bp
 	IF ERRORLEVEL 9 GOTO rp
@@ -108,7 +108,7 @@ tar -xf 1.18.zip
 del /S /Q 1.18.zip
 echo  Fertig!
 echo  Bitte achte darauf im Minecraft Launcher noch ein 1.18 Profil zu erstellen!
-GOTO start
+GOTO restart
 
 :1.17
 C:
@@ -126,7 +126,7 @@ echo  5. Installer beenden.
 echo.
 CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 5 GOTO end
-IF ERRORLEVEL 4 GOTO start
+IF ERRORLEVEL 4 GOTO restart
 IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Client-Mods-Full.zip
 IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Client-Mods-Lite.zip
 IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Client-Only.zip
@@ -159,7 +159,7 @@ echo  5. Installer beenden.
 echo.
 CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 5 GOTO end
-IF ERRORLEVEL 4 GOTO start
+IF ERRORLEVEL 4 GOTO restart
 IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Client-Mods-Full.zip
 IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Client-Mods-Lite.zip
 IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Client-Only.zip
@@ -189,7 +189,7 @@ echo  4. Installer beenden.
 echo.
 CHOICE /C 1234 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 4 GOTO end
-IF ERRORLEVEL 3 GOTO start
+IF ERRORLEVEL 3 GOTO restart
 IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.8-Minimap.zip
 IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.8.zip
 echo  Instalation startet...
@@ -401,7 +401,7 @@ echo  3. Profil erstellen
 CHOICE /C 123 /M " Auswahl: "
 IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+IF ERRORLEVEL 1 GOTO restart
 
 
 :rp
@@ -425,7 +425,7 @@ echo  j) Mod-Installer beenden.
 echo.
 CHOICE /C abcdefghij /M " Auswahl: "
 IF ERRORLEVEL 10 GOTO end
-IF ERRORLEVEL 9 GOTO start
+IF ERRORLEVEL 9 GOTO restart
 IF ERRORLEVEL 8 GOTO rpa
 IF ERRORLEVEL 7 GOTO bdc
 IF ERRORLEVEL 6 GOTO pvp
@@ -506,7 +506,7 @@ echo  3. Weitere Rescource Packs donwloaden
 CHOICE /C 123 /M " Auswahl: "
 IF ERRORLEVEL 3 GOTO rp
 IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+IF ERRORLEVEL 1 GOTO restart
 
 :bp
 C:
@@ -527,7 +527,7 @@ echo.
 echo  ACHTUNG! PROFILE SIND NICHT WIEDERHERSTELLBAR!
 CHOICE /C 123456 /M " Auswahl: "
 IF ERRORLEVEL 6 GOTO end
-IF ERRORLEVEL 5 GOTO start
+IF ERRORLEVEL 5 GOTO restart
 IF ERRORLEVEL 4 GOTO bl
 IF ERRORLEVEL 3 GOTO pr
 IF ERRORLEVEL 2 GOTO pl
@@ -578,7 +578,7 @@ CHOICE /C 1234 /M " Auswahl: "
 IF ERRORLEVEL 4 GOTO mcl
 IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+IF ERRORLEVEL 1 GOTO restart
 
 :mcl
 echo  Starten...
@@ -612,7 +612,7 @@ echo  1. Mod-Installer neustarten.
 echo  2. Installer beenden.
 CHOICE /C 12 /M " Auswahl: "
 IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+IF ERRORLEVEL 1 GOTO restart
 
 
 :update
@@ -640,14 +640,26 @@ if exist Update.bat (
   tar cf Profil-%P%.tar mods config optionsof.txt options.txt servers.dat
   echo  Update Erfolgreich!
   Pause
-  GOTO end
+echo.
+echo  Fertig! 
+echo  1. Mod-Installer neustarten.
+echo  2. Installer beenden.
+CHOICE /C 12 /M " Auswahl: "
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO restart
 ) else (
   CLS
   echo.
   echo  Dieses Profil unterstÅtzt die Update Funktion leider nicht!
   echo  Bitte update es manuell!
   Pause
-  GOTO end
+echo.
+echo  Fertig! 
+echo  1. Mod-Installer neustarten.
+echo  2. Installer beenden.
+CHOICE /C 12 /M " Auswahl: "
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO restart
 )
 
 
@@ -658,8 +670,11 @@ echo  1. Mod-Installer neustarten.
 echo  2. Installer beenden.
 CHOICE /C 12 /M " Auswahl: "
 IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO start
+IF ERRORLEVEL 1 GOTO restart
 
+:restart
+start %0
+EXIT /B
 
 :end
 EXIT /B
