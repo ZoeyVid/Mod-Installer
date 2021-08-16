@@ -4,8 +4,8 @@ curl -L -o %0 https://dl.san0j.de/mods/Installer.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
-del "%userprofile%\AppData\Local\Temp\java.msi"
-del "%userprofile%\AppData\Local\Temp\MC-Install.msi"
+del "%TMP%\java.msi"
+del "%TMP%\MC-Install.msi"
 CLS
 C:
     where java >nul 2>nul
@@ -18,7 +18,7 @@ C:
 	echo  Nach der beendigung der Instalation starte den Installer einfach neu!
 	echo  Bitte warten!
 	C:
-	cd "%userprofile%\AppData\Local\Temp"
+	cd "%TMP%"
 	curl -L -o java.msi https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
     start "" java.msi
 	echo  Fertig? Neustarten?
@@ -36,7 +36,7 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	echo  Nach der beendigung der Instalation starte den Installer einfach neu!
 	echo  Bitte warten!
 	C:
-	cd "%userprofile%\AppData\Local\Temp"
+	cd "%TMP%"
 	curl -L -o MC-Install.msi https://launcher.mojang.com/download/MinecraftInstaller.msi
     start "" MC-Install.msi
 	echo  Fertig? Neustarten?
