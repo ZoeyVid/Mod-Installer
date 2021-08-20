@@ -638,12 +638,11 @@ if exist Update.bat (
   Update.bat
   CLS
   tar cf Profil-%P%.tar mods config optionsof.txt options.txt servers.dat
+  CLS
+  echo.
   echo  Update Erfolgreich!
-  Pause
-echo.
-echo  Fertig! 
-echo  1. Mod-Installer neustarten.
-echo  2. Installer beenden.
+  echo  1. Mod-Installer neustarten.
+  echo  2. Installer beenden.
 CHOICE /C 12 /M " Auswahl: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO restart
