@@ -641,11 +641,9 @@ if exist Update.bat (
   CLS
   echo.
   echo  Update Erfolgreich!
-  echo  1. Mod-Installer neustarten.
-  echo  2. Installer beenden.
-CHOICE /C 12 /M " Auswahl: "
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO restart
+  echo Installer beenden...
+  Pause
+GOTO end
 ) else (
   CLS
   echo.
