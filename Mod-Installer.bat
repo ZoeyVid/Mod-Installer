@@ -399,7 +399,7 @@ echo  1. Mod-Installer neustarten.
 echo  2. Installer beenden.
 echo  3. Profil erstellen.
 echo  4. Minecraft starten.
-CHOICE /C 123 /M " Auswahl: "
+CHOICE /C 1234 /M " Auswahl: "
 IF ERRORLEVEL 4 GOTO mcl
 IF ERRORLEVEL 3 GOTO pc
 IF ERRORLEVEL 2 GOTO end
