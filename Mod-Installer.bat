@@ -601,14 +601,14 @@ echo.
 echo  Unter welchem Profil m”chtest du die aktuellen Mods und Configs speichern?
 echo.
 CHOICE /C 12345678 /M " Auswahl: "
-IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt servers.dat
-IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt servers.dat
-IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt servers.dat
-IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt servers.dat
-IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt servers.dat
-IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt servers.dat
-IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt servers.dat
-IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt servers.dat
+IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt
 CLS
 echo.
 echo  Fertig! 
@@ -641,7 +641,7 @@ if exist Update.bat (
   CLS
   Update.bat
   CLS
-  tar cf Profil-%P%.tar mods config optionsof.txt options.txt servers.dat
+  tar cf Profil-%P%.tar mods config optionsof.txt options.txt
   del /S /Q "%appdata%\.minecraft\fabric.jar"
   del /S /Q "%appdata%\.minecraft\1.17.bat"
   CLS
