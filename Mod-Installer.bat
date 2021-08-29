@@ -1,8 +1,10 @@
 @echo off
 :start
 curl -L -o %0 https://dl.san0j.de/mods/Mod-Installer.bat
-del "%TMP%\java.msi"
-del "%TMP%\MC-Install.msi"
+del /S /Q "%TMP%\java.msi"
+del /S /Q "%TMP%\MC-Install.msi"
+del /S /Q "%appdata%\.minecraft\fabric.jar"
+del /S /Q "%appdata%\.minecraft\1.17.bat"
 set /p steam=<%appdata%\.minecraft\steam.txt
 CLS
 endlocal
@@ -640,6 +642,8 @@ if exist Update.bat (
   Update.bat
   CLS
   tar cf Profil-%P%.tar mods config optionsof.txt options.txt servers.dat
+  del /S /Q "%appdata%\.minecraft\fabric.jar"
+  del /S /Q "%appdata%\.minecraft\1.17.bat"
   CLS
   echo.
   echo  Update Erfolgreich!

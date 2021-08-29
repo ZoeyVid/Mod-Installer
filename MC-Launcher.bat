@@ -1,8 +1,10 @@
 @echo off
 :start
 curl -L -o %0 https://dl.san0j.de/mods/MC-Launcher.bat
-del "%TMP%\java.msi"
-del "%TMP%\MC-Install.msi"
+del /S /Q "%TMP%\java.msi"
+del /S /Q "%TMP%\MC-Install.msi"
+del /S /Q "%appdata%\.minecraft\fabric.jar"
+del /S /Q "%appdata%\.minecraft\1.17.bat"
 set /p steam=<%appdata%\.minecraft\steam.txt
 CLS
 C:

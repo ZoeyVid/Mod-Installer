@@ -4,8 +4,10 @@ curl -L -o %0 https://dl.san0j.de/mods/Installer.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
-del "%TMP%\java.msi"
-del "%TMP%\MC-Install.msi"
+del /S /Q "%TMP%\java.msi"
+del /S /Q "%TMP%\MC-Install.msi"
+del /S /Q "%appdata%\.minecraft\fabric.jar"
+del /S /Q "%appdata%\.minecraft\1.17.bat"
 CLS
 C:
     where java >nul 2>nul
