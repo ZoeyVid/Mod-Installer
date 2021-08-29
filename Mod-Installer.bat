@@ -414,7 +414,7 @@ echo.
 echo  Rescource Packs:
 echo.
 echo  a) KÅrbis Sicht entfernen                   - KÅrbis.zip
-echo  b) Dark Mode - Verdunkle Minecraft          - https://san0j.de/darkrp
+echo  b) Dark Mode - Verdunkle Minecraft          - https://san0j.de/dark
 echo  c) Xray - ungern gesehen                    - https://san0j.de/xray
 echo  d) Default Minecraft Resourcepack           - Zum selbst bearbeiten!
 echo  e) Textures der neuen Versionen fÅr die 1.8 - https://san0j.de/18new und https://san0j.de/18new2
@@ -472,8 +472,8 @@ echo  Download startet...
 echo  1. 1.17
 echo  2. 1.16
 CHOICE /C 12 /M " Auswahl: "
-IF ERRORLEVEL 2 curl -L -o Xray-1.16.zip  https://dl.san0j.de/mods/rp/Xray-1.17.zip
-IF ERRORLEVEL 1 curl -L -o Xray-1.17.zip  https://dl.san0j.de/mods/rp/Xray-1.16.zip
+IF ERRORLEVEL 2 curl -L -o Xray-1.16.zip  https://media.forgecdn.net/files/3359/914/Xray_Ultimate_1.17_v4.1.2.zip
+IF ERRORLEVEL 1 curl -L -o Xray-1.17.zip  https://media.forgecdn.net/files/3226/914/Xray_Ultimate_1.16_v4.1.0.zip
 GOTO rpif
 
 :dm
@@ -482,9 +482,9 @@ echo  1. 1.17
 echo  2. 1.16
 echo  3. 1.8
 CHOICE /C 123 /M " Auswahl: "
-IF ERRORLEVEL 3 curl -L -o Dark-Mode-1.8.zip  https://dl.san0j.de/mods/rp/Dark-Mode-1.8.zip
-IF ERRORLEVEL 2 curl -L -o Dark-Mode-1.16.zip  https://dl.san0j.de/mods/rp/Dark-Mode-1.17.zip
-IF ERRORLEVEL 1 curl -L -o Dark-Mode-1.17.zip  https://dl.san0j.de/mods/rp/Dark-Mode-1.16.zip
+IF ERRORLEVEL 3 curl -L -o Dark-Mode-1.8.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/download/v1.3.0/Default-Dark-Mode-1.8-v1.3.0.zip
+IF ERRORLEVEL 2 curl -L -o Dark-Mode-1.16.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/download/v1.3.0/Default-Dark-Mode-1.17-v1.3.0.zip
+IF ERRORLEVEL 1 curl -L -o Dark-Mode-1.17.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/download/v1.3.0/Default-Dark-Mode-1.16.2+-v1.3.0.zip
 GOTO rpif
 
 :ks
