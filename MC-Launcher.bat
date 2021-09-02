@@ -1,8 +1,6 @@
 @echo off
 :start
 curl -L -o %0 https://dl.san0j.de/mods/MC-Launcher.bat
-del /S /Q "%TMP%\java.msi"
-del /S /Q "%TMP%\MC-Install.msi"
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
 set /p steam=<%appdata%\.minecraft\steam.txt
@@ -17,10 +15,7 @@ C:
 	Pause
 	echo  Nach der beendigung der Instalation starte den Launcher einfach neu!
 	echo  Bitte warten!
-	C:
-	cd "%TMP%"
-	curl -L -o java.msi https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
-    start "" java.msi
+	winget install -e --id Amazon.Corretto.16
 	echo  Fertig? Neustarten?
 	Pause
 	GOTO restart
@@ -36,10 +31,7 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	Pause
 	echo  Nach der beendigung der Instalation starte den Launcher einfach neu!
 	echo  Bitte warten!
-	C:
-	cd "%TMP%"
-	curl -L -o MC-Install.msi https://launcher.mojang.com/download/MinecraftInstaller.msi
-    start "" MC-Install.msi
+	winget install -e --id Mojang.MinecraftLauncher
 	echo  Fertig? Neustarten?
 	Pause
 	GOTO restart

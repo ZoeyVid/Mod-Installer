@@ -4,8 +4,6 @@ curl -L -o %0 https://dl.san0j.de/mods/Installer.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
-del /S /Q "%TMP%\java.msi"
-del /S /Q "%TMP%\MC-Install.msi"
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
 CLS
@@ -19,10 +17,7 @@ C:
 	Pause
 	echo  Nach der beendigung der Instalation starte den Installer einfach neu!
 	echo  Bitte warten!
-	C:
-	cd "%TMP%"
-	curl -L -o java.msi https://corretto.aws/downloads/latest/amazon-corretto-16-x64-windows-jdk.msi
-    start "" java.msi
+	winget install -e --id Amazon.Corretto.16
 	echo  Fertig? Neustarten?
 	Pause
 	GOTO restart
@@ -37,10 +32,7 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	Pause
 	echo  Nach der beendigung der Instalation starte den Installer einfach neu!
 	echo  Bitte warten!
-	C:
-	cd "%TMP%"
-	curl -L -o MC-Install.msi https://launcher.mojang.com/download/MinecraftInstaller.msi
-    start "" MC-Install.msi
+	winget install -e --id Amazon.Corretto.16
 	echo  Fertig? Neustarten?
 	Pause
 	GOTO restart
