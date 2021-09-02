@@ -14,11 +14,7 @@ C:
 	echo  Von https://san0j.de/corretto
 	echo  Starten?
 	Pause
-	echo  Nach der beendigung der Instalation starte den Mod-Installer einfach neu!
-	echo  Bitte warten!
 	winget install -e --id Amazon.Corretto.16
-	echo  Fertig? Neustarten?
-	Pause
 	GOTO restart
 )
 
@@ -29,11 +25,7 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	echo  Minecraft wird nun installiert.
 	echo  Starten?
 	Pause
-	echo  Nach der beendigung der Instalation starte den Mod-Installer einfach neu!
-	echo  Bitte warten!
 	winget install -e --id Mojang.MinecraftLauncher
-	echo  Fertig? Neustarten?
-	Pause
 	GOTO restart
 )
 
