@@ -211,7 +211,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
-curl -L -o iris.jar https://github.com/IrisShaders/Iris-Installer/releases/download/1.1.2/Iris-Installer-1.1.2.jar
+curl -L -o iris.jar https://github.com/IrisShaders/Iris-Installer/releases/download/2.0.0/Iris-Installer-2.0.0.jar
 java -jar iris.jar
 del /S /Q iris.jar
 GOTO mif
