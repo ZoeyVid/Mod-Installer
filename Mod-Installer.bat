@@ -52,7 +52,7 @@ CLS
 	echo  c) Fabric-Loader (1.14+)    - https://fabricmc.net/use/
 	echo  d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge/
 	echo.
-	echo  e) 1.18                     - Offizieller 1.18 Snapshot
+	echo  e) 1.18                     - Letzer nicht im Launcher enthaltener 1.18 Snapshot - VERALTET!
 	echo  f) 1.17                     - Fabric-Loader Modpacks
 	echo  g) 1.16                     - Fabric-Loader Modpacks
 	echo  h) 1.8                      - Forge-Loader  Modpacks - PVP
