@@ -113,9 +113,9 @@ echo.
 CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 5 GOTO end
 IF ERRORLEVEL 4 GOTO restart
-IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Client-Mods-Full.zip
-IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Client-Mods-Lite.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Client-Only.zip
+IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Full.zip
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Lite.zip
+IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Only.zip
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
@@ -146,9 +146,9 @@ echo.
 CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 5 GOTO end
 IF ERRORLEVEL 4 GOTO restart
-IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Client-Mods-Full.zip
-IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Client-Mods-Lite.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Client-Only.zip
+IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Full.zip
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Lite.zip
+IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Only.zip
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
@@ -628,6 +628,7 @@ if exist Update.bat (
   tar cf Profil-%P%.tar mods config optionsof.txt options.txt
   del /S /Q "%appdata%\.minecraft\fabric.jar"
   del /S /Q "%appdata%\.minecraft\1.17.bat"
+  del /S /Q "%appdata%\.minecraft\Update.bat"
   CLS
   echo.
   echo  Update Erfolgreich!
