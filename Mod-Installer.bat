@@ -3,6 +3,7 @@
 curl -L -o %0 https://dl.san0j.de/mods/Mod-Installer.bat
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
+del /S /Q "%appdata%\.minecraft\Update.bat"
 set /p steam=<%appdata%\.minecraft\steam.txt
 CLS
 endlocal
@@ -167,8 +168,10 @@ C:
 cd %appdata%\.minecraft
 CLS
 echo.
-echo  1. 1.8
-echo  2. 1.8 Minimap
+echo  Only = Nur Grafikmods, Full = Minimap
+echo.
+echo  1. 1.8 Only
+echo  2. 1.8 Full
 echo.
 echo  3. Installer neustarten.
 echo  4. Installer beenden.
@@ -176,8 +179,8 @@ echo.
 CHOICE /C 1234 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
 IF ERRORLEVEL 4 GOTO end
 IF ERRORLEVEL 3 GOTO restart
-IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.8-Minimap.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.8.zip
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.8-Full.zip
+IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.8-Only.zip
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft

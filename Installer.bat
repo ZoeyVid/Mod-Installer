@@ -6,6 +6,7 @@ FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environme
   )
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
+del /S /Q "%appdata%\.minecraft\Update.bat"
 CLS
 C:
     where java >nul 2>nul

@@ -3,6 +3,7 @@
 curl -L -o %0 https://dl.san0j.de/mods/MC-Launcher.bat
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
+del /S /Q "%appdata%\.minecraft\Update.bat"
 set /p steam=<%appdata%\.minecraft\steam.txt
 CLS
 C:
