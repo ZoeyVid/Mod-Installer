@@ -382,6 +382,7 @@ del /S /Q forge.jar.log
 GOTO mif
 
 :mif
+CLS
 echo.
 echo  Fertig! 
 echo  1. Mod-Installer neustarten.
