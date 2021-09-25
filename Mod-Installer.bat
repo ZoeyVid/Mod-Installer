@@ -120,7 +120,7 @@ IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.17-Only.zip
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
 CLS
 rmdir /S /Q mods
 tar -xf mods.zip
@@ -153,7 +153,7 @@ IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Only.zip
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
 CLS
 rmdir /S /Q mods
 tar -xf mods.zip
@@ -184,7 +184,7 @@ IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.8-Only.zip
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
 CLS
 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 echo  Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
@@ -201,7 +201,7 @@ GOTO mif
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
 CLS
 curl -L -o fabric.jar https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
 java -jar fabric.jar
@@ -212,7 +212,7 @@ GOTO mif
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
 CLS
 curl -L -o iris.jar https://github.com/IrisShaders/Iris-Installer/releases/download/2.0.0/Iris-Installer-2.0.0.jar
 java -jar iris.jar
@@ -235,7 +235,7 @@ If ERRORLEVEL 1 GOTO of-new
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
 CLS
 echo.
 echo  Welche Optifine Version m”chtest du installieren?
@@ -281,7 +281,7 @@ GOTO mif
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
 CLS
 echo.
 echo  Welche Optifine Version m”chtest du installieren?
@@ -327,7 +327,7 @@ GOTO mif
 echo  Instalation startet...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
 CLS
 echo.
 echo  Welche Forge Version m”chtest du installieren?
@@ -589,14 +589,14 @@ echo.
 echo  Unter welchem Profil m”chtest du die aktuellen Mods und Configs speichern?
 echo.
 CHOICE /C 12345678 /M " Auswahl: "
-IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
+IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
+IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
+IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
+IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
+IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
+IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
+IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
 CLS
 echo.
 echo  Fertig! 
@@ -629,7 +629,7 @@ if exist Update.bat (
   CLS
   Update.bat
   CLS
-  tar cf Profil-%P%.tar mods config optionsof.txt options.txt
+  tar cf Profil-%P%.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
   del /S /Q "%appdata%\.minecraft\fabric.jar"
   del /S /Q "%appdata%\.minecraft\1.17.bat"
   del /S /Q "%appdata%\.minecraft\Update.bat"
