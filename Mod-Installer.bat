@@ -614,14 +614,14 @@ echo.
 echo  Welches Profil mîchtest du aktualisieren (Das Profil wird geladen damit alle Configs Åbernommen werden)?
 echo.
 CHOICE /C 12345678 /M " Auswahl: "
-IF ERRORLEVEL 8 tar xf Profil-8.tar & set P=8
-IF ERRORLEVEL 7 tar xf Profil-7.tar & set P=7
-IF ERRORLEVEL 6 tar xf Profil-6.tar & set P=6
-IF ERRORLEVEL 5 tar xf Profil-5.tar & set P=5
-IF ERRORLEVEL 4 tar xf Profil-4.tar & set P=4
-IF ERRORLEVEL 3 tar xf Profil-3.tar & set P=3
-IF ERRORLEVEL 2 tar xf Profil-2.tar & set P=2
-IF ERRORLEVEL 1 tar xf Profil-1.tar & set P=1
+IF ERRORLEVEL 8 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-8.tar & set P=8
+IF ERRORLEVEL 7 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-7.tar & set P=7
+IF ERRORLEVEL 6 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-6.tar & set P=6
+IF ERRORLEVEL 5 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-5.tar & set P=5
+IF ERRORLEVEL 4 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-4.tar & set P=4
+IF ERRORLEVEL 3 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-3.tar & set P=3
+IF ERRORLEVEL 2 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-2.tar & set P=2
+IF ERRORLEVEL 1 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-1.tar & set P=1
 cd "%appdata%\.minecraft\mods\"
 if exist Update.bat (
   move Update.bat "%appdata%\.minecraft\"
@@ -644,16 +644,13 @@ GOTO end
   echo.
   echo  Dieses Profil unterstÅtzt die Update Funktion leider nicht!
   echo  Bitte update es manuell!
-  Pause
 echo.
-echo  Fertig! 
 echo  1. Mod-Installer neustarten.
 echo  2. Installer beenden.
 CHOICE /C 12 /M " Auswahl: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO restart
 )
-
 
 :fb
 echo  https://san0j.de/discord
