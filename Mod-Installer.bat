@@ -125,7 +125,7 @@ CLS
 rmdir /S /Q mods
 tar -xf mods.zip
 del /S /Q mods.zip
-curl -L -o fabric.jar https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L -o fabric.jar https://dl.san0j.de/mods/fabric
 java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
 GOTO mif
@@ -158,7 +158,7 @@ CLS
 rmdir /S /Q mods
 tar -xf mods.zip
 del /S /Q mods.zip
-curl -L -o fabric.jar https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L -o fabric.jar https://dl.san0j.de/mods/fabric
 java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 GOTO mif
@@ -203,7 +203,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
 CLS
-curl -L -o fabric.jar https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar
+curl -L -o fabric.jar https://dl.san0j.de/mods/fabric
 java -jar fabric.jar
 del /S /Q fabric.jar
 GOTO mif
@@ -632,6 +632,7 @@ if exist Update.bat (
   tar cf Profil-%P%.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
   del /S /Q "%appdata%\.minecraft\fabric.jar"
   del /S /Q "%appdata%\.minecraft\1.17.bat"
+  del /S /Q "%appdata%\.minecraft\Fabric-Install.bat"
   del /S /Q "%appdata%\.minecraft\Update.bat"
   CLS
   echo.
