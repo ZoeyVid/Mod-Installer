@@ -100,11 +100,12 @@ C:
 cd %appdata%\.minecraft
 CLS
 echo.
-echo  Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
+echo  Minigames = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
+echo  Only the Minigame Pack should be allowed on Servers like Hypixel
 echo.
-echo  1. 1.17 Client Only
-echo  2. 1.17 Client Mods Lite
-echo  3. 1.17 Client Mods Full
+echo  1. 1.17 Client Mods Minigames
+echo  2. 1.17 Client Mods Survival Lite
+echo  3. 1.17 Client Mods Survival Full
 echo.
 echo  4. Installer neustarten.
 echo  5. Installer beenden.
@@ -134,6 +135,7 @@ cd %appdata%\.minecraft
 CLS
 echo.
 echo  Only = Nur Grafikmods, Full = Minimap
+echo  Both should be allowed on Servers like Hypixel
 echo.
 echo  1. 1.8 Only
 echo  2. 1.8 Full
