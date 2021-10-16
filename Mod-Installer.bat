@@ -55,28 +55,26 @@ CLS
 	echo.
 	echo  e) 1.18                     - Letzer nicht im Launcher enthaltener 1.18 Snapshot - VERALTET!
 	echo  f) 1.17                     - Fabric-Loader Modpacks
-	echo  g) 1.16                     - Fabric-Loader Modpacks
-	echo  h) 1.8                      - Forge-Loader  Modpacks - PVP
-	echo  i) Rescource Packs          - Lade dir Resourcepacks herunter!
+	echo  g) 1.8                      - Forge-Loader  Modpacks - PVP
+	echo  h) Rescource Packs          - Lade dir Resourcepacks herunter!
 	echo.
-	echo  j) Backups/Modprofile       - Erstelle Mod-/Config-Profile
-	echo  k) Profil Update            - Lade ein Profil um es zu aktualisieren und danach zu Åberschreiben!
+	echo  i) Backups/Modprofile       - Erstelle Mod-/Config-Profile
+	echo  j) Profil Update            - Lade ein Profil um es zu aktualisieren und danach zu Åberschreiben!
 	echo.
 	echo  Funktionen:
 	echo.
-    echo  l) Installer neustarten.
-	echo  m) Installer beenden.
-	echo  n) Feedback hinterlassen
+    echo  k) Installer neustarten.
+	echo  l) Installer beenden.
+	echo  m) Feedback hinterlassen
 	echo.
-    CHOICE /C abcdefghijklmn /M " Auswahl: "
-    IF ERRORLEVEL 14 GOTO fb
-    IF ERRORLEVEL 13 GOTO end
-    IF ERRORLEVEL 12 GOTO restart
-    IF ERRORLEVEL 11 GOTO update
-	IF ERRORLEVEL 10 GOTO bp
-	IF ERRORLEVEL 9 GOTO rp
-	IF ERRORLEVEL 8 GOTO 1.8
-	IF ERRORLEVEL 7 GOTO 1.16
+    CHOICE /C abcdefghijklm /M " Auswahl: "
+    IF ERRORLEVEL 13 GOTO fb
+    IF ERRORLEVEL 12 GOTO end
+    IF ERRORLEVEL 11 GOTO restart
+    IF ERRORLEVEL 10 GOTO update
+	IF ERRORLEVEL 9 GOTO bp
+	IF ERRORLEVEL 8 GOTO rp
+	IF ERRORLEVEL 7 GOTO 1.8
     IF ERRORLEVEL 6 GOTO 1.17
 	IF ERRORLEVEL 5 GOTO 1.18
 	IF ERRORLEVEL 4 GOTO forge
@@ -127,39 +125,6 @@ tar -xf mods.zip
 del /S /Q mods.zip
 curl -L -o fabric.jar https://dl.san0j.de/mods/fabric
 java -jar fabric.jar client -mcversion 1.17.1
-del /S /Q fabric.jar
-GOTO mif
-
-:1.16
-C:
-cd %appdata%\.minecraft
-CLS
-echo.
-echo  Only = Nur Grafikmods, Lite = Wenige leichte Mods, Full = Minimap, WTHIT, usw.
-echo.
-echo  1. 1.16 Client Only
-echo  2. 1.16 Client Mods Lite
-echo  3. 1.16 Client Mods Full
-echo.
-echo  4. Installer neustarten.
-echo  5. Installer beenden.
-echo.
-CHOICE /C 12345 /M "EMPFEHLUNG! SICHERE MODS IN EINEM PROFIL! SIE WERDEN ENTFERNT! Auswahl: "
-IF ERRORLEVEL 5 GOTO end
-IF ERRORLEVEL 4 GOTO restart
-IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Full.zip
-IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Lite.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mods/mp/1.16-Only.zip
-echo  Instalation startet...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
-CLS
-rmdir /S /Q mods
-tar -xf mods.zip
-del /S /Q mods.zip
-curl -L -o fabric.jar https://dl.san0j.de/mods/fabric
-java -jar fabric.jar client -mcversion 1.16.5
 del /S /Q fabric.jar
 GOTO mif
 
