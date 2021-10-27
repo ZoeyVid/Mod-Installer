@@ -1,7 +1,7 @@
 # Mod-Installer
 Mit diesem Mod-Installer mit **Steam Controller Support** kannst du **_Alle_ Optifine, Fabric, Forge und Iris Versionen** installieren, welche Funktionieren!<br/>
 Und ebenso kannst du meine **Client Modpacks** für die **1.8.9 und 1.17.x** installieren und auch einige **Texturepacks herunterladen!** <br/>
-Zudem kannst du Mods in **bis zu 8 Profilen speichen** und Minecraft über ein extra Skript starten und dabei direkt das Profil auswählen, welches geladen werden soll.<br/>
+Zudem kannst du Mods in **bis zu 8 Profilen speichern** und Minecraft über ein extra Skript starten und dabei direkt das Profil auswählen, welches geladen werden soll.<br/>
 Ein **Minecraft Modpack** wird mindestens bis zum Zeitpunkt unterstützt bis die Nachfolgende Version stable ist!!<br/>
 Modpacks laufen immer auf der **neusten .x Version** (Nicht auf der 1.8.8 sondern immer die neuste, also 1.8.9)<br/>
 Es wird weiterhin download und installierbar sein, nur erhält es keine Updates mehr! **Außnahme ist die 1.8.9** diese wird vorerst **unlimitiert Updates** erhalten!<br/>
