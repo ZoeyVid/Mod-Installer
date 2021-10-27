@@ -1,6 +1,6 @@
 @echo off
 :start
-curl -L -o %0 https://dl.san0j.de/mods/MC-Launcher.bat
+curl -L -o %0 https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/MC-Launcher.bat
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
 del /S /Q "%appdata%\.minecraft\Update.bat"

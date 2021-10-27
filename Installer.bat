@@ -1,6 +1,6 @@
 @echo off
 :start
-curl -L -o %0 https://dl.san0j.de/mods/Installer.bat
+curl -L -o %0 https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Installer.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
@@ -59,11 +59,11 @@ CLS
 echo  Instalation starten?
 Pause
 cd "%appdata%\.minecraft"
-curl -L -o Mod-Installer.bat https://dl.san0j.de/mods/Mod-Installer.bat
-curl -L -o MC-Launcher.bat https://dl.san0j.de/mods/MC-Launcher.bat
-curl -L -o Installer-Uninstaller.bat https://dl.san0j.de/mods/Installer.bat
-curl -L -o Donwload.ico https://dl.san0j.de/mods/Download.ico
-curl -L -o Installer.ico https://dl.san0j.de/mods/Installer.ico
+curl -L -o Mod-Installer.bat https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Mod-Installer.bat
+curl -L -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/MC-Launcher.bat
+curl -L -o Installer-Uninstaller.bat https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Installer.bat
+curl -L -o Donwload.ico https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Download.ico
+curl -L -o Installer.ico https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Installer.ico
 
 mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
