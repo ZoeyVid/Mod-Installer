@@ -41,7 +41,7 @@ if not exist "%appdata%\.minecraft" (
 	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	TASKKILL /T /F /IM MinecraftLauncher*
 	GOTO restart
-)GOTO restart
+)
 
 
 endlocal
