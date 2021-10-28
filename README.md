@@ -1,21 +1,20 @@
 # Mod-Installer
-Mit diesem Mod-Installer mit **Steam Controller Support** kannst du **_Alle_ Optifine, Fabric, Forge und Iris Versionen** installieren, welche Funktionieren!<br/>
-Und ebenso kannst du meine **Client Modpacks** für die **1.8.9 und 1.17.x** installieren und auch einige **Texturepacks herunterladen!** <br/>
-Zudem kannst du Mods in **bis zu 8 Profilen speichern** und Minecraft über ein extra Skript starten und dabei direkt das Profil auswählen, welches geladen werden soll.<br/>
-Ein **Minecraft Modpack** wird mindestens bis zum Zeitpunkt unterstützt bis die Nachfolgende Version stable ist!!<br/>
-Modpacks laufen immer auf der **neusten .x Version** (Nicht auf der 1.8.8 sondern immer die neuste, also 1.8.9)<br/>
-Es wird weiterhin download und installierbar sein, nur erhält es keine Updates mehr! **Außnahme ist die 1.8.9** diese wird vorerst **unlimitiert Updates** erhalten!<br/>
+With this mod installer with **Steam Controller Support** you can install **_All_ Optifine, Fabric, Forge and Iris versions**, which are working! <br/>
+And you can also install my **Client Modpacks** for **1.8.9 and 1.17.x** and also download some **texture packs!** <br/>
+In addition, you can save mods in **up to 8 profiles** and start Minecraft via an extra script and directly select the profile that should be loaded. <br/>
+A **Minecraft Modpack** is supported at least until the next version is stable! <br/>
+Modpacks always run on the **latest .x version** (for example not on 1.8.8 but alway on the latest Version, on 1.8.9) <br/>
+**The exception is 1.8.9** this will receive **unlimited updates** for the time being! <br/>
 
-Den Download findest du hier: https://github.com/2020Sanoj/Mod-Installer/releases/latest/<br/>
-Hinterlasse gerne Feedback, Bugs und Vorschläge in den Issues! (https://github.com/2020Sanoj/Mod-Installer/issues/)
+You can find the download here: https://github.com/2020Sanoj/Mod-Installer/releases/latest/ <br/>
+Feel free to leave feedback, bugs and suggestions in the issues! (https://github.com/2020Sanoj/Mod-Installer/issues/)
 
 **Steam:**
 
-Wenn du Minecraft über Steam startest für Controller-Steuerung, dann erstelle einfach eine Datei mit dem Namen steam.txt<br/>
-Eine Beispiel Date findest du hier: https://raw.githubusercontent.com/2020Sanoj/Mod-Installer/main/steam.txt und füge darin die Steam rungameidein!
+If you start Minecraft via Steam for controller control, then simply create a file called steam.txt in your .minecraft folder <br/>
+You can find an example file here: https://raw.githubusercontent.com/2020Sanoj/Mod-Installer/main/steam.txt and add the steam rungameid of Minecraft!
 
-So erhälst du die Steam rungameid:
-Erstelle eine Desktopverknüpfung vom Minecraft-Launcher in Steam (Minecraft-Launcher in Steam hinzufügen, in der Bibliothek -> Rechtsklick auf das Spiel -> Verwalten -> Desktop-Verknüpfung erstellen)<br/>
-Rechtsklicke diese nun auf deinem Desktop, wähle Einegnschaften und kopiere unter URL die ID hinter steam://rungameid/ und füge nun diese ID nun in die steam.txt ein!<br/>
-Wenn du nun Minecraft über den MC-Launcher startest wirde es über Steam gestartet!<br/>
-Fertig!
+How to get the Steam rungameid:
+Create a desktop shortcut from the Minecraft launcher in Steam (add Minecraft launcher in Steam, in the library -> right click on the game -> Manage -> Create desktop shortcut) <br/>
+Now right-click it on your desktop, select properties and copy the ID behind steam://rungameid/ under URL and now paste this ID into the steam.txt! <br/>
+If you start Minecraft via the MC-Launcher, it will be started via Steam!

@@ -4,39 +4,39 @@ curl -L -o %0 https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/I
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
-del /S /Q "%appdata%\.minecraft\fabric.jar"
+del /S /Q "%appdata%\.minecraft\fabric.Yesr"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
 del /S /Q "%appdata%\.minecraft\Update.bat"
+set /p steam=<%appdata%\.minecraft\steam.txt
 CLS
 C:
-    where java >nul 2>nul
+    where Yesva >nul 2>nul
     if %errorlevel%==1 (    
 	echo.
-	echo  Java ist nicht installiert, da es benîtigt wird, wird es nun installiert! 
-	echo  Von https://san0j.de/corretto
-	echo  Starten?
+	echo  Yesva is not installed, it will be installed now!
+	echo  Start now?
 	Pause
-	winget install -e --id Amazon.Corretto.16
+	winget install -e --id Amazon.Corretto.17
 	GOTO restart
 )
 
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	CLS
-	echo  Der Minecraft Launcher konnte nicht am Åblichen Pfad gefunden werden!
-	echo  Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	echo  Minecraft wird nun installiert.
-	echo  Starten?
+	echo  The Minecraft Launcher could not be found on the usual path!
+	echo  Under "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
+	echo  Minecraft will now be installed.
+	echo  Start now?
 	Pause
-	winget install -e --id Amazon.Corretto.16
+	winget install -e --id MoYesng.MinecraftLauncher
 	GOTO restart
 )
 
 if not exist "%appdata%\.minecraft" (
     CLS
-    echo  .minecraft Ordner nicht am ÅÅblichen Pfad oder nicht vorhanden. 
-	echo  Unter "%appdata%\.minecraft"
-	echo  Starten von Minecraft nicht mîglich
-	echo  Soll der Minecraft Launcher geîffnet werden und es dannach erneut getestet werden?
+    echo  .minecraft folder not at the usual path or not available.
+	echo  Under "%appdata%\.minecraft"
+	echo  Unable to start Minecraft!
+	echo  Do you want to open the Minecraft Launcher and test it again afterwards?
 	Pause
 	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	TASKKILL /T /F /IM MinecraftLauncher*
@@ -45,18 +45,18 @@ if not exist "%appdata%\.minecraft" (
 
 CLS
 echo.
-echo  Willkommen beim Installer des Mod-Installers!
+echo  Welcome to the Mod-Installer Installer!
 echo.
-echo  1. Installieren/Reparieren
-echo  2. Entfernen
+echo  1. Install/Repair
+echo  2. Remove
 echo.
-CHOICE /C 12 /M " Auswahl: "
+CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO rm
 IF ERRORLEVEL 1 GOTO is
 
 :is
 CLS
-echo  Instalation starten?
+echo  Start Installation
 Pause
 cd "%appdata%\.minecraft"
 curl -L -o Mod-Installer.bat https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Mod-Installer.bat
@@ -101,13 +101,13 @@ cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 
 CLS
-echo  Scripte erfolgreich in "%appdata%\.minecraft" gespeichert!
-echo  DesktopverkÅpfungen erstellen?
+echo  Scripts were saved in "%appdata%\.minecraft"!
+echo  Create desktop shortcuts?
 echo.
-echo  1. Ja
-echo  2. Nein
+echo  1. Yes
+echo  2. No
 echo.
-CHOICE /C 12 /M " Auswahl: "
+CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO if
 IF ERRORLEVEL 1 GOTO l
 
@@ -137,7 +137,7 @@ GOTO if
 
 :if
 CLS
-echo  Fertig
+echo  Finished!
 Pause
 GOTO end
 
@@ -147,12 +147,12 @@ exit /B
 :rm
 CLS
 echo.
-echo  Wirklich lîschen?
+echo  Remove?
 echo.
-echo  1. Ja
-echo  2. Nein
+echo  1. Yes
+echo  2. No
 echo.
-CHOICE /C 12 /M " Auswahl: "
+CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO rmy
 
@@ -168,16 +168,16 @@ rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
 CLS
 echo.
-echo  Fertig! Scripte wurden gelîscht!
-echo  Ausversehen entfernt? https://github.com/2020Sanoj/Mod-Installer/releases/latest
+echo  Finished! Scripts were deleted!
+echo  Accidentally removed? https://github.com/2020Sanoj/Mod-Installer/releases/latest
 echo.
-echo  Mod-Profile, Backups und Configs lîschen?
-echo  Aktuell geladene Mods bleiben erhalten!
+echo  Remove Mod-Profils, Backups and Configs?
+echo  Current loaded Mods are keept!
 echo.
-echo  1. Ja
-echo  2. Nein
+echo  1. Yes
+echo  2. No
 echo.
-CHOICE /C 12 /M " Auswahl: "
+CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO endr
 IF ERRORLEVEL 1 GOTO rmpb
 
@@ -196,8 +196,8 @@ del /S /Q %appdata%\.minecraft\Backup.tar
 del /S /Q %appdata%\.minecraft\steam.txt
 CLS
 echo.
-echo  Fertig! Profile und Backups wurden gelîscht!
-echo  Ausversehen entfernt? https://github.com/2020Sanoj/Mod-Installer/releases/latest
+echo  Finished! Profils and Backups had been deleted!
+echo  Accidentally removed? https://github.com/2020Sanoj/Mod-Installer/releases/latest
 echo.
 Pause
 GOTO endr

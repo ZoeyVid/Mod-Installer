@@ -1,30 +1,31 @@
 @echo off
 :start
 curl -L -o %0 https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Mod-Installer.bat
+FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
+  SET "DESKTOP_FOLDER=%%f"
+  )
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
 del /S /Q "%appdata%\.minecraft\Update.bat"
 set /p steam=<%appdata%\.minecraft\steam.txt
 CLS
-endlocal
 C:
     where java >nul 2>nul
     if %errorlevel%==1 (    
 	echo.
-	echo  Java ist nicht installiert, da es benîtigt wird, wird es nun installiert! 
-	echo  Von https://san0j.de/corretto
-	echo  Starten?
+	echo  Java is not installed, it will be installed now!
+	echo  Start now?
 	Pause
-	winget install -e --id Amazon.Corretto.16
+	winget install -e --id Amazon.Corretto.17
 	GOTO restart
 )
 
 if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	CLS
-	echo  Der Minecraft Launcher konnte nicht am Åblichen Pfad gefunden werden!
-	echo  Unter "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	echo  Minecraft wird nun installiert.
-	echo  Starten?
+	echo  The Minecraft Launcher could not be found on the usual path!
+	echo  Under "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
+	echo  Minecraft will now be installed.
+	echo  Start now?
 	Pause
 	winget install -e --id Mojang.MinecraftLauncher
 	GOTO restart
@@ -32,15 +33,15 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 
 if not exist "%appdata%\.minecraft" (
     CLS
-    echo  .minecraft Ordner nicht am Åblichen Pfad oder nicht vorhanden. 
-	echo  Unter "%appdata%\.minecraft"
-	echo  Starten von Minecraft nicht mîglich
-	echo  Soll der Minecraft Launcher geîffnet werden und es dannach erneut getestet werden?
+    echo  .minecraft folder not at the usual path or not available.
+	echo  Under "%appdata%\.minecraft"
+	echo  Unable to start Minecraft!
+	echo  Do you want to open the Minecraft Launcher and test it again afterwards?
 	Pause
 	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
 	TASKKILL /T /F /IM MinecraftLauncher*
 	GOTO restart
-)
+)GOTO restart
 
 
 endlocal
