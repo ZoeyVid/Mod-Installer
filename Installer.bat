@@ -27,7 +27,7 @@ if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 	echo  Minecraft will now be installed.
 	echo  Start now?
 	Pause
-	winget install -e --id MoYesng.MinecraftLauncher
+	winget install -e --id Mojang.MinecraftLauncher
 	GOTO restart
 )
 
