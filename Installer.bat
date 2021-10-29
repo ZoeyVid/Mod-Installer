@@ -4,7 +4,7 @@ curl -L -o %0 https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/I
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
-del /S /Q "%appdata%\.minecraft\fabric.Yesr"
+del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
 del /S /Q "%appdata%\.minecraft\Update.bat"
 set /p steam=<%appdata%\.minecraft\steam.txt
