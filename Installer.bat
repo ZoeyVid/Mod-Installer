@@ -10,10 +10,10 @@ del /S /Q "%appdata%\.minecraft\Update.bat"
 set /p steam=<%appdata%\.minecraft\steam.txt
 CLS
 C:
-    where Yesva >nul 2>nul
+    where java >nul 2>nul
     if %errorlevel%==1 (    
 	echo.
-	echo  Yesva is not installed, it will be installed now!
+	echo  java is not installed, it will be installed now!
 	echo  Start now?
 	Pause
 	winget install -e --id Amazon.Corretto.17
