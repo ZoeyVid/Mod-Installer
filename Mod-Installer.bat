@@ -8,6 +8,9 @@ del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
 del /S /Q "%appdata%\.minecraft\Update.bat"
 set /p steam=<%appdata%\.minecraft\steam.txt
+set l=1.17.1
+set vl=1.17.1
+set fal=fabric-loader-0.11.7-1.17.1
 CLS
 C:
     where java >nul 2>nul
@@ -58,21 +61,23 @@ CLS
 	echo  f) 1.8                      - Forge-Loader  Modpacks - PVP
 	echo  g) Rescource Packs          - Download Resourcepacks!
 	echo.
-	echo  h) Backups/Modprofile       - Create Mod-/Config-Profils
-	echo  i) Profil Update            - Load a profile to update it and then automatically save it again!
+	echo  h) .minecraft Cleaner       - Clear your .minecraft folder up!
+	echo  i) Backups/Modprofile       - Create Mod-/Config-Profils
+	echo  j) Profil Update            - Load a profile to update it and then automatically save it again!
 	echo.
 	echo  Funktions:
 	echo.
-    echo  j) Restart Installer
-	echo  k) End Installer
-	echo  l) Give feedback
+    echo  k) Restart Installer
+	echo  l) End Installer
+	echo  m) Give feedback
 	echo.
-    CHOICE /C abcdefghijkl /M " Selection: "
-    IF ERRORLEVEL 12 GOTO fb
-    IF ERRORLEVEL 11 GOTO end
-    IF ERRORLEVEL 10 GOTO restart
-    IF ERRORLEVEL 9 GOTO update
-	IF ERRORLEVEL 8 GOTO bp
+    CHOICE /C abcdefghijklm /M " Selection: "
+    IF ERRORLEVEL 13 GOTO fb
+    IF ERRORLEVEL 12 GOTO end
+    IF ERRORLEVEL 11 GOTO restart
+    IF ERRORLEVEL 10 GOTO update
+	IF ERRORLEVEL 9 GOTO bp
+	IF ERRORLEVEL 8 GOTO c
 	IF ERRORLEVEL 7 GOTO rp
 	IF ERRORLEVEL 6 GOTO 1.8
     IF ERRORLEVEL 5 GOTO 1.17
@@ -105,7 +110,7 @@ IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mp/1.17-Only.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 rmdir /S /Q mods
 tar -xf mods.zip
@@ -137,7 +142,7 @@ IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mp/1.8-Only.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 echo  Im nÑchsten Schritt îffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
@@ -154,7 +159,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 curl -L -o fabric.jar https://dl.san0j.de/fa
 java -jar fabric.jar
@@ -165,7 +170,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 curl -L -o iris.jar https://github.com/IrisShaders/Iris-Installer/releases/download/2.0.0/Iris-Installer-2.0.0.jar
 java -jar iris.jar
@@ -188,7 +193,7 @@ If ERRORLEVEL 1 GOTO of-new
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 echo.
 echo  Which Optifine version do you want to install?
@@ -234,7 +239,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 echo.
 echo  Which Optifine version do you want to install?
@@ -280,7 +285,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 echo.
 echo  Which Forge version do you want to install?
@@ -360,7 +365,7 @@ echo  a) Remove pumpkin sight                     - KÅrbis.zip
 echo  b) Dark Mode - make Minecraft darker!       - https://san0j.de/dark
 echo  c) Xray - not welcome                       - https://san0j.de/xray
 echo  d) Default Minecraft Resourcepack           - Zum selbst bearbeiten!
-echo  e) Textures of the newer Versionen for 1.8  - https://san0j.de/18new und https://san0j.de/18new2
+echo  e) Textures of the newer Versions for 1.8   - https://san0j.de/18new und https://san0j.de/18new2
 echo  f) 1.8 PVP Pack (from BastiGHG)             - https://san0j.de/pvp
 echo  g) BD-Craft - NO direkt Download!           - https://bdcraft.net/downloads/
 echo  h) All (Without BD-Craft)
@@ -542,14 +547,14 @@ echo.
 echo  Under which profile do you want to save the current mods and configs?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
-IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
-IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
-IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
-IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
-IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
-IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
-IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
+IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt
 CLS
 echo.
 echo  Finished! 
@@ -567,14 +572,14 @@ echo.
 echo  Which profile do you want to update (the profile is loaded so that all configs are adopted)?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-8.tar & set P=8
-IF ERRORLEVEL 7 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-7.tar & set P=7
-IF ERRORLEVEL 6 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-6.tar & set P=6
-IF ERRORLEVEL 5 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-5.tar & set P=5
-IF ERRORLEVEL 4 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-4.tar & set P=4
-IF ERRORLEVEL 3 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-3.tar & set P=3
-IF ERRORLEVEL 2 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-2.tar & set P=2
-IF ERRORLEVEL 1 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q mods & tar xf Profil-1.tar & set P=1
+IF ERRORLEVEL 8 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-8.tar & set P=8
+IF ERRORLEVEL 7 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-7.tar & set P=7
+IF ERRORLEVEL 6 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-6.tar & set P=6
+IF ERRORLEVEL 5 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-5.tar & set P=5
+IF ERRORLEVEL 4 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-4.tar & set P=4
+IF ERRORLEVEL 3 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-3.tar & set P=3
+IF ERRORLEVEL 2 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-2.tar & set P=2
+IF ERRORLEVEL 1 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-1.tar & set P=1
 cd "%appdata%\.minecraft\mods\"
 if exist Update.bat (
   move Update.bat "%appdata%\.minecraft\"
@@ -582,7 +587,7 @@ if exist Update.bat (
   CLS
   Update.bat
   CLS
-  tar cf Profil-%P%.tar mods config optionsof.txt options.txt .iasx .iasp .iasms_v2
+  tar cf Profil-%P%.tar mods config optionsof.txt options.txt
   del /S /Q "%appdata%\.minecraft\fabric.jar"
   del /S /Q "%appdata%\.minecraft\1.17.bat"
   del /S /Q "%appdata%\.minecraft\Fabric-Install.bat"
@@ -605,6 +610,324 @@ CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO restart
 )
+
+:c
+CLS
+echo.
+echo  Do you really want to remove not needed Files and Folders of your .minecraft Folder?
+echo  Your Minecraft Launcher will be closed!
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO cy
+
+:cy
+TASKKILL /T /F /IM MinecraftLauncher*
+rmdir /S /Q "%appdata%\.iris-installer"
+cd "%appdata%\.minecraft"
+rmdir /S /Q .fabric
+rmdir /S /Q .icons
+rmdir /S /Q .mixin.out
+rmdir /S /Q .replay_cache
+rmdir /S /Q assets
+rmdir /S /Q bettergamemenu
+rmdir /S /Q craftpresence
+rmdir /S /Q crash-reports
+rmdir /S /Q defaultconfigs
+rmdir /S /Q logs
+rmdir /S /Q ModTranslations
+rmdir /S /Q not-enough-crashes
+rmdir /S /Q server-resource-packs
+rmdir /S /Q XaeroWaypoints_BACKUP*
+rmdir /S /Q bin
+rmdir /S /Q cachedImages
+rmdir /S /Q libraries
+rmdir /S /Q webcache2
+rmdir /S /Q debug
+rmdir /S /Q libraries 
+rmdir /S /Q stats
+rmdir /S /Q texturepacks-mp-cache
+rmdir /S /Q webcache
+del /S /Q versions\version_manifest_v2.json
+del /S /Q versions\cache.dat
+del /S /Q betterfps.txt
+del /S /Q clientId.txt
+del /S /Q deaths.dat
+del /S /Q servers.dat_old
+del /S /Q textures_*.png
+del /S /Q updateLog.txt
+del /S /Q usercache.json
+del /S /Q usernamecache.json
+del /S /Q launcher_log.txt
+del /S /Q level.dat
+del /S /Q realms_persistence.json
+del /S /Q launcher_cef_log.txt
+del /S /Q output-server.log
+del /S /Q output-client.log
+del /S /Q debug.stitched_items.png
+del /S /Q debug.stitched_terrain.png
+del /S /Q hotbar.nbt
+del /S /Q lastlogin
+del /S /Q resourcepacks.json
+del /S /Q treatment_tags.json
+del /S /Q hs_err_pid*
+del /S /Q options.amecsapi.txt
+del /S /Q launcher_ui_state.json
+del /S /Q launcher_settings.json
+del /S /Q launcher_gamer_pics.json
+del /S /Q launcher_entitlements.json
+del /S /Q .iasx
+del /S /Q .iasp
+del /S /Q .iasms_v2
+
+if exist "%appdata%\.minecraft\wurst" (
+echo.
+echo Hello Hacker/Cheater do you want to delete your Wurst Configs?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK, Happy Hacking/Cheating!
+IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\wurst"
+)
+if exist "%appdata%\.minecraft\XaeroWaypoints" (
+echo.
+echo  Do you want to delete your Xaero Waypoints?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\XaeroWaypoints"
+)
+if exist "%appdata%\.minecraft\bettercommandblock_script" (
+echo.
+echo  Do you want to delete your bettercommandblock scripts?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\bettercommandblock_script"
+)
+if exist "%appdata%\.minecraft\replay_recordings" (
+echo.
+echo  Do you want to delete your replay recordings?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\replay_recordings"
+)
+if exist "%appdata%\.minecraft\backups" (
+echo.
+echo  Do you want to delete your world backups?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\backups"
+)
+if exist "%appdata%\.minecraft\saves" (
+echo.
+echo  Do you want to delete ALL your worlds?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\saves"
+)
+if exist "%appdata%\.minecraft\shaderpacks" (
+echo.
+echo  Do you want to delete ALL your shaderpacks?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\shaderpacks"
+)
+if exist "%appdata%\.minecraft\resourcepacks" (
+echo.
+echo  Do you want to delete ALL your resourcepacks?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\resourcepacks"
+)
+if exist "%appdata%\.minecraft\config" (
+echo.
+echo  Do you want to delete ALL your current loaded Mod configs?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\config"
+)
+if exist "%appdata%\.minecraft\mods" (
+echo.
+echo  Do you want to delete ALL your current loaded mods?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\mods"
+)
+if exist "%appdata%\.minecraft\servers.dat" (
+echo.
+echo  Do you want to delete ALL your server list?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\servers.dat"
+)
+if exist "%appdata%\.minecraft\options.txt" (
+echo.
+echo  Do you want to delete ALL your current loaded OPTIONS?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\options.txt" & del /S /Q "%appdata%\.minecraft\optionsof.txt"
+)
+if exist "%appdata%\.minecraft\screenshots" (
+echo.
+echo  Do you want to delete your minecraft screenshots?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\screenshots"
+)
+if exist "%appdata%\.minecraft\hotbar.nbt" (
+echo.
+echo  Do you want to delete your saved hotbars?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\launcher_settings.json"
+)
+if exist "%appdata%\.minecraft\hotbar.nbt" (
+echo.
+echo  Do you want to delete your launcher settings?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\launcher_skins.json"
+)
+if exist "%appdata%\.minecraft\launcher_skins.json" (
+echo.
+echo  Do you want to delete your skins?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\launcher_skins.json"
+)
+if exist "%appdata%\.minecraft\launcher_accounts.json" (
+echo.
+echo  Do you want to LOGOUT from every account in your minecraft launcher?
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\launcher_accounts.json" & del /S /Q "%appdata%\.minecraft\launcher_msa_credentials.bin"
+)
+if exist "%appdata%\.minecraft\launcher_profiles.json" (
+echo.
+echo  "Do you want to delete all your launcher profiles, only vanila %vl% will be kept?"
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\launcher_profiles.json"
+)
+
+echo.
+echo  "Do you want to delete old Minecraft Versions and Snapshots? - only 1.8.9-vanila/forge and latest %l%-vanila/fabric will be kept"
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 GOTO c2
+IF ERRORLEVEL 1 GOTO c1
+
+:c1
+mkdir tmp
+move versions\1.8.9 tmp
+move versions\1.8.9-forge1.8.9-11.15.1.2318-1.8.9 tmp
+move versions\%l% tmp
+move versions\%fal% tmp
+rmdir /S /Q versions
+mkdir versions
+move tmp\1.8.9 versions
+move tmp\1.8.9-forge1.8.9-11.15.1.2318-1.8.9 versions
+move tmp\%l% versions
+move tmp\%fal% versions
+rmdir /S /Q tmp
+
+echo.
+echo  "Do you want to delete old Fabric Versions and Snapshots? - only latest %l% fabric version will be kept?"
+echo.
+echo 1. Yes
+echo 2. No
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 GOTO c3
+IF ERRORLEVEL 1 GOTO c2
+
+:c2
+if exist .fabric (
+mkdir tmp
+move .fabric\remappedJars\minecraft-%l%\intermediary-%fal%.jar tmp
+rmdir /S /Q .fabric
+mkdir .fabric
+mkdir .fabric\remappedJars\
+mkdir .fabric\remappedJars\minecraft-%l%
+move tmp\intermediary-%fal%.jar .fabric\remappedJars\minecraft-%l%\
+rmdir /S /Q tmp
+)
+
 
 :fb
 echo  https://sancraft.de/discord
