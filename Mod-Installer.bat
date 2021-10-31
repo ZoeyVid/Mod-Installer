@@ -625,6 +625,7 @@ IF ERRORLEVEL 2 GOTO cy
 IF ERRORLEVEL 1 GOTO end
 
 :cy
+tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 TASKKILL /T /F /IM MinecraftLauncher*
 rmdir /S /Q "%appdata%\.iris-installer"
 cd "%appdata%\.minecraft"
