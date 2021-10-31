@@ -145,7 +145,7 @@ cd %appdata%\.minecraft
 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 CLS
 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
-echo  Im n„chsten Schritt ”ffnet sich automatisch ein Fenster klicke dort nur auf "OK"!
+echo  In the next step a window will open automatically, just click on "OK"!
 Pause
 java -jar forge.jar
 del /S /Q forge.jar
@@ -617,12 +617,12 @@ echo.
 echo  Do you really want to remove not needed Files and Folders of your .minecraft Folder?
 echo  Your Minecraft Launcher will be closed!
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO cy
+IF ERRORLEVEL 2 GOTO cy
+IF ERRORLEVEL 1 GOTO end
 
 :cy
 TASKKILL /T /F /IM MinecraftLauncher*
@@ -687,210 +687,210 @@ if exist "%appdata%\.minecraft\wurst" (
 echo.
 echo Hello Hacker/Cheater do you want to delete your Wurst Configs?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK, Happy Hacking/Cheating!
-IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\wurst"
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\wurst"
+IF ERRORLEVEL 1 echo OK, Happy Hacking/Cheating!
 )
 if exist "%appdata%\.minecraft\XaeroWaypoints" (
 echo.
 echo  Do you want to delete your Xaero Waypoints?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\XaeroWaypoints"
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\XaeroWaypoints"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\bettercommandblock_script" (
 echo.
 echo  Do you want to delete your bettercommandblock scripts?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\bettercommandblock_script"
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\bettercommandblock_script"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\replay_recordings" (
 echo.
 echo  Do you want to delete your replay recordings?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\replay_recordings"
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\replay_recordings"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\backups" (
 echo.
 echo  Do you want to delete your world backups?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\backups"
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\backups"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\saves" (
 echo.
 echo  Do you want to delete ALL your worlds?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\saves"
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\saves"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\shaderpacks" (
 echo.
 echo  Do you want to delete ALL your shaderpacks?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\shaderpacks"
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\shaderpacks"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\resourcepacks" (
 echo.
 echo  Do you want to delete ALL your resourcepacks?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\resourcepacks"
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\resourcepacks"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\config" (
 echo.
 echo  Do you want to delete ALL your current loaded Mod configs?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\config"
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\config"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\mods" (
 echo.
 echo  Do you want to delete ALL your current loaded mods?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\mods"
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\mods"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\servers.dat" (
 echo.
 echo  Do you want to delete your server list?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\servers.dat"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\servers.dat"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\options.txt" (
 echo.
 echo  Do you want to delete ALL your current loaded OPTIONS?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\options.txt" & del /S /Q "%appdata%\.minecraft\optionsof.txt"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\options.txt" & del /S /Q "%appdata%\.minecraft\optionsof.txt"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\screenshots" (
 echo.
 echo  Do you want to delete your minecraft screenshots?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\screenshots"
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\screenshots"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\hotbar.nbt" (
 echo.
 echo  Do you want to delete your saved hotbars?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\launcher_settings.json"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_settings.json"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\hotbar.nbt" (
 echo.
 echo  Do you want to delete your launcher settings?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\launcher_skins.json"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_skins.json"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\launcher_skins.json" (
 echo.
 echo  Do you want to delete your skins?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\launcher_skins.json"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_skins.json"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\launcher_accounts.json" (
 echo.
 echo  Do you want to LOGOUT from every account in your minecraft launcher?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\launcher_accounts.json" & del /S /Q "%appdata%\.minecraft\launcher_msa_credentials.bin"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_accounts.json" & del /S /Q "%appdata%\.minecraft\launcher_msa_credentials.bin"
+IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\launcher_profiles.json" (
 echo.
 echo  "Do you want to delete all your launcher profiles, only vanila %vl% will be kept?"
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\launcher_profiles.json"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_profiles.json"
+IF ERRORLEVEL 1 echo OK!
 )
 
 echo.
 echo Do you want to delete old Minecraft Versions and Snapshots? - only 1.8.9-vanila/forge and latest %l%-vanila/fabric will be kept
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 GOTO c2
-IF ERRORLEVEL 1 GOTO c1
+IF ERRORLEVEL 2 GOTO c1
+IF ERRORLEVEL 1 GOTO c2
 
 :c1
 mkdir tmp
@@ -909,12 +909,12 @@ rmdir /S /Q tmp
 echo.
 echo  Do you want to delete old Fabric Versions and Snapshots? - only latest %l% fabric version will be kept?
 echo.
-echo  1. Yes
-echo  2. No
+echo  1. No
+echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 GOTO c3
-IF ERRORLEVEL 1 GOTO c2
+IF ERRORLEVEL 2 GOTO c2
+IF ERRORLEVEL 1 GOTO c3
 
 :c2
 if exist .fabric (
@@ -928,11 +928,24 @@ move tmp\intermediary-%fal%.jar .fabric\remappedJars\minecraft-%l%\
 rmdir /S /Q tmp
 )
 
+CLS
+echo.
+echo  Cleaned
+echo.
+echo  1. Restart Mod-Installer
+echo  2. End Installer
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO restart
+
 
 :fb
+CLS
+echo.
 echo  https://sancraft.de/discord
 echo  https://github.com/SanCraftDev/Mod-Installer/issues/
 echo  1. Restart Mod-Installer
+echo.
 echo  2. End Installer
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO end
