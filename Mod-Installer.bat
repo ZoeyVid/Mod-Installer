@@ -629,7 +629,6 @@ cd "%appdata%\.minecraft"
 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
 TASKKILL /T /F /IM MinecraftLauncher*
 rmdir /S /Q "%appdata%\.iris-installer"
-rmdir /S /Q .fabric
 rmdir /S /Q .icons
 rmdir /S /Q .mixin.out
 rmdir /S /Q .replay_cache
