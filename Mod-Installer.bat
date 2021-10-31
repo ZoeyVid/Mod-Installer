@@ -795,7 +795,7 @@ IF ERRORLEVEL 1 rmdir /S /Q "%appdata%\.minecraft\mods"
 )
 if exist "%appdata%\.minecraft\servers.dat" (
 echo.
-echo  Do you want to delete ALL your server list?
+echo  Do you want to delete your server list?
 echo.
 echo  1. Yes
 echo  2. No
@@ -883,7 +883,7 @@ IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\launcher_profiles.json"
 )
 
 echo.
-echo  "Do you want to delete old Minecraft Versions and Snapshots? - only 1.8.9-vanila/forge and latest %l%-vanila/fabric will be kept"
+echo Do you want to delete old Minecraft Versions and Snapshots? - only 1.8.9-vanila/forge and latest %l%-vanila/fabric will be kept
 echo.
 echo  1. Yes
 echo  2. No
@@ -907,7 +907,7 @@ move tmp\%fal% versions
 rmdir /S /Q tmp
 
 echo.
-echo  "Do you want to delete old Fabric Versions and Snapshots? - only latest %l% fabric version will be kept?"
+echo  Do you want to delete old Fabric Versions and Snapshots? - only latest %l% fabric version will be kept?
 echo.
 echo  1. Yes
 echo  2. No
