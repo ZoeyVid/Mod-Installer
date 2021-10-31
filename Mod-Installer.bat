@@ -872,7 +872,7 @@ IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\launcher_profiles.json" (
 echo.
-echo  "Do you want to delete all your launcher profiles, only vanila %vl% will be kept?"
+echo  Do you want to delete all your launcher profiles, only vanila %vl% will be kept?
 echo.
 echo  1. No
 echo  2. Yes
