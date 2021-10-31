@@ -774,7 +774,7 @@ IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\config" (
 echo.
-echo  Do you want to delete ALL your current loaded Mod configs?
+echo  Do you want to delete ALL your current loaded mod configs?
 echo.
 echo  1. No
 echo  2. Yes
@@ -818,7 +818,7 @@ IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\screenshots" (
 echo.
-echo  Do you want to delete your minecraft screenshots?
+echo  Do you want to delete ALL your minecraft screenshots?
 echo.
 echo  1. No
 echo  2. Yes
@@ -862,7 +862,7 @@ IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\launcher_accounts.json" (
 echo.
-echo  Do you want to LOGOUT from every account in your minecraft launcher?
+echo  Do you want to LOGOUT from EVERY account in your minecraft launcher?
 echo.
 echo  1. No
 echo  2. Yes
