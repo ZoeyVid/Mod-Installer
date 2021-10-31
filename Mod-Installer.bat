@@ -642,7 +642,6 @@ rmdir /S /Q logs
 rmdir /S /Q ModTranslations
 rmdir /S /Q not-enough-crashes
 rmdir /S /Q server-resource-packs
-rmdir /S /Q XaeroWaypoints_BACKUP*
 rmdir /S /Q bin
 rmdir /S /Q cachedImages
 rmdir /S /Q libraries
