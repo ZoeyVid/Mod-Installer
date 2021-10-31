@@ -883,7 +883,7 @@ IF ERRORLEVEL 1 echo OK!
 )
 
 echo.
-echo Do you want to delete old Minecraft Versions and Snapshots? - only 1.8.9-vanila/forge and latest %l%-vanila/fabric will be kept
+echo  Do you want to delete old Minecraft Versions and Snapshots? - only 1.8.9-vanila/forge and latest %l%-vanila/fabric will be kept
 echo.
 echo  1. No
 echo  2. Yes
