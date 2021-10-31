@@ -617,8 +617,8 @@ echo.
 echo  Do you really want to remove not needed Files and Folders of your .minecraft Folder?
 echo  Your Minecraft Launcher will be closed!
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO end
@@ -687,8 +687,8 @@ if exist "%appdata%\.minecraft\wurst" (
 echo.
 echo Hello Hacker/Cheater do you want to delete your Wurst Configs?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK, Happy Hacking/Cheating!
@@ -698,8 +698,8 @@ if exist "%appdata%\.minecraft\XaeroWaypoints" (
 echo.
 echo  Do you want to delete your Xaero Waypoints?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -709,8 +709,8 @@ if exist "%appdata%\.minecraft\bettercommandblock_script" (
 echo.
 echo  Do you want to delete your bettercommandblock scripts?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -720,8 +720,8 @@ if exist "%appdata%\.minecraft\replay_recordings" (
 echo.
 echo  Do you want to delete your replay recordings?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -731,8 +731,8 @@ if exist "%appdata%\.minecraft\backups" (
 echo.
 echo  Do you want to delete your world backups?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -742,8 +742,8 @@ if exist "%appdata%\.minecraft\saves" (
 echo.
 echo  Do you want to delete ALL your worlds?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -753,8 +753,8 @@ if exist "%appdata%\.minecraft\shaderpacks" (
 echo.
 echo  Do you want to delete ALL your shaderpacks?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -764,8 +764,8 @@ if exist "%appdata%\.minecraft\resourcepacks" (
 echo.
 echo  Do you want to delete ALL your resourcepacks?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -775,8 +775,8 @@ if exist "%appdata%\.minecraft\config" (
 echo.
 echo  Do you want to delete ALL your current loaded Mod configs?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -786,8 +786,8 @@ if exist "%appdata%\.minecraft\mods" (
 echo.
 echo  Do you want to delete ALL your current loaded mods?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -797,8 +797,8 @@ if exist "%appdata%\.minecraft\servers.dat" (
 echo.
 echo  Do you want to delete ALL your server list?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -808,8 +808,8 @@ if exist "%appdata%\.minecraft\options.txt" (
 echo.
 echo  Do you want to delete ALL your current loaded OPTIONS?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -819,8 +819,8 @@ if exist "%appdata%\.minecraft\screenshots" (
 echo.
 echo  Do you want to delete your minecraft screenshots?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -830,8 +830,8 @@ if exist "%appdata%\.minecraft\hotbar.nbt" (
 echo.
 echo  Do you want to delete your saved hotbars?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -841,8 +841,8 @@ if exist "%appdata%\.minecraft\hotbar.nbt" (
 echo.
 echo  Do you want to delete your launcher settings?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -852,8 +852,8 @@ if exist "%appdata%\.minecraft\launcher_skins.json" (
 echo.
 echo  Do you want to delete your skins?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -863,8 +863,8 @@ if exist "%appdata%\.minecraft\launcher_accounts.json" (
 echo.
 echo  Do you want to LOGOUT from every account in your minecraft launcher?
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -874,8 +874,8 @@ if exist "%appdata%\.minecraft\launcher_profiles.json" (
 echo.
 echo  "Do you want to delete all your launcher profiles, only vanila %vl% will be kept?"
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
@@ -885,8 +885,8 @@ IF ERRORLEVEL 1 del /S /Q "%appdata%\.minecraft\launcher_profiles.json"
 echo.
 echo  "Do you want to delete old Minecraft Versions and Snapshots? - only 1.8.9-vanila/forge and latest %l%-vanila/fabric will be kept"
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO c2
@@ -909,8 +909,8 @@ rmdir /S /Q tmp
 echo.
 echo  "Do you want to delete old Fabric Versions and Snapshots? - only latest %l% fabric version will be kept?"
 echo.
-echo 1. Yes
-echo 2. No
+echo  1. Yes
+echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO c3
