@@ -53,14 +53,14 @@ echo  Make sure you choose the right mod loader in the MC launcher!
 echo.
 CHOICE /C 123456789 /M " Auswahl: "
 IF ERRORLEVEL 9 GOTO mcl
-IF ERRORLEVEL 8 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q & rmdir /S /Q config & tar xf Profil-8.tar
-IF ERRORLEVEL 7 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q & rmdir /S /Q config & tar xf Profil-7.tar
-IF ERRORLEVEL 6 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q & rmdir /S /Q config & tar xf Profil-6.tar
-IF ERRORLEVEL 5 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q & rmdir /S /Q config & tar xf Profil-5.tar
-IF ERRORLEVEL 4 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q & rmdir /S /Q config & tar xf Profil-4.tar
-IF ERRORLEVEL 3 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q & rmdir /S /Q config & tar xf Profil-3.tar
-IF ERRORLEVEL 2 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q & rmdir /S /Q config & tar xf Profil-2.tar
-IF ERRORLEVEL 1 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat .iasx .iasp .iasms_v2 & rmdir /S /Q & rmdir /S /Q config & tar xf Profil-1.tar
+IF ERRORLEVEL 8 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & rmdir /S /Q config & tar xf Profil-8.tar
+IF ERRORLEVEL 7 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & rmdir /S /Q config & tar xf Profil-7.tar
+IF ERRORLEVEL 6 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & rmdir /S /Q config & tar xf Profil-6.tar
+IF ERRORLEVEL 5 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & rmdir /S /Q config & tar xf Profil-5.tar
+IF ERRORLEVEL 4 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & rmdir /S /Q config & tar xf Profil-4.tar
+IF ERRORLEVEL 3 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & rmdir /S /Q config & tar xf Profil-3.tar
+IF ERRORLEVEL 2 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & rmdir /S /Q config & tar xf Profil-2.tar
+IF ERRORLEVEL 1 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & rmdir /S /Q config & tar xf Profil-1.tar
 :mcl
 C:
 cd %appdata%\.minecraft\

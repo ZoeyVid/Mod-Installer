@@ -633,6 +633,7 @@ rmdir /S /Q .fabric
 rmdir /S /Q .icons
 rmdir /S /Q .mixin.out
 rmdir /S /Q .replay_cache
+rmdir /S /Q ViaForge
 rmdir /S /Q assets
 rmdir /S /Q bettergamemenu
 rmdir /S /Q craftpresence
