@@ -110,7 +110,7 @@ IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mp/1.17-Only.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 rmdir /S /Q mods
 tar -xf mods.zip
@@ -142,7 +142,7 @@ IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mp/1.8-Only.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 echo  In the next step a window will open automatically, just click on "OK"!
@@ -159,7 +159,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 curl -L -o fabric.jar https://dl.san0j.de/fa
 java -jar fabric.jar
@@ -170,7 +170,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 curl -L -o iris.jar https://github.com/IrisShaders/Iris-Installer/releases/download/2.0.0/Iris-Installer-2.0.0.jar
 java -jar iris.jar
@@ -193,7 +193,7 @@ If ERRORLEVEL 1 GOTO of-new
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 echo.
 echo  Which Optifine version do you want to install?
@@ -239,7 +239,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 echo.
 echo  Which Optifine version do you want to install?
@@ -285,7 +285,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 echo.
 echo  Which Forge version do you want to install?
@@ -547,14 +547,14 @@ echo.
 echo  Under which profile do you want to save the current mods and configs?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt
-IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt
+IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt options.amecsapi.txt
+IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt options.amecsapi.txt
+IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt options.amecsapi.txt
+IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt options.amecsapi.txt
+IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt options.amecsapi.txt
+IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt options.amecsapi.txt
+IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt options.amecsapi.txt
+IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt options.amecsapi.txt
 CLS
 echo.
 echo  Finished! 
@@ -572,14 +572,14 @@ echo.
 echo  Which profile do you want to update (the profile is loaded so that all configs are adopted)?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-8.tar & set P=8
-IF ERRORLEVEL 7 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-7.tar & set P=7
-IF ERRORLEVEL 6 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-6.tar & set P=6
-IF ERRORLEVEL 5 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-5.tar & set P=5
-IF ERRORLEVEL 4 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-4.tar & set P=4
-IF ERRORLEVEL 3 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-3.tar & set P=3
-IF ERRORLEVEL 2 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-2.tar & set P=2
-IF ERRORLEVEL 1 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & tar xf Profil-1.tar & set P=1
+IF ERRORLEVEL 8 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-8.tar & set P=8
+IF ERRORLEVEL 7 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-7.tar & set P=7
+IF ERRORLEVEL 6 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-6.tar & set P=6
+IF ERRORLEVEL 5 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-5.tar & set P=5
+IF ERRORLEVEL 4 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-4.tar & set P=4
+IF ERRORLEVEL 3 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-3.tar & set P=3
+IF ERRORLEVEL 2 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-2.tar & set P=2
+IF ERRORLEVEL 1 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-1.tar & set P=1
 cd "%appdata%\.minecraft\mods\"
 if exist Update.bat (
   move Update.bat "%appdata%\.minecraft\"
@@ -587,7 +587,7 @@ if exist Update.bat (
   CLS
   Update.bat
   CLS
-  tar cf Profil-%P%.tar mods config optionsof.txt options.txt
+  tar cf Profil-%P%.tar mods config optionsof.txt options.txt options.amecsapi.txt
   del /S /Q "%appdata%\.minecraft\fabric.jar"
   del /S /Q "%appdata%\.minecraft\1.17.bat"
   del /S /Q "%appdata%\.minecraft\Fabric-Install.bat"
@@ -626,7 +626,7 @@ IF ERRORLEVEL 1 GOTO end
 
 :cy
 cd "%appdata%\.minecraft"
-tar cf Backup.tar mods config optionsof.txt options.txt servers.dat
+tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 TASKKILL /T /F /IM MinecraftLauncher*
 rmdir /S /Q "%appdata%\.iris-installer"
 rmdir /S /Q .fabric
@@ -813,7 +813,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\options.txt" & del /S /Q "%appdata%\.minecraft\optionsof.txt"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\options.txt" & del /S /Q "%appdata%\.minecraft\options.amecsapi.txt" & del /S /Q "%appdata%\.minecraft\optionsof.txt"
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\screenshots" (
