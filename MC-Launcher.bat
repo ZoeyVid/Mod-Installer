@@ -1,6 +1,6 @@
 @echo off
 :start
-curl -L -o %0 https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/MC-Launcher.bat
+curl -L -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-Launcher.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
@@ -13,7 +13,7 @@ C:
     where java >nul 2>nul
     if %errorlevel%==1 (    
 	echo.
-	echo  Java is not installed, it will be installed now!
+	echo  java is not installed, it will now be installed!
 	echo  Start now?
 	Pause
 	winget install -e --id Amazon.Corretto.17
@@ -39,7 +39,8 @@ if not exist "%appdata%\.minecraft" (
 	echo  Do you want to open the Minecraft Launcher and test it again afterwards?
 	Pause
 	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	TASKKILL /T /F /IM MinecraftLauncher*
+    TASKKILL /T /F /IM MinecraftLauncher.exe
+    TASKKILL /T /F /IM Minecraft.exe
 	GOTO restart
 )
 

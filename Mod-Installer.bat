@@ -1,6 +1,6 @@
 @echo off
 :start
-curl -L -o %0 https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Mod-Installer.bat
+curl -L -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
@@ -16,7 +16,7 @@ C:
     where java >nul 2>nul
     if %errorlevel%==1 (    
 	echo.
-	echo  Java is not installed, it will be installed now!
+	echo  java is not installed, it will now be installed!
 	echo  Start now?
 	Pause
 	winget install -e --id Amazon.Corretto.17
@@ -42,7 +42,8 @@ if not exist "%appdata%\.minecraft" (
 	echo  Do you want to open the Minecraft Launcher and test it again afterwards?
 	Pause
 	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	TASKKILL /T /F /IM MinecraftLauncher*
+	TASKKILL /T /F /IM MinecraftLauncher.exe
+    TASKKILL /T /F /IM Minecraft.exe
 	GOTO restart
 )
 
@@ -61,23 +62,25 @@ CLS
 	echo  f) 1.8                      - Forge-Loader  Modpacks - PVP
 	echo  g) Rescource Packs          - Download Resourcepacks!
 	echo.
-	echo  h) .minecraft Cleaner       - Clear your .minecraft folder up!
-	echo  i) Backups/Modprofile       - Create Mod-/Config-Profils
-	echo  j) Profil Update            - Load a profile to update it and then automatically save it again!
+	echo  h) Backups/Modprofile       - Create Mod-/Config-Profils
+	echo  i) Profil Update            - Load a profile to update it and then automatically save it again!
 	echo.
 	echo  Funktions:
 	echo.
-    echo  k) Restart Installer
-	echo  l) End Installer
-	echo  m) Give feedback
+	echo  j) .minecraft Cleaner       - Clear your .minecraft folder up!
+	echo  k) Migrate Launcher         - Migrate to the new MC Launcher
+    echo  l) Restart Installer
+	echo  m) End Installer
+	echo  n) Give feedback
 	echo.
-    CHOICE /C abcdefghijklm /M " Selection: "
-    IF ERRORLEVEL 13 GOTO fb
-    IF ERRORLEVEL 12 GOTO end
-    IF ERRORLEVEL 11 GOTO restart
-    IF ERRORLEVEL 10 GOTO update
-	IF ERRORLEVEL 9 GOTO bp
-	IF ERRORLEVEL 8 GOTO c
+    CHOICE /C abcdefghijklmn /M " Selection: "
+    IF ERRORLEVEL 14 GOTO fb
+    IF ERRORLEVEL 13 GOTO end
+    IF ERRORLEVEL 12 GOTO restart
+	IF ERRORLEVEL 11 GOTO mi
+	IF ERRORLEVEL 10 GOTO c
+    IF ERRORLEVEL 9 GOTO update
+	IF ERRORLEVEL 8 GOTO bp
 	IF ERRORLEVEL 7 GOTO rp
 	IF ERRORLEVEL 6 GOTO 1.8
     IF ERRORLEVEL 5 GOTO 1.17
@@ -627,7 +630,8 @@ IF ERRORLEVEL 1 GOTO end
 :cy
 cd "%appdata%\.minecraft"
 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
-TASKKILL /T /F /IM MinecraftLauncher*
+TASKKILL /T /F /IM MinecraftLauncher.exe
+TASKKILL /T /F /IM Minecraft.exe
 rmdir /S /Q "%appdata%\.iris-installer"
 rmdir /S /Q .fabric
 rmdir /S /Q .icons
@@ -652,7 +656,7 @@ rmdir /S /Q libraries
 rmdir /S /Q stats
 rmdir /S /Q texturepacks-mp-cache
 rmdir /S /Q webcache
-del /S /Q versions\version_manifest_v2.json
+del /S /Q versions\version_manifest_v2*
 del /S /Q versions\cache.dat
 del /S /Q betterfps.txt
 del /S /Q clientId.txt
@@ -660,11 +664,11 @@ del /S /Q deaths.dat
 del /S /Q servers.dat_old
 del /S /Q textures_*.png
 del /S /Q updateLog.txt
-del /S /Q usercache.json
-del /S /Q usernamecache.json
+del /S /Q usercache*
+del /S /Q usernamecache*
 del /S /Q launcher_log.txt
 del /S /Q level.dat
-del /S /Q realms_persistence.json
+del /S /Q realms_persistence*
 del /S /Q launcher_cef_log.txt
 del /S /Q output-server.log
 del /S /Q output-client.log
@@ -672,14 +676,14 @@ del /S /Q debug.stitched_items.png
 del /S /Q debug.stitched_terrain.png
 del /S /Q hotbar.nbt
 del /S /Q lastlogin
-del /S /Q resourcepacks.json
-del /S /Q treatment_tags.json
+del /S /Q resourcepacks*
+del /S /Q treatment_tags*
 del /S /Q hs_err_pid*
 del /S /Q options.amecsapi.txt
-del /S /Q launcher_ui_state.json
-del /S /Q launcher_settings.json
-del /S /Q launcher_gamer_pics.json
-del /S /Q launcher_entitlements.json
+del /S /Q launcher_ui_state*
+del /S /Q launcher_settings*
+del /S /Q launcher_gamer_pics*
+del /S /Q launcher_entitlements*
 del /S /Q .iasx
 del /S /Q .iasp
 del /S /Q .iasms_v2
@@ -835,10 +839,10 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_settings.json"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\hotbar.nbt"
 IF ERRORLEVEL 1 echo OK!
 )
-if exist "%appdata%\.minecraft\hotbar.nbt" (
+
 echo.
 echo  Do you want to delete your launcher settings?
 echo.
@@ -846,10 +850,9 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_skins.json"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_settings*"
 IF ERRORLEVEL 1 echo OK!
-)
-if exist "%appdata%\.minecraft\launcher_skins.json" (
+
 echo.
 echo  Do you want to delete your skins?
 echo.
@@ -857,10 +860,9 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_skins.json"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_skins*"
 IF ERRORLEVEL 1 echo OK!
-)
-if exist "%appdata%\.minecraft\launcher_accounts.json" (
+
 echo.
 echo  Do you want to LOGOUT from EVERY account in your minecraft launcher?
 echo.
@@ -868,10 +870,9 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_accounts.json" & del /S /Q "%appdata%\.minecraft\launcher_msa_credentials.bin"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_accounts*" & del /S /Q "%appdata%\.minecraft\launcher_msa_credentials*"
 IF ERRORLEVEL 1 echo OK!
-)
-if exist "%appdata%\.minecraft\launcher_profiles.json" (
+
 echo.
 echo  Do you want to delete all your launcher profiles, only vanila %vl% will be kept?
 echo.
@@ -879,9 +880,8 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_profiles.json"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_profiles*"
 IF ERRORLEVEL 1 echo OK!
-)
 
 echo.
 echo  Do you want to delete old Minecraft Versions and Snapshots? - only 1.8.9-vanila/forge and latest %l%-vanila/fabric will be kept
@@ -918,6 +918,40 @@ CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO restart
 
+:mi
+CLS
+echo.
+echo  Do you really want to migrate to the new Minecraft Launcher?
+echo  Your Minecraft Launcher will be closed!
+echo.
+echo  1. No
+echo  2. Yes
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 GOTO miy
+IF ERRORLEVEL 1 GOTO end
+
+:miy
+cd "%appdata%\.minecraft"
+TASKKILL /T /F /IM MinecraftLauncher.exe
+TASKKILL /T /F /IM Minecraft.exe
+rm launcher_profiles_microsoft_store.json
+move launcher_profiles.json launcher_profiles_microsoft_store.json
+curl -L -o Mod-Installer.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-InstallerMS.bat
+curl -L -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-LauncherMS.bat
+curl -L -o Installer-Uninstaller.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/InstallerMS.bat
+winget uninstall Mojang.MinecraftLauncher
+start "" ms-windows-store://pdp/?ProductId=9pgw18npbzv5
+CLS
+echo.
+echo  Migrated! 
+echo  Please install now the new Launcher from the Microsoft Store!
+echo.
+echo  1. Restart Mod-Installer
+echo  2. End Installer
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO restart
 
 :fb
 CLS

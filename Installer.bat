@@ -1,6 +1,6 @@
 @echo off
 :start
-curl -L -o %0 https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Installer.bat
+curl -L -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Installer.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
@@ -13,7 +13,7 @@ C:
     where java >nul 2>nul
     if %errorlevel%==1 (    
 	echo.
-	echo  java is not installed, it will be installed now!
+	echo  java is not installed, it will now be installed!
 	echo  Start now?
 	Pause
 	winget install -e --id Amazon.Corretto.17
@@ -39,7 +39,8 @@ if not exist "%appdata%\.minecraft" (
 	echo  Do you want to open the Minecraft Launcher and test it again afterwards?
 	Pause
 	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	TASKKILL /T /F /IM MinecraftLauncher*
+	TASKKILL /T /F /IM MinecraftLauncher.exe
+    TASKKILL /T /F /IM Minecraft.exe
 	GOTO restart
 )
 
@@ -56,14 +57,14 @@ IF ERRORLEVEL 1 GOTO is
 
 :is
 CLS
-echo  Start Installation
+echo  Start Installation?
 Pause
 cd "%appdata%\.minecraft"
-curl -L -o Mod-Installer.bat https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Mod-Installer.bat
-curl -L -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/MC-Launcher.bat
-curl -L -o Installer-Uninstaller.bat https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Installer.bat
-curl -L -o Donwload.ico https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Download.ico
-curl -L -o Installer.ico https://raw.githubusercontent.com/SanCraft-io/Mod-Installer/main/Installer.ico
+curl -L -o Mod-Installer.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.bat
+curl -L -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-Launcher.bat
+curl -L -o Installer-Uninstaller.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Installer.bat
+curl -L -o Donwload.ico https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Download.ico
+curl -L -o Installer.ico https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Installer.ico
 
 mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
@@ -169,7 +170,7 @@ rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 CLS
 echo.
 echo  Finished! Scripts were deleted!
-echo  Accidentally removed? https://github.com/2020Sanoj/Mod-Installer/releases/latest
+echo  Accidentally removed? https://github.com/SanCraftDev/Mod-Installer/releases/latest
 echo.
 echo  Remove Mod-Profils, Backups and Configs?
 echo  Current loaded Mods are keept!
@@ -197,7 +198,7 @@ del /S /Q %appdata%\.minecraft\steam.txt
 CLS
 echo.
 echo  Finished! Profils and Backups had been deleted!
-echo  Accidentally removed? https://github.com/2020Sanoj/Mod-Installer/releases/latest
+echo  Accidentally removed? https://github.com/SanCraftDev/Mod-Installer/releases/latest
 echo.
 Pause
 GOTO endr
