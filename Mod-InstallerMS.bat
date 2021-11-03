@@ -924,7 +924,7 @@ IF ERRORLEVEL 1 GOTO end
 cd "%appdata%\.minecraft"
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
-rm launcher_profiles.json
+del /S /Q launcher_profiles.json
 winget install Mojang.MinecraftLauncher
 start "" ms-windows-store://pdp/?ProductId=9pgw18npbzv5
 move launcher_profiles_microsoft_store.json launcher_profiles.json

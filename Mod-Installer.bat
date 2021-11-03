@@ -935,7 +935,7 @@ IF ERRORLEVEL 1 GOTO end
 cd "%appdata%\.minecraft"
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
-rm launcher_profiles_microsoft_store.json
+del /S /Q launcher_profiles_microsoft_store.json
 move launcher_profiles.json launcher_profiles_microsoft_store.json
 winget uninstall Mojang.MinecraftLauncher
 start "" ms-windows-store://pdp/?ProductId=9pgw18npbzv5
