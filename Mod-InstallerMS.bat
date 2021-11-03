@@ -938,6 +938,7 @@ echo  Please remove now the new Launcher from the Microsoft Store!
 echo.
 echo  1. Restart Mod-Installer
 echo  2. End Installer
+echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO restart
