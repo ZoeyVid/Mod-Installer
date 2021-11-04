@@ -564,6 +564,10 @@ del /S /Q launcher_entitlements*
 del /S /Q .iasx
 del /S /Q .iasp
 del /S /Q .iasms_v2
+del /S /Q launcher_accounts.*
+del /S /Q launcher_msa_credentials.*
+del /S /Q launcher_profiles.*
+del /S /Q launcher_ui_state.*
 
 if exist "%appdata%\.minecraft\wurst" (
 echo.
