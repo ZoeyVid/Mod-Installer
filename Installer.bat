@@ -188,7 +188,7 @@ GOTO if
 CLS
 echo  Finished!
 Pause
-del /Q %appdata%\.minecraft\Installer-Uninstaller.bat
+del /Q %appdata%\.minecraft\Installer-Uninstaller.bat & exit /B
 GOTO end
 
 :end
@@ -252,9 +252,9 @@ GOTO endr
 
 :endr
 CLS
-del /S /Q %appdata%\.minecraft\Installer-Uninstaller.bat
-del /S /Q %appdata%\.minecraft\Mod-Installer\Installer-Uninstaller.bat
-del /S /Q %0
+del /S /Q %appdata%\.minecraft\Installer-Uninstaller.bat & del /S /Q %appdata%\.minecraft\Mod-Installer\Installer-Uninstaller.bat & del /S /Q %0 & exit /B
+del /S /Q %appdata%\.minecraft\Mod-Installer\Installer-Uninstaller.bat & del /S /Q %0 & exit /B
+del /S /Q %0 & exit /B
 GOTO end
 
 :restart
