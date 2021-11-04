@@ -510,7 +510,6 @@ tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt ser
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
 rmdir /S /Q "%appdata%\.iris-installer"
-rmdir /S /Q .fabric
 rmdir /S /Q .icons
 rmdir /S /Q .mixin.out
 rmdir /S /Q .replay_cache
@@ -789,6 +788,31 @@ move tmp\%fal% versions
 rmdir /S /Q tmp
 
 :c2
+if exist .fabric (
+echo.
+echo  Do you want to delete old Fabric Versions and Snapshots? - only latest %fal% will be kept?
+echo.
+echo  1. No
+echo  2. Yes
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 GOTO c3
+IF ERRORLEVEL 1 GOTO c4
+)
+
+:c3
+if exist .fabric (
+mkdir tmp
+move .fabric\remappedJars\minecraft-%l%\intermediary-%fal%.jar tmp
+rmdir /S /Q .fabric
+mkdir .fabric
+mkdir .fabric\remappedJars\
+mkdir .fabric\remappedJars\minecraft-%l%
+move tmp\intermediary-%fal%.jar .fabric\remappedJars\minecraft-%l%\
+rmdir /S /Q tmp
+)
+
+:c4
 CLS
 echo.
 echo  Cleaned
