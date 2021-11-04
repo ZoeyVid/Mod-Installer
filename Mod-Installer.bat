@@ -1,13 +1,24 @@
 @echo off
 :start
 curl -L -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.bat
+
+if not exist "%appdata%\.minecraft\Mod-Installer" (
+CLS
+echo.
+echo You need to reinstall the Mod-Installer!
+echo.
+Pause
+start "" "%appdata%\.minecraft\Installer-Uninstaller.bat"
+GOTO end
+)
+
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
 del /S /Q "%appdata%\.minecraft\Update.bat"
-set /p steam=<%appdata%\.minecraft\steam.txt
+set /p steam=<%appdata%\.minecraft\Mod-Installer\steam.txt
 set l=1.17.1
 set vl=1.17.1
 set fal=fabric-loader-0.11.7-1.17.1

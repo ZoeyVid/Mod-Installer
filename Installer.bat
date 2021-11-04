@@ -7,7 +7,7 @@ FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environme
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
 del /S /Q "%appdata%\.minecraft\Update.bat"
-set /p steam=<%appdata%\.minecraft\steam.txt
+set /p steam=<%appdata%\.minecraft\Mod-Installer\steam.txt
 CLS
 echo.
 echo  MIT License
@@ -96,11 +96,23 @@ CLS
 echo  Start Installation?
 Pause
 cd "%appdata%\.minecraft"
+del /S /Q %appdata%\.minecraft\Mod-Installer.ico
+del /S /Q %appdata%\.minecraft\Installer.ico
+del /S /Q %appdata%\.minecraft\MC-Launcher.bat
+del /S /Q %appdata%\.minecraft\Mod-Installer.bat
+del /S /Q %DESKTOP_FOLDER%\Mod-Installer.lnk
+del /S /Q %DESKTOP_FOLDER%\MC-Launcher.lnk
+rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
+
+mkdir "%appdata%\.minecraft\Mod-Installer"
+cd "%appdata%\.minecraft\Mod-Installer"
 curl -L -o Mod-Installer.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.bat
 curl -L -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-Launcher.bat
 curl -L -o Installer-Uninstaller.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Installer.bat
-curl -L -o Donwload.ico https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Download.ico
+curl -L -o Mod-Installer.ico https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.ico
 curl -L -o Installer.ico https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Installer.ico
+curl -L -o Launcher.ico https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Launcher.ico
+move %appdata%\.minecraft\steam.txt %appdata%\.minecraft\Mod-Installer\steam.txt
 
 mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 
@@ -109,8 +121,8 @@ echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo  sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\MC-Launcher.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo  oLink.Arguments = "/C %appdata%\.minecraft\MC-Launcher.bat" >> %SCRIPT%
-echo  oLink.IconLocation = "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" >> %SCRIPT%
+echo  oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer\MC-Launcher.bat" >> %SCRIPT%
+echo  oLink.IconLocation = "%appdata%\.minecraft\Mod-Installer\Launcher.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
@@ -120,8 +132,8 @@ echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo  sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Mod-Installer.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo  oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer.bat" >> %SCRIPT%
-echo  oLink.IconLocation = "%appdata%\.minecraft\Donwload.ico" >> %SCRIPT%
+echo  oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer\Mod-Installer.bat" >> %SCRIPT%
+echo  oLink.IconLocation = "%appdata%\.minecraft\Mod-Installer\Mod-Installer.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
@@ -131,14 +143,14 @@ echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo  sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Installer-Uninstaller.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo  oLink.Arguments = "/C %appdata%\.minecraft\Installer-Uninstaller.bat" >> %SCRIPT%
-echo  oLink.IconLocation = "%appdata%\.minecraft\Installer.ico" >> %SCRIPT%
+echo  oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer\Installer-Uninstaller.bat" >> %SCRIPT%
+echo  oLink.IconLocation = "%appdata%\.minecraft\Mod-Installer\Installer.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 
 CLS
-echo  Scripts were saved in "%appdata%\.minecraft"!
+echo  Scripts were saved in "%appdata%\.minecraft\Mod-Installer"!
 echo  Create desktop shortcuts?
 echo.
 echo  1. Yes
@@ -154,8 +166,8 @@ echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo  sLinkFile = "%DESKTOP_FOLDER%\MC-Launcher.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo  oLink.Arguments = "/C %appdata%\.minecraft\MC-Launcher.bat" >> %SCRIPT%
-echo  oLink.IconLocation = "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" >> %SCRIPT%
+echo  oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer\MC-Launcher.bat" >> %SCRIPT%
+echo  oLink.IconLocation = "%appdata%\.minecraft\Mod-Installer\Launcher.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
@@ -165,8 +177,8 @@ echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo  sLinkFile = "%DESKTOP_FOLDER%\Mod-Installer.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo  oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer.bat" >> %SCRIPT%
-echo  oLink.IconLocation = "%appdata%\.minecraft\Donwload.ico" >> %SCRIPT%
+echo  oLink.Arguments = "/C %appdata%\.minecraft\Mod-Installer\Mod-Installer.bat" >> %SCRIPT%
+echo  oLink.IconLocation = "%appdata%\.minecraft\Mod-Installer\Mod-Installer.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
@@ -176,6 +188,7 @@ GOTO if
 CLS
 echo  Finished!
 Pause
+del /S /Q %appdata%\.minecraft\Installer-Uninstaller.bat
 GOTO end
 
 :end
@@ -195,10 +208,15 @@ IF ERRORLEVEL 1 GOTO rmy
 
 :rmy
 CLS
-del /S /Q %appdata%\.minecraft\Donwload.ico
+del /S /Q %appdata%\.minecraft\Mod-Installer.ico
 del /S /Q %appdata%\.minecraft\Installer.ico
 del /S /Q %appdata%\.minecraft\MC-Launcher.bat
 del /S /Q %appdata%\.minecraft\Mod-Installer.bat
+del /S /Q %appdata%\.minecraft\Mod-Installer\Mod-Installer.ico
+del /S /Q %appdata%\.minecraft\Mod-Installer\Installer.ico
+del /S /Q %appdata%\.minecraft\Mod-Installer\Launcher.ico
+del /S /Q %appdata%\.minecraft\Mod-Installer\MC-Launcher.bat
+del /S /Q %appdata%\.minecraft\Mod-Installer\Mod-Installer.bat
 del /S /Q %DESKTOP_FOLDER%\Mod-Installer.lnk
 del /S /Q %DESKTOP_FOLDER%\MC-Launcher.lnk
 rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
@@ -208,7 +226,7 @@ echo.
 echo  Finished! Scripts were deleted!
 echo  Accidentally removed? https://github.com/SanCraftDev/Mod-Installer/releases/latest
 echo.
-echo  Remove Mod-Profils, Backups and Configs?
+echo  Remove Mod-Profils and the Backup?
 echo  Current loaded Mods are keept!
 echo.
 echo  1. Yes
@@ -220,17 +238,10 @@ IF ERRORLEVEL 1 GOTO rmpb
 
 :rmpb
 CLS
-del /S /Q %appdata%\.minecraft\Profil-9.tar
-del /S /Q %appdata%\.minecraft\Profil-8.tar
-del /S /Q %appdata%\.minecraft\Profil-7.tar
-del /S /Q %appdata%\.minecraft\Profil-6.tar
-del /S /Q %appdata%\.minecraft\Profil-5.tar
-del /S /Q %appdata%\.minecraft\Profil-4.tar
-del /S /Q %appdata%\.minecraft\Profil-3.tar
-del /S /Q %appdata%\.minecraft\Profil-2.tar
-del /S /Q %appdata%\.minecraft\Profil-1.tar
+del /S /Q %appdata%\.minecraft\Profil-*
 del /S /Q %appdata%\.minecraft\Backup.tar
 del /S /Q %appdata%\.minecraft\steam.txt
+del /S /Q %appdata%\.minecraft\Mod-Installer\steam.txt
 CLS
 echo.
 echo  Finished! Profils and Backups had been deleted!
@@ -242,6 +253,7 @@ GOTO endr
 :endr
 CLS
 del /S /Q %appdata%\.minecraft\Installer-Uninstaller.bat
+del /S /Q %appdata%\.minecraft\Mod-Installer\Installer-Uninstaller.bat
 del /S /Q %0
 GOTO end
 
