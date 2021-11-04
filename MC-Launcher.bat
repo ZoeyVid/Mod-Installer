@@ -75,7 +75,7 @@ IF ERRORLEVEL 2 tar cf Backup.tar mods config optionsof.txt options.txt servers.
 IF ERRORLEVEL 1 tar cf Backup.tar mods config optionsof.txt options.txt servers.dat & rmdir /S /Q mods & rmdir /S /Q config & tar xf Profil-1.tar
 :mcl
 C:
-cd %appdata%\.minecraft\
+cd %appdata%\.minecraft\Mod-Installer\
 if exist steam.txt (
   start "" "steam://rungameid/%steam%"
 ) else (

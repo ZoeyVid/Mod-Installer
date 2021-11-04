@@ -413,7 +413,7 @@ IF ERRORLEVEL 1 GOTO restart
 :mcl
 echo  Starting...
 C:
-cd %appdata%\.minecraft\
+cd %appdata%\.minecraft\Mod-Installer\
 if exist steam.txt (
   start "" "steam://rungameid/%steam%"
 ) else (
