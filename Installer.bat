@@ -96,7 +96,7 @@ CLS
 echo  Start Installation?
 Pause
 cd "%appdata%\.minecraft"
-del /S /Q %appdata%\.minecraft\Mod-Installer.ico
+del /S /Q %appdata%\.minecraft\Donwload.ico
 del /S /Q %appdata%\.minecraft\Installer.ico
 del /S /Q %appdata%\.minecraft\MC-Launcher.bat
 del /S /Q %appdata%\.minecraft\Mod-Installer.bat
@@ -208,7 +208,7 @@ IF ERRORLEVEL 1 GOTO rmy
 
 :rmy
 CLS
-del /S /Q %appdata%\.minecraft\Mod-Installer.ico
+del /S /Q %appdata%\.minecraft\Donwload.ico
 del /S /Q %appdata%\.minecraft\Installer.ico
 del /S /Q %appdata%\.minecraft\MC-Launcher.bat
 del /S /Q %appdata%\.minecraft\Mod-Installer.bat
