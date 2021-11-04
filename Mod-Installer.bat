@@ -474,7 +474,7 @@ if exist Update.bat (
   del /S /Q "%appdata%\.minecraft\Update.bat"
   CLS
   echo.
-  echo  Update finished!
+  echo  Update finished! (Profil %P%)
   echo  End Installer..
   Pause
 GOTO end
