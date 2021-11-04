@@ -81,6 +81,6 @@ if not exist "%appdata%\.minecraft" (
 )
 
 cd "%appdata%\.minecraft"
-curl -L -o I.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/IMS.bat
+curl -L -o IMS.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/IMS.bat
 start "" IMS.bat
 EXIT /B
