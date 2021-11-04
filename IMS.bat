@@ -40,8 +40,10 @@ echo  Welcome to the Mod-Installer Installer!
 echo.
 echo  1. Install/Repair
 echo  2. Remove
+echo  3. Cancel
 echo.
 CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 3 del /S /Q %0 & exit /B
 IF ERRORLEVEL 2 GOTO rm
 IF ERRORLEVEL 1 GOTO is
 
