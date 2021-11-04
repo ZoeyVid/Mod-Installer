@@ -288,9 +288,9 @@ echo  1. 1.17
 echo  2. 1.16
 echo  3. 1.8
 CHOICE /C 123 /M " Selection: "
-IF ERRORLEVEL 3 curl -L -o KÅrbis-1.8.zip  https://dl.sancraft.dev/mp/pumpkin-1.8.zip
-IF ERRORLEVEL 2 curl -L -o KÅrbis-1.16.zip  https://dl.sancraft.dev/mp/pumpkin-1.17.zip
-IF ERRORLEVEL 1 curl -L -o KÅrbis-1.17.zip  https://dl.sancraft.dev/mp/pumpkin-1.16.zip
+IF ERRORLEVEL 3 curl -L -o pumpkin-1.8.zip  https://dl.sancraft.dev/mp/pumpkin-1.8.zip
+IF ERRORLEVEL 2 curl -L -o pumpkin-1.16.zip  https://dl.sancraft.dev/mp/pumpkin-1.17.zip
+IF ERRORLEVEL 1 curl -L -o pumpkin-1.17.zip  https://dl.sancraft.dev/mp/pumpkin-1.16.zip
 GOTO rpif
 
 :dm
@@ -314,7 +314,7 @@ IF ERRORLEVEL 1 curl -L -o Xray-1.17.zip  https://media.forgecdn.net/files/3226/
 GOTO rpif
 
 :1.8-new
-curl -L -o 1.8-rp-with-newer-textures.zip  https://dl.sancraft.dev/mp/1.8-rp.zip
+curl -L -o 1.8-rp.zip  https://dl.sancraft.dev/mp/1.8-rp.zip
 GOTO rpif
 
 :pvp
