@@ -695,7 +695,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\servers.dat"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\servers.*"
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\options.txt" (
@@ -706,7 +706,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\options.txt" & del /S /Q "%appdata%\.minecraft\options.amecsapi.txt" & del /S /Q "%appdata%\.minecraft\optionsof.txt"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\options*"
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\screenshots" (
