@@ -65,6 +65,7 @@ del /S /Q %appdata%\.minecraft\Donwload.ico
 del /S /Q %appdata%\.minecraft\Installer.ico
 del /S /Q %appdata%\.minecraft\MC-Launcher.bat
 del /S /Q %appdata%\.minecraft\Mod-Installer.bat
+del /Q /Q %appdata%\.minecraft\Installer-Uninstaller.bat
 del /S /Q %DESKTOP_FOLDER%\Mod-Installer.lnk
 del /S /Q %DESKTOP_FOLDER%\MC-Launcher.lnk
 rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
@@ -153,11 +154,7 @@ GOTO if
 CLS
 echo  Finished!
 Pause
-del /Q %appdata%\.minecraft\Installer-Uninstaller.bat & exit /B
-GOTO end
-
-:end
-exit /B
+del /S /Q %0 & exit /B
 
 :rm
 CLS
@@ -168,7 +165,7 @@ echo  1. Yes
 echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 2 del /S /Q %0 & exit /B
 IF ERRORLEVEL 1 GOTO rmy
 
 :rmy
@@ -177,11 +174,8 @@ del /S /Q %appdata%\.minecraft\Donwload.ico
 del /S /Q %appdata%\.minecraft\Installer.ico
 del /S /Q %appdata%\.minecraft\MC-Launcher.bat
 del /S /Q %appdata%\.minecraft\Mod-Installer.bat
-del /S /Q %appdata%\.minecraft\Mod-Installer\Mod-Installer.ico
-del /S /Q %appdata%\.minecraft\Mod-Installer\Installer.ico
-del /S /Q %appdata%\.minecraft\Mod-Installer\Launcher.ico
-del /S /Q %appdata%\.minecraft\Mod-Installer\MC-Launcher.bat
-del /S /Q %appdata%\.minecraft\Mod-Installer\Mod-Installer.bat
+del /S /Q %appdata%\.minecraft\Installer-Uninstaller.bat
+rmdir /S /Q %appdata%\.minecraft\Mod-Installer
 del /S /Q %DESKTOP_FOLDER%\Mod-Installer.lnk
 del /S /Q %DESKTOP_FOLDER%\MC-Launcher.lnk
 rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
@@ -198,7 +192,7 @@ echo  1. Yes
 echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 GOTO endr
+IF ERRORLEVEL 2 del /S /Q %0 & exit /B
 IF ERRORLEVEL 1 GOTO rmpb
 
 :rmpb
@@ -213,14 +207,7 @@ echo  Finished! Profils and Backups had been deleted!
 echo  Accidentally removed? https://github.com/SanCraftDev/Mod-Installer/releases/latest
 echo.
 Pause
-GOTO endr
-
-:endr
-CLS
-del /S /Q %appdata%\.minecraft\Installer-Uninstaller.bat & del /S /Q %appdata%\.minecraft\Mod-Installer\Installer-Uninstaller.bat & del /S /Q %0 & exit /B
-del /S /Q %appdata%\.minecraft\Mod-Installer\Installer-Uninstaller.bat & del /S /Q %0 & exit /B
 del /S /Q %0 & exit /B
-GOTO end
 
 :restart
 start %ComSpec% /C %0
