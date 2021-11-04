@@ -30,20 +30,18 @@ if not exist "%appdata%\.minecraft" (
 	echo  Unable to start Minecraft!
 	echo  Do you want to open the Minecraft Launcher and test it again afterwards?
 	Pause
-	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
+	start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
     TASKKILL /T /F /IM MinecraftLauncher.exe
     TASKKILL /T /F /IM Minecraft.exe
 	GOTO restart
 )
 
-
-endlocal
 CLS
 	echo.
 	echo  Client-Mods/Modpack Versions:
 	echo.
 	echo  a) Iris + Sodium (1.16.5+)  - https://irisshaders.net/
-	echo  b) Optifine      (1.7.2+)   - https://optifine.net/downloads/
+	echo  b) Optifine      (1.7.2+)   - https://optifine.net/downloads/ - NO direct Download!
 	echo  c) Fabric-Loader (1.14+)    - https://fabricmc.net/use/
 	echo  d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge/
 	echo.
@@ -57,7 +55,7 @@ CLS
 	echo  Funktions:
 	echo.
 	echo  j) .minecraft Cleaner       - Clear your .minecraft folder up!
-	echo  k) Migrate Launcher         - Migrate to the OLD MC Launcher
+	echo  k) Migrate Launcher         - Migrate to the new MC Launcher
     echo  l) Restart Installer
 	echo  m) End Installer
 	echo  n) Give feedback
@@ -96,9 +94,9 @@ echo.
 CHOICE /C 12345 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
 IF ERRORLEVEL 5 GOTO end
 IF ERRORLEVEL 4 GOTO restart
-IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.san0j.de/mp/1.17-Full.zip
-IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mp/1.17-Lite.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mp/1.17-Only.zip
+IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Full.zip
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Lite.zip
+IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Only.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
@@ -107,7 +105,7 @@ CLS
 rmdir /S /Q mods
 tar -xf mods.zip
 del /S /Q mods.zip
-curl -L -o fabric.jar https://dl.san0j.de/fa
+curl -L -o fabric.jar https://dl.sancraft.dev/fa
 java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
 GOTO mif
@@ -129,8 +127,8 @@ echo.
 CHOICE /C 1234 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
 IF ERRORLEVEL 4 GOTO end
 IF ERRORLEVEL 3 GOTO restart
-IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.san0j.de/mp/1.8-Full.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.san0j.de/mp/1.8-Only.zip
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.8-Full.zip
+IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.8-Only.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
@@ -153,7 +151,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
-curl -L -o fabric.jar https://dl.san0j.de/fa
+curl -L -o fabric.jar https://dl.sancraft.dev/fa
 java -jar fabric.jar
 del /S /Q fabric.jar
 GOTO mif
@@ -170,107 +168,7 @@ del /S /Q iris.jar
 GOTO mif
 
 :of
-CLS
-echo.
-echo  Which Optifine version do you want to install?
-echo.
-echo  1. Afte 1.13
-echo  2. Bevor 1.12.2
-echo.
-CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 GOTO of-old
-If ERRORLEVEL 1 GOTO of-new
-
-:of-old
-echo  Installation starting...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
-CLS
-echo.
-echo  Which Optifine version do you want to install?
-echo.
-echo  a) 1.12.2
-echo  b) 1.12.1
-echo  c) 1.12
-echo  d) 1.11.2
-echo  e) 1.11
-echo  f) 1.10.2
-echo  g) 1.10
-echo  h) 1.9.4
-echo  i) 1.9.2
-echo  j) 1.9
-echo  k) 1.8.9
-echo  l) 1.8.8
-echo  m) 1.8
-echo  n) 1.7.10
-echo  o) 1.7.2
-CHOICE /C abcdefghijklmno /M " Selection: "
-IF ERRORLEVEL 15 curl -L -o optifine.jar https://dl.san0j.de/of/1.7.2.jar
-IF ERRORLEVEL 14 curl -L -o optifine.jar https://dl.san0j.de/of/1.7.10.jar
-IF ERRORLEVEL 13 curl -L -o optifine.jar https://dl.san0j.de/of/1.8.jar
-IF ERRORLEVEL 12 curl -L -o optifine.jar https://dl.san0j.de/of/1.8.8.jar
-IF ERRORLEVEL 11 curl -L -o optifine.jar https://dl.san0j.de/of/1.8.9.jar
-IF ERRORLEVEL 10 curl -L -o optifine.jar https://dl.san0j.de/of/1.9.jar
-IF ERRORLEVEL 9 curl -L -o optifine.jar https://dl.san0j.de/of/1.9.2.jar
-IF ERRORLEVEL 8 curl -L -o optifine.jar https://dl.san0j.de/of/1.9.4.jar
-IF ERRORLEVEL 7 curl -L -o optifine.jar https://dl.san0j.de/of/1.10.jar
-IF ERRORLEVEL 6 curl -L -o optifine.jar https://dl.san0j.de/of/1.10.2.jar
-IF ERRORLEVEL 5 curl -L -o optifine.jar https://dl.san0j.de/of/1.11.jar
-IF ERRORLEVEL 4 curl -L -o optifine.jar https://dl.san0j.de/of/1.11.2.jar
-IF ERRORLEVEL 3 curl -L -o optifine.jar https://dl.san0j.de/of/1.12.jar
-IF ERRORLEVEL 2 curl -L -o optifine.jar https://dl.san0j.de/of/1.12.1.jar
-IF ERRORLEVEL 1 curl -L -o optifine.jar https://dl.san0j.de/of/1.12.2.jar
-echo  In the next step, a window will open automatically, just click on "Install"!
-Pause
-java -jar optifine.jar
-del /S /Q optifine.jar
-GOTO mif
-
-:of-new
-echo  Installation starting...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
-CLS
-echo.
-echo  Which Optifine version do you want to install?
-echo.
-echo  a) latest version
-echo  b) 1.17.1
-echo  c) 1.17
-echo  d) 1.16.5
-echo  e) 1.16.4
-echo  f) 1.16.3
-echo  g) 1.16.2
-echo  h) 1.16.1
-echo  i) 1.15.2
-echo  j) 1.14.4
-echo  k) 1.14.3
-echo  l) 1.14.2
-echo  m) 1.13.2
-echo  n) 1.13.1
-echo  o) 1.13
-CHOICE /C abcdefghijklmno /M " Selection: "
-IF ERRORLEVEL 15 curl -L -o optifine.jar https://dl.san0j.de/of/1.13.jar
-IF ERRORLEVEL 14 curl -L -o optifine.jar https://dl.san0j.de/of/1.13.1.jar
-IF ERRORLEVEL 13 curl -L -o optifine.jar https://dl.san0j.de/of/1.13.2.jar
-IF ERRORLEVEL 12 curl -L -o optifine.jar https://dl.san0j.de/of/1.14.2.jar
-IF ERRORLEVEL 11 curl -L -o optifine.jar https://dl.san0j.de/of/1.14.3.jar
-IF ERRORLEVEL 10 curl -L -o optifine.jar https://dl.san0j.de/of/1.14.4.jar
-IF ERRORLEVEL 9 curl -L -o optifine.jar https://dl.san0j.de/of/1.15.2.jar
-IF ERRORLEVEL 8 curl -L -o optifine.jar https://dl.san0j.de/of/1.16.1.jar
-IF ERRORLEVEL 7 curl -L -o optifine.jar https://dl.san0j.de/of/1.16.2.jar
-IF ERRORLEVEL 6 curl -L -o optifine.jar https://dl.san0j.de/of/1.16.3.jar
-IF ERRORLEVEL 5 curl -L -o optifine.jar https://dl.san0j.de/of/1.16.4.jar
-IF ERRORLEVEL 4 curl -L -o optifine.jar https://dl.san0j.de/of/1.16.5.jar
-IF ERRORLEVEL 3 curl -L -o optifine.jar https://dl.san0j.de/of/1.17.jar
-IF ERRORLEVEL 2 curl -L -o optifine.jar https://dl.san0j.de/of/1.17.1.jar
-IF ERRORLEVEL 1 curl -L -o optifine.jar https://dl.san0j.de/of/latest.jar
-echo  In the next step, a window will open automatically, just click on "Install"!
-Pause
-java -jar optifine.jar
-del /S /Q optifine.jar
+start "" https://optifine.net/downloads
 GOTO mif
 
 :forge
@@ -304,8 +202,8 @@ echo  s) 1.16.5
 echo  t) 1.17.1
 echo.
 CHOICE /C abcdefghijklmnopqrst /M " Selection: "
-IF ERRORLEVEL 20 curl -L -o forge.jar https://dl.san0j.de/fo/1.17.1
-IF ERRORLEVEL 19 curl -L -o forge.jar https://dl.san0j.de/fo/1.16.5
+IF ERRORLEVEL 20 curl -L -o forge.jar https://dl.sancraft.dev/fo/1.17.1
+IF ERRORLEVEL 19 curl -L -o forge.jar https://dl.sancraft.dev/fo/1.16.5
 IF ERRORLEVEL 18 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.4-35.1.37/forge-1.16.4-35.1.37-installer.jar
 IF ERRORLEVEL 17 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.3-34.1.42/forge-1.16.3-34.1.42-installer.jar
 IF ERRORLEVEL 16 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.2-33.0.61/forge-1.16.2-33.0.61-installer.jar
@@ -323,7 +221,7 @@ IF ERRORLEVEL 5 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecr
 IF ERRORLEVEL 4 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 IF ERRORLEVEL 3 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
 IF ERRORLEVEL 2 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
-IF ERRORLEVEL 1 curl -L -o forge.jar https://dl.san0j.de/fo/latest
+IF ERRORLEVEL 1 curl -L -o forge.jar https://dl.sancraft.dev/fo/latest
 echo  In the next step a window will open automatically, just click on "OK"!
 Pause
 java -jar forge.jar
@@ -353,58 +251,46 @@ CLS
 echo.
 echo  Rescource Packs:
 echo.
-echo  a) Remove pumpkin sight                     - KÅrbis.zip
-echo  b) Dark Mode - make Minecraft darker!       - https://san0j.de/dark
-echo  c) Xray - not welcome                       - https://san0j.de/xray
-echo  d) Default Minecraft Resourcepack           - Zum selbst bearbeiten!
-echo  e) Textures of the newer Versions for 1.8   - https://san0j.de/18new und https://san0j.de/18new2
-echo  f) 1.8 PVP Pack (from BastiGHG)             - https://san0j.de/pvp
-echo  g) BD-Craft - NO direkt Download!           - https://bdcraft.net/downloads/
-echo  h) All (Without BD-Craft)
+echo  a) Remove pumpkin sight                               - Pumpkin.zip
+echo  b) Dark Mode - make Minecraft darker!                 - https://sancraft.dev/dark
+echo  c) Xray - often not welcome                           - https://sancraft.dev/xray
+echo  d) Textures of the newer Versions for 1.8             - https://sancraft.dev/18new and https://sancraft.dev/18new2 - combined
+echo  e) 1.8 PVP Pack (from BastiGHG) - NO direct Download! - https://resourcepacks24.de/resourcepack/53862
+echo  f) BD-Craft - NO direct Download!                     - https://bdcraft.net/downloads/
 echo.
-echo  i) Restart Mod-Installer
-echo  j) Mod-End Installer
+echo  g) Restart Mod-Installer
+echo  h) Mod-End Installer
 echo.
-CHOICE /C abcdefghij /M " Selection: "
-IF ERRORLEVEL 10 GOTO end
-IF ERRORLEVEL 9 GOTO restart
-IF ERRORLEVEL 8 GOTO rpa
-IF ERRORLEVEL 7 GOTO bdc
-IF ERRORLEVEL 6 GOTO pvp
-IF ERRORLEVEL 5 GOTO 1.8-new
-IF ERRORLEVEL 4 GOTO drp
+CHOICE /C abcdefgh /M " Selection: "
+IF ERRORLEVEL 8 GOTO end
+IF ERRORLEVEL 7 GOTO restart
+IF ERRORLEVEL 6 GOTO bdc
+IF ERRORLEVEL 5 GOTO pvp
+IF ERRORLEVEL 4 GOTO 1.8-new
 IF ERRORLEVEL 3 GOTO xray
 IF ERRORLEVEL 2 GOTO dm
-IF ERRORLEVEL 1 GOTO ks
+IF ERRORLEVEL 1 GOTO ps
 
-:rpa
-cd %appdata%\.minecraft
-echo  Download starting...
-curl -L -o Alles.zip https://dl.san0j.de/rp/Alles.zip
-GOTO rpif
-
-:bdc
-start "" https://bdcraft.net/downloads/
-GOTO rpif
-
-:pvp
-echo  Download starting...
-curl -L -o BastiGHG-PVP.zip  https://dl.san0j.de/rp/BastiGHG-PVP.zip
-GOTO rpif
-
-:1.8-new
-curl -L -o 1.8-rp-with-newer-textures.zip  https://dl.san0j.de/rp/1.8-rp-with-newer-textures.zip
-GOTO rpif
-
-:drp
+:ps
 echo  Download starting...
 echo  1. 1.17
 echo  2. 1.16
 echo  3. 1.8
 CHOICE /C 123 /M " Selection: "
-IF ERRORLEVEL 3 curl -L -o rp-1.8.zip  https://dl.san0j.de/rp/rp-1.8.zip
-IF ERRORLEVEL 2 curl -L -o rp-1.16.zip  https://dl.san0j.de/rp/rp-1.17.zip
-IF ERRORLEVEL 1 curl -L -o rp-1.17.zip  https://dl.san0j.de/rp/rp-1.16.zip
+IF ERRORLEVEL 3 curl -L -o KÅrbis-1.8.zip  https://dl.sancraft.dev/mp/pumpkin-1.8.zip
+IF ERRORLEVEL 2 curl -L -o KÅrbis-1.16.zip  https://dl.sancraft.dev/mp/pumpkin-1.17.zip
+IF ERRORLEVEL 1 curl -L -o KÅrbis-1.17.zip  https://dl.sancraft.dev/mp/pumpkin-1.16.zip
+GOTO rpif
+
+:dm
+echo  Download starting...
+echo  1. 1.17
+echo  2. 1.16
+echo  3. 1.8
+CHOICE /C 123 /M " Selection: "
+IF ERRORLEVEL 3 curl -L -o Dark-Mode-1.8.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.8-v1.3.0.zip
+IF ERRORLEVEL 2 curl -L -o Dark-Mode-1.16.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.17-v1.3.0.zip
+IF ERRORLEVEL 1 curl -L -o Dark-Mode-1.17.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.16.2+-v1.3.0.zip
 GOTO rpif
 
 :xray
@@ -416,26 +302,17 @@ IF ERRORLEVEL 2 curl -L -o Xray-1.16.zip  https://media.forgecdn.net/files/3359/
 IF ERRORLEVEL 1 curl -L -o Xray-1.17.zip  https://media.forgecdn.net/files/3226/914/Xray_Ultimate_1.16_v4.1.0.zip
 GOTO rpif
 
-:dm
-echo  Download starting...
-echo  1. 1.17
-echo  2. 1.16
-echo  3. 1.8
-CHOICE /C 123 /M " Selection: "
-IF ERRORLEVEL 3 curl -L -o Dark-Mode-1.8.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/download/v1.3.0/Default-Dark-Mode-1.8-v1.3.0.zip
-IF ERRORLEVEL 2 curl -L -o Dark-Mode-1.16.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/download/v1.3.0/Default-Dark-Mode-1.17-v1.3.0.zip
-IF ERRORLEVEL 1 curl -L -o Dark-Mode-1.17.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/download/v1.3.0/Default-Dark-Mode-1.16.2+-v1.3.0.zip
+:1.8-new
+curl -L -o 1.8-rp-with-newer-textures.zip  https://dl.sancraft.dev/mp/1.8-rp.zip
 GOTO rpif
 
-:ks
+:pvp
+start "" https://resourcepacks24.de/download/53862
 echo  Download starting...
-echo  1. 1.17
-echo  2. 1.16
-echo  3. 1.8
-CHOICE /C 123 /M " Selection: "
-IF ERRORLEVEL 3 curl -L -o KÅrbis-1.8.zip  https://dl.san0j.de/rp/Kuerbis-1.8.zip
-IF ERRORLEVEL 2 curl -L -o KÅrbis-1.16.zip  https://dl.san0j.de/rp/Kuerbis-1.17.zip
-IF ERRORLEVEL 1 curl -L -o KÅrbis-1.17.zip  https://dl.san0j.de/rp/Kuerbis-1.16.zip
+GOTO rpif
+
+:bdc
+start "" https://bdcraft.net/downloads/
 GOTO rpif
 
 :rpif
@@ -529,7 +406,7 @@ cd %appdata%\.minecraft\
 if exist steam.txt (
   start "" "steam://rungameid/%steam%"
 ) else (
-  start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft
+  start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
 )
 EXIT /B
 
@@ -925,30 +802,14 @@ cd "%appdata%\.minecraft"
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
 del /S /Q launcher_profiles.json
-winget install Mojang.MinecraftLauncher
-start "" ms-windows-store://pdp/?ProductId=9pgw18npbzv5
 move launcher_profiles_microsoft_store.json launcher_profiles.json
-curl -L -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-Launcher.bat
-curl -L -o Installer-Uninstaller.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Installer.bat
-curl -L -o Mod-Installer.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.bat & GOTO lmf
-
-:lmf
-CLS
-echo.
-echo  Migrated! 
-echo  Please remove now the new Launcher from the Microsoft Store!
-echo.
-echo  1. Restart Mod-Installer
-echo  2. End Installer
-echo.
-CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 GOTO end
-IF ERRORLEVEL 1 GOTO restart
+curl -L -o Installer-Uninstaller.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Installer.bat & start "" "%appdata%\.minecraft\Installer-Uninstaller.bat"
+EXIT /B
 
 :fb
 CLS
 echo.
-echo  https://sancraft.de/discord
+echo  https://sancraft.dev/discord
 echo  https://github.com/SanCraftDev/Mod-Installer/issues/
 echo  1. Restart Mod-Installer
 echo.

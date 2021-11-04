@@ -27,7 +27,7 @@ if not exist "%appdata%\.minecraft" (
 	echo  Unable to start Minecraft!
 	echo  Do you want to open the Minecraft Launcher and test it again afterwards?
 	Pause
-	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
+	start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
     TASKKILL /T /F /IM MinecraftLauncher.exe
     TASKKILL /T /F /IM Minecraft.exe
 	GOTO restart
