@@ -66,7 +66,7 @@ CLS
 	echo  Funktions:
 	echo.
 	echo  j) .minecraft Cleaner       - Clear your .minecraft folder up!
-	echo  k) Migrate Launcher         - Migrate to the new MC Launcher
+	echo  k) Migrate Launcher         - Migrate to the OLD MC Launcher
     echo  l) Restart Installer
 	echo  m) End Installer
 	echo  n) Give feedback
