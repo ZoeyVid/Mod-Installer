@@ -156,7 +156,7 @@ GOTO if
 CLS
 echo  Finished!
 Pause
-del /S /Q %0 & exit /B
+echo  Finished! & Pause & del /S /Q %0 & exit /B
 
 :rm
 CLS
@@ -207,9 +207,7 @@ CLS
 echo.
 echo  Finished! Profils and Backups had been deleted!
 echo  Accidentally removed? https://github.com/SanCraftDev/Mod-Installer/releases/latest
-echo.
-Pause
-del /S /Q %0 & exit /B
+echo. & Pause & del /S /Q %0 & exit /B
 
 :restart
 start %ComSpec% /C %0
