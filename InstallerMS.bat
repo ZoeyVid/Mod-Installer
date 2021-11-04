@@ -178,7 +178,7 @@ GOTO if
 CLS
 echo  Finished!
 Pause
-del /S /Q %appdata%\.minecraft\Installer-Uninstaller.bat
+del /Q %appdata%\.minecraft\Installer-Uninstaller.bat
 GOTO end
 
 :end
