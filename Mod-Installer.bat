@@ -18,6 +18,8 @@ FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environme
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
 del /S /Q "%appdata%\.minecraft\Update.bat"
+del /S /Q "%appdata%\.minecraft\I.bat"
+del /S /Q "%appdata%\.minecraft\IMS.bat"
 set /p steam=<%appdata%\.minecraft\Mod-Installer\steam.txt
 set l=1.17.1
 set vl=1.17.1
