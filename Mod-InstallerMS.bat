@@ -429,14 +429,14 @@ echo.
 echo  Under which profile do you want to save the current mods and configs?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt options.amecsapi.txt
-IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt options.amecsapi.txt
-IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt options.amecsapi.txt
-IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt options.amecsapi.txt
-IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt options.amecsapi.txt
-IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt options.amecsapi.txt
-IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt options.amecsapi.txt
-IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt options.amecsapi.txt
+IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 echo.
 echo  Finished! 
@@ -469,7 +469,7 @@ if exist Update.bat (
   CLS
   Update.bat
   CLS
-  tar cf Profil-%P%.tar mods config optionsof.txt options.txt options.amecsapi.txt
+  tar cf Profil-%P%.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
   del /S /Q "%appdata%\.minecraft\fabric.jar"
   del /S /Q "%appdata%\.minecraft\1.17.bat"
   del /S /Q "%appdata%\.minecraft\Fabric-Install.bat"
@@ -557,7 +557,7 @@ del /S /Q lastlogin
 del /S /Q resourcepacks*
 del /S /Q treatment_tags*
 del /S /Q hs_err_pid*
-del /S /Q options.amecsapi.txt
+del /S /Q options.amecsapi.txt servers.dat
 del /S /Q launcher_ui_state*
 del /S /Q launcher_settings*
 del /S /Q launcher_gamer_pics*
