@@ -59,7 +59,7 @@ if not exist "%appdata%\.minecraft" (
     TASKKILL /T /F /IM Minecraft.exe
 	GOTO restart
 )
-
+move servers.dat_tmp servers.dat
 CLS
 	echo.
 	echo  Client-Mods/Modpack Versions:

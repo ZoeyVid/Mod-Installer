@@ -45,7 +45,7 @@ if not exist "%appdata%\.minecraft" (
     TASKKILL /T /F /IM Minecraft.exe
 	GOTO restart
 )
-
+move servers.dat_tmp servers.dat
 C:
 cd "%appdata%\.minecraft\"
 CLS
