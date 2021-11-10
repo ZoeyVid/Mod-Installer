@@ -98,17 +98,19 @@ echo  Minigames = Only Grafikmods, Lite = light Mods, Full = Minimap, WTHIT...
 echo  Only the Minigame Pack should be allowed on Servers like Hypixel
 echo.
 echo  1. 1.17 Client Mods Minigames
-echo  2. 1.17 Client Mods Survival Lite
-echo  3. 1.17 Client Mods Survival Full
+echo  2. 1.17 Client Mods Minigames Minimap
+echo  3. 1.17 Client Mods Survival Lite
+echo  4. 1.17 Client Mods Survival Full
 echo.
-echo  4. Restart Installer
-echo  5. End Installer
+echo  5. Restart Installer
+echo  6. End Installer
 echo.
-CHOICE /C 12345 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
-IF ERRORLEVEL 5 GOTO end
-IF ERRORLEVEL 4 GOTO restart
-IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Full.zip
-IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Lite.zip
+CHOICE /C 123456 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
+IF ERRORLEVEL 6 GOTO end
+IF ERRORLEVEL 5 GOTO restart
+IF ERRORLEVEL 4 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Full.zip
+IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Lite.zip
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Minimap.zip
 IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Only.zip
 echo  Installation starting...
 C:
