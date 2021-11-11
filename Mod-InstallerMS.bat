@@ -102,12 +102,17 @@ echo  2. 1.17 Client Mods Minigames Minimap
 echo  3. 1.17 Client Mods Survival Lite
 echo  4. 1.17 Client Mods Survival Full
 echo.
-echo  5. Restart Installer
-echo  6. End Installer
+echo  5. Wurst Hack-Client - If you use this, I can say you, you get to 1000% banned
+echo  6. Replaymod
+echo.
+echo  7. Restart Installer
+echo  8. End Installer
 echo.
 CHOICE /C 123456 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
-IF ERRORLEVEL 6 GOTO end
-IF ERRORLEVEL 5 GOTO restart
+IF ERRORLEVEL 8 GOTO end
+IF ERRORLEVEL 7 GOTO restart
+IF ERRORLEVEL 6 GOTO rpm
+IF ERRORLEVEL 5 GOTO whc
 IF ERRORLEVEL 4 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Full.zip
 IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Lite.zip
 IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Minimap.zip
@@ -123,6 +128,26 @@ del /S /Q mods.zip
 curl -L -o fabric.jar https://dl.sancraft.dev/fa
 java -jar fabric.jar client -mcversion 1.17.1
 del /S /Q fabric.jar
+GOTO mif
+
+:whc
+echo  Installation starting...
+C:
+cd %appdata%\.minecraft
+tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+cd %appdata%\.minecraft\mods
+CLS
+curl -L -o wurst.jar https://github.com/Wurst-Imperium/Wurst-MCX2/releases/download/v7.18/Wurst-Client-v7.18-MC1.17.1.jar
+GOTO mif
+
+:rpm
+echo  Installation starting...
+C:
+cd %appdata%\.minecraft
+tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+cd %appdata%\.minecraft\mods
+CLS
+curl -L -o replaymod.jar https://minio.replaymod.com/replaymod/replaymod-1.17.1-2.6.1.jar
 GOTO mif
 
 :1.8
