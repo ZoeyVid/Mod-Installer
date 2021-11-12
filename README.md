@@ -24,6 +24,6 @@ Now right-click it on your desktop, select properties and copy the ID behind ste
 If you start Minecraft via the MC-Launcher, it will be started via Steam!
 
 **Requirements**
- - Windows 10 or 11 Device with an Internet connection and a Microsoft Account connected to the Microsoft Store
+ - Windows 10 or 11 Device with an Internet connection, a Microsoft Account connected to the Microsoft Store and administrator permissions on your device
  
 **NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.**
