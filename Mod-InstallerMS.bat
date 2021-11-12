@@ -543,7 +543,7 @@ rmdir /S /Q .icons
 rmdir /S /Q .mixin.out
 rmdir /S /Q .replay_cache
 rmdir /S /Q ViaForge
-:rmdir /S /Q assets
+rmdir /S /Q assets
 rmdir /S /Q bettergamemenu
 rmdir /S /Q craftpresence
 rmdir /S /Q crash-reports
@@ -554,7 +554,7 @@ rmdir /S /Q not-enough-crashes
 rmdir /S /Q server-resource-packs
 rmdir /S /Q bin
 rmdir /S /Q cachedImages
-:rmdir /S /Q libraries
+rmdir /S /Q libraries
 rmdir /S /Q webcache2
 rmdir /S /Q debug
 rmdir /S /Q libraries 
