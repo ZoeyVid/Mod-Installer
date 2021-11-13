@@ -57,18 +57,6 @@ C:
 	winget install -e --id Amazon.Corretto.17
 	GOTO restart
 )
-
-if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
-	CLS
-	echo  The Minecraft Launcher could not be found on the usual path!
-	echo  Under "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	echo  Minecraft will now be installed.
-	echo  Start now?
-	Pause
-	winget install -e --id Mojang.MinecraftLauncher
-	GOTO restart
-)
-
 if not exist "%appdata%\.minecraft" (
     CLS
     echo  .minecraft folder not at the usual path or not available.
@@ -76,12 +64,12 @@ if not exist "%appdata%\.minecraft" (
 	echo  Unable to start Minecraft!
 	echo  Do you want to open the Minecraft Launcher and test it again afterwards?
 	Pause
-	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	TASKKILL /T /F /IM MinecraftLauncher.exe
+	start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
+    TASKKILL /T /F /IM MinecraftLauncher.exe
     TASKKILL /T /F /IM Minecraft.exe
 	GOTO restart
 )
-
+move servers.dat_tmp servers.dat
 cd "%appdata%\.minecraft"
 curl -L -o IMS.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/IMS.bat
 start "" IMS.bat
