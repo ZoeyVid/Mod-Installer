@@ -8,7 +8,7 @@ del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
 del /S /Q "%appdata%\.minecraft\Update.bat"
 set /p steam=<%appdata%\.minecraft\Mod-Installer\steam.txt
-
+start "" ms-windows-store://pdp/?ProductId=9pgw18npbzv5
 CLS
 C:
     where java >nul 2>nul
