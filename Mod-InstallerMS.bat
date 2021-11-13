@@ -35,7 +35,6 @@ C:
 	winget install -e --id Amazon.Corretto.17
 	GOTO restart
 )
-
 if not exist "%appdata%\.minecraft" (
     CLS
     echo  .minecraft folder not at the usual path or not available.
@@ -44,6 +43,8 @@ if not exist "%appdata%\.minecraft" (
 	echo  Do you want to open the Minecraft Launcher and test it again afterwards?
 	Pause
 	start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
+	echo  Started?
+	Pause
     TASKKILL /T /F /IM MinecraftLauncher.exe
     TASKKILL /T /F /IM Minecraft.exe
 	GOTO restart
