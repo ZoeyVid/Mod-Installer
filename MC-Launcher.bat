@@ -8,8 +8,7 @@ echo.
 echo You need to reinstall the Mod-Installer!
 echo.
 Pause
-start "" "%appdata%\.minecraft\Installer-Uninstaller.bat"
-start "" "%appdata%\.minecraft\Mod-Installer\Installer-Uninstaller.bat"
+start "" "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Installer-Uninstaller.lnk"
 GOTO end
 )
 
