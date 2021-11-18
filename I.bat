@@ -159,8 +159,7 @@ set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo  sLinkFile = "%DESKTOP_FOLDER%\MC-Launcher.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
-echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo  oLink.Arguments = "/C C:\PROGRA~1\Mod-Installer\MC-Launcher.bat" >> %SCRIPT%
+echo  oLink.TargetPath = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\MC-Launcher.lnk" >> %SCRIPT%
 echo  oLink.IconLocation = "%ProgramFiles%\Mod-Installer\Launcher.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
@@ -170,8 +169,7 @@ set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo  sLinkFile = "%DESKTOP_FOLDER%\Mod-Installer.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
-echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo  oLink.Arguments = "/C C:\PROGRA~1\Mod-Installer\Mod-Installer.bat" >> %SCRIPT%
+echo  oLink.TargetPath = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Mod-Installer.lnk" >> %SCRIPT%
 echo  oLink.IconLocation = "%ProgramFiles%\Mod-Installer\Mod-Installer.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
