@@ -2,13 +2,14 @@
 :start
 curl -L -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-Launcher.bat
 
-if not exist "%appdata%\.minecraft\Mod-Installer" (
+if not exist "%ProgramFiles%\Mod-Installer" (
 CLS
 echo.
 echo You need to reinstall the Mod-Installer!
 echo.
 Pause
 start "" "%appdata%\.minecraft\Installer-Uninstaller.bat"
+start "" "%appdata%\.minecraft\Mod-Installer\Installer-Uninstaller.bat"
 GOTO end
 )
 
@@ -20,7 +21,7 @@ del /S /Q "%appdata%\.minecraft\1.17.bat"
 del /S /Q "%appdata%\.minecraft\Update.bat"
 del /S /Q "%appdata%\.minecraft\I.bat"
 del /S /Q "%appdata%\.minecraft\IMS.bat"
-set /p steam=<%appdata%\.minecraft\Mod-Installer\steam.txt
+set /p steam=<%ProgramFiles%\Mod-Installer\steam.txt
 CLS
 C:
     where java >nul 2>nul
@@ -76,8 +77,10 @@ IF ERRORLEVEL 3 tar cf Backup.tar mods config optionsof.txt options.txt options.
 IF ERRORLEVEL 2 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & rmdir /S /Q config & tar xf Profil-2.tar
 IF ERRORLEVEL 1 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & rmdir /S /Q config & tar xf Profil-1.tar
 :mcl
+TASKKILL /T /F /IM MinecraftLauncher.exe
+TASKKILL /T /F /IM Minecraft.exe
 C:
-cd %appdata%\.minecraft\Mod-Installer\
+cd %ProgramFiles%\Mod-Installer\
 if exist steam.txt (
   start "" "steam://rungameid/%steam%"
 ) else (

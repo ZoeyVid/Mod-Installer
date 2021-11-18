@@ -2,13 +2,14 @@
 :start
 curl -L -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.bat
 
-if not exist "%appdata%\.minecraft\Mod-Installer" (
+if not exist "%ProgramFiles%\Mod-Installer" (
 CLS
 echo.
 echo You need to reinstall the Mod-Installer!
 echo.
 Pause
 start "" "%appdata%\.minecraft\Installer-Uninstaller.bat"
+start "" "%appdata%\.minecraft\Mod-Installer\Installer-Uninstaller.bat"
 GOTO end
 )
 
@@ -20,7 +21,7 @@ del /S /Q "%appdata%\.minecraft\1.17.bat"
 del /S /Q "%appdata%\.minecraft\Update.bat"
 del /S /Q "%appdata%\.minecraft\I.bat"
 del /S /Q "%appdata%\.minecraft\IMS.bat"
-set /p steam=<%appdata%\.minecraft\Mod-Installer\steam.txt
+set /p steam=<%ProgramFiles%\Mod-Installer\steam.txt
 set l=1.17.1
 set vl=1.17.1
 set fal=fabric-loader-0.11.7-1.17.1
@@ -452,8 +453,10 @@ IF ERRORLEVEL 1 GOTO restart
 
 :mcl
 echo  Starting...
+TASKKILL /T /F /IM MinecraftLauncher.exe
+TASKKILL /T /F /IM Minecraft.exe
 C:
-cd %appdata%\.minecraft\Mod-Installer\
+cd %ProgramFiles%\Mod-Installer\
 if exist steam.txt (
   start "" "steam://rungameid/%steam%"
 ) else (
