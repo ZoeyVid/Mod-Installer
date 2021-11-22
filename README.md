@@ -26,7 +26,7 @@ Create a desktop shortcut from the Minecraft launcher in Steam (add Minecraft la
 Now right-click it on your desktop, select properties and copy the ID behind steam://rungameid/ under URL and now paste this ID into the steam.txt! <br/>
 If you start Minecraft via the MC-Launcher, it will be started via Steam!
 
-**Requirements**
+### Requirements:
  - Windows 10 or 11 Device with an Internet connection, a Microsoft Account connected to the Microsoft Store and administrator permissions on your device
  
 **NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.**
