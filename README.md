@@ -8,8 +8,8 @@ Modpacks always run on the **latest .x version** (for example not on 1.8.8 but a
 
 You can find the downloads here: https://github.com/SanCraftDev/Mod-Installer/releases/latest/ <br/>
 Or you find here the instant Downloads: <br/>
-- For the legacy old Launcher: https://github.com/SanCraftDev/Mod-Installer/releases/download/4.1.1/Installer.bat <br/>
-- For the new Launcher from the Microsoft Store: https://github.com/SanCraftDev/Mod-Installer/releases/download/4.1.1/Installer.bat <br/>
+- For the legacy old Launcher: https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat <br/>
+- For the new Launcher from the Microsoft Store: https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/InstallerMS.bat <br/>
 Feel free to leave feedback, bugs and suggestions in the issues! (https://github.com/SanCraftDev/Mod-Installer/issues/)
 
 **Steam:**
