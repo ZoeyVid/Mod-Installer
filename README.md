@@ -8,16 +8,15 @@ Modpacks always run on the **latest .x version** (for example not on 1.8.8 but a
 
 You can find the downloads here: https://github.com/SanCraftDev/Mod-Installer/releases/latest/ <br/>
 Or you find here the instant Downloads: <br/>
-- For the legacy old Launcher: https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat <br/>
-- For the new Launcher from the Microsoft Store: https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/InstallerMS.bat <br/>
+For the legacy old Launcher: https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat <br/>
+For the new Launcher from the Microsoft Store: https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/InstallerMS.bat <br/>
 Feel free to leave feedback, bugs and suggestions in the issues! (https://github.com/SanCraftDev/Mod-Installer/issues/)
 
 **Steam:**
 
 If you start Minecraft via Steam for controller control, you need first to add your Minecraft Launcher to Steam, to do this: <br/>
- - use https://github.com/BrianLima/UWPHook, if you use the Microsoft Store Edition! <br/>
- - or for the old Launcher, just add it in your Game Libary as a not Steam Game and select the Minecraft Launcher!  <br/>
-
+ - If you use the Microsoft Store Edition, you just need to set a desktop controller configuration! <br/>
+Or for the old Launcher, just add it in your Game Libary as a not Steam Game and select the Minecraft Launcher! <br/>
 Now simply create a file called steam.txt in `%ProgramFiles%\Mod-Installer` <br/>
 You can find an example file here: https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/steam.txt and add the steam rungameid of Minecraft!
 
