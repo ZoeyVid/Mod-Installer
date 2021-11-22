@@ -26,7 +26,6 @@ if '%errorlevel%' NEQ '0' (
 :start
 cd "%ProgramFiles%\Mod-Installer"
 curl -L -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.bat
-del /S /Q MC-Launcher.bat
 curl -L -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-Launcher.bat
 if not exist "%ProgramFiles%\Mod-Installer" (
 CLS
