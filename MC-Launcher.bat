@@ -1,17 +1,5 @@
 @echo off
 :start
-curl -L -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-Launcher.bat
-
-if not exist "%ProgramFiles%\Mod-Installer" (
-CLS
-echo.
-echo You need to reinstall the Mod-Installer!
-echo.
-Pause
-start "" "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Installer-Uninstaller.lnk"
-GOTO end
-)
-
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
