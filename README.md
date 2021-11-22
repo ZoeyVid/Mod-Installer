@@ -6,7 +6,10 @@ A **Minecraft Modpack** is supported at least until the next version is stable! 
 Modpacks always run on the **latest .x version** (for example not on 1.8.8 but alway on the latest Version, on 1.8.9) <br/>
 **The exception is 1.8.9** this will receive **unlimited updates** for the time being! <br/>
 
-You can find the download here: https://github.com/SanCraftDev/Mod-Installer/releases/latest/ <br/>
+You can find the downloads here: https://github.com/SanCraftDev/Mod-Installer/releases/latest/ <br/>
+Or you find here the instant Downloads: <br/>
+- For the legacy old Launcher: https://github.com/SanCraftDev/Mod-Installer/releases/download/4.1.1/Installer.bat <br/>
+- For the new Launcher from the Microsoft Store: https://github.com/SanCraftDev/Mod-Installer/releases/download/4.1.1/Installer.bat <br/>
 Feel free to leave feedback, bugs and suggestions in the issues! (https://github.com/SanCraftDev/Mod-Installer/issues/)
 
 **Steam:**
