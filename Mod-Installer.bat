@@ -49,6 +49,7 @@ set /p steam=<%ProgramFiles%\Mod-Installer\steam.txt
 set l=1.17.1
 set vl=1.17.1
 set fal=fabric-loader-0.11.7-1.17.1
+set lfl=0.11.7
 CLS
 C:
     where java >nul 2>nul
@@ -162,7 +163,7 @@ rmdir /S /Q mods
 tar -xf mods.zip
 del /S /Q mods.zip
 curl -L -o fabric.jar https://dl.sancraft.dev/fa
-java -jar fabric.jar client -mcversion 1.17.1
+java -jar fabric.jar client -mcversion 1.17.1 -launcher win32 -loader %lfl%
 del /S /Q fabric.jar
 GOTO mif
 
