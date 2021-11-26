@@ -24,7 +24,7 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 :--------------------------------------
 :start
-curl -L -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/I.bat
+curl -sL -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/I.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )

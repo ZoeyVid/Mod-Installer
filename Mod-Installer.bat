@@ -25,8 +25,8 @@ if '%errorlevel%' NEQ '0' (
 :--------------------------------------
 :start
 cd "%ProgramFiles%\Mod-Installer"
-curl -L -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.bat
-curl -L -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-Launcher.bat
+curl -sL -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.bat
+curl -sL -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-Launcher.bat
 if not exist "%ProgramFiles%\Mod-Installer" (
 CLS
 echo.
@@ -162,7 +162,7 @@ CLS
 rmdir /S /Q mods
 tar -xf mods.zip
 del /S /Q mods.zip
-curl -L -o fabric.jar https://dl.sancraft.dev/fa
+curl -sL -o fabric.jar https://dl.sancraft.dev/fa
 java -jar fabric.jar client -mcversion 1.17.1 -launcher win32 -loader %lfl%
 del /S /Q fabric.jar
 GOTO mif
@@ -174,7 +174,7 @@ cd %appdata%\.minecraft
 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 cd %appdata%\.minecraft\mods
 CLS
-curl -L -o wurst.jar https://github.com/Wurst-Imperium/Wurst-MCX2/releases/download/v7.18/Wurst-Client-v7.18-MC1.17.1.jar
+curl -sL -o wurst.jar https://github.com/Wurst-Imperium/Wurst-MCX2/releases/download/v7.18/Wurst-Client-v7.18-MC1.17.1.jar
 GOTO mif
 
 :rpm
@@ -184,7 +184,7 @@ cd %appdata%\.minecraft
 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 cd %appdata%\.minecraft\mods
 CLS
-curl -L -o replaymod.jar https://minio.replaymod.com/replaymod/replaymod-1.17.1-2.6.1.jar
+curl -sL -o replaymod.jar https://minio.replaymod.com/replaymod/replaymod-1.17.1-2.6.1.jar
 GOTO mif
 
 :1.8
@@ -211,7 +211,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
-curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
+curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 echo  In the next step a window will open automatically, just click on "OK"!
 Pause
 java -jar forge.jar
@@ -228,7 +228,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
-curl -L -o fabric.jar https://dl.sancraft.dev/fa
+curl -sL -o fabric.jar https://dl.sancraft.dev/fa
 java -jar fabric.jar
 del /S /Q fabric.jar
 GOTO mif
@@ -239,7 +239,7 @@ C:
 cd %appdata%\.minecraft
 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
-curl -L -o iris.jar https://github.com/IrisShaders/Iris-Installer/releases/download/2.0.0/Iris-Installer-2.0.0.jar
+curl -sL -o iris.jar https://github.com/IrisShaders/Iris-Installer/releases/download/2.0.0/Iris-Installer-2.0.0.jar
 java -jar iris.jar
 del /S /Q iris.jar
 GOTO mif
@@ -279,26 +279,26 @@ echo  s) 1.16.5
 echo  t) 1.17.1
 echo.
 CHOICE /C abcdefghijklmnopqrst /M " Selection: "
-IF ERRORLEVEL 20 curl -L -o forge.jar https://dl.sancraft.dev/fo/1.17.1
-IF ERRORLEVEL 19 curl -L -o forge.jar https://dl.sancraft.dev/fo/1.16.5
-IF ERRORLEVEL 18 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.4-35.1.37/forge-1.16.4-35.1.37-installer.jar
-IF ERRORLEVEL 17 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.3-34.1.42/forge-1.16.3-34.1.42-installer.jar
-IF ERRORLEVEL 16 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.2-33.0.61/forge-1.16.2-33.0.61-installer.jar
-IF ERRORLEVEL 15 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.1-32.0.108/forge-1.16.1-32.0.108-installer.jar
-IF ERRORLEVEL 14 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.2-31.2.55/forge-1.15.2-31.2.55-installer.jar
-IF ERRORLEVEL 13 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.1-30.0.51/forge-1.15.1-30.0.51-installer.jar
-IF ERRORLEVEL 12 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15-29.0.4/forge-1.15-29.0.4-installer.jar
-IF ERRORLEVEL 11 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.23/forge-1.14.4-28.2.23-installer.jar
-IF ERRORLEVEL 10 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.3-27.0.60/forge-1.14.3-27.0.60-installer.jar
-IF ERRORLEVEL 9 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.13.2-25.0.219/forge-1.13.2-25.0.219-installer.jar
-IF ERRORLEVEL 8 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2855/forge-1.12.2-14.23.5.2855-installer.jar
-IF ERRORLEVEL 7 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.11.2-13.20.1.2588/forge-1.11.2-13.20.1.2588-installer.jar
-IF ERRORLEVEL 6 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.10.2-12.18.3.2511/forge-1.10.2-12.18.3.2511-installer.jar
-IF ERRORLEVEL 5 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.9.4-12.17.0.2317-1.9.4/forge-1.9.4-12.17.0.2317-1.9.4-installer.jar
-IF ERRORLEVEL 4 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
-IF ERRORLEVEL 3 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
-IF ERRORLEVEL 2 curl -L -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
-IF ERRORLEVEL 1 curl -L -o forge.jar https://dl.sancraft.dev/fo/latest
+IF ERRORLEVEL 20 curl -sL -o forge.jar https://dl.sancraft.dev/fo/1.17.1
+IF ERRORLEVEL 19 curl -sL -o forge.jar https://dl.sancraft.dev/fo/1.16.5
+IF ERRORLEVEL 18 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.4-35.1.37/forge-1.16.4-35.1.37-installer.jar
+IF ERRORLEVEL 17 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.3-34.1.42/forge-1.16.3-34.1.42-installer.jar
+IF ERRORLEVEL 16 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.2-33.0.61/forge-1.16.2-33.0.61-installer.jar
+IF ERRORLEVEL 15 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.1-32.0.108/forge-1.16.1-32.0.108-installer.jar
+IF ERRORLEVEL 14 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.2-31.2.55/forge-1.15.2-31.2.55-installer.jar
+IF ERRORLEVEL 13 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.1-30.0.51/forge-1.15.1-30.0.51-installer.jar
+IF ERRORLEVEL 12 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15-29.0.4/forge-1.15-29.0.4-installer.jar
+IF ERRORLEVEL 11 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.23/forge-1.14.4-28.2.23-installer.jar
+IF ERRORLEVEL 10 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.3-27.0.60/forge-1.14.3-27.0.60-installer.jar
+IF ERRORLEVEL 9 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.13.2-25.0.219/forge-1.13.2-25.0.219-installer.jar
+IF ERRORLEVEL 8 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2855/forge-1.12.2-14.23.5.2855-installer.jar
+IF ERRORLEVEL 7 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.11.2-13.20.1.2588/forge-1.11.2-13.20.1.2588-installer.jar
+IF ERRORLEVEL 6 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.10.2-12.18.3.2511/forge-1.10.2-12.18.3.2511-installer.jar
+IF ERRORLEVEL 5 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.9.4-12.17.0.2317-1.9.4/forge-1.9.4-12.17.0.2317-1.9.4-installer.jar
+IF ERRORLEVEL 4 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
+IF ERRORLEVEL 3 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
+IF ERRORLEVEL 2 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
+IF ERRORLEVEL 1 curl -sL -o forge.jar https://dl.sancraft.dev/fo/latest
 echo  In the next step a window will open automatically, just click on "OK"!
 Pause
 java -jar forge.jar
@@ -354,9 +354,9 @@ echo  1. 1.17
 echo  2. 1.16
 echo  3. 1.8
 CHOICE /C 123 /M " Selection: "
-IF ERRORLEVEL 3 curl -L -o pumpkin-1.8.zip  https://dl.sancraft.dev/mp/pumpkin-1.8.zip
-IF ERRORLEVEL 2 curl -L -o pumpkin-1.16.zip  https://dl.sancraft.dev/mp/pumpkin-1.17.zip
-IF ERRORLEVEL 1 curl -L -o pumpkin-1.17.zip  https://dl.sancraft.dev/mp/pumpkin-1.16.zip
+IF ERRORLEVEL 3 curl -sL -o pumpkin-1.8.zip  https://dl.sancraft.dev/mp/pumpkin-1.8.zip
+IF ERRORLEVEL 2 curl -sL -o pumpkin-1.16.zip  https://dl.sancraft.dev/mp/pumpkin-1.17.zip
+IF ERRORLEVEL 1 curl -sL -o pumpkin-1.17.zip  https://dl.sancraft.dev/mp/pumpkin-1.16.zip
 GOTO rpif
 
 :dm
@@ -365,9 +365,9 @@ echo  1. 1.17
 echo  2. 1.16
 echo  3. 1.8
 CHOICE /C 123 /M " Selection: "
-IF ERRORLEVEL 3 curl -L -o Dark-Mode-1.8.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.8-v1.3.0.zip
-IF ERRORLEVEL 2 curl -L -o Dark-Mode-1.16.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.17-v1.3.0.zip
-IF ERRORLEVEL 1 curl -L -o Dark-Mode-1.17.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.16.2+-v1.3.0.zip
+IF ERRORLEVEL 3 curl -sL -o Dark-Mode-1.8.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.8-v1.3.0.zip
+IF ERRORLEVEL 2 curl -sL -o Dark-Mode-1.16.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.17-v1.3.0.zip
+IF ERRORLEVEL 1 curl -sL -o Dark-Mode-1.17.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.16.2+-v1.3.0.zip
 GOTO rpif
 
 :xray
@@ -375,12 +375,12 @@ echo  Download starting...
 echo  1. 1.17
 echo  2. 1.16
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 curl -L -o Xray-1.16.zip  https://media.forgecdn.net/files/3359/914/Xray_Ultimate_1.17_v4.1.2.zip
-IF ERRORLEVEL 1 curl -L -o Xray-1.17.zip  https://media.forgecdn.net/files/3226/914/Xray_Ultimate_1.16_v4.1.0.zip
+IF ERRORLEVEL 2 curl -sL -o Xray-1.16.zip  https://media.forgecdn.net/files/3359/914/Xray_Ultimate_1.17_v4.1.2.zip
+IF ERRORLEVEL 1 curl -sL -o Xray-1.17.zip  https://media.forgecdn.net/files/3226/914/Xray_Ultimate_1.16_v4.1.0.zip
 GOTO rpif
 
 :1.8-new
-curl -L -o 1.8-rp.zip  https://dl.sancraft.dev/mp/1.8-rp.zip
+curl -sL -o 1.8-rp.zip  https://dl.sancraft.dev/mp/1.8-rp.zip
 GOTO rpif
 
 :pvp
@@ -908,7 +908,7 @@ TASKKILL /T /F /IM Minecraft.exe
 del /S /Q launcher_profiles_microsoft_store.json
 move launcher_profiles.json launcher_profiles_microsoft_store.json
 winget uninstall Mojang.MinecraftLauncher
-curl -L -o Installer-Uninstaller.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/InstallerMS.bat & start "" "%appdata%\.minecraft\Installer-Uninstaller.bat"
+curl -sL -o Installer-Uninstaller.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/InstallerMS.bat & start "" "%appdata%\.minecraft\Installer-Uninstaller.bat"
 EXIT /B
 
 :fb

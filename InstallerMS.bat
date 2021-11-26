@@ -24,7 +24,7 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 :--------------------------------------
 :start
-curl -L -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/InstallerMS.bat
+curl -sL -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/InstallerMS.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
@@ -97,6 +97,6 @@ if not exist "%appdata%\.minecraft" (
 )
 move servers.dat_tmp servers.dat
 cd "%appdata%\.minecraft"
-curl -L -o IMS.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/IMS.bat
+curl -sL -o IMS.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/IMS.bat
 start "" IMS.bat
 EXIT /B
