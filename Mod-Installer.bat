@@ -48,8 +48,8 @@ del /S /Q "%appdata%\.minecraft\IMS.bat"
 set /p steam=<%ProgramFiles%\Mod-Installer\steam.txt
 set l=1.17.1
 set vl=1.17.1
-set fal=fabric-loader-0.12.5-1.17.1
-set lfl=0.12.5
+set fal=fabric-loader-0.12.7-1.17.1
+set lfl=0.12.7
 CLS
 C:
     where java >nul 2>nul
