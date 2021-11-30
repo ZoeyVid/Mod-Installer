@@ -271,7 +271,7 @@ echo  u) 1.18 - soon
 echo.
 CHOICE /C abcdefghijklmnopqrst /M " Selection: "
 IF ERRORLEVEL 21 GOTO forge
-:curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.1.0/forge-1.17.1-37.1.0-installer.jar
+:curl -sL -o forge.jar https://dl.sancraft.dev/fo/1.18
 IF ERRORLEVEL 20 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.1.0/forge-1.17.1-37.1.0-installer.jar
 IF ERRORLEVEL 19 curl -sL -o forge.jar https://dl.sancraft.dev/fo/1.16.5
 IF ERRORLEVEL 18 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.4-35.1.37/forge-1.16.4-35.1.37-installer.jar
