@@ -367,9 +367,9 @@ echo  1. 1.17
 echo  2. 1.16
 echo  3. 1.8
 CHOICE /C 123 /M " Selection: "
-IF ERRORLEVEL 3 curl -sL -o Dark-Mode-1.8.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.8-v1.3.0.zip
-IF ERRORLEVEL 2 curl -sL -o Dark-Mode-1.16.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.17-v1.3.0.zip
-IF ERRORLEVEL 1 curl -sL -o Dark-Mode-1.17.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.16.2+-v1.3.0.zip
+IF ERRORLEVEL 3 curl -sL -o Dark-Mode-1.8.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.8-v1.3.1.zip
+IF ERRORLEVEL 2 curl -sL -o Dark-Mode-1.16.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.17-v1.3.1.zip
+IF ERRORLEVEL 1 curl -sL -o Dark-Mode-1.17.zip  https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.16.2+-v1.3.1.zip
 GOTO rpif
 
 :xray
