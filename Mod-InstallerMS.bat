@@ -538,7 +538,6 @@ if exist Update.bat (
   echo  Restart Installer...
   start %ComSpec% /C %0
   Pause
-GOTO end
 ) else (
   CLS
   echo.
@@ -551,6 +550,7 @@ CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO restart
 )
+GOTO restart
 
 :c
 CLS
