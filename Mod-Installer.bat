@@ -48,8 +48,8 @@ del /S /Q "%appdata%\.minecraft\IMS.bat"
 set /p steam=<%ProgramFiles%\Mod-Installer\steam.txt
 set l=1.17.1
 set vl=1.17.1
-set fal=fabric-loader-0.12.7-1.17.1
-set lfl=0.12.7
+set fal=fabric-loader-0.12.8-1.17.1
+set lfl=0.12.8
 CLS
 C:
     where java >nul 2>nul
@@ -545,7 +545,8 @@ if exist Update.bat (
   CLS
   echo.
   echo  Update finished! - Profil %P%
-  echo  End Installer..
+  echo  Restart Installer...
+  start %ComSpec% /C %0
   Pause
 GOTO end
 ) else (
