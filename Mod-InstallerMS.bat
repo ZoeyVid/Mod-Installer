@@ -537,7 +537,12 @@ if exist Update.bat (
   echo  Update finished! - Profil %P%
   echo  Restart Installer...
   start %ComSpec% /C %0
-  Pause
+echo.
+echo  1. Restart Mod-Installer
+echo  2. End Installer
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO restart
 ) else (
   CLS
   echo.
@@ -550,7 +555,6 @@ CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO restart
 )
-GOTO restart
 
 :c
 CLS
