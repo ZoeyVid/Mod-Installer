@@ -357,8 +357,8 @@ echo  2. 1.16
 echo  3. 1.8
 CHOICE /C 123 /M " Selection: "
 IF ERRORLEVEL 3 curl -sL -o pumpkin-1.8.zip  https://dl.sancraft.dev/mp/pumpkin-1.8.zip
-IF ERRORLEVEL 2 curl -sL -o pumpkin-1.16.zip  https://dl.sancraft.dev/mp/pumpkin-1.17.zip
-IF ERRORLEVEL 1 curl -sL -o pumpkin-1.17.zip  https://dl.sancraft.dev/mp/pumpkin-1.16.zip
+IF ERRORLEVEL 2 curl -sL -o pumpkin-1.16.zip  https://dl.sancraft.dev/mp/pumpkin-1.16.zip
+IF ERRORLEVEL 1 curl -sL -o pumpkin-1.17.zip  https://dl.sancraft.dev/mp/pumpkin-1.17.zip
 GOTO rpif
 
 :dm
@@ -377,8 +377,8 @@ echo  Download starting...
 echo  1. 1.17
 echo  2. 1.16
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 curl -sL -o Xray-1.16.zip  https://media.forgecdn.net/files/3359/914/Xray_Ultimate_1.17_v4.1.2.zip
-IF ERRORLEVEL 1 curl -sL -o Xray-1.17.zip  https://media.forgecdn.net/files/3226/914/Xray_Ultimate_1.16_v4.1.0.zip
+IF ERRORLEVEL 2 curl -sL -o Xray-1.16.zip  https://media.forgecdn.net/files/3226/914/Xray_Ultimate_1.16_v4.1.0.zip
+IF ERRORLEVEL 1 curl -sL -o Xray-1.17.zip  https://media.forgecdn.net/files/3359/914/Xray_Ultimate_1.17_v4.1.2.zip
 GOTO rpif
 
 :1.8-new
