@@ -80,37 +80,39 @@ CLS
 	echo.
 	echo  Client-Mods/Modpack Versions:
 	echo.
-	echo  a) Iris + Sodium (1.16.5+)  - https://irisshaders.net/
-	echo  b) Optifine      (1.7.2+)   - https://optifine.net/downloads/ - NO direct Download!
-	echo  c) Fabric-Loader (1.14+)    - https://fabricmc.net/use/
-	echo  d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge/
+	echo  a) Iris + Sodium (1.16.5+)  - https://irisshaders.net
+	echo  b) Optifine      (1.7.2+)   - https://optifine.net/downloads - NO direct Download!
+	echo  c) Fabric-Loader (1.14+)    - https://fabricmc.net/use
+	echo  d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge
+	echo  e) Essential     (1.8.9+)   - https://essential.gg
 	echo.
-	echo  e) 1.17                     - Fabric-Loader Modpacks
-	echo  f) 1.8                      - Forge-Loader  Modpacks - PVP
-	echo  g) Rescource Packs          - Download Resourcepacks!
+	echo  f) 1.17                     - Fabric-Loader Modpacks
+	echo  g) 1.8                      - Forge-Loader  Modpacks - PVP
+	echo  h) Rescource Packs          - Download Resourcepacks!
 	echo.
-	echo  h) Backups/Modprofile       - Create Mod-/Config-Profils
-	echo  i) Profil Update            - Load a profile to update it and then automatically save it again!
+	echo  i) Backups/Modprofile       - Create Mod-/Config-Profils
+	echo  j) Profil Update            - Load a profile to update it and then automatically save it again!
 	echo.
 	echo  Funktions:
 	echo.
-	echo  j) .minecraft Cleaner       - Clear your .minecraft folder up!
-	echo  k) Migrate Launcher         - Migrate to the OLD MC Launcher
-    echo  l) Restart Installer
-	echo  m) End Installer
-	echo  n) Give feedback
+	echo  k) .minecraft Cleaner       - Clear your .minecraft folder up!
+	echo  l) Migrate Launcher         - Migrate to the OLD MC Launcher
+    echo  m) Restart Installer
+	echo  n) End Installer
+	echo  o) Give feedback
 	echo.
-    CHOICE /C abcdefghijklmn /M " Selection: "
-    IF ERRORLEVEL 14 GOTO fb
-    IF ERRORLEVEL 13 GOTO end
-    IF ERRORLEVEL 12 GOTO restart
-	IF ERRORLEVEL 11 GOTO mi
-	IF ERRORLEVEL 10 GOTO c
-    IF ERRORLEVEL 9 GOTO update
-	IF ERRORLEVEL 8 GOTO bp
-	IF ERRORLEVEL 7 GOTO rp
-	IF ERRORLEVEL 6 GOTO 1.8
-    IF ERRORLEVEL 5 GOTO 1.17
+    CHOICE /C abcdefghijklmno /M " Selection: "
+    IF ERRORLEVEL 15 GOTO fb
+    IF ERRORLEVEL 14 GOTO end
+    IF ERRORLEVEL 13 GOTO restart
+	IF ERRORLEVEL 12 GOTO mi
+	IF ERRORLEVEL 11 GOTO c
+    IF ERRORLEVEL 10 GOTO update
+	IF ERRORLEVEL 9 GOTO bp
+	IF ERRORLEVEL 8 GOTO rp
+	IF ERRORLEVEL 7 GOTO 1.8
+    IF ERRORLEVEL 6 GOTO 1.17
+    IF ERRORLEVEL 5 GOTO ess
 	IF ERRORLEVEL 4 GOTO forge
 	IF ERRORLEVEL 3 GOTO fabric
 	IF ERRORLEVEL 2 GOTO of
