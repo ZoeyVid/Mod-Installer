@@ -40,9 +40,15 @@ GOTO end
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
+if not exist "%appdata%\.minecraft\fabric.jar" (
 del /S /Q "%appdata%\.minecraft\fabric.jar"
+)
+if not exist "%appdata%\.minecraft\1.17.bat" (
 del /S /Q "%appdata%\.minecraft\1.17.bat"
+)
+if not exist "%appdata%\.minecraft\Update.bat" (
 del /S /Q "%appdata%\.minecraft\Update.bat"
+)
 set l=1.17.1
 set lfl=0.12.8
 set fal=fabric-loader-%lfl%-%l%

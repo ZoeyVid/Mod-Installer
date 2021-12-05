@@ -28,9 +28,15 @@ curl -sL -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
+if not exist "%appdata%\.minecraft\fabric.jar" (
 del /S /Q "%appdata%\.minecraft\fabric.jar"
+)
+if not exist "%appdata%\.minecraft\1.17.bat" (
 del /S /Q "%appdata%\.minecraft\1.17.bat"
+)
+if not exist "%appdata%\.minecraft\Update.bat" (
 del /S /Q "%appdata%\.minecraft\Update.bat"
+)
 CLS
 echo.
 echo  MIT License
