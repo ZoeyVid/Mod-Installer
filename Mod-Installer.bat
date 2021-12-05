@@ -43,13 +43,9 @@ FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environme
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 del /S /Q "%appdata%\.minecraft\1.17.bat"
 del /S /Q "%appdata%\.minecraft\Update.bat"
-del /S /Q "%appdata%\.minecraft\I.bat"
-del /S /Q "%appdata%\.minecraft\IMS.bat"
-set /p steam=<%ProgramFiles%\Mod-Installer\steam.txt
 set l=1.17.1
-set vl=1.17.1
-set fal=fabric-loader-0.12.8-1.17.1
 set lfl=0.12.8
+set fal=fabric-loader-%lfl%-%l%
 CLS
 C:
     where java >nul 2>nul
@@ -61,18 +57,6 @@ C:
 	winget install -e --id Amazon.Corretto.17
 	GOTO restart
 )
-
-if not exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
-	CLS
-	echo  The Minecraft Launcher could not be found on the usual path!
-	echo  Under "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	echo  Minecraft will now be installed.
-	echo  Start now?
-	Pause
-	winget install -e --id Mojang.MinecraftLauncher
-	GOTO restart
-)
-
 if not exist "%appdata%\.minecraft" (
     CLS
     echo  .minecraft folder not at the usual path or not available.
@@ -80,8 +64,10 @@ if not exist "%appdata%\.minecraft" (
 	echo  Unable to start Minecraft!
 	echo  Do you want to open the Minecraft Launcher and test it again afterwards?
 	Pause
-	start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe"
-	TASKKILL /T /F /IM MinecraftLauncher.exe
+	start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
+	echo  Started?
+	Pause
+    TASKKILL /T /F /IM MinecraftLauncher.exe
     TASKKILL /T /F /IM Minecraft.exe
 	GOTO restart
 )
@@ -96,32 +82,32 @@ CLS
 	echo  d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge
 	echo  e) Essential     (1.8.9+)   - https://essential.gg
 	echo.
-	echo  f) 1.17                     - Fabric-Loader Modpacks
-	echo  g) 1.8                      - Forge-Loader  Modpacks - PVP
-	echo  h) Rescource Packs          - Download Resourcepacks!
+	echo  f) 1.18 - Beta              - Fabric-Loader Modpacks
+	echo  g) 1.17                     - Fabric-Loader Modpacks
+	echo  h) 1.8                      - Forge-Loader  Modpacks - PVP
+	echo  i) Rescource Packs          - Download Resourcepacks!
 	echo.
-	echo  i) Backups/Modprofile       - Create Mod-/Config-Profils
-	echo  j) Profil Update            - Load a profile to update it and then automatically save it again!
+	echo  j) Backups/Modprofile       - Create Mod-/Config-Profils
+	echo  k) Profil Update            - Load a profile to update it and then automatically save it again!
 	echo.
 	echo  Funktions:
 	echo.
-	echo  k) .minecraft Cleaner       - Clear your .minecraft folder up!
-	echo  l) Migrate Launcher         - Migrate to the NEW MC Launcher
+	echo  l) .minecraft Cleaner       - Clear your .minecraft folder up!
     echo  m) Restart Installer
 	echo  n) End Installer
 	echo  o) Give feedback
 	echo.
-    CHOICE /C abcdefghijklmno /M " Selection: "
+    CHOICE /C abcdefghijklmnop /M " Selection: "
     IF ERRORLEVEL 15 GOTO fb
     IF ERRORLEVEL 14 GOTO end
     IF ERRORLEVEL 13 GOTO restart
-	IF ERRORLEVEL 12 GOTO mi
-	IF ERRORLEVEL 11 GOTO c
-    IF ERRORLEVEL 10 GOTO update
-	IF ERRORLEVEL 9 GOTO bp
-	IF ERRORLEVEL 8 GOTO rp
-	IF ERRORLEVEL 7 GOTO 1.8
-    IF ERRORLEVEL 6 GOTO 1.17
+	IF ERRORLEVEL 12 GOTO c
+    IF ERRORLEVEL 11 GOTO update
+	IF ERRORLEVEL 10 GOTO bp
+	IF ERRORLEVEL 9 GOTO rp
+	IF ERRORLEVEL 8 GOTO 1.8
+    IF ERRORLEVEL 7 GOTO 1.17
+    IF ERRORLEVEL 6 GOTO 1.18
     IF ERRORLEVEL 5 GOTO ess
 	IF ERRORLEVEL 4 GOTO forge
 	IF ERRORLEVEL 3 GOTO fabric
@@ -136,36 +122,67 @@ echo.
 echo  Minigames = Only Grafikmods, Lite = light Mods, Full = Minimap, WTHIT...
 echo  Only the Minigame Pack should be allowed on Servers like Hypixel
 echo.
-echo  1. 1.17 Client Mods Minigames
-echo  2. 1.17 Client Mods Minigames Minimap
-echo  3. 1.17 Client Mods Survival Lite
-echo  4. 1.17 Client Mods Survival Full
+echo  1. 1.17 Client Mods Survival
+echo  2. 1.17 Client Mods Minigames
 echo.
-echo  5. Wurst Hack-Client - If you use this, I can say you, you get to 1000% banned
-echo  6. Replaymod
+echo  3. Wurst Hack-Client - If you use this, I can say you, you get guaranteed banned
+echo  4. Replaymod
 echo.
-echo  7. Restart Installer
-echo  8. End Installer
+echo  5. Restart Installer
+echo  6. End Installer
 echo.
 CHOICE /C 123456 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
-IF ERRORLEVEL 8 GOTO end
-IF ERRORLEVEL 7 GOTO restart
-IF ERRORLEVEL 6 GOTO rpm
-IF ERRORLEVEL 5 GOTO whc
-IF ERRORLEVEL 4 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Full.zip
-IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Lite.zip
-IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Minimap.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Only.zip
+IF ERRORLEVEL 6 GOTO end
+IF ERRORLEVEL 5 GOTO restart
+IF ERRORLEVEL 4 GOTO rpm
+IF ERRORLEVEL 3 GOTO whc
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Minigames.zip
+IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods options.txt
 CLS
 rmdir /S /Q mods
 tar -xf mods.zip
 del /S /Q mods.zip
 curl -sL -o fabric.jar https://dl.sancraft.dev/fa
-java -jar fabric.jar client -mcversion 1.17.1 -launcher win32 -loader %lfl%
+java -jar fabric.jar client -mcversion %l% -launcher microsoft_store -loader %lfl%
+del /S /Q fabric.jar
+GOTO mif
+
+:1.18
+C:
+cd %appdata%\.minecraft
+CLS
+echo.
+echo  Minigames = Only Grafikmods, Lite = light Mods, Full = Minimap, WTHIT...
+echo  Only the Minigame Pack should be allowed on Servers like Hypixel
+echo.
+echo  1. 1.18 Client Mods Survival
+echo  2. 1.18 Client Mods Minigames
+echo.
+echo  3. Wurst Hack-Client - If you use this, I can say you, you get guaranteed banned
+echo.
+echo  4. Restart Installer
+echo  5. End Installer
+echo.
+CHOICE /C 123456 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
+IF ERRORLEVEL 5 GOTO end
+IF ERRORLEVEL 4 GOTO restart
+IF ERRORLEVEL 3 GOTO whc8
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18-Minigames.zip
+IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18.zip
+echo  Installation starting...
+C:
+cd %appdata%\.minecraft
+tar cf Backup.tar mods options.txt
+CLS
+rmdir /S /Q mods
+tar -xf mods.zip
+del /S /Q mods.zip
+curl -sL -o fabric.jar https://dl.sancraft.dev/fa
+java -jar fabric.jar client -mcversion 1.18 -launcher microsoft_store -loader %lfl%
 del /S /Q fabric.jar
 GOTO mif
 
@@ -173,45 +190,39 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods options.txt
 cd %appdata%\.minecraft\mods
 CLS
-curl -sL -o wurst.jar https://github.com/Wurst-Imperium/Wurst-MCX2/releases/download/v7.18/Wurst-Client-v7.18-MC1.17.1.jar
+curl -L -o wurst.jar https://github.com/Wurst-Imperium/Wurst-MCX2/releases/download/v7.18/Wurst-Client-v7.18-MC%l%.jar
 GOTO mif
 
 :rpm
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods options.txt
 cd %appdata%\.minecraft\mods
 CLS
-curl -sL -o replaymod.jar https://minio.replaymod.com/replaymod/replaymod-1.17.1-2.6.1.jar
+curl -L -o replaymod.jar https://minio.replaymod.com/replaymod/replaymod-%l%-2.6.1.jar
+GOTO mif
+
+:whc8
+echo  Installation starting...
+C:
+cd %appdata%\.minecraft
+tar cf Backup.tar mods options.txt
+cd %appdata%\.minecraft\mods
+CLS
+curl -L -o wurst.jar https://github.com/Wurst-Imperium/Wurst-MCX2/releases/download/v7.18/Wurst-Client-v7.18-MC1.18.jar
 GOTO mif
 
 :1.8
 C:
 cd %appdata%\.minecraft
 CLS
-echo.
-echo  Only = Nur Grafikmods, Full = Minimap
-echo  Both should be allowed on Servers like Hypixel
-echo.
-echo  1. 1.8 Only
-echo  2. 1.8 Full
-echo.
-echo  3. Restart Installer
-echo  4. End Installer
-echo.
-CHOICE /C 1234 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
-IF ERRORLEVEL 4 GOTO end
-IF ERRORLEVEL 3 GOTO restart
-IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.8-Full.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.8-Only.zip
 echo  Installation starting...
-C:
-cd %appdata%\.minecraft
-tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+curl -L -o mods.zip https://dl.sancraft.dev/mp/1.8.zip
+tar cf Backup.tar mods options.txt
 CLS
 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 echo  In the next step a window will open automatically, just click on "OK"!
@@ -228,7 +239,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods options.txt
 CLS
 curl -sL -o fabric.jar https://dl.sancraft.dev/fa
 java -jar fabric.jar
@@ -239,7 +250,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods options.txt
 CLS
 curl -sL -o iris.jar https://dl.sancraft.dev/iris
 java -jar iris.jar
@@ -254,7 +265,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods options.txt
 CLS
 echo.
 echo  Which Forge version do you want to install?
@@ -314,7 +325,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods options.txt
 CLS
 curl -sL -o essential-installer.exe https://cdn.essential.gg/launcher_versions/1.0.6/windows/essential-installer-0.0.1.exe
 start essential-installer.exe
@@ -497,11 +508,7 @@ TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
 C:
 cd %ProgramFiles%\Mod-Installer\
-if exist steam.txt (
-  start "" "steam://rungameid/%steam%"
-) else (
-  start "" "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" 
-)
+start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
 EXIT /B
 
 :pc
@@ -510,14 +517,14 @@ echo.
 echo  Under which profile do you want to save the current mods and configs?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar cf Profil-8.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 7 tar cf Profil-7.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 6 tar cf Profil-6.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 5 tar cf Profil-5.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 4 tar cf Profil-4.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 3 tar cf Profil-3.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 2 tar cf Profil-2.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 1 tar cf Profil-1.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 8 tar cf Profil-8.tar mods options.txt
+IF ERRORLEVEL 7 tar cf Profil-7.tar mods options.txt
+IF ERRORLEVEL 6 tar cf Profil-6.tar mods options.txt
+IF ERRORLEVEL 5 tar cf Profil-5.tar mods options.txt
+IF ERRORLEVEL 4 tar cf Profil-4.tar mods options.txt
+IF ERRORLEVEL 3 tar cf Profil-3.tar mods options.txt
+IF ERRORLEVEL 2 tar cf Profil-2.tar mods options.txt
+IF ERRORLEVEL 1 tar cf Profil-1.tar mods options.txt
 CLS
 echo.
 echo  Finished! 
@@ -535,14 +542,14 @@ echo.
 echo  Which profile do you want to update (the profile is loaded so that all configs are adopted)?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-8.tar & set P=8
-IF ERRORLEVEL 7 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-7.tar & set P=7
-IF ERRORLEVEL 6 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-6.tar & set P=6
-IF ERRORLEVEL 5 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-5.tar & set P=5
-IF ERRORLEVEL 4 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-4.tar & set P=4
-IF ERRORLEVEL 3 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-3.tar & set P=3
-IF ERRORLEVEL 2 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-2.tar & set P=2
-IF ERRORLEVEL 1 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-1.tar & set P=1
+IF ERRORLEVEL 8 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-8.tar & set P=8
+IF ERRORLEVEL 7 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-7.tar & set P=7
+IF ERRORLEVEL 6 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-6.tar & set P=6
+IF ERRORLEVEL 5 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-5.tar & set P=5
+IF ERRORLEVEL 4 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-4.tar & set P=4
+IF ERRORLEVEL 3 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-3.tar & set P=3
+IF ERRORLEVEL 2 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-2.tar & set P=2
+IF ERRORLEVEL 1 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-1.tar & set P=1
 cd "%appdata%\.minecraft\mods\"
 if exist Update.bat (
   move Update.bat "%appdata%\.minecraft\"
@@ -550,7 +557,7 @@ if exist Update.bat (
   CLS
   Update.bat
   CLS
-  tar cf Profil-%P%.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+  tar cf Profil-%P%.tar mods options.txt
   del /S /Q "%appdata%\.minecraft\fabric.jar"
   del /S /Q "%appdata%\.minecraft\1.17.bat"
   del /S /Q "%appdata%\.minecraft\Fabric-Install.bat"
@@ -590,7 +597,7 @@ IF ERRORLEVEL 1 GOTO end
 
 :cy
 cd "%appdata%\.minecraft"
-tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods options.txt
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
 rmdir /S /Q "%appdata%\.iris-installer"
@@ -617,7 +624,6 @@ rmdir /S /Q libraries
 rmdir /S /Q stats
 rmdir /S /Q texturepacks-mp-cache
 rmdir /S /Q webcache
-del /S /Q *_microsoft_store*
 del /S /Q versions\version_manifest_v2*
 del /S /Q versions\cache.dat
 del /S /Q betterfps.txt
@@ -649,6 +655,10 @@ del /S /Q launcher_entitlements*
 del /S /Q .iasx
 del /S /Q .iasp
 del /S /Q .iasms_v2
+del /S /Q launcher_accounts.*
+del /S /Q launcher_msa_credentials.*
+del /S /Q launcher_profiles.*
+del /S /Q launcher_ui_state.*
 
 if exist "%appdata%\.minecraft\wurst" (
 echo.
@@ -869,7 +879,7 @@ IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_accounts*" & del /S /Q 
 IF ERRORLEVEL 1 echo OK!
 
 echo.
-echo  Do you want to delete all your launcher profiles, only vanila %vl% will be kept?
+echo  Do you want to delete all your launcher profiles, only vanila %l% will be kept?
 echo.
 echo  1. No
 echo  2. Yes
@@ -913,36 +923,13 @@ CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO restart
 
-:mi
-CLS
-echo.
-echo  Do you really want to migrate to the new Minecraft Launcher?
-echo  Your Minecraft Launcher will be closed!
-echo.
-echo  1. No
-echo  2. Yes
-echo.
-CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 GOTO miy
-IF ERRORLEVEL 1 GOTO end
-
-:miy
-cd "%appdata%\.minecraft"
-TASKKILL /T /F /IM MinecraftLauncher.exe
-TASKKILL /T /F /IM Minecraft.exe
-del /S /Q launcher_profiles_microsoft_store.json
-move launcher_profiles.json launcher_profiles_microsoft_store.json
-winget uninstall Mojang.MinecraftLauncher
-curl -sL -o Installer-Uninstaller.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/InstallerMS.bat & start "" "%appdata%\.minecraft\Installer-Uninstaller.bat"
-EXIT /B
-
 :fb
 CLS
 echo.
-echo  https://sancraft.dve/discord
+echo  https://sancraft.dev/discord
 echo  https://github.com/SanCraftDev/Mod-Installer/issues/
-echo  1. Restart Mod-Installer
 echo.
+echo  1. Restart Mod-Installer
 echo  2. End Installer
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO end
