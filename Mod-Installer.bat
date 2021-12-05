@@ -177,7 +177,7 @@ CLS
 	echo  n) End Installer
 	echo  o) Give feedback            - %ver%
 	echo.
-    CHOICE /C abcdefghijklmnop /M " Selection: "
+    CHOICE /C abcdefghijklmno /M " Selection: "
     IF ERRORLEVEL 15 GOTO fb
     IF ERRORLEVEL 14 GOTO end
     IF ERRORLEVEL 13 GOTO restart
