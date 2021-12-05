@@ -1,4 +1,7 @@
 @echo off
+
+set ver=Version 5.1.1
+
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
 ) ELSE (
@@ -113,7 +116,7 @@ cd "%appdata%\.minecraft"
 move servers.dat_tmp servers.dat
 CLS
 echo.
-echo  Welcome to the Mod-Installer Installer!
+echo  Welcome to the Mod-Installer Installer %ver%!
 echo.
 echo  1. Install/Repair
 echo  2. Remove

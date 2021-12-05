@@ -1,4 +1,7 @@
 @echo off
+
+set ver=Version 5.1.1
+
 :start
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
@@ -51,6 +54,7 @@ echo.
 echo  With which mod profile do you want to start Minecraft?
 echo  Choose between profile 1-8 and 9 if nothing should be loaded!
 echo  Make sure you choose the right mod loader in the MC launcher!
+echo  MC-Launcher %ver%
 echo.
 CHOICE /C 123456789 /M " Auswahl: "
 IF ERRORLEVEL 9 GOTO mcl

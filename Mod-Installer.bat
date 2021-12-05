@@ -1,4 +1,7 @@
 @echo off
+
+set ver=Version 5.1.1
+
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
 ) ELSE (
@@ -131,6 +134,8 @@ tar xf Profil-8.tar
 tar acf Profil-8.zip mods options.txt
 echo  Profil-8 converted to .zip!
 )
+echo  Finished! Now starting the Mod-Installer...
+Pause
 )
 
 move servers.dat_tmp servers.dat
@@ -157,7 +162,7 @@ CLS
 	echo  l) .minecraft Cleaner       - Clear your .minecraft folder up!
     echo  m) Restart Installer
 	echo  n) End Installer
-	echo  o) Give feedback
+	echo  o) Give feedback            - %ver%
 	echo.
     CHOICE /C abcdefghijklmnop /M " Selection: "
     IF ERRORLEVEL 15 GOTO fb
