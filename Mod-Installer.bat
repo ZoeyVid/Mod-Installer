@@ -1,6 +1,6 @@
 @echo off
 
-set ver=Version 5.1.2.2
+set ver=Version 5.1.3
 
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
@@ -926,6 +926,17 @@ echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\the5zigmod"
+IF ERRORLEVEL 1 echo OK!
+)
+if exist "%appdata%\.minecraft\CustomSkinLoader" (
+echo.
+echo  Do you want to delete your CustomSkinLoader files?
+echo.
+echo  1. No
+echo  2. Yes
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\CustomSkinLoader"
 IF ERRORLEVEL 1 echo OK!
 )
 
