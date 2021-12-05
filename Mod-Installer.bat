@@ -335,10 +335,11 @@ tar cf Backup.tar mods options.txt
 CLS
 curl -sL -o essential-installer.exe https://cdn.essential.gg/launcher_versions/1.0.6/windows/essential-installer-0.0.1.exe
 start essential-installer.exe
+Pause
+del /S /Q essential-installer.exe
 GOTO mif
 
 :mif
-del /S /Q essential-installer.exe
 CLS
 echo.
 echo  Finisched!
