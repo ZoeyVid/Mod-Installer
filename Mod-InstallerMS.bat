@@ -147,7 +147,7 @@ IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Only.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 rmdir /S /Q mods
 tar -xf mods.zip
@@ -161,7 +161,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
 cd %appdata%\.minecraft\mods
 CLS
 curl -L -o wurst.jar https://github.com/Wurst-Imperium/Wurst-MCX2/releases/download/v7.18/Wurst-Client-v7.18-MC1.17.1.jar
@@ -171,7 +171,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
 cd %appdata%\.minecraft\mods
 CLS
 curl -L -o replaymod.jar https://minio.replaymod.com/replaymod/replaymod-1.17.1-2.6.1.jar
@@ -199,7 +199,7 @@ IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.8-Only.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 echo  In the next step a window will open automatically, just click on "OK"!
@@ -216,7 +216,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 curl -sL -o fabric.jar https://dl.sancraft.dev/fa
 java -jar fabric.jar
@@ -227,7 +227,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 curl -sL -o iris.jar https://dl.sancraft.dev/iris
 java -jar iris.jar
@@ -242,7 +242,7 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 echo.
 echo  Which Forge version do you want to install?
@@ -298,7 +298,18 @@ del /S /Q forge.jar
 del /S /Q forge.jar.log
 GOTO mif
 
+:ess
+echo  Installation starting...
+C:
+cd %appdata%\.minecraft
+tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+CLS
+curl -sL -o essential-installer.exe https://cdn.essential.gg/launcher_versions/1.0.6/windows/essential-installer-0.0.1.exe
+start essential-installer.exe
+GOTO mif
+
 :mif
+del /S /Q essential-installer.exe
 CLS
 echo.
 echo  Finisched!
@@ -487,14 +498,14 @@ echo.
 echo  Under which profile do you want to save the current mods and configs?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar cf Profil-8.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 7 tar cf Profil-7.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 6 tar cf Profil-6.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 5 tar cf Profil-5.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 4 tar cf Profil-4.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 3 tar cf Profil-3.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 2 tar cf Profil-2.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
-IF ERRORLEVEL 1 tar cf Profil-1.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 8 tar cf Profil-8.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 7 tar cf Profil-7.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 6 tar cf Profil-6.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 5 tar cf Profil-5.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 4 tar cf Profil-4.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 3 tar cf Profil-3.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 2 tar cf Profil-2.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
+IF ERRORLEVEL 1 tar cf Profil-1.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
 CLS
 echo.
 echo  Finished! 
@@ -512,14 +523,14 @@ echo.
 echo  Which profile do you want to update (the profile is loaded so that all configs are adopted)?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-8.tar & set P=8
-IF ERRORLEVEL 7 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-7.tar & set P=7
-IF ERRORLEVEL 6 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-6.tar & set P=6
-IF ERRORLEVEL 5 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-5.tar & set P=5
-IF ERRORLEVEL 4 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-4.tar & set P=4
-IF ERRORLEVEL 3 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-3.tar & set P=3
-IF ERRORLEVEL 2 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-2.tar & set P=2
-IF ERRORLEVEL 1 tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-1.tar & set P=1
+IF ERRORLEVEL 8 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-8.tar & set P=8
+IF ERRORLEVEL 7 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-7.tar & set P=7
+IF ERRORLEVEL 6 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-6.tar & set P=6
+IF ERRORLEVEL 5 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-5.tar & set P=5
+IF ERRORLEVEL 4 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-4.tar & set P=4
+IF ERRORLEVEL 3 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-3.tar & set P=3
+IF ERRORLEVEL 2 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-2.tar & set P=2
+IF ERRORLEVEL 1 tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat & rmdir /S /Q mods & tar xf Profil-1.tar & set P=1
 cd "%appdata%\.minecraft\mods\"
 if exist Update.bat (
   move Update.bat "%appdata%\.minecraft\"
@@ -527,7 +538,7 @@ if exist Update.bat (
   CLS
   Update.bat
   CLS
-  tar cf Profil-%P%.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+  tar cf Profil-%P%.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
   del /S /Q "%appdata%\.minecraft\fabric.jar"
   del /S /Q "%appdata%\.minecraft\1.17.bat"
   del /S /Q "%appdata%\.minecraft\Fabric-Install.bat"
@@ -567,7 +578,7 @@ IF ERRORLEVEL 1 GOTO end
 
 :cy
 cd "%appdata%\.minecraft"
-tar cf Backup.tar mods config optionsof.txt options.txt options.amecsapi.txt servers.dat
+tar cf Backup.tar mods config the5zigmod cosmetics essential optionsof.txt options.txt options.amecsapi.txt servers.dat
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
 rmdir /S /Q "%appdata%\.iris-installer"
@@ -617,7 +628,7 @@ del /S /Q lastlogin
 del /S /Q resourcepacks*
 del /S /Q treatment_tags*
 del /S /Q hs_err_pid*
-del /S /Q options.amecsapi.txt servers.dat
+del /S /Q options.amecsapi.txt
 del /S /Q launcher_ui_state*
 del /S /Q launcher_settings*
 del /S /Q launcher_gamer_pics*
@@ -782,6 +793,39 @@ echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\hotbar.nbt"
+IF ERRORLEVEL 1 echo OK!
+)
+if exist "%appdata%\.minecraft\essential" (
+echo.
+echo  Do you want to delete your essential settings?
+echo.
+echo  1. No
+echo  2. Yes
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\essential"
+IF ERRORLEVEL 1 echo OK!
+)
+if exist "%appdata%\.minecraft\cosmetics" (
+echo.
+echo  Do you want to delete your cosmetics?
+echo.
+echo  1. No
+echo  2. Yes
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\cosmetics"
+IF ERRORLEVEL 1 echo OK!
+)
+if exist "%appdata%\.minecraft\the5zigmod" (
+echo.
+echo  Do you want to delete your 5zig settings?
+echo.
+echo  1. No
+echo  2. Yes
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\the5zigmod"
 IF ERRORLEVEL 1 echo OK!
 )
 
