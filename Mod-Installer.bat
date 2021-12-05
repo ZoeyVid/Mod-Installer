@@ -92,48 +92,49 @@ Pause
 if exist Backup.tar (
 tar xf Backup.tar
 tar acf Backup.zip mods options.txt
-echo  Backup converted!
+echo  Backup converted to a zip file!
 )
 if exist Profil-1.tar (
 tar xf Profil-1.tar
 tar acf Profil-1.zip mods options.txt
-echo  Profil-1 converted to .zip!
+echo  Profil-1 converted to a zip file!
 )
 if exist Profil-2.tar (
 tar xf Profil-2.tar
 tar acf Profil-2.zip mods options.txt
-echo  Profil-2 converted to .zip!
+echo  Profil-2 converted to a zip file!
 )
 if exist Profil-3.tar (
 tar xf Profil-3.tar
 tar acf Profil-3.zip mods options.txt
-echo  Profil-3 converted to .zip!
+echo  Profil-3 converted to a zip file!
 )
 if exist Profil-4.tar (
 tar xf Profil-4.tar
 tar acf Profil-4.zip mods options.txt
-echo  Profil-4 converted to .zip!
+echo  Profil-4 converted to a zip file!
 )
 if exist Profil-5.tar (
 tar xf Profil-5.tar
 tar acf Profil-5.zip mods options.txt
-echo  Profil-5 converted to .zip!
+echo  Profil-5 converted to a zip file!
 )
 if exist Profil-6.tar (
 tar xf Profil-6.tar
 tar acf Profil-6.zip mods options.txt
-echo  Profil-6 converted to .zip!
+echo  Profil-6 converted to a zip file!
 )
 if exist Profil-7.tar (
 tar xf Profil-7.tar
 tar acf Profil-7.zip mods options.txt
-echo  Profil-7 converted to .zip!
+echo  Profil-7 converted to a zip file!
 )
 if exist Profil-8.tar (
 tar xf Profil-8.tar
 tar acf Profil-8.zip mods options.txt
-echo  Profil-8 converted to .zip!
+echo  Profil-8 converted to a zip file!
 )
+del /S /Q *.tar
 echo  Finished! Now starting the Mod-Installer...
 Pause
 )
