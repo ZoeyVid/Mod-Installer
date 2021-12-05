@@ -1,6 +1,6 @@
 @echo off
 
-set ver=Version 5.1.1
+set ver=Version 5.1.2.2
 
 :start
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
