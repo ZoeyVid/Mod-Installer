@@ -12,6 +12,10 @@ del /S /Q "%appdata%\.minecraft\1.17.bat"
 if not exist "%appdata%\.minecraft\Update.bat" (
 del /S /Q "%appdata%\.minecraft\Update.bat"
 )
+if not exist "%appdata%\.minecraft\essential-installer.exe" (
+del /S /Q "%appdata%\.minecraft\essential-installer.exe"
+)
+
 CLS
 C:
     where java >nul 2>nul
@@ -50,14 +54,14 @@ echo  Make sure you choose the right mod loader in the MC launcher!
 echo.
 CHOICE /C 123456789 /M " Auswahl: "
 IF ERRORLEVEL 9 GOTO mcl
-IF ERRORLEVEL 8 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-8.tar
-IF ERRORLEVEL 7 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-7.tar
-IF ERRORLEVEL 6 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-6.tar
-IF ERRORLEVEL 5 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-5.tar
-IF ERRORLEVEL 4 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-4.tar
-IF ERRORLEVEL 3 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-3.tar
-IF ERRORLEVEL 2 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-2.tar
-IF ERRORLEVEL 1 tar cf Backup.tar mods options.txt & rmdir /S /Q mods & tar xf Profil-1.tar
+IF ERRORLEVEL 8 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-8.zip
+IF ERRORLEVEL 7 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-7.zip
+IF ERRORLEVEL 6 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-6.zip
+IF ERRORLEVEL 5 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-5.zip
+IF ERRORLEVEL 4 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-4.zip
+IF ERRORLEVEL 3 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-3.zip
+IF ERRORLEVEL 2 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-2.zip
+IF ERRORLEVEL 1 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-1.zip
 :mcl
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe

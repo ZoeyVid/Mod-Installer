@@ -37,6 +37,10 @@ del /S /Q "%appdata%\.minecraft\1.17.bat"
 if not exist "%appdata%\.minecraft\Update.bat" (
 del /S /Q "%appdata%\.minecraft\Update.bat"
 )
+if not exist "%appdata%\.minecraft\essential-installer.exe" (
+del /S /Q "%appdata%\.minecraft\essential-installer.exe"
+)
+
 CLS
 echo.
 echo  MIT License
@@ -271,7 +275,7 @@ exit /B
 :rmpb
 CLS
 del /S /Q %appdata%\.minecraft\Profil-*
-del /S /Q %appdata%\.minecraft\Backup.tar
+del /S /Q %appdata%\.minecraft\Backup.*
 CLS
 echo.
 echo  Finished! Profils and Backups had been removed!
