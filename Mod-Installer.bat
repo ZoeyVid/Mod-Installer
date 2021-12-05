@@ -84,7 +84,7 @@ if not exist "%appdata%\.minecraft" (
 C:
 cd %appdata%\.minecraft
 if exist *.tar (
-converting Profiles and Backups from .tar to .zip...
+echo  converting Profiles and Backups from .tar to .zip...
 Pause
 if exist Backup.tar (
 tar xf Backup.tar
