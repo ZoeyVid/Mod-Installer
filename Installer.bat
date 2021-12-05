@@ -118,6 +118,14 @@ IF ERRORLEVEL 1 GOTO is
 CLS
 echo  Start Installation?
 Pause
+
+cd "%appdata%\.minecraft"
+TASKKILL /T /F /IM MinecraftLauncher.exe
+TASKKILL /T /F /IM Minecraft.exe
+del /S /Q launcher_profiles_microsoft_store.json
+move launcher_profiles.json launcher_profiles_microsoft_store.json
+winget uninstall Mojang.MinecraftLauncher
+
 del /S /Q %appdata%\.minecraft\Donwload.ico
 del /S /Q %appdata%\.minecraft\Installer.ico
 del /S /Q %appdata%\.minecraft\MC-Launcher.bat
