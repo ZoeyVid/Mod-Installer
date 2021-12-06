@@ -86,7 +86,6 @@ Pause
 start "" ms-windows-store://pdp/?ProductId=9pgw18npbzv5
 Pause
 start "" ms-windows-store://pdp/?ProductId=9nblggh4nns1
-Pause
 CLS
 C:
     where java >nul 2>nul
