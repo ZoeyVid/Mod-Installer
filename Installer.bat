@@ -1,6 +1,6 @@
 @echo off
 
-set ver=Version 5.1.3.1
+set ver=Version 5.1.3.2
 
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
@@ -128,15 +128,16 @@ IF ERRORLEVEL 1 GOTO is
 
 :is
 CLS
-echo  Start Installation?
+echo  Start Installation? The Minecraft Launcher will be closed!
 Pause
 
 cd "%appdata%\.minecraft"
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
-del /S /Q launcher_profiles_microsoft_store.json
+if exist "%appdata%\.minecraft\launcher_profiles.json" (
 move launcher_profiles.json launcher_profiles_microsoft_store.json
 winget uninstall Mojang.MinecraftLauncher
+)
 
 del /S /Q %appdata%\.minecraft\Donwload.ico
 del /S /Q %appdata%\.minecraft\Installer.ico
