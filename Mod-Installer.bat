@@ -1,6 +1,6 @@
 @echo off
 
-set ver=Version 5.1.3.2
+set ver=Version 5.1.4
 
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
