@@ -57,7 +57,7 @@ del /S /Q "%appdata%\.minecraft\essential-installer.exe"
 )
 
 set l=1.17.1
-set lfl=0.12.10
+set lfl=0.12.11
 set fal=fabric-loader-%lfl%-%l%
 CLS
 C:
@@ -262,7 +262,7 @@ rmdir /S /Q mods
 tar xf mods.zip
 del /S /Q mods.zip
 curl -sL -o fabric.jar https://dl.sancraft.dev/fa
-java -jar fabric.jar client -mcversion 1.18 -launcher microsoft_store -loader %lfl%
+java -jar fabric.jar client -mcversion 1.18.1 -launcher microsoft_store -loader %lfl%
 del /S /Q fabric.jar
 GOTO mif
 

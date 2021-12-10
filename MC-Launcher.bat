@@ -66,7 +66,5 @@ IF ERRORLEVEL 3 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf 
 IF ERRORLEVEL 2 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-2.zip
 IF ERRORLEVEL 1 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-1.zip
 :mcl
-TASKKILL /T /F /IM MinecraftLauncher.exe
-TASKKILL /T /F /IM Minecraft.exe
 start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
 EXIT /B
