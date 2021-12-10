@@ -57,7 +57,7 @@ del /S /Q "%appdata%\.minecraft\essential-installer.exe"
 )
 
 set l=1.17.1
-set lfl=0.12.9
+set lfl=0.12.10
 set fal=fabric-loader-%lfl%-%l%
 CLS
 C:
