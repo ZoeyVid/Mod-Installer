@@ -578,6 +578,7 @@ rmdir /S /Q libraries
 rmdir /S /Q stats
 rmdir /S /Q texturepacks-mp-cache
 rmdir /S /Q webcache
+del /S /Q "essential\Essential (*"
 del /S /Q versions\version_manifest_v2*
 del /S /Q versions\cache.dat
 del /S /Q betterfps.txt
