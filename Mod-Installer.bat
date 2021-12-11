@@ -1,6 +1,6 @@
 @echo off
 
-set ver=Version 5.1.4
+set ver=Version 5.1.5
 
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
@@ -46,8 +46,8 @@ FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environme
 if exist "%appdata%\.minecraft\fabric.jar" (
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 )
-if exist "%appdata%\.minecraft\1.17.bat" (
-del /S /Q "%appdata%\.minecraft\1.17.bat"
+if exist "%appdata%\.minecraft\fabric.bat" (
+del /S /Q "%appdata%\.minecraft\fabric.bat"
 )
 if exist "%appdata%\.minecraft\Update.bat" (
 del /S /Q "%appdata%\.minecraft\Update.bat"
@@ -55,10 +55,16 @@ del /S /Q "%appdata%\.minecraft\Update.bat"
 if exist "%appdata%\.minecraft\essential-installer.exe" (
 del /S /Q "%appdata%\.minecraft\essential-installer.exe"
 )
+if exist "%appdata%\.minecraft\forge.bat" (
+del /S /Q "%appdata%\.minecraft\forge.bat"
+)
 
-set l=1.17.1
+set l=1.18.1
 set lfl=0.12.11
 set fal=fabric-loader-%lfl%-%l%
+set rpm=2.6.3
+set lwv=v7.18
+
 CLS
 C:
     where java >nul 2>nul
@@ -162,31 +168,27 @@ CLS
 	echo  d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge
 	echo  e) Essential     (1.8.9+)   - https://essential.gg
 	echo.
-	echo  f) 1.18 - Beta              - Fabric-Loader Modpacks
-	echo  g) 1.17                     - Fabric-Loader Modpacks
-	echo  h) 1.8                      - Forge-Loader  Modpacks - PVP
-	echo  i) Rescource Packs          - Download Resourcepacks!
+	echo  f) 1.18                     - Fabric-Loader Modpacks
+	echo  g) Rescource Packs          - Download Resourcepacks!
 	echo.
-	echo  j) Backups/Modprofile       - Create Mod-/Config-Profils
-	echo  k) Profil Update            - Load a profile to update it and then automatically save it again!
+	echo  h) Backups/Modprofile       - Create Mod-/Config-Profils
+	echo  i) Profil Update            - Load a profile to update it and then automatically save it again!
 	echo.
 	echo  Funktions:
 	echo.
-	echo  l) .minecraft Cleaner       - Clear your .minecraft folder up!
-    echo  m) Restart Installer
-	echo  n) End Installer
-	echo  o) Give feedback            - %ver%
+	echo  j) .minecraft Cleaner       - Clear your .minecraft folder up!
+    echo  k) Restart Installer
+	echo  l) End Installer
+	echo  m) Give feedback            - %ver%
 	echo.
-    CHOICE /C abcdefghijklmno /M " Selection: "
-    IF ERRORLEVEL 15 GOTO fb
-    IF ERRORLEVEL 14 GOTO end
-    IF ERRORLEVEL 13 GOTO restart
-	IF ERRORLEVEL 12 GOTO c
-    IF ERRORLEVEL 11 GOTO update
-	IF ERRORLEVEL 10 GOTO bp
-	IF ERRORLEVEL 9 GOTO rp
-	IF ERRORLEVEL 8 GOTO 1.8
-    IF ERRORLEVEL 7 GOTO 1.17
+    CHOICE /C abcdefghijklm /M " Selection: "
+    IF ERRORLEVEL 13 GOTO fb
+    IF ERRORLEVEL 12 GOTO end
+    IF ERRORLEVEL 11 GOTO restart
+	IF ERRORLEVEL 10 GOTO c
+    IF ERRORLEVEL 9 GOTO update
+	IF ERRORLEVEL 8 GOTO bp
+	IF ERRORLEVEL 7 GOTO rp
     IF ERRORLEVEL 6 GOTO 1.18
     IF ERRORLEVEL 5 GOTO ess
 	IF ERRORLEVEL 4 GOTO forge
@@ -194,7 +196,7 @@ CLS
 	IF ERRORLEVEL 2 GOTO of
 	IF ERRORLEVEL 1 GOTO iris
 
-:1.17
+:1.18
 C:
 cd %appdata%\.minecraft
 CLS
@@ -202,8 +204,8 @@ echo.
 echo  Minigames = Only Grafikmods, Lite = light Mods, Full = Minimap, WTHIT...
 echo  Only the Minigame Pack should be allowed on Servers like Hypixel
 echo.
-echo  1. 1.17 Client Mods Survival
-echo  2. 1.17 Client Mods Minigames
+echo  1. %l% Client Mods Survival
+echo  2. %l% Client Mods Minigames
 echo.
 echo  3. Wurst Hack-Client - If you use this, I can say you, you get guaranteed banned
 echo  4. Replaymod
@@ -214,10 +216,9 @@ echo.
 CHOICE /C 123456 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
 IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO restart
-IF ERRORLEVEL 4 GOTO rpm
-IF ERRORLEVEL 3 GOTO whc
-IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17-Minigames.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.17.zip
+IF ERRORLEVEL 3 GOTO whc8
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18-Minigames.zip
+IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
@@ -231,41 +232,6 @@ java -jar fabric.jar client -mcversion %l% -launcher microsoft_store -loader %lf
 del /S /Q fabric.jar
 GOTO mif
 
-:1.18
-C:
-cd %appdata%\.minecraft
-CLS
-echo.
-echo  Minigames = Only Grafikmods, Lite = light Mods, Full = Minimap, WTHIT...
-echo  Only the Minigame Pack should be allowed on Servers like Hypixel
-echo.
-echo  1. 1.18 Client Mods Survival
-echo  2. 1.18 Client Mods Minigames
-echo.
-echo  3. Wurst Hack-Client - If you use this, I can say you, you get guaranteed banned
-echo.
-echo  4. Restart Installer
-echo  5. End Installer
-echo.
-CHOICE /C 123456 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
-IF ERRORLEVEL 5 GOTO end
-IF ERRORLEVEL 4 GOTO restart
-IF ERRORLEVEL 3 GOTO whc8
-IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18-Minigames.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18.zip
-echo  Installation starting...
-C:
-cd %appdata%\.minecraft
-tar acf Backup.zip mods options.txt
-CLS
-rmdir /S /Q mods
-tar xf mods.zip
-del /S /Q mods.zip
-curl -sL -o fabric.jar https://dl.sancraft.dev/fa
-java -jar fabric.jar client -mcversion 1.18.1 -launcher microsoft_store -loader %lfl%
-del /S /Q fabric.jar
-GOTO mif
-
 :whc
 echo  Installation starting...
 C:
@@ -273,7 +239,7 @@ cd %appdata%\.minecraft
 tar acf Backup.zip mods options.txt
 cd %appdata%\.minecraft\mods
 CLS
-curl -L -o wurst.jar https://github.com/Wurst-Imperium/Wurst-MCX2/releases/download/v7.18/Wurst-Client-v7.18-MC%l%.jar
+curl -L -o wurst.jar https://github.com/Wurst-Imperium/Wurst-MCX2/releases/download/%lwv%/Wurst-Client-%lwv%-MC%l%.jar
 GOTO mif
 
 :rpm
@@ -283,36 +249,7 @@ cd %appdata%\.minecraft
 tar acf Backup.zip mods options.txt
 cd %appdata%\.minecraft\mods
 CLS
-curl -L -o replaymod.jar https://minio.replaymod.com/replaymod/replaymod-%l%-2.6.1.jar
-GOTO mif
-
-:whc8
-echo  Installation starting...
-C:
-cd %appdata%\.minecraft
-tar acf Backup.zip mods options.txt
-cd %appdata%\.minecraft\mods
-CLS
-curl -L -o wurst.jar https://github.com/Wurst-Imperium/Wurst-MCX2/releases/download/v7.18/Wurst-Client-v7.18-MC1.18.jar
-GOTO mif
-
-:1.8
-C:
-cd %appdata%\.minecraft
-CLS
-echo  Installation starting...
-curl -L -o mods.zip https://dl.sancraft.dev/mp/1.8.zip
-tar acf Backup.zip mods options.txt
-CLS
-curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
-echo  In the next step a window will open automatically, just click on "OK"!
-Pause
-java -jar forge.jar
-del /S /Q forge.jar
-del /S /Q forge.jar.log
-rmdir /S /Q mods
-tar xf mods.zip
-del /S /Q mods.zip
+curl -L -o replaymod.jar https://minio.replaymod.com/replaymod/replaymod-%l%-%rpm%.jar
 GOTO mif
 
 :fabric
@@ -337,6 +274,18 @@ java -jar iris.jar
 del /S /Q iris.jar
 GOTO mif
 
+:ess
+echo  Installation starting...
+C:
+cd %appdata%\.minecraft
+tar acf Backup.zip mods options.txt
+CLS
+curl -sL -o essential-installer.exe https://dl.sancraft.dev/ess
+start essential-installer.exe
+Pause
+del /S /Q essential-installer.exe
+GOTO mif
+
 :of
 start "" https://optifine.net/downloads
 GOTO mif
@@ -352,7 +301,7 @@ echo  Which Forge version do you want to install?
 echo.
 echo  a) latest version
 echo  b) 1.6.4
-echo  c) 1.17.10
+echo  c) 1.7.10
 echo  d) 1.8.9
 echo  e) 1.9.4
 echo  f) 1.10.2
@@ -388,18 +337,6 @@ del /S /Q forge.jar
 del /S /Q forge.jar.log
 GOTO mif
 
-:ess
-echo  Installation starting...
-C:
-cd %appdata%\.minecraft
-tar acf Backup.zip mods options.txt
-CLS
-curl -sL -o essential-installer.exe https://cdn.essential.gg/launcher_versions/1.0.6/windows/essential-installer-0.0.1.exe
-start essential-installer.exe
-Pause
-del /S /Q essential-installer.exe
-GOTO mif
-
 :mif
 CLS
 echo.
@@ -422,71 +359,21 @@ CLS
 echo.
 echo  Rescource Packs:
 echo.
-echo  a) Remove pumpkin sight                               - Pumpkin.zip
-echo  b) Dark Mode - make Minecraft darker!                 - https://sancraft.dev/dark
-echo  c) Xray - often not welcome                           - https://sancraft.dev/xray
-echo  d) Textures of the newer Versions for 1.8             - https://sancraft.dev/18new and https://sancraft.dev/18new2 - combined
-echo  e) 1.8 PVP Pack (from BastiGHG) - NO direct Download! - https://resourcepacks24.de/resourcepack/53862
-echo  f) BD-Craft - NO direct Download!                     - https://bdcraft.net/downloads/
+echo  1) Remove pumpkin sight                               - Pumpkin.zip
+echo  2) Dark Mode - make Minecraft darker!                 - https://sancraft.dev/dark
+echo  3) Xray - often not welcome                           - https://sancraft.dev/xray
+echo  4) BD-Craft - NO direct Download!                     - https://bdcraft.net/downloads
 echo.
-echo  g) Restart Mod-Installer
-echo  h) Mod-End Installer
+echo  5) Restart Mod-Installer
+echo  6) Mod-End Installer
 echo.
-CHOICE /C abcdefgh /M " Selection: "
-IF ERRORLEVEL 8 GOTO end
-IF ERRORLEVEL 7 GOTO restart
-IF ERRORLEVEL 6 GOTO bdc
-IF ERRORLEVEL 5 GOTO pvp
-IF ERRORLEVEL 4 GOTO 1.8-new
-IF ERRORLEVEL 3 GOTO xray
-IF ERRORLEVEL 2 GOTO dm
-IF ERRORLEVEL 1 GOTO ps
-
-:ps
-echo  Download starting...
-echo  1. 1.18
-echo  2. 1.17
-echo  3. 1.8
-CHOICE /C 123 /M " Selection: "
-IF ERRORLEVEL 3 curl -sL -o pumpkin-1.8.zip  https://dl.sancraft.dev/mp/pumpkin-1.8.zip
-IF ERRORLEVEL 2 curl -sL -o pumpkin-1.17.zip  https://dl.sancraft.dev/mp/pumpkin-1.17.zip
-IF ERRORLEVEL 1 curl -sL -o pumpkin-1.18.zip  https://dl.sancraft.dev/mp/pumpkin-1.18.zip
-GOTO rpif
-
-:dm
-echo  Download starting...
-echo  1. 1.18
-echo  2. 1.17
-echo  3. 1.8
-CHOICE /C 123 /M " Selection: "
-IF ERRORLEVEL 3 curl -sL -o Dark-Mode-1.8.zip https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.8-v1.3.1.zip
-IF ERRORLEVEL 2 curl -sL -o Dark-Mode-1.17.zip https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.17-v1.3.1.zip
-IF ERRORLEVEL 1 curl -sL -o Dark-Mode-1.18.zip https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.18-v1.3.1.zip
-GOTO rpif
-
-:xray
-echo  Download starting...
-echo  1. 1.18
-echo  2. 1.17
-CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 curl -sL -o Xray-1.17.zip https://media.forgecdn.net/files/3359/914/Xray_Ultimate_1.17_v4.1.2.zip
-IF ERRORLEVEL 1 curl -sL -o Xray-1.18.zip https://media.forgecdn.net/files/3548/717/Xray_Ultimate_1.18_v4.2.0.zip
-GOTO rpif
-
-:1.8-new
-curl -sL -o 1.8-rp.zip  https://dl.sancraft.dev/mp/1.8-rp.zip
-GOTO rpif
-
-:pvp
-start "" https://resourcepacks24.de/download/53862
-echo  Download starting...
-GOTO rpif
-
-:bdc
-start "" https://bdcraft.net/downloads/
-GOTO rpif
-
-:rpif
+CHOICE /C 123456 /M " Selection: "
+IF ERRORLEVEL 6 GOTO end
+IF ERRORLEVEL 5 GOTO restart
+IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads/
+IF ERRORLEVEL 3 curl -sL -o Xray.zip https://media.forgecdn.net/files/3548/717/Xray_Ultimate_1.18_v4.2.0.zip
+IF ERRORLEVEL 2 curl -sL -o Dark-Mode.zip https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.18-v1.3.1.zip
+IF ERRORLEVEL 1 curl -sL -o pumpkin.zip https://dl.sancraft.dev/mp/pumpkin.zip
 echo.
 echo  Finished!
 echo.
@@ -627,8 +514,7 @@ if exist Update.bat (
   CLS
   tar acf Profil-%P%.zip mods options.txt
   del /S /Q "%appdata%\.minecraft\fabric.jar"
-  del /S /Q "%appdata%\.minecraft\1.17.bat"
-  del /S /Q "%appdata%\.minecraft\Fabric-Install.bat"
+  del /S /Q "%appdata%\.minecraft\fabric.bat"
   del /S /Q "%appdata%\.minecraft\Update.bat"
   CLS
   echo.
@@ -968,7 +854,7 @@ IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_profiles*"
 IF ERRORLEVEL 1 echo OK!
 
 echo.
-echo  Do you want to delete old Minecraft Versions and Snapshots? - only 1.8.9-vanila/forge and latest %l%-vanila/fabric will be kept
+echo  Do you want to delete old Minecraft Versions and Snapshots? - only latest %l%-vanila/fabric will be kept
 echo.
 echo  1. No
 echo  2. Yes
@@ -979,14 +865,10 @@ IF ERRORLEVEL 1 GOTO c2
 
 :c1
 mkdir tmp
-move versions\1.8.9 tmp
-move versions\1.8.9-forge1.8.9-11.15.1.2318-1.8.9 tmp
 move versions\%l% tmp
 move versions\%fal% tmp
 rmdir /S /Q versions
 mkdir versions
-move tmp\1.8.9 versions
-move tmp\1.8.9-forge1.8.9-11.15.1.2318-1.8.9 versions
 move tmp\%l% versions
 move tmp\%fal% versions
 rmdir /S /Q tmp
