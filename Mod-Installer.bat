@@ -1,6 +1,6 @@
 @echo off
 
-set ver=Version 5.1.5
+set ver=Version 5.1.5.1
 
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
@@ -578,6 +578,7 @@ rmdir /S /Q libraries
 rmdir /S /Q stats
 rmdir /S /Q texturepacks-mp-cache
 rmdir /S /Q webcache
+rmdir /S /Q dashloader-cache
 del /S /Q "essential\Essential (*"
 del /S /Q versions\version_manifest_v2*
 del /S /Q versions\cache.dat
@@ -635,6 +636,28 @@ echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\XaeroWaypoints"
+IF ERRORLEVEL 1 echo OK!
+)
+if exist "%appdata%\.minecraft\XaeroWorldMap" (
+echo.
+echo  Do you want to delete your XaeroWorldMap?
+echo.
+echo  1. No
+echo  2. Yes
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\XaeroWorldMap"
+IF ERRORLEVEL 1 echo OK!
+)
+if exist "%appdata%\.minecraft\speedrunigt" (
+echo.
+echo  Do you want to delete your speedruns?
+echo.
+echo  1. No
+echo  2. Yes
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\speedrunigt"
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\bettercommandblock_script" (
