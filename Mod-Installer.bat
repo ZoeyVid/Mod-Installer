@@ -874,7 +874,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_profiles*"
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_profiles*" & copy /y NUL launcher_profiles_microsoft_store.json >NUL
 IF ERRORLEVEL 1 echo OK!
 
 echo.
