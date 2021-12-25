@@ -206,20 +206,18 @@ echo  Only the Minigame Pack should be allowed on Servers like Hypixel
 echo.
 echo  1. %l% Client Mods Survival
 echo  2. %l% Client Mods Minigames
-echo  3. %l% Mod Pack - Client-Server-Pack
 echo.
-echo  4. Wurst Hack-Client - If you use this, I can say you, you get guaranteed banned
-echo  5. Replaymod
+echo  3. Wurst Hack-Client - If you use this, I can say you, you get guaranteed banned
+echo  4. Replaymod
 echo.
-echo  6. Restart Installer
-echo  7. End Installer
+echo  5. Restart Installer
+echo  6. End Installer
 echo.
 CHOICE /C 1234567 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
-IF ERRORLEVEL 7 GOTO end
-IF ERRORLEVEL 6 GOTO restart
-IF ERRORLEVEL 5 GOTO rpm
-IF ERRORLEVEL 4 GOTO whc
-IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.sancraft.dev/mp/mp.zip
+IF ERRORLEVEL 6 GOTO end
+IF ERRORLEVEL 5 GOTO restart
+IF ERRORLEVEL 4 GOTO rpm
+IF ERRORLEVEL 3 GOTO whc
 IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18-Minigames.zip
 IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18.zip
 echo  Installation starting...
