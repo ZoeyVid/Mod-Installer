@@ -913,7 +913,7 @@ IF ERRORLEVEL 1 GOTO restart
 CLS
 echo.
 echo  https://sancraft.dev/discord
-echo  https://github.com/SanCraftDev/Mod-Installer/issues/
+echo  https://github.com/SanCraftDev/Mod-Installer/issues
 echo.
 echo  1. Restart Mod-Installer
 echo  2. End Installer
