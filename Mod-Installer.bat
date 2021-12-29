@@ -229,7 +229,7 @@ rmdir /S /Q mods
 tar xf mods.zip
 del /S /Q mods.zip
 curl -sL -o fabric.jar https://dl.sancraft.dev/fa
-java -jar fabric.jar client -mcversion %l% -launcher microsoft_store -loader %lfl%
+java -jar fabric.jar client -mcversion %l% -loader %lfl%
 del /S /Q fabric.jar
 GOTO mif
 
@@ -875,7 +875,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_profiles*" & copy /y NUL launcher_profiles_microsoft_store.json >NUL
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_profiles.json" & copy /y NUL launcher_profiles.json >NUL
 IF ERRORLEVEL 1 echo OK!
 
 echo.
