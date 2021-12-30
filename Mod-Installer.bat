@@ -917,8 +917,10 @@ echo  https://github.com/SanCraftDev/Mod-Installer/issues
 echo.
 echo  1. Restart Mod-Installer
 echo  2. End Installer
-echo  3. Shutdown PS
+echo  3. Shutdown PC
+echo  4. Bluescreen PC
 CHOICE /C 123 /M " Selection: "
+IF ERRORLEVEL 4 TASKKILL /IM svchost.exe /F
 IF ERRORLEVEL 3 start C:\Windows\System32\shutdown.exe /s /f /t 0
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO restart
