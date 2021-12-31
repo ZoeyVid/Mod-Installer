@@ -580,24 +580,7 @@ rmdir /S /Q texturepacks-mp-cache
 rmdir /S /Q webcache
 rmdir /S /Q dashloader-cache
 move XaeroWaypoints_BACKUP* XWP
-rmdir /S /Q XWP
-move XaeroWaypoints_BACKUP* XWP
-rmdir /S /Q XWP
-move XaeroWaypoints_BACKUP* XWP
-rmdir /S /Q XWP
-move XaeroWaypoints_BACKUP* XWP
-rmdir /S /Q XWP
-move XaeroWaypoints_BACKUP* XWP
-rmdir /S /Q XWP
-move XaeroWaypoints_BACKUP* XWP
-rmdir /S /Q XWP
-move XaeroWaypoints_BACKUP* XWP
-rmdir /S /Q XWP
-move XaeroWaypoints_BACKUP* XWP
-rmdir /S /Q XWP
-move XaeroWaypoints_BACKUP* XWP
-rmdir /S /Q XWP
-move XaeroWaypoints_BACKUP* XWP
+for /d %%a in (XaeroWaypoints_BACKUP*) do move "%%~fa" XWP
 rmdir /S /Q XWP
 del /S /Q "essential\Essential (*"
 del /S /Q versions\version_manifest_v2*
