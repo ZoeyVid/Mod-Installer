@@ -552,7 +552,6 @@ IF ERRORLEVEL 1 GOTO end
 
 :cy
 cd "%appdata%\.minecraft"
-tar acf Backup.zip mods options.txt
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
 rmdir /S /Q "%appdata%\.iris-installer"
@@ -580,6 +579,26 @@ rmdir /S /Q stats
 rmdir /S /Q texturepacks-mp-cache
 rmdir /S /Q webcache
 rmdir /S /Q dashloader-cache
+move XaeroWaypoints_BACKUP* XWP
+rmdir /S /Q XWP
+move XaeroWaypoints_BACKUP* XWP
+rmdir /S /Q XWP
+move XaeroWaypoints_BACKUP* XWP
+rmdir /S /Q XWP
+move XaeroWaypoints_BACKUP* XWP
+rmdir /S /Q XWP
+move XaeroWaypoints_BACKUP* XWP
+rmdir /S /Q XWP
+move XaeroWaypoints_BACKUP* XWP
+rmdir /S /Q XWP
+move XaeroWaypoints_BACKUP* XWP
+rmdir /S /Q XWP
+move XaeroWaypoints_BACKUP* XWP
+rmdir /S /Q XWP
+move XaeroWaypoints_BACKUP* XWP
+rmdir /S /Q XWP
+move XaeroWaypoints_BACKUP* XWP
+rmdir /S /Q XWP
 del /S /Q "essential\Essential (*"
 del /S /Q versions\version_manifest_v2*
 del /S /Q versions\cache.dat
@@ -616,6 +635,7 @@ del /S /Q launcher_accounts.*
 del /S /Q launcher_msa_credentials.*
 del /S /Q launcher_profiles.*
 del /S /Q launcher_ui_state.*
+del /S /Q Backup.zip
 
 if exist "%appdata%\.minecraft\wurst" (
 echo.
@@ -837,7 +857,6 @@ CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\CustomSkinLoader"
 IF ERRORLEVEL 1 echo OK!
 )
-
 echo.
 echo  Do you want to delete your launcher settings?
 echo.
