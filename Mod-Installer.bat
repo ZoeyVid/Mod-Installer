@@ -619,6 +619,8 @@ del /S /Q launcher_msa_credentials.*
 del /S /Q launcher_profiles.*
 del /S /Q launcher_ui_state.*
 del /S /Q Backup.zip
+del /S /Q imgui.ini
+del /S /Q BTLib.dll
 
 if exist "%appdata%\.minecraft\wurst" (
 echo.
