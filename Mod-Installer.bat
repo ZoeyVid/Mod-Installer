@@ -1,6 +1,6 @@
 @echo off
 
-set ver=Version 5.1.5.1
+set ver=Version 5.1.5.2
 
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
@@ -608,7 +608,6 @@ del /S /Q treatment_tags*
 del /S /Q hs_err_pid*
 del /S /Q options.amecsapi.txt
 del /S /Q launcher_ui_state*
-del /S /Q launcher_settings*
 del /S /Q launcher_gamer_pics*
 del /S /Q launcher_entitlements*
 del /S /Q .iasx
@@ -616,7 +615,6 @@ del /S /Q .iasp
 del /S /Q .iasms_v2
 del /S /Q launcher_accounts.*
 del /S /Q launcher_msa_credentials.*
-del /S /Q launcher_profiles.*
 del /S /Q launcher_ui_state.*
 del /S /Q Backup.zip
 del /S /Q imgui.ini
