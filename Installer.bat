@@ -1,6 +1,6 @@
 @echo off
 
-set ver=Version 5.1.5.2
+set ver=Version 5.1.6
 
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
@@ -51,7 +51,7 @@ CLS
 echo.
 echo  MIT License
 echo.
-echo  Copyright (c) 2021 SanCraft
+echo  Copyright (c) 2022 SanCraft
 echo.
 echo  Permission is hereby granted, free of charge, to any person obtaining a copy
 echo  of this software and associated documentation files (the "Software"), to deal

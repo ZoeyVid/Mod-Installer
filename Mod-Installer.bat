@@ -1,6 +1,6 @@
 @echo off
 
-set ver=Version 5.1.5.2
+set ver=Version 5.1.6
 
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
@@ -91,65 +91,63 @@ if not exist "%appdata%\.minecraft" (
 	GOTO restart
 )
 
+
 C:
 cd %appdata%\.minecraft
+if exist Backup.* (
+del /S /Q Backup.*
+)
 if exist *.tar (
-echo  Your Profiles and the Backup need to be converted from a .tar file to a .zip file
+echo  Your Profiles need to be converted from a .tar file to a .zip file
 echo  Start now?
 Pause
-echo  converting Profiles and Backups from .tar to .zip...
-if exist Backup.tar (
-rmdir /S /Q mods
-tar xf Backup.tar
-tar acf Backup.zip mods options.txt
-echo  Backup converted to a zip file!
-)
+echo  converting Profiles from .tar to .zip...
 if exist Profil-1.tar (
 rmdir /S /Q mods
 tar xf Profil-1.tar
-tar acf Profil-1.zip mods options.txt
+tar acf Profil-1.zip mods config\openloader
 echo  Profil-1 converted to a zip file!
 )
 if exist Profil-2.tar (
 rmdir /S /Q mods
 tar xf Profil-2.tar
-tar acf Profil-2.zip mods options.txt
+tar acf Profil-2.zip mods config\openloader
 echo  Profil-2 converted to a zip file!
 )
 if exist Profil-3.tar (
 rmdir /S /Q mods
 tar xf Profil-3.tar
-tar acf Profil-3.zip mods options.txt
+tar acf Profil-3.zip mods config\openloader
 echo  Profil-3 converted to a zip file!
 )
 if exist Profil-4.tar (
 rmdir /S /Q mods
 tar xf Profil-4.tar
-tar acf Profil-4.zip mods options.txt
+tar acf Profil-4.zip mods config\openloader
 echo  Profil-4 converted to a zip file!
 )
 if exist Profil-5.tar (
 rmdir /S /Q mods
 tar xf Profil-5.tar
-tar acf Profil-5.zip mods options.txt
+tar acf Profil-5.zip mods config\openloader
 echo  Profil-5 converted to a zip file!
 )
 if exist Profil-6.tar (
 rmdir /S /Q mods
 tar xf Profil-6.tar
-tar acf Profil-6.zip mods options.txt
+tar acf Profil-6.zip mods config\openloader
 echo  Profil-6 converted to a zip file!
 )
 if exist Profil-7.tar (
 rmdir /S /Q mods
 tar xf Profil-7.tar
-tar acf Profil-7.zip mods options.txt
+tar acf Profil-7.zip mods config\openloader
 echo  Profil-7 converted to a zip file!
 )
 if exist Profil-8.tar (
 rmdir /S /Q mods
 tar xf Profil-8.tar
-tar acf Profil-8.zip mods options.txt
+tar acf Profil-8.zip mods config\openloader
 echo  Profil-8 converted to a zip file!
 )
 del /S /Q *.tar
@@ -171,7 +169,7 @@ CLS
 	echo  f) 1.18                     - Fabric-Loader Modpacks
 	echo  g) Rescource Packs          - Download Resourcepacks!
 	echo.
-	echo  h) Backups/Modprofile       - Create Mod-/Config-Profils
+	echo  h) Modprofile               - Create Mod-/Config-Profils
 	echo  i) Profil Update            - Load a profile to update it and then automatically save it again!
 	echo.
 	echo  Funktions:
@@ -187,7 +185,7 @@ CLS
     IF ERRORLEVEL 11 GOTO restart
 	IF ERRORLEVEL 10 GOTO c
     IF ERRORLEVEL 9 GOTO update
-	IF ERRORLEVEL 8 GOTO bp
+	IF ERRORLEVEL 8 GOTO p
 	IF ERRORLEVEL 7 GOTO rp
     IF ERRORLEVEL 6 GOTO 1.18
     IF ERRORLEVEL 5 GOTO ess
@@ -223,7 +221,6 @@ IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar acf Backup.zip mods options.txt
 CLS
 rmdir /S /Q mods
 tar xf mods.zip
@@ -237,7 +234,6 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar acf Backup.zip mods options.txt
 cd %appdata%\.minecraft\mods
 CLS
 curl -L -o wurst.jar https://github.com/Wurst-Imperium/Wurst-MCX2/releases/download/%lwv%/Wurst-Client-%lwv%-MC%l%.jar
@@ -247,7 +243,6 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar acf Backup.zip mods options.txt
 cd %appdata%\.minecraft\mods
 CLS
 curl -L -o replaymod.jar https://minio.replaymod.com/replaymod/replaymod-%l%-%rpm%.jar
@@ -257,7 +252,6 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar acf Backup.zip mods options.txt
 CLS
 curl -sL -o fabric.jar https://dl.sancraft.dev/fa
 java -jar fabric.jar
@@ -268,7 +262,6 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar acf Backup.zip mods options.txt
 CLS
 curl -sL -o iris.jar https://dl.sancraft.dev/iris
 java -jar iris.jar
@@ -279,7 +272,6 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar acf Backup.zip mods options.txt
 CLS
 curl -sL -o essential-installer.exe https://dl.sancraft.dev/ess
 start essential-installer.exe
@@ -295,7 +287,6 @@ GOTO mif
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
-tar acf Backup.zip mods options.txt
 CLS
 echo.
 echo  Which Forge version do you want to install?
@@ -386,35 +377,27 @@ IF ERRORLEVEL 3 GOTO rp
 IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO restart
 
-:bp
+:p
 C:
 cd "%appdata%\.minecraft\"
 CLS
 echo  Make sure that you select the correct modloader and MC version in the Minecraft Launcher in the lower left!
-echo  Only mods in the profiles are saved and loaded!
-echo  In the backup also configs!
+echo  Only mods are in the profiles saved and loaded!
 echo.
 echo  1. Create profile - Limit 8 - Existing ones will be overwritten
 echo  2. Load Profile
 echo  3. Delete Profile
-echo  4. Load backup - Automatically created during mod installation and MC start - Mods will be overwritten
 echo.
 echo  5. Restart Installer
 echo  6. End Installer
 echo.
 echo  CAUTION! PROFILES ARE NOT RECOVERABLE!
-CHOICE /C 123456 /M " Selection: "
-IF ERRORLEVEL 6 GOTO end
-IF ERRORLEVEL 5 GOTO restart
-IF ERRORLEVEL 4 GOTO bl
+CHOICE /C 12345 /M " Selection: "
+IF ERRORLEVEL 5 GOTO end
+IF ERRORLEVEL 4 GOTO restart
 IF ERRORLEVEL 3 GOTO pr
 IF ERRORLEVEL 2 GOTO pl
 IF ERRORLEVEL 1 GOTO pc
-
-:bl
-rmdir /S /Q mods
-tar xf Backup.zip
-GOTO pbf
 
 :pr
 CLs
@@ -438,14 +421,14 @@ echo.
 echo  Which profile do you want to load?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar xf Profil-8.zip
-IF ERRORLEVEL 7 tar xf Profil-7.zip
-IF ERRORLEVEL 6 tar xf Profil-6.zip
-IF ERRORLEVEL 5 tar xf Profil-5.zip
-IF ERRORLEVEL 4 tar xf Profil-4.zip
-IF ERRORLEVEL 3 tar xf Profil-3.zip
-IF ERRORLEVEL 2 tar xf Profil-2.zip
-IF ERRORLEVEL 1 tar xf Profil-1.zip
+IF ERRORLEVEL 8 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-8.zip
+IF ERRORLEVEL 7 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-7.zip
+IF ERRORLEVEL 6 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-6.zip
+IF ERRORLEVEL 5 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-5.zip
+IF ERRORLEVEL 4 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-4.zip
+IF ERRORLEVEL 3 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-3.zip
+IF ERRORLEVEL 2 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-2.zip
+IF ERRORLEVEL 1 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-1.zip
 echo  Loaded!
 
 echo  1. Restart Mod-Installer
@@ -473,14 +456,14 @@ echo.
 echo  Under which profile do you want to save the current mods and configs?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar acf Profil-8.zip mods options.txt
-IF ERRORLEVEL 7 tar acf Profil-7.zip mods options.txt
-IF ERRORLEVEL 6 tar acf Profil-6.zip mods options.txt
-IF ERRORLEVEL 5 tar acf Profil-5.zip mods options.txt
-IF ERRORLEVEL 4 tar acf Profil-4.zip mods options.txt
-IF ERRORLEVEL 3 tar acf Profil-3.zip mods options.txt
-IF ERRORLEVEL 2 tar acf Profil-2.zip mods options.txt
-IF ERRORLEVEL 1 tar acf Profil-1.zip mods options.txt
+IF ERRORLEVEL 8 tar acf Profil-8.zip mods config\openloader
+IF ERRORLEVEL 7 tar acf Profil-7.zip mods config\openloader
+IF ERRORLEVEL 6 tar acf Profil-6.zip mods config\openloader
+IF ERRORLEVEL 5 tar acf Profil-5.zip mods config\openloader
+IF ERRORLEVEL 4 tar acf Profil-4.zip mods config\openloader
+IF ERRORLEVEL 3 tar acf Profil-3.zip mods config\openloader
+IF ERRORLEVEL 2 tar acf Profil-2.zip mods config\openloader
+IF ERRORLEVEL 1 tar acf Profil-1.zip mods config\openloader
 CLS
 echo.
 echo  Finished! 
@@ -498,14 +481,14 @@ echo.
 echo  Which profile do you want to update (the profile is loaded so that all configs are adopted)?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-8.zip & set P=8
-IF ERRORLEVEL 7 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-7.zip & set P=7
-IF ERRORLEVEL 6 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-6.zip & set P=6
-IF ERRORLEVEL 5 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-5.zip & set P=5
-IF ERRORLEVEL 4 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-4.zip & set P=4
-IF ERRORLEVEL 3 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-3.zip & set P=3
-IF ERRORLEVEL 2 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-2.zip & set P=2
-IF ERRORLEVEL 1 tar acf Backup.zip mods options.txt & rmdir /S /Q mods & tar xf Profil-1.zip & set P=1
+IF ERRORLEVEL 8 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-8.zip & set P=8
+IF ERRORLEVEL 7 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-7.zip & set P=7
+IF ERRORLEVEL 6 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-6.zip & set P=6
+IF ERRORLEVEL 5 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-5.zip & set P=5
+IF ERRORLEVEL 4 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-4.zip & set P=4
+IF ERRORLEVEL 3 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-3.zip & set P=3
+IF ERRORLEVEL 2 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-2.zip & set P=2
+IF ERRORLEVEL 1 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-1.zip & set P=1
 cd "%appdata%\.minecraft\mods\"
 if exist Update.bat (
   move Update.bat "%appdata%\.minecraft\"
@@ -513,7 +496,7 @@ if exist Update.bat (
   CLS
   Update.bat
   CLS
-  tar acf Profil-%P%.zip mods options.txt
+  tar acf Profil-%P%.zip mods config\openloader
   del /S /Q "%appdata%\.minecraft\fabric.jar"
   del /S /Q "%appdata%\.minecraft\fabric.bat"
   del /S /Q "%appdata%\.minecraft\Update.bat"
@@ -616,7 +599,6 @@ del /S /Q .iasms_v2
 del /S /Q launcher_accounts.*
 del /S /Q launcher_msa_credentials.*
 del /S /Q launcher_ui_state.*
-del /S /Q Backup.zip
 del /S /Q imgui.ini
 del /S /Q BTLib.dll
 
