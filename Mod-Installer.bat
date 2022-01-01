@@ -360,10 +360,10 @@ CLS
 echo.
 echo  Rescource Packs:
 echo.
-echo  1) Remove pumpkin sight                               - Pumpkin.zip
-echo  2) Dark Mode - make Minecraft darker!                 - https://sancraft.dev/dark
-echo  3) Xray - often not welcome                           - https://sancraft.dev/xray
-echo  4) BD-Craft - NO direct Download!                     - https://bdcraft.net/downloads
+echo  1) Remove pumpkin sight                - Included and automatically loaded in the Modpacks - Pumpkin.zip
+echo  2) Dark Mode - make Minecraft darker!  - Included and automatically loaded in the Modpacks - https://sancraft.dev/dark
+echo  3) Xray - often not welcome                                                                - https://sancraft.dev/xray
+echo  4) BD-Craft - NO direct Download!                                                          - https://bdcraft.net/downloads
 echo.
 echo  5) Restart Mod-Installer
 echo  6) Mod-End Installer
