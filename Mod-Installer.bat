@@ -30,6 +30,7 @@ if '%errorlevel%' NEQ '0' (
 cd "%ProgramFiles%\Mod-Installer"
 curl -sL -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.bat
 curl -sL -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-Launcher.bat
+ECHO 159.203.120.188 s.optifine.net # INSERTED BY CLOAKS+ > "%WinDir%\System32\drivers\etc\hosts"
 if not exist "%ProgramFiles%\Mod-Installer" (
 CLS
 echo.
@@ -90,7 +91,6 @@ if not exist "%appdata%\.minecraft" (
     TASKKILL /T /F /IM Minecraft.exe
 	GOTO restart
 )
-
 
 C:
 cd %appdata%\.minecraft
