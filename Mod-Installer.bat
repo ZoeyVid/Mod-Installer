@@ -61,7 +61,7 @@ del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
 set l=1.18.1
-set lfl=0.12.12
+set lfl=0.13.1
 set fal=fabric-loader-%lfl%-%l%
 set rpm=2.6.3
 set lwv=v7.21
@@ -199,23 +199,28 @@ C:
 cd %appdata%\.minecraft
 CLS
 echo.
-echo  Minigames = Only Grafikmods, Lite = light Mods, Full = Minimap, WTHIT...
+echo  Minigames = Only graphicmods, Lite = light Mods, Full = Minimap, WTHIT...
 echo  Only the Minigame Pack should be allowed on Servers like Hypixel
 echo.
 echo  1. %l% Client Mods Survival
 echo  2. %l% Client Mods Minigames
+
+echo  3. %l% Client Mods Graphics++
+echo  4. %l% Client Mods Performance++
 echo.
-echo  3. Wurst Hack-Client - If you use this, I can say you, you get guaranteed banned
-echo  4. Replaymod
+echo  5. Wurst Hack-Client - If you use this, I can say you, you get guaranteed banned
+echo  6. Replaymod
 echo.
-echo  5. Restart Installer
-echo  6. End Installer
+echo  7. Restart Installer
+echo  8. End Installer
 echo.
-CHOICE /C 1234567 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
-IF ERRORLEVEL 6 GOTO end
-IF ERRORLEVEL 5 GOTO restart
-IF ERRORLEVEL 4 GOTO rpm
-IF ERRORLEVEL 3 GOTO whc
+CHOICE /C 12345678 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
+IF ERRORLEVEL 8 GOTO end
+IF ERRORLEVEL 7 GOTO restart
+IF ERRORLEVEL 6 GOTO rpm
+IF ERRORLEVEL 5 GOTO whc
+IF ERRORLEVEL 4 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18-Performance.zip
+IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18-Graphics.zip
 IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18-Minigames.zip
 IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18.zip
 echo  Installation starting...
