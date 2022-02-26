@@ -1,6 +1,6 @@
 @echo off
 
-set ver=Version 5.1.6
+set ver=Version 5.2
 
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
@@ -30,6 +30,9 @@ if '%errorlevel%' NEQ '0' (
 cd "%ProgramFiles%\Mod-Installer"
 curl -sL -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.bat
 curl -sL -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-Launcher.bat
+FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
+  SET "DESKTOP_FOLDER=%%f"
+  )
 ECHO 159.203.120.188 s.optifine.net # INSERTED BY CLOAKS+ > "%WinDir%\System32\drivers\etc\hosts"
 if not exist "%ProgramFiles%\Mod-Installer" (
 CLS
@@ -176,14 +179,16 @@ CLS
 	echo  Funktions:
 	echo.
 	echo  k) .minecraft Cleaner       - Clear your .minecraft folder up!
-    echo  l) Restart Installer
-	echo  m) End Installer
-	echo  n) Give feedback            - %ver%
+    echo  l) Install tModLoader 64Bit - Terraria
+    echo  m) Restart Installer
+	echo  n) End Installer
+	echo  o) Give feedback            - %ver%
 	echo.
     CHOICE /C abcdefghijklmn /M " Selection: "
-    IF ERRORLEVEL 14 GOTO fb
-    IF ERRORLEVEL 13 GOTO end
-    IF ERRORLEVEL 12 GOTO restart
+    IF ERRORLEVEL 15 GOTO fb
+    IF ERRORLEVEL 14 GOTO end
+    IF ERRORLEVEL 13 GOTO restart
+    IF ERRORLEVEL 12 GOTO t64
 	IF ERRORLEVEL 11 GOTO c
     IF ERRORLEVEL 10 GOTO update
 	IF ERRORLEVEL 9 GOTO p
@@ -905,6 +910,62 @@ rmdir /S /Q tmp
 CLS
 echo.
 echo  Cleaned
+echo.
+echo  1. Restart Mod-Installer
+echo  2. End Installer
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 GOTO end
+IF ERRORLEVEL 1 GOTO restart
+
+
+:t64
+CLS
+echo.
+echo  First you need Terraria on steam
+Pause 
+start steam://install/252490
+Pause
+echo.
+echo  Then you need to install this - and enter some values of the install location:
+Pause
+start steam://install/1281930
+set /P il=Enter the tModLoader Install Location, which you did selected (for example D:\SteamLibrary or C:\Program Files (x86)\Steam): 
+set /P ip=Enter the tModLoader Install Partion, which you did selected  (for example C oder D oder E...): 
+%ip%:
+cd %il%\steamapps\common\tModLoader
+curl -L -o vulkan.zip https://github.com/Dradonhunter11/tModLoader64bit/releases/latest/download/tmodloader_x64_vulkan.zip
+tar -xf vulkan.zip
+del /S /Q vulkan.zip
+curl -L -o tml64.zip https://github.com/Dradonhunter11/tModLoader64bit/releases/latest/download/tModLoader64bit-Windows.zip
+tar -xf tml64.zip
+del /S /Q tml64.zip
+move .\tModLoader64bit-Windows\* .\
+rmdir /S /Q tModLoader64bit-Windows
+Pause
+echo. 
+echo tModLoader64Bit is now installed, now let us add it to steam:
+echo First add this: "%il%\steamapps\common\tModLoader\tModLoader64Bit.exe" as an non Steam to Steam in the following Window.
+echo To add it you need to press the "Browse" Button and enter "%il%\steamapps\common\tModLoader\tModLoader64Bit.exe" in the explorer
+start steam://AddNonSteamGame
+Pause
+echo.
+echo Now we Start Steam and you create an Shortcut (right click it, press manage and then create ist) for tModLoader64
+start steam://nav/games
+Pause
+echo. 
+echo Created?
+Pause
+echo. 
+mkdir %appdata%\Microsoft\Windows\Start Menu\Programs\Steam
+xcopy %DESKTOP_FOLDER%\tModLoader64Bit.url %appdata%\Microsoft\Windows\Start Menu\Programs\Steam
+echo  Do you want to keep the desktop Shortcut?
+echo  1. Yes
+echo  2. No
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 echo OK!
+IF ERRORLEVEL 1 del /S /Q %DESKTOP_FOLDER%\tModLoader64Bit.url
+echo.
+echo Finisched!
 echo.
 echo  1. Restart Mod-Installer
 echo  2. End Installer
