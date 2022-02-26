@@ -108,7 +108,7 @@ echo  1. Install/Repair
 echo  2. Remove
 echo  3. Cancel
 echo.
-CHOICE /C 12 /M " Selection: "
+CHOICE /C 123 /M " Selection: "
 IF ERRORLEVEL 3 exit /B
 IF ERRORLEVEL 2 GOTO rm
 IF ERRORLEVEL 1 GOTO is
