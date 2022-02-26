@@ -923,7 +923,7 @@ CLS
 echo.
 echo  First you need Terraria on steam
 Pause 
-start steam://install/252490
+start steam://install/105600
 Pause
 echo.
 echo  Then you need to install this - and enter some values of the install location:
