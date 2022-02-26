@@ -956,8 +956,8 @@ echo.
 echo Created?
 Pause
 echo. 
-mkdir %appdata%\Microsoft\Windows\Start Menu\Programs\Steam
-xcopy %DESKTOP_FOLDER%\tModLoader64Bit.url %appdata%\Microsoft\Windows\Start Menu\Programs\Steam
+mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Steam"
+xcopy %DESKTOP_FOLDER%\tModLoader64Bit.url "%appdata%\Microsoft\Windows\Start Menu\Programs\Steam"
 echo  Do you want to keep the desktop Shortcut?
 echo  1. Yes
 echo  2. No
