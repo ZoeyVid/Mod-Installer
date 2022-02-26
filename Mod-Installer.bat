@@ -932,7 +932,7 @@ start steam://install/1281930
 set /P il=Enter the tModLoader Install Location, which you did selected (for example D:\SteamLibrary or C:\Program Files (x86)\Steam): 
 set /P ip=Enter the tModLoader Install Partion, which you did selected  (for example C oder D oder E...): 
 %ip%:
-cd %il%\steamapps\common\tModLoader
+cd "%il%\steamapps\common\tModLoader"
 curl -L -o vulkan.zip https://github.com/Dradonhunter11/tModLoader64bit/releases/latest/download/tmodloader_x64_vulkan.zip
 tar -xf vulkan.zip
 del /S /Q vulkan.zip
