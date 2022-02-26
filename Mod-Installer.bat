@@ -949,7 +949,7 @@ echo To add it you need to press the "Browse" Button and enter "%il%\steamapps\c
 start steam://AddNonSteamGame
 Pause
 echo.
-echo Now we Start Steam and you create an Shortcut (right click it, press manage and then create ist) for tModLoader64
+echo Now we Start Steam and you create an Shortcut (right click it, press manage and then create it) for tModLoader64
 start steam://nav/games
 Pause
 echo. 
