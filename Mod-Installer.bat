@@ -330,7 +330,7 @@ echo  l) 1.16.5
 echo  m) 1.17.1
 echo  n) 1.18.1
 echo.
-CHOICE /C abcdefghijklmn /M " Selection: "
+CHOICE /C abcdefghijklmno /M " Selection: "
 IF ERRORLEVEL 21 curl -sL -o forge.jar https://dl.sancraft.dev/fo/1.18
 IF ERRORLEVEL 20 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.1.1/forge-1.17.1-37.1.1-installer.jar
 IF ERRORLEVEL 19 curl -sL -o forge.jar https://dl.sancraft.dev/fo/1.16
