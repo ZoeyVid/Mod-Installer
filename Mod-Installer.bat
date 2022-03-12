@@ -63,10 +63,10 @@ if exist "%appdata%\.minecraft\forge.bat" (
 del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
-set l=1.18.1
-set lfl=0.13.1
+set l=1.18.2
+set lfl=0.13.3
 set fal=fabric-loader-%lfl%-%l%
-set rpm=2.6.3
+set rpm=2.6.4
 set lwv=v7.21
 
 CLS
@@ -328,7 +328,7 @@ echo  j) 1.14.4
 echo  k) 1.15.2
 echo  l) 1.16.5
 echo  m) 1.17.1
-echo  n) 1.18.1
+echo  n) 1.18.2
 echo.
 CHOICE /C abcdefghijklmn /M " Selection: "
 IF ERRORLEVEL 21 curl -sL -o forge.jar https://dl.sancraft.dev/fo/1.18
