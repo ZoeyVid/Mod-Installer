@@ -170,48 +170,34 @@ CLS
 	echo  e) Essential     (1.8.9+)   - https://essential.gg
 	echo.
 	echo  f) 1.18                     - Fabric-Loader Modpacks
-	echo  g) Deep Dark / 1.19         - Snapshot
-	echo  h) Rescource Packs          - Download Resourcepacks!
+	echo  g) Rescource Packs          - Download Resourcepacks!
 	echo.
-	echo  i) Modprofile               - Create Mod-/Config-Profils
-	echo  j) Profil Update            - Load a profile to update it and then automatically save it again!
+	echo  h) Modprofile               - Create Mod-/Config-Profils
+	echo  i) Profil Update            - Load a profile to update it and then automatically save it again!
 	echo.
 	echo  Funktions:
 	echo.
-	echo  k) .minecraft Cleaner       - Clear your .minecraft folder up!
-    echo  l) Install tModLoader 64Bit - Terraria
-    echo  m) Restart Installer
-	echo  n) End Installer
-	echo  o) Give feedback            - %ver%
+	echo  j) .minecraft Cleaner       - Clear your .minecraft folder up!
+    echo  k) Install tModLoader 64Bit - Terraria
+    echo  l) Restart Installer
+	echo  m) End Installer
+	echo  n) Give feedback            - %ver%
 	echo.
     CHOICE /C abcdefghijklmn /M " Selection: "
-    IF ERRORLEVEL 15 GOTO fb
-    IF ERRORLEVEL 14 GOTO end
-    IF ERRORLEVEL 13 GOTO restart
-    IF ERRORLEVEL 12 GOTO t64
-	IF ERRORLEVEL 11 GOTO c
-    IF ERRORLEVEL 10 GOTO update
-	IF ERRORLEVEL 9 GOTO p
-	IF ERRORLEVEL 8 GOTO rp
-    IF ERRORLEVEL 7 GOTO dd-119
+    IF ERRORLEVEL 14 GOTO fb
+    IF ERRORLEVEL 13 GOTO end
+    IF ERRORLEVEL 12 GOTO restart
+    IF ERRORLEVEL 11 GOTO t64
+	IF ERRORLEVEL 10 GOTO c
+    IF ERRORLEVEL 9 GOTO update
+	IF ERRORLEVEL 8 GOTO p
+	IF ERRORLEVEL 7 GOTO rp
     IF ERRORLEVEL 6 GOTO 1.18
     IF ERRORLEVEL 5 GOTO ess
 	IF ERRORLEVEL 4 GOTO forge
 	IF ERRORLEVEL 3 GOTO fabric
 	IF ERRORLEVEL 2 GOTO of
 	IF ERRORLEVEL 1 GOTO iris
-
-:dd-119
-CLS
-echo  Installation starting...
-C:
-cd %appdata%\.minecraft\versions
-curl -sL -o dd-119.zip https://dl.sancraft.dev/dd-119
-tar -xf dd-119.zip
-del /S /Q dd-119.zip
-echo  Do not forget to create a new Profile inside the minbecraft launcher! (see https://dl.sancraft.dev/si)
-Pause
-GOTO mif
 
 :1.18
 C:
