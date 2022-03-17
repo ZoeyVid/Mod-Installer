@@ -178,8 +178,8 @@ CLS
 	echo  Funktions:
 	echo.
 	echo  j) .minecraft Cleaner       - Clear your .minecraft folder up!
-    echo  k) Install tModLoader 64Bit - Terraria
-    echo  l) Restart Installer
+	echo  k) Install tModLoader 64Bit - Terraria
+	echo  l) Restart Installer
 	echo  m) End Installer
 	echo  n) Give feedback            - %ver%
 	echo.
@@ -611,6 +611,9 @@ del /S /Q launcher_msa_credentials.*
 del /S /Q launcher_ui_state.*
 del /S /Q imgui.ini
 del /S /Q BTLib.dll
+del /S /Q vanguard-uninstaller.log
+del /S /Q cosmetica_website_host_cache.txt
+del /S /Q cosmetica_get_api_cache.json
 
 if exist "%appdata%\.minecraft\wurst" (
 echo.
@@ -830,6 +833,17 @@ echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\CustomSkinLoader"
+IF ERRORLEVEL 1 echo OK!
+)
+if exist "%appdata%\.minecraft\playtimes.txt" (
+echo.
+echo  Do you want to delete your Playtimes?
+echo.
+echo  1. No
+echo  2. Yes
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\playtimes.txt"
 IF ERRORLEVEL 1 echo OK!
 )
 echo.
