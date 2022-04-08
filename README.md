@@ -1,5 +1,5 @@
 # [Mod-Installer](https://github.com/SanCraftDev/Mod-Installer)
-With this mod installer with **Steam Controller Support** you can install **_All_ Optifine, Fabric, Forge and Iris versions and ESSENTIAL**, which are working! <br/>
+With this mod installer, you can install **_All_ Optifine, Fabric, Forge and Iris versions and ESSENTIAL**, which are working! <br/>
 And you can also install my **Client Modpacks** for **1.18.x** and also download some **texture packs!** <br/>
 In addition, you can save mods in **up to 8 profiles** and start Minecraft via an extra script and directly select the profile that should be loaded. <br/>
 A **Minecraft Modpack** is supported at least until the next version is stable! <br/>
