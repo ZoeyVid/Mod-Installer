@@ -224,10 +224,10 @@ IF ERRORLEVEL 8 GOTO end
 IF ERRORLEVEL 7 GOTO restart
 IF ERRORLEVEL 6 GOTO rpm
 IF ERRORLEVEL 5 GOTO whc
-IF ERRORLEVEL 4 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18-Performance.zip
-IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18-Graphics.zip
-IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18-Minigames.zip
-IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.sancraft.dev/mp/1.18.zip
+IF ERRORLEVEL 4 curl -L -o mods.zip https://dl.scdmx.de/mp/1.18-Performance.zip
+IF ERRORLEVEL 3 curl -L -o mods.zip https://dl.scdmx.de/mp/1.18-Graphics.zip
+IF ERRORLEVEL 2 curl -L -o mods.zip https://dl.scdmx.de/mp/1.18-Minigames.zip
+IF ERRORLEVEL 1 curl -L -o mods.zip https://dl.scdmx.de/mp/1.18.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
@@ -235,7 +235,7 @@ CLS
 rmdir /S /Q mods
 tar xf mods.zip
 del /S /Q mods.zip
-curl -sL -o fabric.jar https://dl.sancraft.dev/fa
+curl -sL -o fabric.jar https://dl.scdmx.de/fa
 java -jar fabric.jar client -mcversion %l% -loader %lfl%
 del /S /Q fabric.jar
 GOTO mif
@@ -263,7 +263,7 @@ echo  Installation starting...
 C:
 cd %appdata%\.minecraft
 CLS
-curl -sL -o fabric.jar https://dl.sancraft.dev/fa
+curl -sL -o fabric.jar https://dl.scdmx.de/fa
 java -jar fabric.jar
 del /S /Q fabric.jar
 GOTO mif
@@ -273,7 +273,7 @@ echo  Installation starting...
 C:
 cd %appdata%\.minecraft
 CLS
-curl -sL -o iris.jar https://dl.sancraft.dev/iris
+curl -sL -o iris.jar https://dl.scdmx.de/iris
 java -jar iris.jar
 del /S /Q iris.jar
 GOTO mif
@@ -283,7 +283,7 @@ echo  Installation starting...
 C:
 cd %appdata%\.minecraft
 CLS
-curl -sL -o essential-installer.exe https://dl.sancraft.dev/ess
+curl -sL -o essential-installer.exe https://dl.scdmx.de/ess
 start essential-installer.exe
 Pause
 del /S /Q essential-installer.exe
@@ -317,9 +317,9 @@ echo  m) 1.17.1
 echo  n) 1.18.2
 echo.
 CHOICE /C abcdefghijklmno /M " Selection: "
-IF ERRORLEVEL 21 curl -sL -o forge.jar https://dl.sancraft.dev/fo/1.18
+IF ERRORLEVEL 21 curl -sL -o forge.jar https://dl.scdmx.de/fo/1.18
 IF ERRORLEVEL 20 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.1.1/forge-1.17.1-37.1.1-installer.jar
-IF ERRORLEVEL 19 curl -sL -o forge.jar https://dl.sancraft.dev/fo/1.16
+IF ERRORLEVEL 19 curl -sL -o forge.jar https://dl.scdmx.de/fo/1.16
 IF ERRORLEVEL 12 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.2-31.2.56/forge-1.15.2-31.2.56-installer.jar
 IF ERRORLEVEL 11 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.25/forge-1.14.4-28.2.25-installer.jar
 IF ERRORLEVEL 10 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.3-27.0.60/forge-1.14.3-27.0.60-installer.jar
@@ -331,7 +331,7 @@ IF ERRORLEVEL 5 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minec
 IF ERRORLEVEL 4 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 IF ERRORLEVEL 3 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
 IF ERRORLEVEL 2 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
-IF ERRORLEVEL 1 curl -sL -o forge.jar https://dl.sancraft.dev/fo/latest
+IF ERRORLEVEL 1 curl -sL -o forge.jar https://dl.scdmx.de/fo/latest
 echo  In the next step a window will open automatically, just click on "OK"!
 Pause
 java -jar forge.jar
@@ -375,7 +375,7 @@ IF ERRORLEVEL 5 GOTO restart
 IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads/
 IF ERRORLEVEL 3 curl -sL -o Xray.zip https://media.forgecdn.net/files/3548/717/Xray_Ultimate_1.18_v4.2.0.zip
 IF ERRORLEVEL 2 curl -sL -o Dark-Mode.zip https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.18-v1.3.1.zip
-IF ERRORLEVEL 1 curl -sL -o pumpkin.zip https://dl.sancraft.dev/mp/pumpkin.zip
+IF ERRORLEVEL 1 curl -sL -o pumpkin.zip https://dl.scdmx.de/mp/pumpkin.zip
 echo.
 echo  Finished!
 echo.
