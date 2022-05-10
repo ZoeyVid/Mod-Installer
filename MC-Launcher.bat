@@ -114,6 +114,9 @@ Pause
 )
 move servers.dat_tmp servers.dat
 
+TASKKILL /T /F /IM MinecraftLauncher.exe
+TASKKILL /T /F /IM Minecraft.exe
+
 C:
 cd "%appdata%\.minecraft\"
 CLS
@@ -133,8 +136,6 @@ IF ERRORLEVEL 4 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil
 IF ERRORLEVEL 3 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-3.zip
 IF ERRORLEVEL 2 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-2.zip
 IF ERRORLEVEL 1 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-1.zip
-TASKKILL /T /F /IM MinecraftLauncher.exe
-TASKKILL /T /F /IM Minecraft.exe
 :mcl
 start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
 EXIT /B
