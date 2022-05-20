@@ -33,7 +33,6 @@ curl -sL -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraftDev/Mod-In
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
-ECHO 159.203.120.188 s.optifine.net # INSERTED BY CLOAKS+ > "%WinDir%\System32\drivers\etc\hosts"
 if not exist "%ProgramFiles%\Mod-Installer" (
 CLS
 echo.
@@ -64,7 +63,7 @@ del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
 set l=1.18.2
-set lfl=0.14.5
+set lfl=0.14.6
 set fal=fabric-loader-%lfl%-%l%
 set rpm=2.6.4
 set lwv=v7.22
