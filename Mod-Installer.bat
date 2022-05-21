@@ -372,7 +372,7 @@ CHOICE /C 123456 /M " Selection: "
 IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO restart
 IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads/
-IF ERRORLEVEL 3 curl -sL -o Xray.zip https://media.forgecdn.net/files/3548/717/Xray_Ultimate_1.18_v4.2.0.zip
+IF ERRORLEVEL 3 curl -sL -o Xray.zip https://media.forgecdn.net/files/3763/778/Xray_Ultimate_1.18_v4.2.1.zip
 IF ERRORLEVEL 2 curl -sL -o Dark-Mode.zip https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/latest/download/Default-Dark-Mode-1.18-v1.3.1.zip
 IF ERRORLEVEL 1 curl -sL -o pumpkin.zip https://dl.scdmx.de/mp/pumpkin.zip
 echo.
