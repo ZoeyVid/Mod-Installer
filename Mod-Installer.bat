@@ -361,8 +361,8 @@ echo.
 echo  Rescource Packs:
 echo.
 echo  1) Remove pumpkin sight                - Included and automatically loaded in the Modpacks - Pumpkin.zip
-echo  2) Dark Mode - make Minecraft darker!  - Included and automatically loaded in the Modpacks - https://sancraft.dev/dark
-echo  3) Xray - often not welcome                                                                - https://sancraft.dev/xray
+echo  2) Dark Mode - make Minecraft darker!  - Included and automatically loaded in the Modpacks - https://scdmx.de/dark
+echo  3) Xray - often not welcome                                                                - https://scdmx.de/xray
 echo  4) BD-Craft - NO direct Download!                                                          - https://bdcraft.net/downloads
 echo.
 echo  5) Restart Mod-Installer
