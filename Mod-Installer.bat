@@ -63,7 +63,7 @@ del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
 set l=1.18.2
-set lfl=0.14.6
+set lfl=0.14.7
 set fal=fabric-loader-%lfl%-%l%
 set rpm=2.6.4
 set lwv=v7.22
