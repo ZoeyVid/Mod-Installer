@@ -9,7 +9,6 @@ config.*
 composer.phar
 /vendor/
 
-/*
 !/jobs
 !/.gitignore
 !/*.xml
