@@ -3,7 +3,7 @@
 set ver=Version 0.0.0
 
 :start
-curl --ssl-no-revoke -sL -o %0 https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat
+if exist %0 ( curl --ssl-no-revoke -sL -o %0 https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat )
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
@@ -85,7 +85,6 @@ if not exist "%appdata%\.minecraft" (
 )
 
 cd "%appdata%\.minecraft"
-move servers.dat_tmp servers.dat
 CLS
 echo.
 echo  Welcome to the Mod-Installer Installer %ver%!
@@ -107,24 +106,26 @@ Pause
 cd "%appdata%\.minecraft"
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
-if exist "%appdata%\.minecraft\launcher_profiles.json" (
-move launcher_profiles.json launcher_profiles_microsoft_store.json
+if exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 winget uninstall Mojang.MinecraftLauncher
 )
 
-del /S /Q %appdata%\.minecraft\Donwload.ico
-del /S /Q %appdata%\.minecraft\Installer.ico
-del /S /Q %appdata%\.minecraft\MC-Launcher.bat
-del /S /Q %appdata%\.minecraft\Mod-Installer.bat
-del /Q /Q %appdata%\.minecraft\Installer-Uninstaller.bat
-del /S /Q %DESKTOP_FOLDER%\Mod-Installer.lnk
-del /S /Q %DESKTOP_FOLDER%\MC-Launcher.lnk
-del /S /Q %appdata%\.minecraft\steam.txt
-del /S /Q %ProgramFiles%\Mod-Installer\steam.txt
-rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
-rmdir /S /Q %appdata%\.minecraft\Mod-Installer
+if exist %appdata%\.minecraft\Donwload.ico ( del /S /Q %appdata%\.minecraft\Donwload.ico )
+if exist %appdata%\.minecraft\Installer.ico ( del /S /Q %appdata%\.minecraft\Installer.ico )
+if exist %appdata%\.minecraft\MC-Launcher.bat ( del /S /Q %appdata%\.minecraft\MC-Launcher.bat )
+if exist %appdata%\.minecraft\Mod-Installer.bat ( del /S /Q %appdata%\.minecraft\Mod-Installer.bat )
+if exist %appdata%\.minecraft\Installer-Uninstaller.bat ( del /Q /Q %appdata%\.minecraft\Installer-Uninstaller.bat )
+if exist %DESKTOP_FOLDER%\Mod-Installer.lnk ( del /S /Q %DESKTOP_FOLDER%\Mod-Installer.lnk )
+if exist %DESKTOP_FOLDER%\MC-Launcher.lnk ( del /S /Q %DESKTOP_FOLDER%\MC-Launcher.lnk )
+if exist %appdata%\.minecraft\steam.txt ( del /S /Q %appdata%\.minecraft\steam.txt )
+if exist %ProgramFiles%\Mod-Installer\steam.txt ( del /S /Q %ProgramFiles%\Mod-Installer\steam.txt )
+if exist "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer" ( rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer" )
+if exist %appdata%\.minecraft\Mod-Installer ( rmdir /S /Q %appdata%\.minecraft\Mod-Installer )
 
+if not exist "%LocalAppData%\Mod-Installer" (
 mkdir "%LocalAppData%\Mod-Installer"
+)
+if exist "%LocalAppData%\Mod-Installer" (
 cd "%LocalAppData%\Mod-Installer"
 curl --ssl-no-revoke -L -o Mod-Installer.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat
 curl --ssl-no-revoke -L -o MC-Launcher.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/MC-Launcher.bat
@@ -132,41 +133,43 @@ curl --ssl-no-revoke -L -o Installer-Uninstaller.bat https://github.com/SanCraft
 curl --ssl-no-revoke -L -o Mod-Installer.ico https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.ico
 curl --ssl-no-revoke -L -o Installer.ico https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.ico
 curl --ssl-no-revoke -L -o Launcher.ico https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Launcher.ico
+)
 
+if not exist mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer" (
 mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
-
+)
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo  sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\MC-Launcher.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo  oLink.Arguments = "/C C:\PROGRA~1\Mod-Installer\MC-Launcher.bat" >> %SCRIPT%
+echo  oLink.Arguments = "/C %LocalAppData%\Mod-Installer\MC-Launcher.bat" >> %SCRIPT%
 echo  oLink.IconLocation = "%LocalAppData%\Mod-Installer\Launcher.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
-cscript /nologo %SCRIPT%
-del /S /Q %SCRIPT%
+if exist %SCRIPT% ( cscript /nologo %SCRIPT% )
+if exist %SCRIPT% ( del /S /Q %SCRIPT% )
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo  sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Mod-Installer.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo  oLink.Arguments = "/C C:\PROGRA~1\Mod-Installer\Mod-Installer.bat" >> %SCRIPT%
+echo  oLink.Arguments = "/C %LocalAppData%\Mod-Installer\Mod-Installer.bat" >> %SCRIPT%
 echo  oLink.IconLocation = "%LocalAppData%\Mod-Installer\Mod-Installer.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
-cscript /nologo %SCRIPT%
-del /S /Q %SCRIPT%
+if exist %SCRIPT% ( cscript /nologo %SCRIPT% )
+if exist %SCRIPT% ( del /S /Q %SCRIPT% )
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo  sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Installer-Uninstaller.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo  oLink.Arguments = "/C C:\PROGRA~1\Mod-Installer\Installer-Uninstaller.bat" >> %SCRIPT%
+echo  oLink.Arguments = "/C %LocalAppData%\Mod-Installer\Installer-Uninstaller.bat" >> %SCRIPT%
 echo  oLink.IconLocation = "%LocalAppData%\Mod-Installer\Installer.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
-cscript /nologo %SCRIPT%
-del /S /Q %SCRIPT%
+if exist %SCRIPT% ( cscript /nologo %SCRIPT% )
+if exist %SCRIPT% ( del /S /Q %SCRIPT% )
 
 CLS
 echo  Scripts were saved in "%LocalAppData%\Mod-Installer"!
@@ -177,7 +180,7 @@ echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 GOTO if
-IF ERRORLEVEL 1 GOTO l
+IF ERRORLEVEL 1 if exist "%DESKTOP_FOLDER%" ( GOTO l ) else ( GOTO if )
 
 :l
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
@@ -185,26 +188,36 @@ echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo  sLinkFile = "%DESKTOP_FOLDER%\MC-Launcher.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo  oLink.Arguments = "/C C:\PROGRA~1\Mod-Installer\MC-Launcher.bat" >> %SCRIPT%
+echo  oLink.Arguments = "/C %LocalAppData%\Mod-Installer\MC-Launcher.bat" >> %SCRIPT%
 echo  oLink.IconLocation = "%LocalAppData%\Mod-Installer\Launcher.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
-cscript /nologo %SCRIPT%
-del /S /Q %SCRIPT%
+if exist %SCRIPT% ( cscript /nologo %SCRIPT% )
+if exist %SCRIPT% ( del /S /Q %SCRIPT% )
 
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
 echo  sLinkFile = "%DESKTOP_FOLDER%\Mod-Installer.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
-echo  oLink.Arguments = "/C C:\PROGRA~1\Mod-Installer\Mod-Installer.bat" >> %SCRIPT%
+echo  oLink.Arguments = "/C %LocalAppData%\Mod-Installer\Mod-Installer.bat" >> %SCRIPT%
 echo  oLink.IconLocation = "%LocalAppData%\Mod-Installer\Mod-Installer.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
-cscript /nologo %SCRIPT%
-del /S /Q %SCRIPT%
+if exist %SCRIPT% ( cscript /nologo %SCRIPT% )
+if exist %SCRIPT% ( del /S /Q %SCRIPT% )
 GOTO if
 
 :if
+PAUSE
 CLS
+
+if exist "%ProgramFiles%\Mod-Installer" (
+CLS
+echo.
+echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manualy!
+echo.
+Pause
+)
+
 echo  Finished! & Pause & exit /B
 
 :rm
@@ -221,16 +234,26 @@ IF ERRORLEVEL 1 GOTO rmy
 
 :rmy
 CLS
-del /S /Q %appdata%\.minecraft\Donwload.ico
-del /S /Q %appdata%\.minecraft\Installer.ico
-del /S /Q %appdata%\.minecraft\MC-Launcher.bat
-del /S /Q %appdata%\.minecraft\Mod-Installer.bat
-del /Q /Q %appdata%\.minecraft\Installer-Uninstaller.bat
-del /S /Q %DESKTOP_FOLDER%\Mod-Installer.lnk
-del /S /Q %DESKTOP_FOLDER%\MC-Launcher.lnk
-del /S /Q %appdata%\.minecraft\steam.txt
-rmdir /S /Q %appdata%\.minecraft\Mod-Installer
-rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
+
+if exist "%ProgramFiles%\Mod-Installer" (
+CLS
+echo.
+echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manualy!
+echo.
+Pause
+)
+
+if exist %appdata%\.minecraft\Donwload.ico ( del /S /Q %appdata%\.minecraft\Donwload.ico )
+if exist %appdata%\.minecraft\Installer.ico ( del /S /Q %appdata%\.minecraft\Installer.ico )
+if exist %appdata%\.minecraft\MC-Launcher.bat ( del /S /Q %appdata%\.minecraft\MC-Launcher.bat )
+if exist %appdata%\.minecraft\Mod-Installer.bat ( del /S /Q %appdata%\.minecraft\Mod-Installer.bat )
+if exist %appdata%\.minecraft\Installer-Uninstaller.bat ( del /Q /Q %appdata%\.minecraft\Installer-Uninstaller.bat )
+if exist %DESKTOP_FOLDER%\Mod-Installer.lnk ( del /S /Q %DESKTOP_FOLDER%\Mod-Installer.lnk )
+if exist %DESKTOP_FOLDER%\MC-Launcher.lnk ( del /S /Q %DESKTOP_FOLDER%\MC-Launcher.lnk )
+if exist %appdata%\.minecraft\steam.txt ( del /S /Q %appdata%\.minecraft\steam.txt )
+if exist %ProgramFiles%\Mod-Installer\steam.txt ( del /S /Q %ProgramFiles%\Mod-Installer\steam.txt )
+if exist "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer" ( rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer" )
+if exist %appdata%\.minecraft\Mod-Installer ( rmdir /S /Q %appdata%\.minecraft\Mod-Installer )
 
 CLS
 echo.
@@ -244,20 +267,20 @@ echo  1. Yes
 echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%LocalAppData%\Mod-Installer" & exit /B
+IF ERRORLEVEL 2 if exist "%LocalAppData%\Mod-Installer" ( rmdir /S /Q "%LocalAppData%\Mod-Installer" & exit /B ) & exit /B
 IF ERRORLEVEL 1 GOTO rmpb
 exit /B
 
 :rmpb
 CLS
-del /S /Q %appdata%\.minecraft\Profil-*
-del /S /Q %appdata%\.minecraft\Backup.*
+if exist %appdata%\.minecraft\Profil-* ( del /S /Q %appdata%\.minecraft\Profil-* )
+if exist %appdata%\.minecraft\Backup.* ( del /S /Q %appdata%\.minecraft\Backup.* )
 CLS
 echo.
 echo  Finished! Profils and Backups had been removed!
 echo  Accidentally removed? https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat 
 echo. 
-Pause & rmdir /S /Q "%LocalAppData%\Mod-Installer" & exit /B
+Pause & if exist "%LocalAppData%\Mod-Installer" ( rmdir /S /Q "%LocalAppData%\Mod-Installer" & exit /B ) & exit /B
 exit /B
 
 :restart
