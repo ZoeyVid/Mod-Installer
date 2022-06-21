@@ -3,15 +3,6 @@
 set ver=Version 0.0.0
 
 :start
-cd "%LocalAppData%\Mod-Installer"
-curl --ssl-no-revoke -sL -o %0 https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/MC-Launcher.bat
-curl --ssl-no-revoke -sL -o Mod-Installer.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat
-curl --ssl-no-revoke -sL -o Installer-Uninstaller.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat
-
-FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
-  SET "DESKTOP_FOLDER=%%f"
-  )
-
 if not exist "%LocalAppData%\Mod-Installer" (
 CLS
 echo.
@@ -22,10 +13,22 @@ start "" "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Installe
 GOTO end
 )
 
+if exist "%LocalAppData%\Mod-Installer" (
+cd "%LocalAppData%\Mod-Installer"
+curl --ssl-no-revoke -sL -o MC-Launcher.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/MC-Launcher.bat
+curl --ssl-no-revoke -sL -o Mod-Installer.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat
+curl --ssl-no-revoke -sL -o Installer-Uninstaller.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat
+)
+if exist %0 ( curl --ssl-no-revoke -sL -o %0 https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/MC-Launcher.bat )
+
+FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
+  SET "DESKTOP_FOLDER=%%f"
+  )
+
 if exist "%ProgramFiles%\Mod-Installer" (
 CLS
 echo.
-echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder!
+echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manualy!
 echo.
 Pause
 )
@@ -111,7 +114,7 @@ if exist Backup.* (
 del /S /Q Backup.*
 )
 if exist *.tar (
-echo  Your Profiles and the Backup need to be converted from a .tar file to a .zip file
+echo  Your Profiles need to be converted from a .tar file to a .zip file
 echo  Start now?
 Pause
 echo  converting Profiles from .tar to .zip...
@@ -167,12 +170,12 @@ del /S /Q *.tar
 echo  Finished! Now starting the Mod-Installer...
 Pause
 )
-move servers.dat_tmp servers.dat
 
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
 
 C:
+if exist "%appdata%\.minecraft\" (
 cd "%appdata%\.minecraft\"
 CLS
 echo.
@@ -183,14 +186,15 @@ echo  MC-Launcher %ver%
 echo.
 CHOICE /C 123456789 /M " Auswahl: "
 IF ERRORLEVEL 9 GOTO mcl
-IF ERRORLEVEL 8 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-8.zip
-IF ERRORLEVEL 7 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-7.zip
-IF ERRORLEVEL 6 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-6.zip
-IF ERRORLEVEL 5 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-5.zip
-IF ERRORLEVEL 4 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-4.zip
-IF ERRORLEVEL 3 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-3.zip
-IF ERRORLEVEL 2 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-2.zip
-IF ERRORLEVEL 1 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-1.zip
+IF ERRORLEVEL 8 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-8.zip
+IF ERRORLEVEL 7 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-7.zip
+IF ERRORLEVEL 6 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-6.zip
+IF ERRORLEVEL 5 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-5.zip
+IF ERRORLEVEL 4 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-4.zip
+IF ERRORLEVEL 3 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-3.zip
+IF ERRORLEVEL 2 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-2.zip
+IF ERRORLEVEL 1 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-1.zip
+)
 :mcl
 start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
 EXIT /B
