@@ -1,6 +1,6 @@
 @echo off
 
-set ver=Version 5.2
+set ver=Version 0.0.0
 
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
@@ -28,8 +28,8 @@ if '%errorlevel%' NEQ '0' (
 :--------------------------------------
 :start
 cd "%ProgramFiles%\Mod-Installer"
-curl --ssl-no-revoke -sL -o %0 https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/Mod-Installer.bat
-curl --ssl-no-revoke -sL -o MC-Launcher.bat https://raw.githubusercontent.com/SanCraftDev/Mod-Installer/main/MC-Launcher.bat
+curl --ssl-no-revoke -sL -o %0 https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat
+curl --ssl-no-revoke -sL -o MC-Launcher.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/MC-Launcher.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
