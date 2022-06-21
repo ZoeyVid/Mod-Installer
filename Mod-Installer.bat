@@ -3,15 +3,6 @@
 set ver=Version 0.0.0
 
 :start
-cd "%LocalAppData%\Mod-Installer"
-curl --ssl-no-revoke -sL -o %0 https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat
-curl --ssl-no-revoke -sL -o MC-Launcher.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/MC-Launcher.bat
-curl --ssl-no-revoke -sL -o Installer-Uninstaller.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat
-
-FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
-  SET "DESKTOP_FOLDER=%%f"
-  )
-
 if not exist "%LocalAppData%\Mod-Installer" (
 CLS
 echo.
@@ -22,10 +13,22 @@ start "" "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Installe
 GOTO end
 )
 
+if exist "%LocalAppData%\Mod-Installer" (
+cd "%LocalAppData%\Mod-Installer"
+curl --ssl-no-revoke -sL -o MC-Launcher.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/MC-Launcher.bat
+curl --ssl-no-revoke -sL -o Mod-Installer.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat
+curl --ssl-no-revoke -sL -o Installer-Uninstaller.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat
+)
+if exist %0 ( curl --ssl-no-revoke -sL -o %0 https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat )
+
+FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
+  SET "DESKTOP_FOLDER=%%f"
+  )
+
 if exist "%ProgramFiles%\Mod-Installer" (
 CLS
 echo.
-echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder!
+echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manualy!
 echo.
 Pause
 )
@@ -73,10 +76,10 @@ del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
 set l=1.18.2
-set lfl=0.14.7
+set lfl=0.14.8
 set fal=fabric-loader-%lfl%-%l%
-set rpm=2.6.4
-set lwv=v7.22
+set rpm=2.6.5
+set lwv=v7.26
 
 CLS
 C:
@@ -172,12 +175,13 @@ tar xf Profil-8.tar
 tar acf Profil-8.zip mods config\openloader
 echo  Profil-8 converted to a zip file!
 )
+if exist *.tar (
 del /S /Q *.tar
+)
 echo  Finished! Now starting the Mod-Installer...
 Pause
 )
 
-move servers.dat_tmp servers.dat
 CLS
 	echo.
 	echo  Client-Mods/Modpack Versions:
@@ -251,12 +255,18 @@ echo  Installation starting...
 C:
 cd %appdata%\.minecraft
 CLS
+if exist mods (
 rmdir /S /Q mods
+)
 tar xf mods.zip
+if exist mods.zip (
 del /S /Q mods.zip
+)
 curl --ssl-no-revoke -sL -o fabric.jar https://dl.scdmx.de/fa
+if exist fabric.jar (
 java -jar fabric.jar client -mcversion %l% -loader %lfl%
 del /S /Q fabric.jar
+)
 GOTO mif
 
 :whc
@@ -283,8 +293,10 @@ C:
 cd %appdata%\.minecraft
 CLS
 curl --ssl-no-revoke -sL -o fabric.jar https://dl.scdmx.de/fa
+if exist fabric.jar (
 java -jar fabric.jar
 del /S /Q fabric.jar
+)
 GOTO mif
 
 :iris
@@ -293,8 +305,10 @@ C:
 cd %appdata%\.minecraft
 CLS
 curl --ssl-no-revoke -sL -o iris.jar https://dl.scdmx.de/iris
+if exist iris.jar (
 java -jar iris.jar
 del /S /Q iris.jar
+)
 GOTO mif
 
 :ess
@@ -303,9 +317,13 @@ C:
 cd %appdata%\.minecraft
 CLS
 curl --ssl-no-revoke -sL -o essential-installer.exe https://dl.scdmx.de/ess
+if exist essential-installer.exe (
 start essential-installer.exe
+)
 Pause
+if exist essential-installer.exe (
 del /S /Q essential-installer.exe
+)
 GOTO mif
 
 :of
@@ -334,11 +352,13 @@ echo  k) 1.15.2
 echo  l) 1.16.5
 echo  m) 1.17.1
 echo  n) 1.18.2
+echo  o) 1.19
 echo.
 CHOICE /C abcdefghijklmno /M " Selection: "
+IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://dl.scdmx.de/fo/1.19
 IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://dl.scdmx.de/fo/1.18
 IF ERRORLEVEL 20 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.1.1/forge-1.17.1-37.1.1-installer.jar
-IF ERRORLEVEL 19 curl --ssl-no-revoke -sL -o forge.jar https://dl.scdmx.de/fo/1.16
+IF ERRORLEVEL 19 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.2.35/forge-1.16.5-36.2.35-installer.jar
 IF ERRORLEVEL 12 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.2-31.2.56/forge-1.15.2-31.2.56-installer.jar
 IF ERRORLEVEL 11 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.25/forge-1.14.4-28.2.25-installer.jar
 IF ERRORLEVEL 10 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.3-27.0.60/forge-1.14.3-27.0.60-installer.jar
@@ -350,12 +370,16 @@ IF ERRORLEVEL 5 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftfor
 IF ERRORLEVEL 4 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
 IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
-IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o forge.jar https://dl.scdmx.de/fo/latest
+IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o forge.jar https://dl.scdmx.de/fo/1.19
 echo  In the next step a window will open automatically, just click on "OK"!
 Pause
+if exist forge.jar (
 java -jar forge.jar
 del /S /Q forge.jar
+)
+if exist forge.jar.log (
 del /S /Q forge.jar.log
+)
 GOTO mif
 
 :mif
@@ -391,7 +415,7 @@ echo.
 CHOICE /C 123456 /M " Selection: "
 IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO restart
-IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads/
+IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads
 IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o Xray.zip https://media.forgecdn.net/files/3763/778/Xray_Ultimate_1.18_v4.2.1.zip
 IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/xnebulr/Minecraft-Default-Dark-Mode/releases/download/v1.3.3/Default-Dark-Mode-1.18-v1.3.3.zip
 IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o pumpkin.zip https://dl.scdmx.de/mp/pumpkin.zip
@@ -434,14 +458,14 @@ echo.
 echo  Which profile do you want to delete?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 del /S /Q Profil-8.zip
-IF ERRORLEVEL 7 del /S /Q Profil-7.zip
-IF ERRORLEVEL 6 del /S /Q Profil-6.zip
-IF ERRORLEVEL 5 del /S /Q Profil-5.zip
-IF ERRORLEVEL 4 del /S /Q Profil-4.zip
-IF ERRORLEVEL 3 del /S /Q Profil-3.zip
-IF ERRORLEVEL 2 del /S /Q Profil-2.zip
-IF ERRORLEVEL 1 del /S /Q Profil-1.zip
+IF ERRORLEVEL 8 if exist Profil-8.zip ( del /S /Q Profil-8.zip )
+IF ERRORLEVEL 7 if exist Profil-7.zip ( del /S /Q Profil-7.zip )
+IF ERRORLEVEL 6 if exist Profil-6.zip ( del /S /Q Profil-6.zip )
+IF ERRORLEVEL 5 if exist Profil-5.zip ( del /S /Q Profil-5.zip )
+IF ERRORLEVEL 4 if exist Profil-4.zip ( del /S /Q Profil-4.zip )
+IF ERRORLEVEL 3 if exist Profil-3.zip ( del /S /Q Profil-3.zip )
+IF ERRORLEVEL 2 if exist Profil-2.zip ( del /S /Q Profil-2.zip )
+IF ERRORLEVEL 1 if exist Profil-1.zip ( del /S /Q Profil-1.zip )
 GOTO pbf
 
 :pl
@@ -450,14 +474,14 @@ echo.
 echo  Which profile do you want to load?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-8.zip
-IF ERRORLEVEL 7 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-7.zip
-IF ERRORLEVEL 6 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-6.zip
-IF ERRORLEVEL 5 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-5.zip
-IF ERRORLEVEL 4 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-4.zip
-IF ERRORLEVEL 3 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-3.zip
-IF ERRORLEVEL 2 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-2.zip
-IF ERRORLEVEL 1 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-1.zip
+IF ERRORLEVEL 8 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-8.zip
+IF ERRORLEVEL 7 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-7.zip
+IF ERRORLEVEL 6 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-6.zip
+IF ERRORLEVEL 5 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-5.zip
+IF ERRORLEVEL 4 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-4.zip
+IF ERRORLEVEL 3 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-3.zip
+IF ERRORLEVEL 2 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-2.zip
+IF ERRORLEVEL 1 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-1.zip
 echo  Loaded!
 
 echo  1. Restart Mod-Installer
@@ -509,30 +533,36 @@ echo.
 echo  Which profile do you want to update (the profile is loaded so that all configs are adopted)?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-8.zip & set P=8
-IF ERRORLEVEL 7 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-7.zip & set P=7
-IF ERRORLEVEL 6 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-6.zip & set P=6
-IF ERRORLEVEL 5 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-5.zip & set P=5
-IF ERRORLEVEL 4 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-4.zip & set P=4
-IF ERRORLEVEL 3 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-3.zip & set P=3
-IF ERRORLEVEL 2 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-2.zip & set P=2
-IF ERRORLEVEL 1 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-1.zip & set P=1
+IF ERRORLEVEL 8 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-8.zip & set P=8
+IF ERRORLEVEL 7 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-7.zip & set P=7
+IF ERRORLEVEL 6 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-6.zip & set P=6
+IF ERRORLEVEL 5 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-5.zip & set P=5
+IF ERRORLEVEL 4 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-4.zip & set P=4
+IF ERRORLEVEL 3 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-3.zip & set P=3
+IF ERRORLEVEL 2 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-2.zip & set P=2
+IF ERRORLEVEL 1 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-1.zip & set P=1
 cd "%appdata%\.minecraft\mods\"
 if exist Update.bat (
   move Update.bat "%appdata%\.minecraft\"
   cd "%appdata%\.minecraft\"
   CLS
-  Update.bat
+  if exist Update.bat ( Update.bat )
   CLS
   tar acf Profil-%P%.zip mods config\openloader
+  if exist "%appdata%\.minecraft\fabric.jar" (
   del /S /Q "%appdata%\.minecraft\fabric.jar"
+  )
+  if exist "%appdata%\.minecraft\fabric.bat" (
   del /S /Q "%appdata%\.minecraft\fabric.bat"
+  )
+  if exist "%appdata%\.minecraft\Update.bat" (
   del /S /Q "%appdata%\.minecraft\Update.bat"
+  )
   CLS
   echo.
   echo  Update finished! - Profil %P%
   echo  Restart Installer...
-  start %ComSpec% /C %0
+  start "" %ComSpec% /C %0
   Pause
   Exit /B
 ) else (
@@ -565,73 +595,80 @@ IF ERRORLEVEL 1 GOTO end
 cd "%appdata%\.minecraft"
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
-rmdir /S /Q "%appdata%\.iris-installer"
-rmdir /S /Q .icons
-rmdir /S /Q .mixin.out
-rmdir /S /Q .replay_cache
-rmdir /S /Q .fabric
-rmdir /S /Q ViaForge
-rmdir /S /Q assets
-rmdir /S /Q bettergamemenu
-rmdir /S /Q craftpresence
-rmdir /S /Q crash-reports
-rmdir /S /Q defaultconfigs
-rmdir /S /Q logs
-rmdir /S /Q ModTranslations
-rmdir /S /Q not-enough-crashes
-rmdir /S /Q server-resource-packs
-rmdir /S /Q bin
-rmdir /S /Q cachedImages
-rmdir /S /Q libraries
-rmdir /S /Q webcache2
-rmdir /S /Q debug
-rmdir /S /Q libraries 
-rmdir /S /Q stats
-rmdir /S /Q texturepacks-mp-cache
-rmdir /S /Q webcache
-rmdir /S /Q dashloader-cache
-move XaeroWaypoints_BACKUP* XWP
-for /d %%a in (XaeroWaypoints_BACKUP*) do move "%%~fa" XWP
-rmdir /S /Q XWP
-del /S /Q "essential\Essential (*"
-del /S /Q versions\version_manifest_v2*
-del /S /Q versions\cache.dat
-del /S /Q betterfps.txt
-del /S /Q clientId.txt
-del /S /Q deaths.dat
-del /S /Q servers.dat_old
-del /S /Q textures_*.png
-del /S /Q updateLog.txt
-del /S /Q usercache*
-del /S /Q usernamecache*
-del /S /Q launcher_log.txt
-del /S /Q level.dat
-del /S /Q realms_persistence*
-del /S /Q launcher_cef_log.txt
-del /S /Q output-server.log
-del /S /Q output-client.log
-del /S /Q debug.stitched_items.png
-del /S /Q debug.stitched_terrain.png
-del /S /Q hotbar.nbt
-del /S /Q lastlogin
-del /S /Q resourcepacks*
-del /S /Q treatment_tags*
-del /S /Q hs_err_pid*
-del /S /Q options.amecsapi.txt
-del /S /Q launcher_ui_state*
-del /S /Q launcher_gamer_pics*
-del /S /Q launcher_entitlements*
-del /S /Q .iasx
-del /S /Q .iasp
-del /S /Q .iasms_v2
-del /S /Q launcher_accounts.*
-del /S /Q launcher_msa_credentials.*
-del /S /Q launcher_ui_state.*
-del /S /Q imgui.ini
-del /S /Q BTLib.dll
-del /S /Q vanguard-uninstaller.log
-del /S /Q cosmetica_website_host_cache.txt
-del /S /Q cosmetica_get_api_cache.json
+if exist .iris-installer ( rmdir /S /Q .iris-installer )
+if exist .icons ( rmdir /S /Q .icons )
+if exist .mixin.out ( rmdir /S /Q .mixin.out )
+if exist .replay_cache ( rmdir /S /Q .replay_cache )
+if exist .fabric ( rmdir /S /Q .fabric )
+if exist ViaForge ( rmdir /S /Q ViaForge )
+if exist assets ( rmdir /S /Q assets )
+if exist bettergamemenu ( rmdir /S /Q bettergamemenu )
+if exist craftpresence ( rmdir /S /Q craftpresence )
+if exist crash-reports ( rmdir /S /Q crash-reports )
+if exist defaultconfigs ( rmdir /S /Q defaultconfigs )
+if exist logs ( rmdir /S /Q logs )
+if exist chatlogs ( rmdir /S /Q chatlogs )
+if exist ModTranslations ( rmdir /S /Q ModTranslations )
+if exist not-enough-crashes ( rmdir /S /Q not-enough-crashes )
+if exist server-resource-packs ( rmdir /S /Q server-resource-packs )
+if exist bin ( rmdir /S /Q bin )
+if exist cachedImages ( rmdir /S /Q cachedImages )
+if exist libraries ( rmdir /S /Q libraries )
+if exist webcache2 ( rmdir /S /Q webcache2 )
+if exist debug ( rmdir /S /Q debug )
+if exist stats ( rmdir /S /Q stats )
+if exist texturepacks-mp-cache ( rmdir /S /Q texturepacks-mp-cache )
+if exist webcache ( rmdir /S /Q webcache )
+if exist XWP ( rmdir /S /Q XWP )
+if exist XWPB ( rmdir /S /Q XWPB )
+if exist dashloader-cache ( rmdir /S /Q dashloader-cache )
+if exist XaeroWaypoints_BACKUP* ( for /f %i in ('dir /a:d /s /b XaeroWaypoints_BACKUP*') do rmdir /s /q %i )
+if exist "essential\Essential (*" ( del /S /Q "essential\Essential (*" )
+if exist versions\version_manifest_v2* ( del /S /Q versions\version_manifest_v2* )
+if exist versions\cache.dat ( del /S /Q versions\cache.dat )
+if exist betterfps.txt ( del /S /Q betterfps.txt )
+if exist clientId.txt ( del /S /Q clientId.txt )
+if exist deaths.dat ( del /S /Q deaths.dat )
+if exist servers.dat_old ( del /S /Q servers.dat_old )
+if exist textures_*.png ( del /S /Q textures_*.png )
+if exist updateLog.txt ( del /S /Q updateLog.txt )
+if exist usercache* ( del /S /Q usercache* )
+if exist usernamecache* ( del /S /Q usernamecache* )
+if exist launcher_log.txt ( del /S /Q launcher_log.txt )
+if exist level.dat ( del /S /Q level.dat )
+if exist realms_persistence* ( del /S /Q realms_persistence* )
+if exist launcher_cef_log.txt ( del /S /Q launcher_cef_log.txt )
+if exist output-server.log ( del /S /Q output-server.log )
+if exist output-client.log ( del /S /Q output-client.log )
+if exist debug.stitched_items.png ( del /S /Q debug.stitched_items.png )
+if exist debug.stitched_terrain.png ( del /S /Q debug.stitched_terrain.png )
+if exist lastlogin ( del /S /Q lastlogin )
+if exist resourcepacks* ( del /S /Q resourcepacks* )
+if exist treatment_tags* ( del /S /Q treatment_tags* )
+if exist hs_err_pid* ( del /S /Q hs_err_pid* )
+if exist options.amecsapi.txt ( del /S /Q options.amecsapi.txt )
+if exist launcher_ui_state* ( del /S /Q launcher_ui_state* )
+if exist launcher_gamer_pics* ( del /S /Q launcher_gamer_pics* )
+if exist launcher_entitlements* ( del /S /Q launcher_entitlements* )
+if exist launcher_product_state_microsoft_store.json ( del /S /Q launcher_product_state_microsoft_store.json )
+if exist .iasx ( del /S /Q .iasx )
+if exist .iasp ( del /S /Q .iasp )
+if exist .iasms_v2 ( del /S /Q .iasms_v2 )
+if exist launcher_accounts.* ( del /S /Q launcher_accounts.* )
+if exist launcher_msa_credentials.* ( del /S /Q launcher_msa_credentials.* )
+if exist launcher_ui_state.* ( del /S /Q launcher_ui_state.* )
+if exist imgui.ini ( del /S /Q imgui.ini )
+if exist vanguard-uninstaller.log ( del /S /Q vanguard-uninstaller.log )
+if exist cosmetica_website_host_cache.txt ( del /S /Q cosmetica_website_host_cache.txt )
+if exist cosmetica_get_api_cache.json ( del /S /Q cosmetica_get_api_cache.json )
+if exist *.pins ( del /S /Q *.pins )
+if exist *.bak ( del /S /Q *.bak )
+if exist *.bat ( del /S /Q *.bat )
+if exist *.dll ( del /S /Q *.dll )
+if exist *.bin ( del /S /Q *.bin )
+if exist *.exe ( del /S /Q *.exe )
+if exist *.jar ( del /S /Q *.jar )
+if exist *.log ( del /S /Q *.log )
 
 if exist "%appdata%\.minecraft\wurst" (
 echo.
@@ -641,7 +678,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\wurst"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\wurst" ( rmdir /S /Q "%appdata%\.minecraft\wurst" )
 IF ERRORLEVEL 1 echo OK, Happy Hacking/Cheating!
 )
 if exist "%appdata%\.minecraft\XaeroWaypoints" (
@@ -652,7 +689,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\XaeroWaypoints"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\XaeroWaypoints" ( rmdir /S /Q "%appdata%\.minecraft\XaeroWaypoints" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\XaeroWorldMap" (
@@ -663,7 +700,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\XaeroWorldMap"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\XaeroWorldMap" ( rmdir /S /Q "%appdata%\.minecraft\XaeroWorldMap" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\speedrunigt" (
@@ -674,7 +711,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\speedrunigt"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\speedrunigt" ( rmdir /S /Q "%appdata%\.minecraft\speedrunigt" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\bettercommandblock_script" (
@@ -685,7 +722,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\bettercommandblock_script"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\bettercommandblock_script" ( rmdir /S /Q "%appdata%\.minecraft\bettercommandblock_script" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\replay_recordings" (
@@ -696,7 +733,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\replay_recordings"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\replay_recordings" ( rmdir /S /Q "%appdata%\.minecraft\replay_recordings" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\backups" (
@@ -707,7 +744,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\backups"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\backups" ( rmdir /S /Q "%appdata%\.minecraft\backups" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\saves" (
@@ -718,7 +755,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\saves"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\saves" ( rmdir /S /Q "%appdata%\.minecraft\saves" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\shaderpacks" (
@@ -729,7 +766,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\shaderpacks"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\shaderpacks" ( rmdir /S /Q "%appdata%\.minecraft\shaderpacks" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\resourcepacks" (
@@ -740,7 +777,18 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\resourcepacks"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\resourcepacks" ( rmdir /S /Q "%appdata%\.minecraft\resourcepacks" )
+IF ERRORLEVEL 1 echo OK!
+)
+if exist "%appdata%\.minecraft\datapacks" (
+echo.
+echo  Do you want to delete ALL your datapacks?
+echo.
+echo  1. No
+echo  2. Yes
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\datapacks" ( rmdir /S /Q "%appdata%\.minecraft\datapacks" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\config" (
@@ -751,7 +799,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\config"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\config" ( rmdir /S /Q "%appdata%\.minecraft\config" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\mods" (
@@ -762,7 +810,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\mods"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\mods" ( rmdir /S /Q "%appdata%\.minecraft\mods" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\servers.dat" (
@@ -773,7 +821,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\servers.*"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\servers.*" ( del /S /Q "%appdata%\.minecraft\servers.*" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\options.txt" (
@@ -784,7 +832,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\options*"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\options*" ( del /S /Q "%appdata%\.minecraft\options*" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\screenshots" (
@@ -795,7 +843,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\screenshots"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\screenshots" ( rmdir /S /Q "%appdata%\.minecraft\screenshots" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\hotbar.nbt" (
@@ -806,7 +854,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\hotbar.nbt"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\hotbar.nbt" ( del /S /Q "%appdata%\.minecraft\hotbar.nbt"
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\essential" (
@@ -817,7 +865,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\essential"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\essential" ( rmdir /S /Q "%appdata%\.minecraft\essential" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\cosmetics" (
@@ -828,7 +876,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\cosmetics"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\cosmetics" ( rmdir /S /Q "%appdata%\.minecraft\cosmetics" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\the5zigmod" (
@@ -839,7 +887,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\the5zigmod"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\the5zigmod" ( rmdir /S /Q "%appdata%\.minecraft\the5zigmod" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\CustomSkinLoader" (
@@ -850,7 +898,7 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%appdata%\.minecraft\CustomSkinLoader"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\CustomSkinLoader" ( rmdir /S /Q "%appdata%\.minecraft\CustomSkinLoader" )
 IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\playtimes.txt" (
@@ -861,9 +909,10 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\playtimes.txt"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\playtimes.txt" ( del /S /Q "%appdata%\.minecraft\playtimes.txt" )
 IF ERRORLEVEL 1 echo OK!
 )
+if exist "%appdata%\.minecraft\launcher_settings*" (
 echo.
 echo  Do you want to delete your launcher settings?
 echo.
@@ -871,9 +920,10 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_settings*"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\launcher_settings*" ( del /S /Q "%appdata%\.minecraft\launcher_settings*" )
 IF ERRORLEVEL 1 echo OK!
-
+)
+if exist "%appdata%\.minecraft\launcher_skins*" (
 echo.
 echo  Do you want to delete your skins?
 echo.
@@ -881,9 +931,10 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_skins*"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\launcher_skins*" ( del /S /Q "%appdata%\.minecraft\launcher_skins*" )
 IF ERRORLEVEL 1 echo OK!
-
+)
+if exist "%appdata%\.minecraft\launcher_accounts*" (
 echo.
 echo  Do you want to LOGOUT from EVERY account in your minecraft launcher?
 echo.
@@ -891,9 +942,21 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_accounts*" & del /S /Q "%appdata%\.minecraft\launcher_msa_credentials*"
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\launcher_accounts*" ( del /S /Q "%appdata%\.minecraft\launcher_accounts*" )
 IF ERRORLEVEL 1 echo OK!
-
+)
+if exist "%appdata%\.minecraft\launcher_msa_credentials*" (
+echo.
+echo  Do you want to delte your login data?
+echo.
+echo  1. No
+echo  2. Yes
+echo.
+CHOICE /C 12 /M " Selection: "
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\launcher_msa_credentials*" ( del /S /Q "%appdata%\.minecraft\launcher_msa_credentials*" )
+IF ERRORLEVEL 1 echo OK!
+)
+if exist "%appdata%\.minecraft\launcher_profiles.json" (
 echo.
 echo  Do you want to delete all your launcher profiles, only vanila %l% will be kept?
 echo.
@@ -901,9 +964,9 @@ echo  1. No
 echo  2. Yes
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 del /S /Q "%appdata%\.minecraft\launcher_profiles.json" & copy /y NUL launcher_profiles.json >NUL
+IF ERRORLEVEL 2 if exist "%appdata%\.minecraft\launcher_profiles.json" ( del /S /Q "%appdata%\.minecraft\launcher_profiles.json" )
 IF ERRORLEVEL 1 echo OK!
-
+)
 echo.
 echo  Do you want to delete old Minecraft Versions and Snapshots? - only latest %l%-vanila/fabric will be kept
 echo.
@@ -915,14 +978,14 @@ IF ERRORLEVEL 2 GOTO c1
 IF ERRORLEVEL 1 GOTO c2
 
 :c1
-mkdir tmp
+if not exist tmp ( mkdir tmp )
 move versions\%l% tmp
 move versions\%fal% tmp
-rmdir /S /Q versions
-mkdir versions
+if exist versions ( rmdir /S /Q versions )
+if not exist versions ( mkdir versions )
 move tmp\%l% versions
 move tmp\%fal% versions
-rmdir /S /Q tmp
+if exist tmp ( rmdir /S /Q tmp )
 
 :c2
 CLS
@@ -941,47 +1004,45 @@ CLS
 echo.
 echo  First you need Terraria on steam
 Pause 
-start steam://install/105600
+start "" steam://install/105600
 Pause
 echo.
 echo  Then you need to install this - and enter some values of the install location:
 Pause
-start steam://install/1281930
+start "" steam://install/1281930
 set /P il=Enter the tModLoader Install Location, which you did selected (for example D:\SteamLibrary or C:\Program Files (x86)\Steam): 
 set /P ip=Enter the tModLoader Install Partion, which you did selected  (for example C oder D oder E...): 
 %ip%:
 cd "%il%\steamapps\common\tModLoader"
-curl --ssl-no-revoke -L -o vulkan.zip https://github.com/Dradonhunter11/tModLoader64bit/releases/latest/download/tmodloader_x64_vulkan.zip
-tar -xf vulkan.zip
-del /S /Q vulkan.zip
-curl --ssl-no-revoke -L -o tml64.zip https://github.com/Dradonhunter11/tModLoader64bit/releases/latest/download/tModLoader64bit-Windows.zip
-tar -xf tml64.zip
-del /S /Q tml64.zip
+curl --ssl-no-revoke -L https://github.com/Dradonhunter11/tModLoader64bit/releases/latest/download/tmodloader_x64_vulkan.zip | tar xf -
+curl --ssl-no-revoke -L https://github.com/Dradonhunter11/tModLoader64bit/releases/latest/download/tModLoader64bit-Windows.zip | tar xf -
 move .\tModLoader64bit-Windows\* .\
+if exist tModLoader64bit-Windows (
 rmdir /S /Q tModLoader64bit-Windows
+)
 Pause
 echo. 
 echo tModLoader64Bit is now installed, now let us add it to steam:
 echo First add this: "%il%\steamapps\common\tModLoader\tModLoader64Bit.exe" as an non Steam to Steam in the following Window.
 echo To add it you need to press the "Browse" Button and enter "%il%\steamapps\common\tModLoader\tModLoader64Bit.exe" in the explorer
-start steam://AddNonSteamGame
+start "" steam://AddNonSteamGame
 Pause
 echo.
 echo Now we Start Steam and you create an Shortcut (right click it, press manage and then create it) for tModLoader64
-start steam://nav/games
+start "" steam://nav/games
 Pause
 echo. 
 echo Created?
 Pause
 echo. 
-mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Steam"
-xcopy %DESKTOP_FOLDER%\tModLoader64Bit.url "%appdata%\Microsoft\Windows\Start Menu\Programs\Steam"
+if not exist "%appdata%\Microsoft\Windows\Start Menu\Programs\Steam" ( mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Steam" )
+if exist %DESKTOP_FOLDER%\tModLoader64Bit.url ( xcopy %DESKTOP_FOLDER%\tModLoader64Bit.url "%appdata%\Microsoft\Windows\Start Menu\Programs\Steam" )
 echo  Do you want to keep the desktop Shortcut?
 echo  1. Yes
 echo  2. No
 CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
-IF ERRORLEVEL 1 del /S /Q %DESKTOP_FOLDER%\tModLoader64Bit.url
+IF ERRORLEVEL 1 if exist %DESKTOP_FOLDER%\tModLoader64Bit.url ( del /S /Q %DESKTOP_FOLDER%\tModLoader64Bit.url )
 echo.
 echo Finisched!
 echo.
@@ -1008,7 +1069,7 @@ IF ERRORLEVEL 2 GOTO end
 IF ERRORLEVEL 1 GOTO restart
 
 :restart
-start %ComSpec% /C %0
+start "" %ComSpec% /C %0
 EXIT /B
 
 :end
