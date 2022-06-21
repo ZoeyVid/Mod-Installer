@@ -70,6 +70,15 @@ set lwv=v7.22
 
 CLS
 C:
+
+    where winget >nul 2>nul
+    if %errorlevel%==1 (
+        echo.
+        echo  winget not found! Please check how you can install winget on your system!
+        Pause
+        exit
+)
+
     where java >nul 2>nul
     if %errorlevel%==1 (    
 	echo.
@@ -79,6 +88,7 @@ C:
 	winget install -e --id Amazon.Corretto.17
 	GOTO restart
 )
+
 if not exist "%appdata%\.minecraft" (
     CLS
     echo  .minecraft folder not at the usual path or not available.
