@@ -68,13 +68,21 @@ IF ERRORLEVEL 1 echo  Aborting... & pause & EXIT /B
 
 :s
 CLS
-echo  Please check now if theese two requirements are installed and up to date:
+
+    where winget >nul 2>nul
+    if %errorlevel%==1 (
+        echo.
+        echo  winget not found! Please check how you can install winegt on your system!
+        Pause
+        exit
+)
+
+echo  Please install now the Minecraft-Launcher:
 Pause
 start "" ms-windows-store://pdp/?ProductId=9pgw18npbzv5
-Pause
-start "" ms-windows-store://pdp/?ProductId=9nblggh4nns1
 CLS
 C:
+
     where java >nul 2>nul
     if %errorlevel%==1 (    
 	echo.
@@ -84,6 +92,7 @@ C:
 	winget install -e --id Amazon.Corretto.17
 	GOTO restart
 )
+
 if not exist "%appdata%\.minecraft" (
     CLS
     echo  .minecraft folder not at the usual path or not available.
@@ -98,6 +107,7 @@ if not exist "%appdata%\.minecraft" (
     TASKKILL /T /F /IM Minecraft.exe
 	GOTO restart
 )
+
 cd "%appdata%\.minecraft"
 move servers.dat_tmp servers.dat
 CLS
