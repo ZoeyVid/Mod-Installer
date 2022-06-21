@@ -72,7 +72,7 @@ CLS
     where winget >nul 2>nul
     if %errorlevel%==1 (
         echo.
-        echo  winget not found! Please check how you can install winegt on your system!
+        echo  winget not found! Please check how you can install winget on your system!
         Pause
         exit
 )
