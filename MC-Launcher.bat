@@ -29,6 +29,28 @@ echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder!
 echo.
 Pause
 )
+  
+if exist  "%appdata%\.minecraft\Donwload.ico" (
+del /S /Q "%appdata%\.minecraft\Donwload.ico"
+)
+if exist  "%appdata%\.minecraft\Installer.ico" (
+del /S /Q "%appdata%\.minecraft\Installer.ico"
+)
+if exist  "%appdata%\.minecraft\MC-Launcher.bat" (
+del /S /Q "%appdata%\.minecraft\MC-Launcher.bat"
+)
+if exist  "%appdata%\.minecraft\Mod-Installer.bat" (
+del /S /Q "%appdata%\.minecraft\Mod-Installer.bat"
+)
+if exist  "%appdata%\.minecraft\Installer-Uninstaller.bat" (
+del /Q /Q "%appdata%\.minecraft\Installer-Uninstaller.bat"
+)
+if exist  "%appdata%\.minecraft\steam.txt" (
+del /S /Q "%appdata%\.minecraft\steam.txt"
+)
+if exist  "%ProgramFiles%\Mod-Installer\steam.txt" (
+del /S /Q "%ProgramFiles%\Mod-Installer\steam.txt"
+)
 
 if exist "%appdata%\.minecraft\fabric.jar" (
 del /S /Q "%appdata%\.minecraft\fabric.jar"
