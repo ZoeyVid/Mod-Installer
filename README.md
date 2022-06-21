@@ -10,8 +10,7 @@ Feel free to leave feedback, bugs and suggestions in the [issues!](https://githu
 
 ### Requirements:
  - Windows 10 or 11 Device with an Internet connection, a Microsoft Account connected to the Microsoft Store and administrator permissions on your device
- - [App-Installer installed](ms-windows-store://pdp/?ProductId=9nblggh4nns1)
- - [Minecraft Launcher Installed](ms-windows-store://pdp/?ProductId=9pgw18npbzv5)
+ - [Winget](https://docs.microsoft.com/de-de/windows/package-manager/winget/)
  
 If you want to use a Controller in Minecraft, install Steam and Setup a Desktop Controller Configuration, it will work in Minecraft
 
