@@ -3,9 +3,33 @@
 set ver=Version 0.0.0
 
 :start
+cd "%LocalAppData%\Mod-Installer"
+curl --ssl-no-revoke -sL -o %0 https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/MC-Launcher.bat
+curl --ssl-no-revoke -sL -o Mod-Installer.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat
+curl --ssl-no-revoke -sL -o Installer-Uninstaller.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat
+
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
+
+if not exist "%LocalAppData%\Mod-Installer" (
+CLS
+echo.
+echo  You need to reinstall the Mod-Installer!
+echo.
+Pause
+start "" "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Installer-Uninstaller.lnk"
+GOTO end
+)
+
+if exist "%ProgramFiles%\Mod-Installer" (
+CLS
+echo.
+echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder!
+echo.
+Pause
+)
+
 if exist "%appdata%\.minecraft\fabric.jar" (
 del /S /Q "%appdata%\.minecraft\fabric.jar"
 )

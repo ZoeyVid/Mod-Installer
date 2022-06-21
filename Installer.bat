@@ -2,30 +2,6 @@
 
 set ver=Version 0.0.0
 
-    IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
->nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
-) ELSE (
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-)
-
-if '%errorlevel%' NEQ '0' (
-    echo Requesting administrative privileges...
-    goto UACPrompt
-) else ( goto gotAdmin )
-
-:UACPrompt
-    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
-    set params= %*
-    echo UAC.ShellExecute "cmd.exe", "/c ""%~s0"" %params:"=""%", "", "runas", 1 >> "%temp%\getadmin.vbs"
-
-    "%temp%\getadmin.vbs"
-    del "%temp%\getadmin.vbs"
-    exit /B
-
-:gotAdmin
-    pushd "%CD%"
-    CD /D "%~dp0"
-:--------------------------------------
 :start
 curl --ssl-no-revoke -sL -o %0 https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
@@ -148,8 +124,8 @@ del /S /Q %ProgramFiles%\Mod-Installer\steam.txt
 rmdir /S /Q "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 rmdir /S /Q %appdata%\.minecraft\Mod-Installer
 
-mkdir "%ProgramFiles%\Mod-Installer"
-cd "%ProgramFiles%\Mod-Installer"
+mkdir "%LocalAppData%\Mod-Installer"
+cd "%LocalAppData%\Mod-Installer"
 curl --ssl-no-revoke -L -o Mod-Installer.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat
 curl --ssl-no-revoke -L -o MC-Launcher.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/MC-Launcher.bat
 curl --ssl-no-revoke -L -o Installer-Uninstaller.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat
@@ -165,7 +141,7 @@ echo  sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo  oLink.Arguments = "/C C:\PROGRA~1\Mod-Installer\MC-Launcher.bat" >> %SCRIPT%
-echo  oLink.IconLocation = "%ProgramFiles%\Mod-Installer\Launcher.ico" >> %SCRIPT%
+echo  oLink.IconLocation = "%LocalAppData%\Mod-Installer\Launcher.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
@@ -176,7 +152,7 @@ echo  sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo  oLink.Arguments = "/C C:\PROGRA~1\Mod-Installer\Mod-Installer.bat" >> %SCRIPT%
-echo  oLink.IconLocation = "%ProgramFiles%\Mod-Installer\Mod-Installer.ico" >> %SCRIPT%
+echo  oLink.IconLocation = "%LocalAppData%\Mod-Installer\Mod-Installer.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
@@ -187,13 +163,13 @@ echo  sLinkFile = "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo  oLink.Arguments = "/C C:\PROGRA~1\Mod-Installer\Installer-Uninstaller.bat" >> %SCRIPT%
-echo  oLink.IconLocation = "%ProgramFiles%\Mod-Installer\Installer.ico" >> %SCRIPT%
+echo  oLink.IconLocation = "%LocalAppData%\Mod-Installer\Installer.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
 
 CLS
-echo  Scripts were saved in "%ProgramFiles%\Mod-Installer"!
+echo  Scripts were saved in "%LocalAppData%\Mod-Installer"!
 echo  Create desktop shortcuts?
 echo.
 echo  1. Yes
@@ -210,7 +186,7 @@ echo  sLinkFile = "%DESKTOP_FOLDER%\MC-Launcher.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo  oLink.Arguments = "/C C:\PROGRA~1\Mod-Installer\MC-Launcher.bat" >> %SCRIPT%
-echo  oLink.IconLocation = "%ProgramFiles%\Mod-Installer\Launcher.ico" >> %SCRIPT%
+echo  oLink.IconLocation = "%LocalAppData%\Mod-Installer\Launcher.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
@@ -221,7 +197,7 @@ echo  sLinkFile = "%DESKTOP_FOLDER%\Mod-Installer.lnk" >> %SCRIPT%
 echo  Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo  oLink.TargetPath = "%windir%\system32\cmd.exe" >> %SCRIPT%
 echo  oLink.Arguments = "/C C:\PROGRA~1\Mod-Installer\Mod-Installer.bat" >> %SCRIPT%
-echo  oLink.IconLocation = "%ProgramFiles%\Mod-Installer\Mod-Installer.ico" >> %SCRIPT%
+echo  oLink.IconLocation = "%LocalAppData%\Mod-Installer\Mod-Installer.ico" >> %SCRIPT%
 echo  oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del /S /Q %SCRIPT%
@@ -268,7 +244,7 @@ echo  1. Yes
 echo  2. No
 echo.
 CHOICE /C 12 /M " Selection: "
-IF ERRORLEVEL 2 rmdir /S /Q "%ProgramFiles%\Mod-Installer" & exit /B
+IF ERRORLEVEL 2 rmdir /S /Q "%LocalAppData%\Mod-Installer" & exit /B
 IF ERRORLEVEL 1 GOTO rmpb
 exit /B
 
@@ -281,7 +257,7 @@ echo.
 echo  Finished! Profils and Backups had been removed!
 echo  Accidentally removed? https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat 
 echo. 
-Pause & rmdir /S /Q "%ProgramFiles%\Mod-Installer" & exit /B
+Pause & rmdir /S /Q "%LocalAppData%\Mod-Installer" & exit /B
 exit /B
 
 :restart

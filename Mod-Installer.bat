@@ -2,45 +2,32 @@
 
 set ver=Version 0.0.0
 
-    IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
->nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
-) ELSE (
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-)
-
-if '%errorlevel%' NEQ '0' (
-    echo Requesting administrative privileges...
-    goto UACPrompt
-) else ( goto gotAdmin )
-
-:UACPrompt
-    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
-    set params= %*
-    echo UAC.ShellExecute "cmd.exe", "/c ""%~s0"" %params:"=""%", "", "runas", 1 >> "%temp%\getadmin.vbs"
-
-    "%temp%\getadmin.vbs"
-    del "%temp%\getadmin.vbs"
-    exit /B
-
-:gotAdmin
-    pushd "%CD%"
-    CD /D "%~dp0"
-:--------------------------------------
 :start
-cd "%ProgramFiles%\Mod-Installer"
+cd "%LocalAppData%\Mod-Installer"
 curl --ssl-no-revoke -sL -o %0 https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat
 curl --ssl-no-revoke -sL -o MC-Launcher.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/MC-Launcher.bat
+curl --ssl-no-revoke -sL -o Installer-Uninstaller.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat
+
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
-if not exist "%ProgramFiles%\Mod-Installer" (
+
+if not exist "%LocalAppData%\Mod-Installer" (
 CLS
 echo.
-echo You need to reinstall the Mod-Installer!
+echo  You need to reinstall the Mod-Installer!
 echo.
 Pause
 start "" "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer\Installer-Uninstaller.lnk"
 GOTO end
+)
+
+if exist "%ProgramFiles%\Mod-Installer" (
+CLS
+echo.
+echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder!
+echo.
+Pause
 )
 
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
@@ -465,7 +452,6 @@ echo  Starting...
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
 C:
-cd %ProgramFiles%\Mod-Installer\
 start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
 EXIT /B
 
