@@ -352,7 +352,7 @@ echo  k) 1.15.2
 echo  l) 1.16.5
 echo  m) 1.17.1
 echo  n) 1.18.2
-echo  o) 1.19
+echo  o) 1.19.1
 echo.
 CHOICE /C abcdefghijklmno /M " Selection: "
 IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://dl.scdmx.de/fo/1.19
