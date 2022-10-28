@@ -14,7 +14,7 @@ jobs:
 
     - name: Read .version file
       id: version
-      run: echo "::set-output name=version::$(cat .github/.version)"
+      run: echo "version=$(cat .github/.version)" >> $GITHUB_OUTPUT
 
     - name: change version numbers
       run: | 
