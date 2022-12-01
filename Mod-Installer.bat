@@ -15,11 +15,11 @@ GOTO end
 
 if exist "%LocalAppData%\Mod-Installer" (
 cd "%LocalAppData%\Mod-Installer"
-curl --ssl-no-revoke -sL -o "%LocalAppData%\Mod-Installer\MC-Launcher.bat" https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/MC-Launcher.bat
-curl --ssl-no-revoke -sL -o "%LocalAppData%\Mod-Installer\Mod-Installer.bat" https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat
-curl --ssl-no-revoke -sL -o "%LocalAppData%\Mod-Installer\Installer-Uninstaller.bat" https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat
+curl --ssl-no-revoke -sL -o "%LocalAppData%\Mod-Installer\MC-Launcher.bat" https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/MC-Launcher.bat
+curl --ssl-no-revoke -sL -o "%LocalAppData%\Mod-Installer\Mod-Installer.bat" https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Mod-Installer.bat
+curl --ssl-no-revoke -sL -o "%LocalAppData%\Mod-Installer\Installer-Uninstaller.bat" https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat
 )
-if exist %0 ( curl --ssl-no-revoke -sL -o %0 https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat )
+if exist %0 ( curl --ssl-no-revoke -sL -o %0 https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Mod-Installer.bat )
 
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
@@ -247,10 +247,10 @@ IF ERRORLEVEL 8 GOTO end
 IF ERRORLEVEL 7 GOTO restart
 IF ERRORLEVEL 6 GOTO rpm
 IF ERRORLEVEL 5 GOTO whc
-IF ERRORLEVEL 4 curl --ssl-no-revoke -L -o mods.zip https://dl.scdmx.de/mp/1.18-Performance.zip
-IF ERRORLEVEL 3 curl --ssl-no-revoke -L -o mods.zip https://dl.scdmx.de/mp/1.18-Graphics.zip
-IF ERRORLEVEL 2 curl --ssl-no-revoke -L -o mods.zip https://dl.scdmx.de/mp/1.18-Minigames.zip
-IF ERRORLEVEL 1 curl --ssl-no-revoke -L -o mods.zip https://dl.scdmx.de/mp/1.18.zip
+IF ERRORLEVEL 4 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.18-Performance.zip
+IF ERRORLEVEL 3 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.18-Graphics.zip
+IF ERRORLEVEL 2 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.18-Minigames.zip
+IF ERRORLEVEL 1 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.18.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
@@ -262,7 +262,7 @@ tar xf mods.zip
 if exist mods.zip (
 del /S /Q mods.zip
 )
-curl --ssl-no-revoke -sL -o fabric.jar https://dl.scdmx.de/fa
+curl --ssl-no-revoke -sL -o fabric.jar https://zvcdn.de/fa
 if exist fabric.jar (
 java -jar fabric.jar client -mcversion %l% -loader %lfl%
 del /S /Q fabric.jar
@@ -292,7 +292,7 @@ echo  Installation starting...
 C:
 cd %appdata%\.minecraft
 CLS
-curl --ssl-no-revoke -sL -o fabric.jar https://dl.scdmx.de/fa
+curl --ssl-no-revoke -sL -o fabric.jar https://zvcdn.de/fa
 if exist fabric.jar (
 java -jar fabric.jar
 del /S /Q fabric.jar
@@ -304,7 +304,7 @@ echo  Installation starting...
 C:
 cd %appdata%\.minecraft
 CLS
-curl --ssl-no-revoke -sL -o iris.jar https://dl.scdmx.de/iris
+curl --ssl-no-revoke -sL -o iris.jar https://zvcdn.de/iris
 if exist iris.jar (
 java -jar iris.jar
 del /S /Q iris.jar
@@ -316,7 +316,7 @@ echo  Installation starting...
 C:
 cd %appdata%\.minecraft
 CLS
-curl --ssl-no-revoke -sL -o essential-installer.exe https://dl.scdmx.de/ess
+curl --ssl-no-revoke -sL -o essential-installer.exe https://zvcdn.de/ess
 if exist essential-installer.exe (
 start essential-installer.exe
 )
@@ -355,8 +355,8 @@ echo  n) 1.18.2
 echo  o) 1.19.1
 echo.
 CHOICE /C abcdefghijklmno /M " Selection: "
-IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://dl.scdmx.de/fo/1.19
-IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://dl.scdmx.de/fo/1.18
+IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.19
+IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.18
 IF ERRORLEVEL 20 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.1.1/forge-1.17.1-37.1.1-installer.jar
 IF ERRORLEVEL 19 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.2.35/forge-1.16.5-36.2.35-installer.jar
 IF ERRORLEVEL 12 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.2-31.2.56/forge-1.15.2-31.2.56-installer.jar
@@ -370,7 +370,7 @@ IF ERRORLEVEL 5 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftfor
 IF ERRORLEVEL 4 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
 IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
-IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o forge.jar https://dl.scdmx.de/fo/1.19
+IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.19
 echo  In the next step a window will open automatically, just click on "OK"!
 Pause
 if exist forge.jar (
@@ -405,8 +405,8 @@ echo.
 echo  Rescource Packs:
 echo.
 echo  1) Remove pumpkin sight                - Included and automatically loaded in the Modpacks - Pumpkin.zip
-echo  2) Dark Mode - make Minecraft darker!  - Included and automatically loaded in the Modpacks - https://scdmx.de/dark
-echo  3) Xray - often not welcome                                                                - https://scdmx.de/xray
+echo  2) Dark Mode - make Minecraft darker!  - Included and automatically loaded in the Modpacks - https://zvcdn.de/dark
+echo  3) Xray - often not welcome                                                                - https://zvcdn.de/xray
 echo  4) BD-Craft - NO direct Download!                                                          - https://bdcraft.net/downloads
 echo.
 echo  5) Restart Mod-Installer
@@ -418,7 +418,7 @@ IF ERRORLEVEL 5 GOTO restart
 IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads
 IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o Xray.zip https://media.forgecdn.net/files/3763/778/Xray_Ultimate_1.18_v4.2.1.zip
 IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/v1.3.4/Default-Dark-Mode-1.18-v1.3.4.zip
-IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o pumpkin.zip https://dl.scdmx.de/mp/pumpkin.zip
+IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o pumpkin.zip https://zvcdn.de/mp/pumpkin.zip
 echo.
 echo  Finished!
 echo.
@@ -1055,8 +1055,8 @@ IF ERRORLEVEL 1 GOTO restart
 :fb
 CLS
 echo.
-echo  https://sancraft.dev/discord
-echo  https://github.com/SanCraftDev/Mod-Installer/issues
+echo  https://zoeyvid.de
+echo  https://github.com/ZoeyVid/Mod-Installer/issues
 echo.
 echo  1. Restart Mod-Installer
 echo  2. End Installer

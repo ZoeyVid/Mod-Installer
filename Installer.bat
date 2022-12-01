@@ -3,7 +3,7 @@
 set ver=Version 0.0.0
 
 :start
-if exist %0 ( curl --ssl-no-revoke -sL -o %0 https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat )
+if exist %0 ( curl --ssl-no-revoke -sL -o %0 https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat )
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
@@ -27,7 +27,7 @@ CLS
 echo.
 echo  Mozilla Public License 2.0
 echo.
-echo  Copyright (c) 2022 SanCraft
+echo  Copyright (c) 2022 ZoeyVid
 echo.
 echo  The latest Version of Mozilla Public License 2.0 can be found here: https://mozilla.org/en-US/MPL/2.0
 echo.
@@ -127,12 +127,12 @@ mkdir "%LocalAppData%\Mod-Installer"
 )
 if exist "%LocalAppData%\Mod-Installer" (
 cd "%LocalAppData%\Mod-Installer"
-curl --ssl-no-revoke -L -o Mod-Installer.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.bat
-curl --ssl-no-revoke -L -o MC-Launcher.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/MC-Launcher.bat
-curl --ssl-no-revoke -L -o Installer-Uninstaller.bat https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat
-curl --ssl-no-revoke -L -o Mod-Installer.ico https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Mod-Installer.ico
-curl --ssl-no-revoke -L -o Installer.ico https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.ico
-curl --ssl-no-revoke -L -o Launcher.ico https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Launcher.ico
+curl --ssl-no-revoke -L -o Mod-Installer.bat https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Mod-Installer.bat
+curl --ssl-no-revoke -L -o MC-Launcher.bat https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/MC-Launcher.bat
+curl --ssl-no-revoke -L -o Installer-Uninstaller.bat https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat
+curl --ssl-no-revoke -L -o Mod-Installer.ico https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Mod-Installer.ico
+curl --ssl-no-revoke -L -o Installer.ico https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.ico
+curl --ssl-no-revoke -L -o Launcher.ico https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Launcher.ico
 )
 
 if not exist mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer" (
@@ -258,7 +258,7 @@ if exist %appdata%\.minecraft\Mod-Installer ( rmdir /S /Q %appdata%\.minecraft\M
 CLS
 echo.
 echo  Finished! Scripts were deleted!
-echo  Accidentally removed? https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat 
+echo  Accidentally removed? https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat 
 echo.
 echo  Remove Mod-Profils and the Backup?
 echo  Current loaded Mods are keept!
@@ -278,7 +278,7 @@ if exist %appdata%\.minecraft\Backup.* ( del /S /Q %appdata%\.minecraft\Backup.*
 CLS
 echo.
 echo  Finished! Profils and Backups had been removed!
-echo  Accidentally removed? https://github.com/SanCraftDev/Mod-Installer/releases/latest/download/Installer.bat 
+echo  Accidentally removed? https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat 
 echo. 
 Pause & if exist "%LocalAppData%\Mod-Installer" ( rmdir /S /Q "%LocalAppData%\Mod-Installer" & exit /B ) & exit /B
 exit /B
