@@ -75,11 +75,11 @@ if exist "%appdata%\.minecraft\forge.bat" (
 del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
-set l=1.18.2
-set lfl=0.14.9
+set l=1.19.2
+set lfl=0.14.11
 set fal=fabric-loader-%lfl%-%l%
-set rpm=2.6.6
-set lwv=v7.27.3
+set rpm=2.6.8
+set lwv=v7.30
 
 CLS
 C:
@@ -192,7 +192,7 @@ CLS
 	echo  d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge
 	echo  e) Essential     (1.8.9+)   - https://essential.gg
 	echo.
-	echo  f) 1.18                     - Fabric-Loader Modpacks
+	echo  f) 1.19                     - Fabric-Loader Modpacks
 	echo  g) Rescource Packs          - Download Resourcepacks!
 	echo.
 	echo  h) Modprofile               - Create Mod-/Config-Profils
@@ -211,18 +211,18 @@ CLS
     IF ERRORLEVEL 13 GOTO end
     IF ERRORLEVEL 12 GOTO restart
     IF ERRORLEVEL 11 GOTO t64
-	IF ERRORLEVEL 10 GOTO c
+    IF ERRORLEVEL 10 GOTO c
     IF ERRORLEVEL 9 GOTO update
-	IF ERRORLEVEL 8 GOTO p
-	IF ERRORLEVEL 7 GOTO rp
-    IF ERRORLEVEL 6 GOTO 1.18
+    IF ERRORLEVEL 8 GOTO p
+    IF ERRORLEVEL 7 GOTO rp
+    IF ERRORLEVEL 6 GOTO 1.19
     IF ERRORLEVEL 5 GOTO ess
-	IF ERRORLEVEL 4 GOTO forge
-	IF ERRORLEVEL 3 GOTO fabric
-	IF ERRORLEVEL 2 GOTO of
-	IF ERRORLEVEL 1 GOTO iris
+    IF ERRORLEVEL 4 GOTO forge
+    IF ERRORLEVEL 3 GOTO fabric
+    IF ERRORLEVEL 2 GOTO of
+    IF ERRORLEVEL 1 GOTO iris
 
-:1.18
+:1.19
 C:
 cd %appdata%\.minecraft
 CLS
@@ -247,10 +247,10 @@ IF ERRORLEVEL 8 GOTO end
 IF ERRORLEVEL 7 GOTO restart
 IF ERRORLEVEL 6 GOTO rpm
 IF ERRORLEVEL 5 GOTO whc
-IF ERRORLEVEL 4 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.18-Performance.zip
-IF ERRORLEVEL 3 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.18-Graphics.zip
-IF ERRORLEVEL 2 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.18-Minigames.zip
-IF ERRORLEVEL 1 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.18.zip
+IF ERRORLEVEL 4 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.19-Performance.zip
+IF ERRORLEVEL 3 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.19-Graphics.zip
+IF ERRORLEVEL 2 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.19-Minigames.zip
+IF ERRORLEVEL 1 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.19.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
@@ -352,7 +352,7 @@ echo  k) 1.15.2
 echo  l) 1.16.5
 echo  m) 1.17.1
 echo  n) 1.18.2
-echo  o) 1.19.1
+echo  o) 1.19.2
 echo.
 CHOICE /C abcdefghijklmno /M " Selection: "
 IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.19
@@ -416,8 +416,8 @@ CHOICE /C 123456 /M " Selection: "
 IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO restart
 IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads
-IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o Xray.zip https://media.forgecdn.net/files/3763/778/Xray_Ultimate_1.18_v4.2.1.zip
-IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/v1.3.4/Default-Dark-Mode-1.18-v1.3.4.zip
+IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o Xray.zip https://mediafilez.forgecdn.net/files/3904/15/Xray_Ultimate_1.19_v4.2.3.zip
+IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/v1.3.4/Default-Dark-Mode-1.19-v1.3.4.zip
 IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o pumpkin.zip https://zvcdn.de/mp/pumpkin.zip
 echo.
 echo  Finished!
