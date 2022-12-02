@@ -370,7 +370,7 @@ IF ERRORLEVEL 5 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftfor
 IF ERRORLEVEL 4 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
 IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
 IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
-IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.19
+IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/latest
 echo  In the next step a window will open automatically, just click on "OK"!
 Pause
 if exist forge.jar (
