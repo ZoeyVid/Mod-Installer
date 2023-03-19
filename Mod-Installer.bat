@@ -352,7 +352,7 @@ echo  k) 1.15.2
 echo  l) 1.16.5
 echo  m) 1.17.1
 echo  n) 1.18.2
-echo  o) 1.19.2
+echo  o) 1.19.4
 echo.
 CHOICE /C abcdefghijklmno /M " Selection: "
 IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.19
@@ -417,7 +417,7 @@ IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO restart
 IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads
 IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o Xray.zip https://mediafilez.forgecdn.net/files/3904/15/Xray_Ultimate_1.19_v4.2.3.zip
-IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/v1.3.4/Default-Dark-Mode-1.19-v1.3.4.zip
+IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/v1.4.0/Default-Dark-Mode-1.19.4-v1.4.0.zip
 IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o pumpkin.zip https://zvcdn.de/mp/pumpkin.zip
 echo.
 echo  Finished!
