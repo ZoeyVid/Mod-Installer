@@ -76,7 +76,7 @@ del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
 set l=1.19.4
-set lfl=0.14.17
+set lfl=0.14.21
 set fal=fabric-loader-%lfl%-%l%
 set rpm=2.6.12
 set lwv=v7.35.1
@@ -348,8 +348,10 @@ echo  l) 1.16.5
 echo  m) 1.17.1
 echo  n) 1.18.2
 echo  o) 1.19.4
+echo  p) 1.20.0
 echo.
-CHOICE /C abcdefghijklmno /M " Selection: "
+CHOICE /C abcdefghijklmnop /M " Selection: "
+IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.20
 IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.19
 IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.18
 IF ERRORLEVEL 20 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.1.1/forge-1.17.1-37.1.1-installer.jar
