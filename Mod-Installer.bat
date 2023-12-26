@@ -75,11 +75,11 @@ if exist "%appdata%\.minecraft\forge.bat" (
 del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
-set l=1.19.4
-set lfl=0.14.21
+set l=1.20.4
+set lfl=0.15.3
 set fal=fabric-loader-%lfl%-%l%
-set rpm=2.6.13
-set lwv=v7.35.2
+set rpm=2.6.14
+set lwv=v7.40
 
 CLS
 C:
@@ -186,43 +186,45 @@ CLS
 	echo.
 	echo  Client-Mods/Modpack Versions:
 	echo.
-	echo  a) Iris + Sodium (1.16.5+)  - https://irisshaders.net
-	echo  b) Optifine      (1.7.2+)   - https://optifine.net/downloads - NO direct Download!
-	echo  c) Fabric-Loader (1.14+)    - https://fabricmc.net/use
-	echo  d) Forge-Loader  (1.6.4+)   - https://files.minecraftforge.net/net/minecraftforge/forge
-	echo  e) Essential     (1.8.9+)   - https://essential.gg
+	echo  a) Iris + Sodium    (1.16+)  - https://irisshaders.net
+	echo  b) Optifine         (1.7+)   - https://optifine.net/downloads - NO direct Download!
+	echo  c) Fabric-Loader    (1.14+)  - https://fabricmc.net/use
+	echo  d) neoforged-Loader (1.20+)  - https://neoforged.net
+	echo  e) Forge-Loader     (1.6+)   - https://files.minecraftforge.net/net/minecraftforge/forge
+	echo  f) Essential        (1.8+)   - https://essential.gg
 	echo.
-	echo  f) 1.19                     - Fabric-Loader Modpacks
-	echo  g) Rescource Packs          - Download Resourcepacks!
+	echo  g) 1.20                     - Fabric-Loader Modpacks
+	echo  h) Rescource Packs          - Download Resourcepacks!
 	echo.
-	echo  h) Modprofile               - Create Mod-/Config-Profils
-	echo  i) Profil Update            - Load a profile to update it and then automatically save it again!
+	echo  i) Modprofile               - Create Mod-/Config-Profils
+	echo  j) Profil Update            - Load a profile to update it and then automatically save it again!
 	echo.
 	echo  Funktions:
 	echo.
-	echo  j) .minecraft Cleaner       - Clear your .minecraft folder up!
-	echo  k) Install tModLoader 64Bit - Terraria
-	echo  l) Restart Installer
-	echo  m) End Installer
-	echo  n) Give feedback            - %ver%
+	echo  k) .minecraft Cleaner       - Clear your .minecraft folder up!
+	echo  l) Install tModLoader 64Bit - Terraria
+	echo  m) Restart Installer
+	echo  n) End Installer
+	echo  o) Give feedback            - %ver%
 	echo.
-    CHOICE /C abcdefghijklmn /M " Selection: "
-    IF ERRORLEVEL 14 GOTO fb
-    IF ERRORLEVEL 13 GOTO end
-    IF ERRORLEVEL 12 GOTO restart
-    IF ERRORLEVEL 11 GOTO t64
-    IF ERRORLEVEL 10 GOTO c
-    IF ERRORLEVEL 9 GOTO update
-    IF ERRORLEVEL 8 GOTO p
-    IF ERRORLEVEL 7 GOTO rp
-    IF ERRORLEVEL 6 GOTO 1.19
-    IF ERRORLEVEL 5 GOTO ess
-    IF ERRORLEVEL 4 GOTO forge
+    CHOICE /C abcdefghijklmno /M " Selection: "
+    IF ERRORLEVEL 15 GOTO fb
+    IF ERRORLEVEL 14 GOTO end
+    IF ERRORLEVEL 13 GOTO restart
+    IF ERRORLEVEL 12 GOTO t64
+    IF ERRORLEVEL 11 GOTO c
+    IF ERRORLEVEL 10 GOTO update
+    IF ERRORLEVEL 9 GOTO p
+    IF ERRORLEVEL 8 GOTO rp
+    IF ERRORLEVEL 7 GOTO 1.20
+    IF ERRORLEVEL 6 GOTO ess
+    IF ERRORLEVEL 5 GOTO forge
+    IF ERRORLEVEL 4 GOTO neoforged
     IF ERRORLEVEL 3 GOTO fabric
     IF ERRORLEVEL 2 GOTO of
     IF ERRORLEVEL 1 GOTO iris
 
-:1.19
+:1.20
 C:
 cd %appdata%\.minecraft
 CLS
@@ -244,8 +246,8 @@ IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO restart
 IF ERRORLEVEL 4 GOTO rpm
 IF ERRORLEVEL 3 GOTO whc
-IF ERRORLEVEL 2 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.19-Minigames.zip
-IF ERRORLEVEL 1 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.19.zip
+IF ERRORLEVEL 2 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.20-Minigames.zip
+IF ERRORLEVEL 1 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.20.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
@@ -325,6 +327,31 @@ GOTO mif
 start "" https://optifine.net/downloads
 GOTO mif
 
+:neoforged
+echo  Installation starting...
+C:
+cd %appdata%\.minecraft
+CLS
+echo.
+echo  Which neoforged version do you want to install?
+echo.
+echo  a) latest version
+echo  p) 1.20.4
+echo.
+CHOICE /C ab /M " Selection: "
+IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o neoforged.jar https://zvcdn.de/nfo/1.20
+IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o neoforged.jar https://zvcdn.de/nfo/latest
+echo  In the next step a window will open automatically, just click on "OK"!
+Pause
+if exist neoforged.jar (
+java -jar neoforged.jar
+del /S /Q neoforged.jar
+)
+if exist neoforged.jar.log (
+del /S /Q neoforged.jar.log
+)
+GOTO mif
+
 :forge
 echo  Installation starting...
 C:
@@ -348,12 +375,12 @@ echo  l) 1.16.5
 echo  m) 1.17.1
 echo  n) 1.18.2
 echo  o) 1.19.4
-echo  p) 1.20.0
+echo  p) 1.20.4
 echo.
 CHOICE /C abcdefghijklmnop /M " Selection: "
 IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.20
 IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.19
-IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.18
+IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.2.14/forge-1.18.2-40.2.14-installer.jar
 IF ERRORLEVEL 20 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.1.1/forge-1.17.1-37.1.1-installer.jar
 IF ERRORLEVEL 19 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.2.35/forge-1.16.5-36.2.35-installer.jar
 IF ERRORLEVEL 12 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.2-31.2.56/forge-1.15.2-31.2.56-installer.jar
@@ -413,9 +440,9 @@ CHOICE /C 123456 /M " Selection: "
 IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO restart
 IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads
-IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o Xray.zip https://mediafilez.forgecdn.net/files/3904/15/Xray_Ultimate_1.19_v4.2.3.zip
-IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/2023.7.0/Default-Dark-Mode-1.19-2023.7.0.zip
-IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o pumpkin.zip https://zvcdn.de/mp/pumpkin.zip
+IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o Xray.zip https://mediafilez.forgecdn.net/files/4825/530/Xray_Ultimate_1.20.2_v5.0.0.zip
+IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/2023.11.0/Default-Dark-Mode-1.20.2+-2023.11.0.zip
+IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o pumpkin.zip https://github.com/ZoeyVid/pumpkin/releases/latest/download/pumpkin.zip
 echo.
 echo  Finished!
 echo.
