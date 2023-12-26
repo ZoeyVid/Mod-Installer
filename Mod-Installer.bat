@@ -188,39 +188,41 @@ CLS
 	echo.
 	echo  a) Iris + Sodium    (1.16+)  - https://irisshaders.net
 	echo  b) Optifine         (1.7+)   - https://optifine.net/downloads - NO direct Download!
-	echo  c) Fabric-Loader    (1.14+)  - https://fabricmc.net/use
-	echo  d) neoforged-Loader (1.20+)  - https://neoforged.net
-	echo  e) Forge-Loader     (1.6+)   - https://files.minecraftforge.net/net/minecraftforge/forge
-	echo  f) Essential        (1.8+)   - https://essential.gg
+	echo  c) Quilt-Loader     (1.14+)  - https://quiltmc.org/en
+	echo  d) Fabric-Loader    (1.14+)  - https://fabricmc.net/use
+	echo  e) neoforged-Loader (1.20+)  - https://neoforged.net
+	echo  f) Forge-Loader     (1.6+)   - https://files.minecraftforge.net/net/minecraftforge/forge
+	echo  g) Essential        (1.8+)   - https://essential.gg
 	echo.
-	echo  g) 1.20                     - Fabric-Loader Modpacks
-	echo  h) Rescource Packs          - Download Resourcepacks!
+	echo  h) 1.20                     - Fabric-Loader Modpacks
+	echo  i) Rescource Packs          - Download Resourcepacks!
 	echo.
-	echo  i) Modprofile               - Create Mod-/Config-Profils
-	echo  j) Profil Update            - Load a profile to update it and then automatically save it again!
+	echo  j) Modprofile               - Create Mod-/Config-Profils
+	echo  k) Profil Update            - Load a profile to update it and then automatically save it again!
 	echo.
 	echo  Funktions:
 	echo.
-	echo  k) .minecraft Cleaner       - Clear your .minecraft folder up!
-	echo  l) Install tModLoader 64Bit - Terraria
-	echo  m) Restart Installer
-	echo  n) End Installer
-	echo  o) Give feedback            - %ver%
+	echo  l) .minecraft Cleaner       - Clear your .minecraft folder up!
+	echo  m) Install tModLoader 64Bit - Terraria
+	echo  n) Restart Installer
+	echo  o) End Installer
+	echo  p) Give feedback            - %ver%
 	echo.
-    CHOICE /C abcdefghijklmno /M " Selection: "
-    IF ERRORLEVEL 15 GOTO fb
-    IF ERRORLEVEL 14 GOTO end
-    IF ERRORLEVEL 13 GOTO restart
-    IF ERRORLEVEL 12 GOTO t64
-    IF ERRORLEVEL 11 GOTO c
-    IF ERRORLEVEL 10 GOTO update
-    IF ERRORLEVEL 9 GOTO p
-    IF ERRORLEVEL 8 GOTO rp
-    IF ERRORLEVEL 7 GOTO 1.20
-    IF ERRORLEVEL 6 GOTO ess
-    IF ERRORLEVEL 5 GOTO forge
-    IF ERRORLEVEL 4 GOTO neoforged
-    IF ERRORLEVEL 3 GOTO fabric
+    CHOICE /C abcdefghijklmnop /M " Selection: "
+    IF ERRORLEVEL 16 GOTO fb
+    IF ERRORLEVEL 15 GOTO end
+    IF ERRORLEVEL 14 GOTO restart
+    IF ERRORLEVEL 13 GOTO t64
+    IF ERRORLEVEL 12 GOTO c
+    IF ERRORLEVEL 11 GOTO update
+    IF ERRORLEVEL 10 GOTO p
+    IF ERRORLEVEL 9 GOTO rp
+    IF ERRORLEVEL 8 GOTO 1.20
+    IF ERRORLEVEL 7 GOTO ess
+    IF ERRORLEVEL 6 GOTO forge
+    IF ERRORLEVEL 5 GOTO neoforged
+    IF ERRORLEVEL 4 GOTO fabric
+    IF ERRORLEVEL 3 GOTO quilt
     IF ERRORLEVEL 2 GOTO of
     IF ERRORLEVEL 1 GOTO iris
 
@@ -282,6 +284,18 @@ cd %appdata%\.minecraft
 cd %appdata%\.minecraft\mods
 CLS
 curl --ssl-no-revoke -L -o replaymod.jar https://minio.replaymod.com/replaymod/replaymod-%l%-%rpm%.jar
+GOTO mif
+
+:quilt
+echo  Installation starting...
+C:
+cd %appdata%\.minecraft
+CLS
+curl --ssl-no-revoke -sL -o quilt.jar https://quiltmc.org/api/v1/download-latest-installer/java-universal
+if exist quilt.jar (
+java -jar quilt.jar
+del /S /Q quilt.jar
+)
 GOTO mif
 
 :fabric
