@@ -186,14 +186,14 @@ echo  MC-Launcher %ver%
 echo.
 CHOICE /C 123456789 /M " Auswahl: "
 IF ERRORLEVEL 9 GOTO mcl
-IF ERRORLEVEL 8 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-8.zip
-IF ERRORLEVEL 7 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-7.zip
-IF ERRORLEVEL 6 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-6.zip
-IF ERRORLEVEL 5 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-5.zip
-IF ERRORLEVEL 4 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-4.zip
-IF ERRORLEVEL 3 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-3.zip
-IF ERRORLEVEL 2 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-2.zip
-IF ERRORLEVEL 1 rmdir /S /Q mods & rmdir /S /Q config\openloader & tar xf Profil-1.zip
+IF ERRORLEVEL 8 rmdir /S /Q mods 2>nul & rmdir /S /Q config\openloader 2>nul & tar xf Profil-8.zip
+IF ERRORLEVEL 7 rmdir /S /Q mods 2>nul & rmdir /S /Q config\openloader 2>nul & tar xf Profil-7.zip
+IF ERRORLEVEL 6 rmdir /S /Q mods 2>nul & rmdir /S /Q config\openloader 2>nul & tar xf Profil-6.zip
+IF ERRORLEVEL 5 rmdir /S /Q mods 2>nul & rmdir /S /Q config\openloader 2>nul & tar xf Profil-5.zip
+IF ERRORLEVEL 4 rmdir /S /Q mods 2>nul & rmdir /S /Q config\openloader 2>nul & tar xf Profil-4.zip
+IF ERRORLEVEL 3 rmdir /S /Q mods 2>nul & rmdir /S /Q config\openloader 2>nul & tar xf Profil-3.zip
+IF ERRORLEVEL 2 rmdir /S /Q mods 2>nul & rmdir /S /Q config\openloader 2>nul & tar xf Profil-2.zip
+IF ERRORLEVEL 1 rmdir /S /Q mods 2>nul & rmdir /S /Q config\openloader 2>nul & tar xf Profil-1.zip
 )
 :mcl
 start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
