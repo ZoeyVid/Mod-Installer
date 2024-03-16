@@ -80,6 +80,7 @@ set lfl=0.15.3
 set fal=fabric-loader-%lfl%-%l%
 set rpm=2.6.14
 set lwv=v7.40
+set lbv=1.10.2
 
 CLS
 C:
@@ -238,15 +239,17 @@ echo  1. %l% Client Mods Survival
 echo  2. %l% Client Mods Minigames
 echo.
 echo  3. Wurst Hack-Client - If you use this, I can say you, you get guaranteed banned
-echo  4. Replaymod
+echo  4. Baritone          - If you use this, I can say you, you get guaranteed banned
+echo  5. Replaymod
 echo.
-echo  5. Restart Installer
-echo  6. End Installer
+echo  6. Restart Installer
+echo  7. End Installer
 echo.
-CHOICE /C 123456 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
-IF ERRORLEVEL 6 GOTO end
-IF ERRORLEVEL 5 GOTO restart
-IF ERRORLEVEL 4 GOTO rpm
+CHOICE /C 1234567 /M "RECOMMENDATION! SAFE MODS IN A PROFILE! THEY WILL BE REMOVED! Selection: "
+IF ERRORLEVEL 7 GOTO end
+IF ERRORLEVEL 6 GOTO restart
+IF ERRORLEVEL 5 GOTO rpm
+IF ERRORLEVEL 4 GOTO bpb
 IF ERRORLEVEL 3 GOTO whc
 IF ERRORLEVEL 2 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.20-Minigames.zip
 IF ERRORLEVEL 1 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.20.zip
@@ -275,6 +278,15 @@ cd %appdata%\.minecraft
 cd %appdata%\.minecraft\mods
 CLS
 curl --ssl-no-revoke -L -o wurst.jar https://github.com/Wurst-Imperium/Wurst-MCX2/releases/download/%lwv%/Wurst-Client-%lwv%-MC%l%.jar
+GOTO mif
+
+:bpb
+echo  Installation starting...
+C:
+cd %appdata%\.minecraft
+cd %appdata%\.minecraft\mods
+CLS
+curl --ssl-no-revoke -L -o baritone.jar https://github.com/cabaletta/baritone/releases/download/v%lbv%/baritone-api-fabric-%lbv%.jar
 GOTO mif
 
 :rpm
