@@ -27,8 +27,6 @@ CLS
 echo.
 echo  GNU Affero General Public License v3.0
 echo.
-echo  Copyright (c) 2024 ZoeyVid
-echo.
 echo  You can find the License here: https://github.com/ZoeyVid/Mod-Installer/blob/main/COPYING
 echo.
 echo  NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
