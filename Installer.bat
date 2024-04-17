@@ -25,11 +25,11 @@ del /S /Q "%appdata%\.minecraft\forge.bat"
 
 CLS
 echo.
-echo  Mozilla Public License 2.0
+echo  GNU General Public License v3.0
 echo.
-echo  Copyright (c) 2022 ZoeyVid
+echo  Copyright (c) 2024 ZoeyVid
 echo.
-echo  The latest Version of Mozilla Public License 2.0 can be found here: https://mozilla.org/en-US/MPL/2.0
+echo  You can find the License here: https://github.com/ZoeyVid/Mod-Installer/blob/main/COPYING
 echo.
 echo  NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
 echo.
