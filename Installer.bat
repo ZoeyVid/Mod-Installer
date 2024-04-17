@@ -25,7 +25,7 @@ del /S /Q "%appdata%\.minecraft\forge.bat"
 
 CLS
 echo.
-echo  GNU General Public License v3.0
+echo  GNU Affero General Public License v3.0
 echo.
 echo  Copyright (c) 2024 ZoeyVid
 echo.
