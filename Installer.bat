@@ -108,7 +108,7 @@ if exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
 winget uninstall Mojang.MinecraftLauncher
 )
 
-if exist %appdata%\.minecraft\Donwload.ico ( del /S /Q %appdata%\.minecraft\Donwload.ico )
+if exist %appdata%\.minecraft\Download.ico ( del /S /Q %appdata%\.minecraft\Download.ico )
 if exist %appdata%\.minecraft\Installer.ico ( del /S /Q %appdata%\.minecraft\Installer.ico )
 if exist %appdata%\.minecraft\MC-Launcher.bat ( del /S /Q %appdata%\.minecraft\MC-Launcher.bat )
 if exist %appdata%\.minecraft\Mod-Installer.bat ( del /S /Q %appdata%\.minecraft\Mod-Installer.bat )
@@ -211,7 +211,7 @@ CLS
 if exist "%ProgramFiles%\Mod-Installer" (
 CLS
 echo.
-echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manualy!
+echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manually!
 echo.
 Pause
 )
@@ -236,12 +236,12 @@ CLS
 if exist "%ProgramFiles%\Mod-Installer" (
 CLS
 echo.
-echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manualy!
+echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manually!
 echo.
 Pause
 )
 
-if exist %appdata%\.minecraft\Donwload.ico ( del /S /Q %appdata%\.minecraft\Donwload.ico )
+if exist %appdata%\.minecraft\Download.ico ( del /S /Q %appdata%\.minecraft\Download.ico )
 if exist %appdata%\.minecraft\Installer.ico ( del /S /Q %appdata%\.minecraft\Installer.ico )
 if exist %appdata%\.minecraft\MC-Launcher.bat ( del /S /Q %appdata%\.minecraft\MC-Launcher.bat )
 if exist %appdata%\.minecraft\Mod-Installer.bat ( del /S /Q %appdata%\.minecraft\Mod-Installer.bat )
@@ -259,7 +259,7 @@ echo  Finished! Scripts were deleted!
 echo  Accidentally removed? https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat 
 echo.
 echo  Remove Mod-Profils and the Backup?
-echo  Current loaded Mods are keept!
+echo  Current loaded Mods are kept!
 echo.
 echo  1. Yes
 echo  2. No
