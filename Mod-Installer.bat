@@ -997,7 +997,7 @@ IF ERRORLEVEL 1 echo OK!
 )
 if exist "%appdata%\.minecraft\launcher_msa_credentials*" (
 echo.
-echo  Do you want to delte your login data?
+echo  Do you want to delete your login data?
 echo.
 echo  1. No
 echo  2. Yes
@@ -1061,7 +1061,7 @@ echo  Then you need to install this - and enter some values of the install locat
 Pause
 start "" steam://install/1281930
 set /P il=Enter the tModLoader Install Location, which you did selected (for example D:\SteamLibrary or C:\Program Files (x86)\Steam): 
-set /P ip=Enter the tModLoader Install Partion, which you did selected  (for example C oder D oder E...): 
+set /P ip=Enter the tModLoader Install Partition, which you did selected  (for example C or D or E...): 
 %ip%:
 cd "%il%\steamapps\common\tModLoader"
 curl --ssl-no-revoke -L https://github.com/Dradonhunter11/tModLoader64bit/releases/latest/download/tmodloader_x64_vulkan.zip | tar xf -
@@ -1094,7 +1094,7 @@ CHOICE /C 12 /M " Selection: "
 IF ERRORLEVEL 2 echo OK!
 IF ERRORLEVEL 1 if exist %DESKTOP_FOLDER%\tModLoader64Bit.url ( del /S /Q %DESKTOP_FOLDER%\tModLoader64Bit.url )
 echo.
-echo Finisched!
+echo Finished!
 echo.
 echo  1. Restart Mod-Installer
 echo  2. End Installer
