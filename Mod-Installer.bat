@@ -28,7 +28,7 @@ FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environme
 if exist "%ProgramFiles%\Mod-Installer" (
 CLS
 echo.
-echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manualy!
+echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manually!
 echo.
 Pause
 )
@@ -37,8 +37,8 @@ FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environme
   SET "DESKTOP_FOLDER=%%f"
   )
   
-if exist  "%appdata%\.minecraft\Donwload.ico" (
-del /S /Q "%appdata%\.minecraft\Donwload.ico"
+if exist  "%appdata%\.minecraft\Download.ico" (
+del /S /Q "%appdata%\.minecraft\Download.ico"
 )
 if exist  "%appdata%\.minecraft\Installer.ico" (
 del /S /Q "%appdata%\.minecraft\Installer.ico"
@@ -195,13 +195,13 @@ CLS
 	echo  f) Forge-Loader     (1.6+)   - https://files.minecraftforge.net/net/minecraftforge/forge
 	echo  g) Essential        (1.8+)   - https://essential.gg
 	echo.
-	echo  h) 1.20                     - Fabric-Loader Modpacks
-	echo  i) Rescource Packs          - Download Resourcepacks!
+	echo  h) 1.20                      - Fabric-Loader Modpacks
+	echo  i) Resource Packs            - Download Resourcepacks!
 	echo.
-	echo  j) Modprofile               - Create Mod-/Config-Profils
-	echo  k) Profil Update            - Load a profile to update it and then automatically save it again!
+	echo  j) Modprofile                - Create Mod-/Config-Profils
+	echo  k) Profil Update             - Load a profile to update it and then automatically save it again!
 	echo.
-	echo  Funktions:
+	echo  Functions:
 	echo.
 	echo  l) .minecraft Cleaner       - Clear your .minecraft folder up!
 	echo  m) Install tModLoader 64Bit - Terraria
@@ -435,7 +435,7 @@ GOTO mif
 :mif
 CLS
 echo.
-echo  Finisched!
+echo  Finished!
 echo  1. Restart Mod-Installer
 echo  2. End Installer
 echo  3. Create Profile
@@ -452,7 +452,7 @@ C:
 cd %appdata%\.minecraft\resourcepacks
 CLS
 echo.
-echo  Rescource Packs:
+echo  Resource Packs:
 echo.
 echo  1) Remove pumpkin sight                - Included and automatically loaded in the Modpacks - Pumpkin.zip
 echo  2) Dark Mode - make Minecraft darker!  - Included and automatically loaded in the Modpacks - https://zvcdn.de/dark
