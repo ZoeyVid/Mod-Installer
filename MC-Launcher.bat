@@ -28,13 +28,13 @@ FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environme
 if exist "%ProgramFiles%\Mod-Installer" (
 CLS
 echo.
-echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manualy!
+echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manually!
 echo.
 Pause
 )
   
-if exist  "%appdata%\.minecraft\Donwload.ico" (
-del /S /Q "%appdata%\.minecraft\Donwload.ico"
+if exist  "%appdata%\.minecraft\Download.ico" (
+del /S /Q "%appdata%\.minecraft\Download.ico"
 )
 if exist  "%appdata%\.minecraft\Installer.ico" (
 del /S /Q "%appdata%\.minecraft\Installer.ico"
