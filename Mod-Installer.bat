@@ -191,7 +191,7 @@ CLS
 	echo  f) Forge-Loader     (1.6+)   - https://files.minecraftforge.net/net/minecraftforge/forge
 	echo  g) Essential        (1.8+)   - https://essential.gg
 	echo.
-	echo  h) 1.20                      - Fabric-Loader Modpacks
+	echo  h) 1.20.4                    - Fabric-Loader Modpacks
 	echo  i) Resource Packs            - Download Resourcepacks!
 	echo.
 	echo  j) Modprofile                - Create Mod-/Config-Profils
@@ -358,9 +358,11 @@ echo.
 echo  Which neoforged version do you want to install?
 echo.
 echo  a) latest version
-echo  p) 1.20.4
+echo  b) 1.20.6
+echo  c) 1.21.0
 echo.
-CHOICE /C ab /M " Selection: "
+CHOICE /C abc /M " Selection: "
+IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o neoforged.jar https://zvcdn.de/nfo/1.21
 IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o neoforged.jar https://zvcdn.de/nfo/1.20
 IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o neoforged.jar https://zvcdn.de/nfo/latest
 echo  In the next step a window will open automatically, just click on "OK"!
@@ -397,12 +399,14 @@ echo  l) 1.16.5
 echo  m) 1.17.1
 echo  n) 1.18.2
 echo  o) 1.19.4
-echo  p) 1.20.4
+echo  p) 1.20.6
+echo  q) 1.21.0
 echo.
-CHOICE /C abcdefghijklmnop /M " Selection: "
+CHOICE /C abcdefghijklmnopq /M " Selection: "
+IF ERRORLEVEL 22 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.21
 IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.20
-IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.19
-IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.2.14/forge-1.18.2-40.2.14-installer.jar
+IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.4-45.3.0/forge-1.19.4-45.3.0-installer.jar
+IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.2.21/forge-1.18.2-40.2.21-installer.jar
 IF ERRORLEVEL 20 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.1.1/forge-1.17.1-37.1.1-installer.jar
 IF ERRORLEVEL 19 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.2.35/forge-1.16.5-36.2.35-installer.jar
 IF ERRORLEVEL 12 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.2-31.2.56/forge-1.15.2-31.2.56-installer.jar
