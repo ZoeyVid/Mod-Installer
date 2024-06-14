@@ -79,7 +79,7 @@ set l=1.20.4
 set lfl=0.15.7
 set fal=fabric-loader-%lfl%-%l%
 set rpm=2.6.15
-set lwv=v7.41.2
+set lwv=v7.43
 set lbv=1.10.2
 
 CLS
@@ -466,8 +466,8 @@ CHOICE /C 123456 /M " Selection: "
 IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO restart
 IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads
-IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o Xray.zip https://mediafilez.forgecdn.net/files/4825/530/Xray_Ultimate_1.20.2_v5.0.0.zip
-IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/2023.11.0/Default-Dark-Mode-1.20.2+-2023.11.0.zip
+IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o Xray.zip https://mediafilez.forgecdn.net/files/5294/644/Xray_Ultimate_1.20.5_v5.0.1.zip
+IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/2024.6.0/Default-Dark-Mode-1.20.2+-2024.6.0.zip
 IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o pumpkin.zip https://github.com/ZoeyVid/pumpkin/releases/latest/download/pumpkin.zip
 echo.
 echo  Finished!
