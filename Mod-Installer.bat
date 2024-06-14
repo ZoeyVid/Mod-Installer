@@ -21,10 +21,6 @@ curl --ssl-no-revoke -sL -o "%LocalAppData%\Mod-Installer\Installer-Uninstaller.
 )
 if exist %0 ( curl --ssl-no-revoke -sL -o %0 https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Mod-Installer.bat )
 
-FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
-  SET "DESKTOP_FOLDER=%%f"
-  )
-
 if exist "%ProgramFiles%\Mod-Installer" (
 CLS
 echo.
