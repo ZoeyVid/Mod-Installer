@@ -3,7 +3,6 @@ With this mod installer, you can install **Iris/Sodium, (Optifine), Quilt, Fabri
 And you can also install my **Client Modpacks** for **1.20.x** and also download some **texture packs!** <br/>
 In addition, you can save mods in **up to 8 profiles** and start Minecraft via an extra script and directly select the profile that should be loaded. <br/>
 A **Minecraft Modpack** is supported at least until the next version is stable! <br/>
-Modpacks always run on the **latest .x version** (for example not on 1.20.1 but always on the latest Version, on 1.20.2) <br/>
 
 You can find the latest download [here](https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat) <br/>
 Feel free to leave feedback, bugs and suggestions in the [issues!](https://github.com/ZoeyVid/Mod-Installer/issues) <br/>
