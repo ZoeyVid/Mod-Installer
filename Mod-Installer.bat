@@ -191,7 +191,7 @@ CLS
 	echo  f) Forge-Loader     (1.6+)   - https://files.minecraftforge.net/net/minecraftforge/forge
 	echo  g) Essential        (1.8+)   - https://essential.gg
 	echo.
-	echo  h) 1.20.4                    - Fabric-Loader Modpacks
+	echo  h) 1.21.0                    - Fabric-Loader Modpacks
 	echo  i) Resource Packs            - Download Resourcepacks!
 	echo.
 	echo  j) Modprofile                - Create Mod-/Config-Profils
@@ -214,7 +214,7 @@ CLS
     IF ERRORLEVEL 11 GOTO update
     IF ERRORLEVEL 10 GOTO p
     IF ERRORLEVEL 9 GOTO rp
-    IF ERRORLEVEL 8 GOTO 1.20
+    IF ERRORLEVEL 8 GOTO 1.21
     IF ERRORLEVEL 7 GOTO ess
     IF ERRORLEVEL 6 GOTO forge
     IF ERRORLEVEL 5 GOTO neoforged
@@ -223,7 +223,7 @@ CLS
     IF ERRORLEVEL 2 GOTO of
     IF ERRORLEVEL 1 GOTO iris
 
-:1.20
+:1.21
 C:
 cd %appdata%\.minecraft
 CLS
@@ -235,7 +235,7 @@ echo  1. %l% Client Mods Survival
 echo  2. %l% Client Mods Minigames
 echo.
 echo  3. Wurst Hack-Client - If you use this, I can say you, you get guaranteed banned
-echo  4. Baritone          - If you use this, I can say you, you get guaranteed banned
+echo  4. Baritone          - If you use this, I can say you, you get guaranteed banned - now working at the moment
 echo  5. Replaymod
 echo.
 echo  6. Restart Installer
@@ -247,8 +247,8 @@ IF ERRORLEVEL 6 GOTO restart
 IF ERRORLEVEL 5 GOTO rpm
 IF ERRORLEVEL 4 GOTO bpb
 IF ERRORLEVEL 3 GOTO whc
-IF ERRORLEVEL 2 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.20-Minigames.zip
-IF ERRORLEVEL 1 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.20.zip
+IF ERRORLEVEL 2 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.21-Minigames.zip
+IF ERRORLEVEL 1 curl --ssl-no-revoke -L -o mods.zip https://zvcdn.de/mp/1.21.zip
 echo  Installation starting...
 C:
 cd %appdata%\.minecraft
