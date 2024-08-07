@@ -71,11 +71,11 @@ if exist "%appdata%\.minecraft\forge.bat" (
 del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
-set l=1.20.4
-set lfl=0.15.11
+set l=1.21.0
+set lfl=0.16.0
 set fal=fabric-loader-%lfl%-%l%
-set rpm=2.6.15
-set lwv=v7.43
+set rpm=2.6.18
+set lwv=v7.44
 set lbv=1.10.2
 
 CLS
@@ -282,7 +282,8 @@ C:
 cd %appdata%\.minecraft
 cd %appdata%\.minecraft\mods
 CLS
-curl --ssl-no-revoke -L -o baritone.jar https://github.com/cabaletta/baritone/releases/download/v%lbv%/baritone-api-fabric-%lbv%.jar
+:curl --ssl-no-revoke -L -o baritone.jar https://github.com/cabaletta/baritone/releases/download/v%lbv%/baritone-api-fabric-%lbv%.jar
+echo  Not supported on 1.21... (at least now)
 GOTO mif
 
 :rpm
