@@ -76,7 +76,7 @@ set lfl=0.16.8
 set fal=fabric-loader-%lfl%-%l%
 set rpm=2.6.19
 set lwv=v7.46.2
-set lbv=1.10.2
+set lbv=1.11.1
 
 CLS
 C:
