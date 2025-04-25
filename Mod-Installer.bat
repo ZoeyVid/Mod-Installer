@@ -127,49 +127,49 @@ echo  converting Profiles from .tar to .zip...
 if exist Profil-1.tar (
 rmdir /S /Q mods
 tar xf Profil-1.tar
-tar acf Profil-1.zip mods config\openloader
+tar acf Profil-1.zip mods
 echo  Profil-1 converted to a zip file!
 )
 if exist Profil-2.tar (
 rmdir /S /Q mods
 tar xf Profil-2.tar
-tar acf Profil-2.zip mods config\openloader
+tar acf Profil-2.zip mods
 echo  Profil-2 converted to a zip file!
 )
 if exist Profil-3.tar (
 rmdir /S /Q mods
 tar xf Profil-3.tar
-tar acf Profil-3.zip mods config\openloader
+tar acf Profil-3.zip mods
 echo  Profil-3 converted to a zip file!
 )
 if exist Profil-4.tar (
 rmdir /S /Q mods
 tar xf Profil-4.tar
-tar acf Profil-4.zip mods config\openloader
+tar acf Profil-4.zip mods
 echo  Profil-4 converted to a zip file!
 )
 if exist Profil-5.tar (
 rmdir /S /Q mods
 tar xf Profil-5.tar
-tar acf Profil-5.zip mods config\openloader
+tar acf Profil-5.zip mods
 echo  Profil-5 converted to a zip file!
 )
 if exist Profil-6.tar (
 rmdir /S /Q mods
 tar xf Profil-6.tar
-tar acf Profil-6.zip mods config\openloader
+tar acf Profil-6.zip mods
 echo  Profil-6 converted to a zip file!
 )
 if exist Profil-7.tar (
 rmdir /S /Q mods
 tar xf Profil-7.tar
-tar acf Profil-7.zip mods config\openloader
+tar acf Profil-7.zip mods
 echo  Profil-7 converted to a zip file!
 )
 if exist Profil-8.tar (
 rmdir /S /Q mods
 tar xf Profil-8.tar
-tar acf Profil-8.zip mods config\openloader
+tar acf Profil-8.zip mods
 echo  Profil-8 converted to a zip file!
 )
 if exist *.tar (
@@ -525,14 +525,14 @@ echo.
 echo  Which profile do you want to load?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-8.zip
-IF ERRORLEVEL 7 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-7.zip
-IF ERRORLEVEL 6 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-6.zip
-IF ERRORLEVEL 5 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-5.zip
-IF ERRORLEVEL 4 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-4.zip
-IF ERRORLEVEL 3 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-3.zip
-IF ERRORLEVEL 2 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-2.zip
-IF ERRORLEVEL 1 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-1.zip
+IF ERRORLEVEL 8 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-8.zip
+IF ERRORLEVEL 7 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-7.zip
+IF ERRORLEVEL 6 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-6.zip
+IF ERRORLEVEL 5 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-5.zip
+IF ERRORLEVEL 4 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-4.zip
+IF ERRORLEVEL 3 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-3.zip
+IF ERRORLEVEL 2 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-2.zip
+IF ERRORLEVEL 1 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-1.zip
 echo  Loaded!
 
 echo  1. Restart Mod-Installer
@@ -559,14 +559,14 @@ echo.
 echo  Under which profile do you want to save the current mods and configs?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 tar acf Profil-8.zip mods config\openloader
-IF ERRORLEVEL 7 tar acf Profil-7.zip mods config\openloader
-IF ERRORLEVEL 6 tar acf Profil-6.zip mods config\openloader
-IF ERRORLEVEL 5 tar acf Profil-5.zip mods config\openloader
-IF ERRORLEVEL 4 tar acf Profil-4.zip mods config\openloader
-IF ERRORLEVEL 3 tar acf Profil-3.zip mods config\openloader
-IF ERRORLEVEL 2 tar acf Profil-2.zip mods config\openloader
-IF ERRORLEVEL 1 tar acf Profil-1.zip mods config\openloader
+IF ERRORLEVEL 8 tar acf Profil-8.zip mods
+IF ERRORLEVEL 7 tar acf Profil-7.zip mods
+IF ERRORLEVEL 6 tar acf Profil-6.zip mods
+IF ERRORLEVEL 5 tar acf Profil-5.zip mods
+IF ERRORLEVEL 4 tar acf Profil-4.zip mods
+IF ERRORLEVEL 3 tar acf Profil-3.zip mods
+IF ERRORLEVEL 2 tar acf Profil-2.zip mods
+IF ERRORLEVEL 1 tar acf Profil-1.zip mods
 CLS
 echo.
 echo  Finished! 
@@ -584,14 +584,14 @@ echo.
 echo  Which profile do you want to update (the profile is loaded so that all configs are adopted)?
 echo.
 CHOICE /C 12345678 /M " Selection: "
-IF ERRORLEVEL 8 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-8.zip & set P=8
-IF ERRORLEVEL 7 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-7.zip & set P=7
-IF ERRORLEVEL 6 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-6.zip & set P=6
-IF ERRORLEVEL 5 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-5.zip & set P=5
-IF ERRORLEVEL 4 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-4.zip & set P=4
-IF ERRORLEVEL 3 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-3.zip & set P=3
-IF ERRORLEVEL 2 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-2.zip & set P=2
-IF ERRORLEVEL 1 if exist mods ( rmdir /S /Q mods ) & if exist config\openloader ( rmdir /S /Q config\openloader ) & tar xf Profil-1.zip & set P=1
+IF ERRORLEVEL 8 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-8.zip & set P=8
+IF ERRORLEVEL 7 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-7.zip & set P=7
+IF ERRORLEVEL 6 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-6.zip & set P=6
+IF ERRORLEVEL 5 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-5.zip & set P=5
+IF ERRORLEVEL 4 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-4.zip & set P=4
+IF ERRORLEVEL 3 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-3.zip & set P=3
+IF ERRORLEVEL 2 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-2.zip & set P=2
+IF ERRORLEVEL 1 if exist mods ( rmdir /S /Q mods ) & tar xf Profil-1.zip & set P=1
 cd "%appdata%\.minecraft\mods\"
 if exist Update.bat (
   move Update.bat "%appdata%\.minecraft\"
@@ -599,7 +599,7 @@ if exist Update.bat (
   CLS
   if exist Update.bat ( Update.bat )
   CLS
-  tar acf Profil-%P%.zip mods config\openloader
+  tar acf Profil-%P%.zip mods
   if exist "%appdata%\.minecraft\fabric.jar" (
   del /S /Q "%appdata%\.minecraft\fabric.jar"
   )
