@@ -71,11 +71,11 @@ if exist "%appdata%\.minecraft\forge.bat" (
 del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
-set l=1.21.3
-set lfl=0.16.8
+set l=1.21.5
+set lfl=0.16.14
 set fal=fabric-loader-%lfl%-%l%
-set rpm=2.6.19
-set lwv=v7.46.2
+set rpm=2.6.21
+set lwv=v7.48
 set lbv=1.11.1
 
 CLS
@@ -360,7 +360,7 @@ echo  Which neoforged version do you want to install?
 echo.
 echo  a) latest version
 echo  b) 1.20.6
-echo  c) 1.21.0
+echo  c) 1.21.5
 echo.
 CHOICE /C abc /M " Selection: "
 IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o neoforged.jar https://zvcdn.de/nfo/1.21
@@ -401,15 +401,15 @@ echo  m) 1.17.1
 echo  n) 1.18.2
 echo  o) 1.19.4
 echo  p) 1.20.6
-echo  q) 1.21.0
+echo  q) 1.21.5
 echo.
 CHOICE /C abcdefghijklmnopq /M " Selection: "
 IF ERRORLEVEL 22 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.21
 IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://zvcdn.de/fo/1.20
-IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.4-45.3.0/forge-1.19.4-45.3.0-installer.jar
-IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.2.21/forge-1.18.2-40.2.21-installer.jar
+IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.4-45.4.0/forge-1.19.4-45.4.0-installer.jar
+IF ERRORLEVEL 21 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.3.10/forge-1.18.2-40.3.10-installer.jar
 IF ERRORLEVEL 20 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.1.1/forge-1.17.1-37.1.1-installer.jar
-IF ERRORLEVEL 19 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.2.35/forge-1.16.5-36.2.35-installer.jar
+IF ERRORLEVEL 19 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.2.42/forge-1.16.5-36.2.42-installer.jar
 IF ERRORLEVEL 12 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.2-31.2.56/forge-1.15.2-31.2.56-installer.jar
 IF ERRORLEVEL 11 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.25/forge-1.14.4-28.2.25-installer.jar
 IF ERRORLEVEL 10 curl --ssl-no-revoke -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.3-27.0.60/forge-1.14.3-27.0.60-installer.jar
@@ -467,7 +467,7 @@ CHOICE /C 123456 /M " Selection: "
 IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO restart
 IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads
-IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o Xray.zip https://mediafilez.forgecdn.net/files/5294/644/Xray_Ultimate_1.20.5_v5.0.1.zip
+IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o Xray.zip https://mediafilez.forgecdn.net/files/6078/638/Xray_Ultimate_1.21_v5.2.2.zip
 IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/2024.6.0/Default-Dark-Mode-1.20.2+-2024.6.0.zip
 IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o pumpkin.zip https://github.com/ZoeyVid/pumpkin/releases/latest/download/pumpkin.zip
 echo.
