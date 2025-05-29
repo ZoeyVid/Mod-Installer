@@ -468,7 +468,7 @@ IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO restart
 IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads
 IF ERRORLEVEL 3 curl --ssl-no-revoke -sL -o Xray.zip https://mediafilez.forgecdn.net/files/6078/638/Xray_Ultimate_1.21_v5.2.2.zip
-IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/2025.5.0/Default-Dark-Mode-1.21.4+-2025.5.0.zip
+IF ERRORLEVEL 2 curl --ssl-no-revoke -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/2025.5.1/Default-Dark-Mode-1.21.4+-2025.5.1.zip
 IF ERRORLEVEL 1 curl --ssl-no-revoke -sL -o pumpkin.zip https://github.com/ZoeyVid/pumpkin/releases/latest/download/pumpkin.zip
 echo.
 echo  Finished!
