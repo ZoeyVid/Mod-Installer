@@ -1,6 +1,6 @@
 # [Mod-Installer](https://github.com/ZoeyVid/Mod-Installer)
 With this mod installer, you can install **Iris/Sodium, (Optifine), Quilt, Fabric, NeoForge, Forge and Essential**! <br/>
-And you can also install my **Client Modpacks** for **1.20.x** and also download some **texture packs!** <br/>
+And you can also install my **Client Modpacks** for **1.21.x** and also download some **texture packs!** <br/>
 In addition, you can save mods in **up to 8 profiles** and start Minecraft via an extra script and directly select the profile that should be loaded. <br/>
 A **Minecraft Modpack** is supported at least until the next version is stable! <br/>
 
