@@ -191,7 +191,7 @@ CLS
 	echo  f) Forge-Loader     (1.6+)   - https://files.minecraftforge.net/net/minecraftforge/forge
 	echo  g) Essential        (1.8+)   - https://essential.gg
 	echo.
-	echo  h) 1.21.0                    - Fabric-Loader Modpacks
+	echo  h) 1.21.x                    - Fabric-Loader Modpacks
 	echo  i) Resource Packs            - Download Resourcepacks!
 	echo.
 	echo  j) Modprofile                - Create Mod-/Config-Profils
