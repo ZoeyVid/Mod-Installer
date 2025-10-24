@@ -17,7 +17,7 @@ jobs:
           sed -i "s|0.0.0|"$(cat .github/.version)"|g" Installer.bat
           sed -i "s|0.0.0|"$(cat .github/.version)"|g" MC-Launcher.bat
           sed -i "s|0.0.0|"$(cat .github/.version)"|g" Mod-Installer.bat
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: artifacts
           path: |
