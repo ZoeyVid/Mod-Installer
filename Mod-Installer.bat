@@ -71,11 +71,11 @@ if exist "%appdata%\.minecraft\forge.bat" (
 del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
-set l=1.21.8
-set lfl=0.17.3
+set l=1.21.10
+set lfl=0.18.0
 set fal=fabric-loader-%lfl%-%l%
-set rpm=2.6.23
-set lwv=v7.50.2
+set rpm=2.6.24
+set lwv=v7.51.1
 set lbv=1.15.0
 
 CLS
@@ -235,7 +235,7 @@ echo  1. %l% Client Mods Survival
 echo  2. %l% Client Mods Minigames
 echo.
 echo  3. Wurst Hack-Client - If you use this, I can say you, you get guaranteed banned
-echo  4. Baritone          - If you use this, I can say you, you get guaranteed banned - now working at the moment
+echo  4. Baritone          - If you use this, I can say you, you get guaranteed banned - not working at the moment
 echo  5. Replaymod
 echo.
 echo  6. Restart Installer
@@ -1125,3 +1125,4 @@ EXIT /B
 
 :end
 EXIT /B
+
