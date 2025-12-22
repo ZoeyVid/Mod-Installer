@@ -3,24 +3,26 @@
 set ver=Version 0.0.0
 
 :start
-if exist %0 ( curl --ssl-no-revoke -sL -o %0 https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat )
+if exist %0 (
+  curl -sL -o %0 https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat
+)
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
-  )
+)
 if exist "%appdata%\.minecraft\fabric.jar" (
-del /S /Q "%appdata%\.minecraft\fabric.jar"
+  del /S /Q "%appdata%\.minecraft\fabric.jar"
 )
 if exist "%appdata%\.minecraft\fabric.bat" (
-del /S /Q "%appdata%\.minecraft\fabric.bat"
+  del /S /Q "%appdata%\.minecraft\fabric.bat"
 )
 if exist "%appdata%\.minecraft\Update.bat" (
-del /S /Q "%appdata%\.minecraft\Update.bat"
+  del /S /Q "%appdata%\.minecraft\Update.bat"
 )
 if exist "%appdata%\.minecraft\essential-installer.exe" (
-del /S /Q "%appdata%\.minecraft\essential-installer.exe"
+  del /S /Q "%appdata%\.minecraft\essential-installer.exe"
 )
 if exist "%appdata%\.minecraft\forge.bat" (
-del /S /Q "%appdata%\.minecraft\forge.bat"
+  del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
 CLS
@@ -43,12 +45,12 @@ IF ERRORLEVEL 1 echo  Aborting... & pause & EXIT /B
 :s
 CLS
 
-    where winget >nul 2>nul
-    if %errorlevel%==1 (
-        echo.
-        echo  winget not found! Please check how you can install winget on your system!
-        Pause
-        exit
+where winget >nul 2>nul
+if %errorlevel%==1 (
+  echo.
+  echo  winget not found! Please check how you can install winget on your system!
+  Pause
+  exit
 )
 
 echo  Please install now the Minecraft-Launcher:
@@ -57,29 +59,29 @@ start "" ms-windows-store://pdp/?ProductId=9pgw18npbzv5
 CLS
 C:
 
-    where java >nul 2>nul
-    if %errorlevel%==1 (    
-	echo.
-	echo  java is not installed, it will now be installed!
-	echo  Start now?
-	Pause
-	winget install -e --id Amazon.Corretto.17
-	GOTO restart
+where java >nul 2>nul
+if %errorlevel%==1 (    
+  echo.
+  echo  java is not installed, it will now be installed!
+  echo  Start now?
+  Pause
+  winget install -e --id Amazon.Corretto.17
+  GOTO restart
 )
 
 if not exist "%appdata%\.minecraft" (
-    CLS
-    echo  .minecraft folder not at the usual path or not available.
-	echo  Under "%appdata%\.minecraft"
-	echo  Unable to start Minecraft!
-	echo  Do you want to open the Minecraft Launcher and test it again afterwards?
-	Pause
-	start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
-	echo  Started?
-	Pause
-    TASKKILL /T /F /IM MinecraftLauncher.exe
-    TASKKILL /T /F /IM Minecraft.exe
-	GOTO restart
+  CLS
+  echo  .minecraft folder not at the usual path or not available.
+  echo  Under "%appdata%\.minecraft"
+  echo  Unable to start Minecraft!
+  echo  Do you want to open the Minecraft Launcher and test it again afterwards?
+  Pause
+  start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
+  echo  Started?
+  Pause
+  TASKKILL /T /F /IM MinecraftLauncher.exe
+  TASKKILL /T /F /IM Minecraft.exe
+  GOTO restart
 )
 
 cd "%appdata%\.minecraft"
@@ -105,7 +107,7 @@ cd "%appdata%\.minecraft"
 TASKKILL /T /F /IM MinecraftLauncher.exe
 TASKKILL /T /F /IM Minecraft.exe
 if exist "%ProgramFiles(x86)%\Minecraft Launcher\MinecraftLauncher.exe" (
-winget uninstall Mojang.MinecraftLauncher
+  winget uninstall Mojang.MinecraftLauncher
 )
 
 if exist %appdata%\.minecraft\Download.ico ( del /S /Q %appdata%\.minecraft\Download.ico )
@@ -121,20 +123,20 @@ if exist "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer" ( rmdir
 if exist %appdata%\.minecraft\Mod-Installer ( rmdir /S /Q %appdata%\.minecraft\Mod-Installer )
 
 if not exist "%LocalAppData%\Mod-Installer" (
-mkdir "%LocalAppData%\Mod-Installer"
+  mkdir "%LocalAppData%\Mod-Installer"
 )
 if exist "%LocalAppData%\Mod-Installer" (
-cd "%LocalAppData%\Mod-Installer"
-curl --ssl-no-revoke -L -o Mod-Installer.bat https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Mod-Installer.bat
-curl --ssl-no-revoke -L -o MC-Launcher.bat https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/MC-Launcher.bat
-curl --ssl-no-revoke -L -o Installer-Uninstaller.bat https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat
-curl --ssl-no-revoke -L -o Mod-Installer.ico https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Mod-Installer.ico
-curl --ssl-no-revoke -L -o Installer.ico https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.ico
-curl --ssl-no-revoke -L -o Launcher.ico https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Launcher.ico
+  cd "%LocalAppData%\Mod-Installer"
+  curl -L -o Mod-Installer.bat https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Mod-Installer.bat
+  curl -L -o MC-Launcher.bat https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/MC-Launcher.bat
+  curl -L -o Installer-Uninstaller.bat https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat
+  curl -L -o Mod-Installer.ico https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Mod-Installer.ico
+  curl -L -o Installer.ico https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.ico
+  curl -L -o Launcher.ico https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Launcher.ico
 )
 
 if not exist mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer" (
-mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
+  mkdir "%appdata%\Microsoft\Windows\Start Menu\Programs\Mod-Installer"
 )
 set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
 echo  Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
@@ -209,11 +211,11 @@ PAUSE
 CLS
 
 if exist "%ProgramFiles%\Mod-Installer" (
-CLS
-echo.
-echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manually!
-echo.
-Pause
+  CLS
+  echo.
+  echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manually!
+  echo.
+  Pause
 )
 
 echo  Finished! & Pause & exit /B
@@ -234,11 +236,11 @@ IF ERRORLEVEL 1 GOTO rmy
 CLS
 
 if exist "%ProgramFiles%\Mod-Installer" (
-CLS
-echo.
-echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manually!
-echo.
-Pause
+  CLS
+  echo.
+  echo  Please delete the "%ProgramFiles%\Mod-Installer" Folder manually!
+  echo.
+  Pause
 )
 
 if exist %appdata%\.minecraft\Download.ico ( del /S /Q %appdata%\.minecraft\Download.ico )
@@ -278,9 +280,10 @@ echo.
 echo  Finished! Profils and Backups had been removed!
 echo  Accidentally removed? https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat 
 echo. 
-Pause & if exist "%LocalAppData%\Mod-Installer" ( rmdir /S /Q "%LocalAppData%\Mod-Installer" & exit /B ) & exit /B
-exit /B
+Pause & if exist "%LocalAppData%\Mod-Installer" ( rmdir /S /Q "%LocalAppData%\Mod-Installer" & EXIT /B ) & EXIT /B
+EXIT /B
 
 :restart
 start %ComSpec% /C %0
 EXIT /B
+
