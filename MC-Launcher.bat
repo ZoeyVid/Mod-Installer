@@ -15,12 +15,12 @@ if not exist "%LocalAppData%\Mod-Installer" (
 
 if exist "%LocalAppData%\Mod-Installer" (
   cd "%LocalAppData%\Mod-Installer"
-  curl --ssl-no-revoke -sL -o "%LocalAppData%\Mod-Installer\MC-Launcher.bat" https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/MC-Launcher.bat
-  curl --ssl-no-revoke -sL -o "%LocalAppData%\Mod-Installer\Mod-Installer.bat" https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Mod-Installer.bat
-  curl --ssl-no-revoke -sL -o "%LocalAppData%\Mod-Installer\Installer-Uninstaller.bat" https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat
+  curl -sL -o "%LocalAppData%\Mod-Installer\MC-Launcher.bat" https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/MC-Launcher.bat
+  curl -sL -o "%LocalAppData%\Mod-Installer\Mod-Installer.bat" https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Mod-Installer.bat
+  curl -sL -o "%LocalAppData%\Mod-Installer\Installer-Uninstaller.bat" https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/Installer.bat
 )
 if exist %0 (
-  curl --ssl-no-revoke -sL -o %0 https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/MC-Launcher.bat
+  curl -sL -o %0 https://github.com/ZoeyVid/Mod-Installer/releases/latest/download/MC-Launcher.bat
 )
 
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
@@ -200,4 +200,5 @@ if exist "%appdata%\.minecraft\" (
 :mcl
 start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
 EXIT /B
+
 
