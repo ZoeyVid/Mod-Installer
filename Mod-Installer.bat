@@ -71,7 +71,7 @@ if exist "%appdata%\.minecraft\essential-installer.exe" (
 )
 if exist "%appdata%\.minecraft\forge.bat" (
   del /S /Q "%appdata%\.minecraft\forge.bat"
-)Logi Bolt USB-Empfänger
+)
 
 set l=1.21.10
 set lfl=0.18.3
@@ -717,3 +717,4 @@ EXIT /B
 
 :end
 EXIT /B
+
