@@ -260,7 +260,7 @@ tar xf mods.zip
 if exist mods.zip (
   del /S /Q mods.zip
 )
-curl -sL -o fabric.jar https://zvcdn.de/fa
+curl -sL -o fabric.jar https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar
 if exist fabric.jar (
   java -jar fabric.jar client -mcversion %l% -loader %lfl%
   del /S /Q fabric.jar
@@ -312,7 +312,7 @@ echo  Installation starting...
 C:
 cd %appdata%\.minecraft
 CLS
-curl -sL -o fabric.jar https://zvcdn.de/fa
+curl -sL -o fabric.jar https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar
 if exist fabric.jar (
   java -jar fabric.jar
   del /S /Q fabric.jar
@@ -324,7 +324,7 @@ echo  Installation starting...
 C:
 cd %appdata%\.minecraft
 CLS
-curl -sL -o iris.jar https://zvcdn.de/iris
+curl -sL -o iris.jar https://github.com/IrisShaders/Iris-Installer/releases/download/3.2.1/Iris-Installer-3.2.1.jar
 if exist iris.jar (
   java -jar iris.jar
   del /S /Q iris.jar
@@ -336,7 +336,7 @@ echo  Installation starting...
 C:
 cd %appdata%\.minecraft
 CLS
-curl -sL -o essential-installer.exe https://zvcdn.de/ess
+curl -sL -o essential-installer.exe https://downloads.essential.gg/v1/mods/essential/essential-pinned/updates/1.3.10.4/fabric_1-21-10/download
 if exist essential-installer.exe (
   start essential-installer.exe
 )
@@ -381,8 +381,8 @@ echo.
 echo  Resource Packs:
 echo.
 echo  1) Remove pumpkin sight                - Included and automatically loaded in the Modpacks - Pumpkin.zip
-echo  2) Dark Mode - make Minecraft darker!  - Included and automatically loaded in the Modpacks - https://zvcdn.de/dark
-echo  3) Xray - often not welcome                                                                - https://zvcdn.de/xray
+echo  2) Dark Mode - make Minecraft darker!  - Included and automatically loaded in the Modpacks - https://github.com/nebuIr/Default-Dark-Mode
+echo  3) Xray - often not welcome                                                                - https://www.curseforge.com/minecraft/texture-packs/xray-ultimate-1-11-compatible
 echo  4) BD-Craft - NO direct Download!                                                          - https://bdcraft.net/downloads
 echo.
 echo  5) Restart Mod-Installer
@@ -642,4 +642,5 @@ EXIT /B
 
 :end
 EXIT /B
+
 
