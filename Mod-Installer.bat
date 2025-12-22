@@ -189,8 +189,8 @@ echo  a) Iris + Sodium    (1.16+)  - https://irisshaders.net
 echo  b) Optifine         (1.7+)   - https://optifine.net/downloads - NO direct Download!
 echo  c) Quilt-Loader     (1.14+)  - https://quiltmc.org/en
 echo  d) Fabric-Loader    (1.14+)  - https://fabricmc.net/use
-echo  e) neoforged-Loader (1.20+)  - https://neoforged.net
-echo  f) Forge-Loader     (1.6+)   - https://files.minecraftforge.net/net/minecraftforge/forge
+echo  e) neoforged-Loader (1.20+)  - https://neoforged.net - NO direct Download!
+echo  f) Forge-Loader     (1.6+)   - https://files.minecraftforge.net/net/minecraftforge/forge - NO direct Download!
 echo  g) Essential        (1.8+)   - https://essential.gg
 echo.
 echo  h) 1.21.x                    - Fabric-Loader Modpacks
@@ -351,86 +351,11 @@ start "" https://optifine.net/downloads
 GOTO mif
 
 :neoforged
-echo  Installation starting...
-C:
-cd %appdata%\.minecraft
-CLS
-echo.
-echo  Which neoforged version do you want to install?
-echo.
-echo  a) latest version
-echo  b) 1.20.6
-echo  c) 1.21.5
-echo.
-CHOICE /C abc /M " Selection: "
-IF ERRORLEVEL 3 curl -sL -o neoforged.jar https://zvcdn.de/nfo/1.21
-IF ERRORLEVEL 2 curl -sL -o neoforged.jar https://zvcdn.de/nfo/1.20
-IF ERRORLEVEL 1 curl -sL -o neoforged.jar https://zvcdn.de/nfo/latest
-echo  In the next step a window will open automatically, just click on "OK"!
-Pause
-if exist neoforged.jar (
-  java -jar neoforged.jar
-  del /S /Q neoforged.jar
-)
-if exist neoforged.jar.log (
-  del /S /Q neoforged.jar.log
-)
+start "" https://neoforged.net
 GOTO mif
 
 :forge
-echo  Installation starting...
-C:
-cd %appdata%\.minecraft
-CLS
-echo.
-echo  Which Forge version do you want to install?
-echo.
-echo  a) latest version
-echo  b) 1.6.4
-echo  c) 1.7.10
-echo  d) 1.8.9
-echo  e) 1.9.4
-echo  f) 1.10.2
-echo  g) 1.11.2
-echo  h) 1.12.2
-echo  i) 1.13.2
-echo  j) 1.14.4
-echo  k) 1.15.2
-echo  l) 1.16.5
-echo  m) 1.17.1
-echo  n) 1.18.2
-echo  o) 1.19.4
-echo  p) 1.20.6
-echo  q) 1.21.5
-echo.
-CHOICE /C abcdefghijklmnopq /M " Selection: "
-IF ERRORLEVEL 22 curl -sL -o forge.jar https://zvcdn.de/fo/1.21
-IF ERRORLEVEL 21 curl -sL -o forge.jar https://zvcdn.de/fo/1.20
-IF ERRORLEVEL 21 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.4-45.4.0/forge-1.19.4-45.4.0-installer.jar
-IF ERRORLEVEL 21 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.3.10/forge-1.18.2-40.3.10-installer.jar
-IF ERRORLEVEL 20 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.1.1/forge-1.17.1-37.1.1-installer.jar
-IF ERRORLEVEL 19 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.2.42/forge-1.16.5-36.2.42-installer.jar
-IF ERRORLEVEL 12 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.15.2-31.2.56/forge-1.15.2-31.2.56-installer.jar
-IF ERRORLEVEL 11 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.25/forge-1.14.4-28.2.25-installer.jar
-IF ERRORLEVEL 10 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.3-27.0.60/forge-1.14.3-27.0.60-installer.jar
-IF ERRORLEVEL 9 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.13.2-25.0.222/forge-1.13.2-25.0.222-installer.jar
-IF ERRORLEVEL 8 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2858/forge-1.12.2-14.23.5.2858-installer.jar
-IF ERRORLEVEL 7 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.11.2-13.20.1.2588/forge-1.11.2-13.20.1.2588-installer.jar
-IF ERRORLEVEL 6 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.10.2-12.18.3.2511/forge-1.10.2-12.18.3.2511-installer.jar
-IF ERRORLEVEL 5 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.9.4-12.17.0.2317-1.9.4/forge-1.9.4-12.17.0.2317-1.9.4-installer.jar
-IF ERRORLEVEL 4 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar
-IF ERRORLEVEL 3 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-installer.jar
-IF ERRORLEVEL 2 curl -sL -o forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar
-IF ERRORLEVEL 1 curl -sL -o forge.jar https://zvcdn.de/fo/latest
-echo  In the next step a window will open automatically, just click on "OK"!
-Pause
-if exist forge.jar (
-  java -jar forge.jar
-  del /S /Q forge.jar
-)
-if exist forge.jar.log (
-  del /S /Q forge.jar.log
-)
+start "" https://files.minecraftforge.net/net/minecraftforge/forge
 GOTO mif
 
 :mif
@@ -467,7 +392,7 @@ CHOICE /C 123456 /M " Selection: "
 IF ERRORLEVEL 6 GOTO end
 IF ERRORLEVEL 5 GOTO restart
 IF ERRORLEVEL 4 start "" https://bdcraft.net/downloads
-IF ERRORLEVEL 3 curl -sL -o Xray.zip https://mediafilez.forgecdn.net/files/6078/638/Xray_Ultimate_1.21_v5.2.2.zip
+IF ERRORLEVEL 3 curl -sL -o Xray.zip https://mediafilez.forgecdn.net/files/7203/70/Xray_Ultimate_1.21_v5.3.1.zip
 IF ERRORLEVEL 2 curl -sL -o Default-Dark-Mode.zip https://github.com/nebuIr/Default-Dark-Mode/releases/download/2025.6.0/Default-Dark-Mode-1.21.6-2025.6.0.zip
 IF ERRORLEVEL 1 curl -sL -o pumpkin.zip https://github.com/ZoeyVid/pumpkin/releases/latest/download/pumpkin.zip
 echo.
@@ -717,3 +642,4 @@ EXIT /B
 
 :end
 EXIT /B
+
