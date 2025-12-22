@@ -286,5 +286,3 @@ EXIT /B
 :restart
 start %ComSpec% /C %0
 EXIT /B
-
-
