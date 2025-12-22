@@ -65,7 +65,7 @@ if %errorlevel%==1 (
   echo  java is not installed, it will now be installed!
   echo  Start now?
   Pause
-  winget install -e --id Amazon.Corretto.17
+  winget install -e --id Amazon.Corretto.21
   GOTO restart
 )
 
@@ -286,4 +286,5 @@ EXIT /B
 :restart
 start %ComSpec% /C %0
 EXIT /B
+
 
