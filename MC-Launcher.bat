@@ -200,5 +200,3 @@ if exist "%appdata%\.minecraft\" (
 :mcl
 start "" shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft 
 EXIT /B
-
-
