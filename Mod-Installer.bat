@@ -324,7 +324,7 @@ echo  Installation starting...
 C:
 cd %appdata%\.minecraft
 CLS
-curl -sL -o iris.jar https://github.com/IrisShaders/Iris-Installer/releases/download/3.2.1/Iris-Installer-3.2.1.jar
+curl -sL -o iris.jar https://github.com/IrisShaders/Iris-Installer/releases/download/3.3.0/Iris-Installer-3.3.0.jar
 if exist iris.jar (
   java -jar iris.jar
   del /S /Q iris.jar
@@ -642,3 +642,4 @@ EXIT /B
 
 :end
 EXIT /B
+
