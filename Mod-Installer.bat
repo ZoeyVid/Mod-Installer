@@ -73,8 +73,8 @@ if exist "%appdata%\.minecraft\forge.bat" (
   del /S /Q "%appdata%\.minecraft\forge.bat"
 )
 
-set l=1.21.10
-set lfl=0.18.3
+set l=1.21.11
+set lfl=0.18.4
 set fal=fabric-loader-%lfl%-%l%
 set rpm=2.6.25
 set lwv=v7.51.4
@@ -642,4 +642,5 @@ EXIT /B
 
 :end
 EXIT /B
+
 
